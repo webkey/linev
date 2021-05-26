@@ -1,0 +1,64 @@
+.lang {
+  &__control {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    overflow: hidden;
+    text-decoration: none;
+    user-select: none;
+  }
+
+  &__drop {
+    $drop: &;
+
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 25;
+    width: 11rem;
+    background-color: rgba($bg-color-blue, 0.98);
+    transform: translateX(100%);
+    opacity: 0;
+    transition: $animation-speed;
+    pointer-events: none;
+    will-change: opacity, transform;
+
+    &.drop-is-open {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    &-list {
+      display: block;
+      padding: 2.4rem 0;
+    }
+
+    &-item {
+      a,
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 4rem;
+        padding: 0 2.4rem;
+        transition: $animation-speed;
+
+        &.muted {
+          opacity: 0.5;
+        }
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      &.active {
+        cursor: default;
+      }
+    }
+  }
+}

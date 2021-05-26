@@ -57,6 +57,7 @@ npm run production
 │   └── styles/                       # Стили
 │       ├── common/                   # Общие стили
 │       │   └── common.scss           # Общие стили сайта
+│       │   └── edit-content.scss     # Стили для типографических элементов и внутренних страниц
 │       ├── helpers/                  # Помощники
 │       │   ├── fonts.scss            # Подключение шрифтов
 │       │   ├── mixins.scss           # Примеси

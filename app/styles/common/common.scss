@@ -6,11 +6,14 @@ html {
 body {
   display: flex; // Footer at bottom
   flex-direction: column; // Footer at bottom
+  min-width: $layout-page-min-width;
   height: 100%; // Footer at bottom
   color: #000;
-  font-size: 1.4rem;
-  line-height: 1.6rem;
-  background: #fff;
+  font-size: 2.4rem;
+  line-height: (3.2rem / 2.4rem);
+  background: $bg-color-white;
+
+  @include antialiased;
 }
 
 .header {
@@ -29,12 +32,14 @@ body {
 }
 
 img {
-  max-width: 100%;
-  height: auto;
   vertical-align: top;
   border: none;
 
   table & {
     max-width: none;
   }
+}
+
+.hide {
+  display: none !important;
 }

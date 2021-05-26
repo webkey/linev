@@ -1,0 +1,31 @@
+@keyframes fadeInDown {
+  from {
+    transform: translate3d(0, -33%, 0) scaleY(1.15);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.fade-in-down {
+  $initDelay: 0.5s;
+
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+  will-change: opacity, transform;
+
+  .animation-start &,
+  .animation-end & {
+    animation-name: fadeInDown;
+  }
+
+  @for $i from 0 through 10 {
+    .animation-start &.delay-#{$i},
+    .animation-end &.delay-#{$i} {
+      animation-delay: $initDelay * $i * 0.5;
+    }
+  }
+}

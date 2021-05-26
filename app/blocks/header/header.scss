@@ -1,3 +1,192 @@
 .header {
-  background: #c6c6c6;
+  $header: &;
+
+  position: relative;
+  z-index: 5;
+  height: $header-height-top;
+  background-color: $bg-color-white;
+
+  &_float {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-width: $layout-page-min-width;
+  }
+
+  &::before {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: $header-height-bottom;
+    background: $bg-color-black;
+    transform-origin: center bottom;
+    animation: {
+      duration: 0.5s;
+      fill-mode: both;
+    };
+    content: "";
+    will-change: opacity, transform;
+  }
+
+  &.is-expanded {
+    &::before {
+      animation-name: move-scale-back;
+    }
+  }
+
+  &.is-collapsed {
+    &::before {
+      animation-name: move-scale;
+    }
+  }
+
+  @keyframes move-scale {
+    from {
+      transform: translateY(0) scaleY(1);
+    }
+
+    to {
+      transform: translateY(-100%) scaleY(2);
+    }
+  }
+
+  @keyframes move-scale-back {
+    from {
+      transform: translateY(-100%) scaleY(2);
+    }
+
+    to {
+      transform: translateY(0) scaleY(1);
+    }
+  }
+
+  &-top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height-top;
+    padding: 0 #{$layout-page-space_horizontal};
+    color: $text-color-black;
+    transition: {
+      property: color, background-color;
+      duration: $animation-speed;
+    };
+
+    @at-root {
+      #{$header}.is-collapsed & {
+        color: $text-color-white;
+      }
+    }
+  }
+
+  &__logo {
+    position: relative;
+    display: block;
+    width: 18.4rem;
+    max-width: 100%;
+
+    &::before {
+      display: block;
+      content: "";
+
+      @include ratio(184, 36);
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 3.6rem;
+      height: 3.6rem;
+      background: url(../images/logo-short-white.svg);
+      opacity: 0;
+      transition: opacity $animation-speed;
+      content: "";
+    }
+
+    @at-root {
+      #{$header}.is-collapsed & {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    &-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      transition: opacity $animation-speed;
+      will-change: opacity;
+
+      @at-root {
+        #{$header}.is-collapsed & {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  &__options {
+    display: flex;
+    align-items: center;
+  }
+
+  &__search {
+    display: block;
+  }
+
+  &__lang {
+    display: block;
+    margin-left: 2.4rem;
+  }
+
+  &-bottom {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 #{$layout-page-space_horizontal};
+    color: $text-color-white;
+    transition: {
+      property: max-width, transform;
+      duration: 0.5s;
+    };
+
+    @at-root {
+      #{$header}.is-collapsed & {
+        max-width: 80%;
+        transform: translateX(20rem) translateY(-100%);
+      }
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      li {
+        display: flex;
+        align-items: center;
+        height: 6rem;
+        font: bold 2.8rem/3.6rem $font-button;
+        letter-spacing: 0.007em;
+
+        a {
+          color: $text-color-white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }

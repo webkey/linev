@@ -1,3 +1,33 @@
-<header class="header">
-  Header
+<header class="header@@if(context.mods){@@for (var i = 0; i < mods.length; i++){ header_`+mods[i]+`}}">
+  <div class="header-top">
+    @@if(context.currentItem == "Home"){
+    <div class="header__logo js-fp-first">
+      <img class="header__logo-image" src="assets/images/logo.svg" alt="" />
+    </div>
+    }
+    @@if(context.currentItem != "Home"){
+    <a href="index.html" class="header__logo" title="Linev Group">
+      <img class="header__logo-image" src="assets/images/logo.svg" alt="Linev Group" />
+    </a>
+    }
+    <div class="header__options">
+      <div class="header__search">
+        @@include("blocks/header-search-control/header-search-control.html")
+        @@include("blocks/header-search/header-search.html")
+      </div>
+      <div class="header__lang">
+        @@include("blocks/lang/lang.html")
+      </div>
+    </div>
+  </div>
+  <div class="header-bottom">
+    <ul>
+      <li><a href="#">Company</a></li>
+      <li><a href="#">Company</a></li>
+      <li><a href="#">Newsroom</a></li>
+      <li><a href="#">Businesses wordwide</a></li>
+      <li><a href="#">Partnership and support</a></li>
+      <li><a href="#">Contacts</a></li>
+    </ul>
+  </div>
 </header>

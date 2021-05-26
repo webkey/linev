@@ -1,0 +1,183 @@
+.header-search {
+  $search-form-width: 64rem;
+  $search-form-height: 4rem;
+  $search-form-width_lg: 100%;
+  $search-form-height_lg: 4rem;
+
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 25;
+  width: $search-form-width;
+  padding: 3.6rem 4.8rem;
+  background-color: rgba($bg-color-blue, 0.98);
+  transform: translateX(100%);
+  opacity: 0;
+  transition: $animation-speed;
+  pointer-events: none;
+  will-change: opacity, transform;
+
+  &.is-open {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &__field {
+    position: relative;
+  }
+
+  &__input {
+    $input: &;
+    $font-size: 2.4rem;
+    $line-height: 2.4rem;
+    $ident-v: #{round-float(($search-form-height - $line-height) / 2, 1)};
+    $font-size_lg: 2rem;
+    $line-height_lg: 2rem;
+    $ident-v_lg: #{round-float(($search-form-height_lg - $line-height_lg) / 2, 1)};
+
+    display: block;
+    width: 100%;
+    height: $search-form-height;
+    padding: #{$ident-v} 4.8rem #{$ident-v} 0;
+    color: $text-color-white;
+    font: #{$font-size}/#{$line-height} $font-title;
+    letter-spacing: 0.02em;
+    background-color: transparent;
+    border: none;
+    box-shadow: 0 1px 0 $text-color-white;
+    cursor: text;
+
+    @include below($lg) {
+      height: $search-form-height_lg;
+      padding: #{$ident-v_lg} 3.8rem #{$ident-v_lg} 2.2rem;
+      font-size: $font-size_lg;
+      line-height: $line-height_lg;
+    }
+
+    @at-root {
+      #{$input},
+      input#{$input} {
+        border-radius: 0;
+      }
+    }
+
+    @include input-placeholder {
+      color: rgba(white, 0.8);
+    }
+
+    @include input-placeholder-focus {
+      color: rgba(white, 0.8);
+    }
+  }
+
+  &__submit {
+    $size: 4rem;
+
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: $size;
+    height: $size;
+    margin: -#{round-float($size / 2, 1)} 0;
+    color: inherit;
+    cursor: pointer;
+    transition: opacity $animation-speed;
+    user-select: none;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+
+      &::before {
+        $size: 4rem;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: $size;
+        height: $size;
+        margin: -#{floor-float($size / 2, 1)};
+        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.8333 23.3333H24.5167L24.05 22.8833C25.7398 20.9234 26.6685 18.4212 26.6667 15.8333C26.6667 12.9602 25.5253 10.2047 23.4937 8.17301C21.462 6.14137 18.7065 5 15.8333 5C12.9602 5 10.2047 6.14137 8.17301 8.17301C6.14137 10.2047 5 12.9602 5 15.8333C5 18.7065 6.14137 21.462 8.17301 23.4937C10.2047 25.5253 12.9602 26.6667 15.8333 26.6667C18.5167 26.6667 20.9833 25.6833 22.8833 24.05L23.3333 24.5167V25.8333L31.6667 34.1667L34.1667 31.6667L25.8333 23.3333ZM15.8333 23.3333C11.6667 23.3333 8.33333 20 8.33333 15.8333C8.33333 11.6667 11.6667 8.33333 15.8333 8.33333C20 8.33333 23.3333 11.6667 23.3333 15.8333C23.3333 20 20 23.3333 15.8333 23.3333Z' fill='%23fff'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        content: "";
+      }
+    }
+
+    &-input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: none;
+      border: none;
+      box-shadow: none;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+  }
+
+  &__control {
+    position: relative;
+    display: none;
+    width: 4rem;
+    height: 4rem;
+    margin: -0.8rem 0;
+    color: inherit;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity $animation-speed;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+
+    @include below($lg) {
+      display: block;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 2.3rem;
+        height: 2.3rem;
+        margin: -1.1rem;
+        background-image: url("data:image/svg+xml,%3Csvg width='23' height='23' viewBox='0 0 23 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.4331 3.22647C11.817 3.22521 13.1702 3.63443 14.3215 4.40237C15.4728 5.17032 16.3704 6.26247 16.9009 7.54068C17.4314 8.81889 17.5709 10.2257 17.3016 11.5832C17.0324 12.9407 16.3666 14.1878 15.3885 15.1668C14.4104 16.1459 13.1639 16.8128 11.8066 17.0832C10.4494 17.3537 9.04243 17.2155 7.76374 16.6862C6.48505 16.1569 5.39207 15.2602 4.62307 14.1096C3.85408 12.959 3.44362 11.6062 3.44362 10.2223C3.45201 8.37058 4.19088 6.597 5.49966 5.28702C6.80844 3.97705 8.58135 3.23655 10.4331 3.22647ZM10.4331 1.91675C8.79038 1.91675 7.18458 2.40386 5.81874 3.31649C4.4529 4.22911 3.38836 5.52626 2.75973 7.0439C2.1311 8.56155 1.96662 10.2315 2.2871 11.8426C2.60757 13.4538 3.39859 14.9337 4.56015 16.0952C5.7217 17.2568 7.20161 18.0478 8.81273 18.3683C10.4238 18.6887 12.0938 18.5243 13.6115 17.8956C15.1291 17.267 16.4263 16.2025 17.3389 14.8366C18.2515 13.4708 18.7386 11.865 18.7386 10.2223C18.7386 8.01953 17.8636 5.90698 16.306 4.34939C14.7484 2.7918 12.6358 1.91675 10.4331 1.91675Z' fill='black'/%3E%3Cpath d='M22.3611 21.2686L17.6525 16.5281L16.7453 17.4289L21.4539 22.1695C21.513 22.229 21.5833 22.2764 21.6608 22.3088C21.7382 22.3412 21.8213 22.358 21.9052 22.3583C21.9892 22.3586 22.0724 22.3423 22.15 22.3105C22.2277 22.2786 22.2983 22.2318 22.3579 22.1727C22.4175 22.1135 22.4648 22.0432 22.4972 21.9658C22.5296 21.8883 22.5464 21.8053 22.5467 21.7213C22.547 21.6374 22.5308 21.5542 22.4989 21.4765C22.4671 21.3988 22.4203 21.3282 22.3611 21.2686Z' fill='black'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        content: "";
+      }
+    }
+
+    &-text {
+      @include hide-text;
+    }
+  }
+}
