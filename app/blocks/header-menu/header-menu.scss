@@ -1,0 +1,51 @@
+.header-menu {
+  position: fixed;
+  top: $header-height-top;
+  left: 0;
+  z-index: 15;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 #{$layout-page-space_horizontal};
+  color: $text-color-white;
+  transition: {
+    property: max-width, transform;
+    duration: 0.5s;
+  };
+
+  &.is-collapsed {
+    max-width: 80%;
+    transform: translateX(20rem) translateY(-100%);
+  }
+
+  @include below($lg) {
+    // mobile menu
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 35;
+    width: 28rem;
+    max-width: 100%;
+    height: 100%;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #fff;
+    box-shadow: 0 4px 24px rgba(#000, 0.25);
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: {
+      property: opacity, transform;
+      duration: $animation-speed;
+    }
+    will-change: opacity, transform;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &.mob-menu-is-open {
+    // mobile menu
+    @include below($lg) {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
