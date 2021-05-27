@@ -63,6 +63,34 @@
       </div>
     </li>
 
+    <li class="nav__li js-nav-li has-drop@@if(context.currentItem == 'Newsroom'){ current is-open}">
+      @@if(context.currentItem == 'Newsroom'){
+      <span class="nav__li-el">Newsroom</span>
+      }
+      @@if(context.currentItem != 'Newsroom'){
+      <a class="nav__li-el" href="newsroom.html">Newsroom</a>
+      }
+      <em class="nav__li-arrow js-nav-arrow">&#9660;</em>
+      <div class="nav__li-drop js-nav-drop">
+        <div class="sub-nav">
+          <ul class="sub-nav__list">
+            <li class="sub-nav__li js-nav-li">
+              <a class="sub-nav__li-el" href="newsroom.html">Newsroom 1</a>
+            </li>
+            <li class="sub-nav__li js-nav-li">
+              <a class="sub-nav__li-el" href="newsroom.html">Newsroom 2</a>
+            </li>
+            <li class="sub-nav__li js-nav-li">
+              <a class="sub-nav__li-el" href="newsroom.html">Newsroom 3</a>
+            </li>
+            <li class="sub-nav__li js-nav-li">
+              <a class="sub-nav__li-el" href="newsroom.html">Newsroom 4</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+
     <li class="nav__li js-nav-li has-drop@@if(context.currentItem == 'Businesses'){ current is-open}">
       @@if(context.currentItem == 'Businesses'){
       <span class="nav__li-el">Businesses wordwide</span>
