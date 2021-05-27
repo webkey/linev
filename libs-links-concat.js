@@ -3,6 +3,7 @@ export const libsConcatJsLink = [
   'app/libs/js/jquery.accordion-simple.js',
   'app/libs/js/jquery.switch-class.js',
   'app/libs/js/jquery.ms-tabs.js',
+  'app/libs/js/jquery.nav.js',
 ];
 
 export const libsConcatCssLink = [

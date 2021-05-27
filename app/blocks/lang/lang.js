@@ -1,27 +1,29 @@
 app.lang = {
-  controlElement: '.js-lang-control',
-  dropElement: '.js-lang-drop',
+  control: '.js-lang-control',
+  panel: '.js-lang-panel',
   init() {
-    if ($(this.controlElement).length) {
+    if ($(this.control).length) {
       this.run();
       this.hover();
     }
   },
   run() {
     const self = this;
-    $(self.controlElement).switchClass({
-      removeExisting() {
-        return window.innerWidth >= 992; // todo Удалить, если не будет нужно на мобиле
-      },
-      switchClassTo: $(self.dropElement),
+    $(self.control).switchClass({
+      // removeExisting() {
+      //   return window.innerWidth >= 992;
+      // },
+      removeExisting: true,
+      preventRemoveClass: 'js-lang-prevent-hide',
+      switchClassTo: $(self.panel),
       modifiers: {
-        activeClass: 'drop-is-open',
+        activeClass: 'is-open',
       },
     });
   },
   hover() {
     const self = this;
-    const $item = $(self.dropElement).find('a');
+    const $item = $(self.panel).find('a');
     $item.on('mouseenter', function () {
       $item.addClass('muted');
       $(this).removeClass('muted');

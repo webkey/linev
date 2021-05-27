@@ -1,0 +1,22 @@
+.mob-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(white, 0.1);
+  visibility: hidden;
+  opacity: 0;
+  transition: {
+    property: opacity, visibility;
+    duration: $animation-speed;
+  };
+
+  &.mob-menu-is-open {
+    @include below($lg) {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}

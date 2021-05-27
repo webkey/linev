@@ -42,7 +42,7 @@ app.home = {
 
         // Удалить класс трансформации шапки после завершения анимации листания
         if (destination.isFirst) {
-          $('.header').removeClass('is-collapsed');
+          $('.header').add('.header-menu').removeClass('is-collapsed');
         }
 
         if (destination.isLast && $destinationEl.hasClass('fp-auto-height')) {
@@ -76,9 +76,9 @@ app.home = {
 
         // Добавить класс трансформации шапки до начала анимации листания
         if (!destination.isFirst) {
-          $('.header').addClass('is-collapsed').removeClass('is-expanded');
+          $('.header').add('.header-menu').addClass('is-collapsed').removeClass('is-expanded');
         } else {
-          $('.header').addClass('is-expanded').removeClass('is-collapsed');
+          $('.header').add('.header-menu').addClass('is-expanded').removeClass('is-collapsed');
         }
 
         $destinationEl.addClass('animation-start');

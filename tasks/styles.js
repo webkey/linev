@@ -34,6 +34,7 @@ const styleFilesLint = [
 
 export const stylesLinter = () => (
   gulp.src(styleFilesLint)
+    .pipe(plumber())
     .pipe(sassLint())
     .pipe(gulpStylelint({
       reporters: [

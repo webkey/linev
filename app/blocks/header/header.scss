@@ -149,44 +149,4 @@
     display: block;
     margin-left: 2.4rem;
   }
-
-  &-bottom {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    max-width: 100%;
-    padding: 0 #{$layout-page-space_horizontal};
-    color: $text-color-white;
-    transition: {
-      property: max-width, transform;
-      duration: 0.5s;
-    };
-
-    @at-root {
-      #{$header}.is-collapsed & {
-        max-width: 80%;
-        transform: translateX(20rem) translateY(-100%);
-      }
-    }
-
-    ul {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      li {
-        display: flex;
-        align-items: center;
-        height: 6rem;
-        font: bold 2.8rem/3.6rem $font-button;
-        letter-spacing: 0.007em;
-
-        a {
-          color: $text-color-white;
-          text-decoration: none;
-        }
-      }
-    }
-  }
 }

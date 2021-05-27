@@ -55,6 +55,7 @@ const jsFilesLint = [
 
 export const scriptsLinter = (cb) => {
   gulp.src(jsFilesLint)
+    .pipe(plumber())
     .pipe(eslint({ configFile: '.eslintrc' }))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());

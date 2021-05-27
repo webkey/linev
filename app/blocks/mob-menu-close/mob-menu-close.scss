@@ -1,0 +1,34 @@
+.mob-menu-close {
+  position: absolute;
+  top: 1.1rem;
+  right: 0;
+  z-index: 30;
+  display: none;
+  width: 5rem;
+  height: $header-height_sm;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+
+  @include below($lg) {
+    display: block;
+  }
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 2.3rem;
+    height: 2.3rem;
+    margin: -1.1rem -1.1rem;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB4PSI0LjQxNDE4IiB5PSIzIiB3aWR0aD0iMjQiIGhlaWdodD0iMiIgdHJhbnNmb3JtPSJyb3RhdGUoNDUgNC40MTQxOCAzKSIgZmlsbD0iYmxhY2siLz48cmVjdCB4PSIzIiB5PSIyMCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjIiIHRyYW5zZm9ybT0icm90YXRlKC00NSAzIDIwKSIgZmlsbD0iYmxhY2siLz48L3N2Zz4=);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    content: "";
+  }
+
+  span {
+    @include hide-text;
+  }
+}

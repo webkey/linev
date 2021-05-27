@@ -1,0 +1,483 @@
+.nav {
+  display: block;
+  font: bold 2.8rem/3.6rem $font-button;
+  letter-spacing: 0.007em;
+  transition: opacity $animation-speed;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @include below($lg) {
+      display: block;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  &__li {
+    $li: &;
+
+    position: relative;
+
+    &.has-drop {
+      padding-right: 3.4rem;
+    }
+
+    &-el {
+      $el: &;
+
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: $header-height-bottom;
+      color: $text-color-white;
+      user-select: none;
+
+      @at-root {
+        // if link
+        a#{$el} {
+          text-decoration: none;
+          transition: color $animation-speed;
+
+          // js hover - class .hover
+          //#{$li}.hover & {
+          //  color: $link-color;
+          //}
+        }
+      }
+    }
+
+    &-arrow {
+      $size: 3.2rem;
+
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: $size;
+      height: $size;
+      margin-top: -#{$size / 2};
+      font-size: 0;
+      line-height: 0;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+
+      @at-root {
+        // js hover - class .hover
+        #{$li}.hover & {
+          margin-top: -#{$size / 2 - 0.6};
+          transform: rotate(0.5turn);
+        }
+
+        // for mobile
+        #{$li}.is-open & {
+          @include below($lg) {
+            margin-top: -#{$size / 2 - 0.6};
+            transform: rotate(0.5turn);
+          }
+        }
+      }
+
+      &::before {
+        $size: 3.2rem;
+
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        display: block;
+        width: $size;
+        height: $size;
+        margin: -#{round-float($size / 2, 1)};
+        background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.88 14.1064L16 20.2264L22.12 14.1064L24 15.9998L16 23.9998L8 15.9998L9.88 14.1064Z' fill='%23fff'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        content: "";
+      }
+    }
+
+    &-drop {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 40rem;
+      margin: 0 -2.4rem;
+      padding: 0;
+      transform: translate3d(0, -0.2rem, 0);
+      opacity: 0;
+      transition: {
+        property: opacity, transform;
+        duration: $animation-speed;
+      };
+      pointer-events: none;
+      will-change: opacity, transform;
+
+      #{$li}:last-child & {
+        right: 0;
+        left: auto;
+      }
+
+      @include below($lg) {
+        position: relative;
+        top: auto;
+        left: auto;
+        display: none;
+        min-width: 0;
+        margin-right: -2.8rem;
+        margin-left: auto;
+        padding: 0;
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      @at-root {
+        #{$li}.hover & {
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+
+      @at-root {
+        #{$li}.current & {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.sub-nav {
+  padding: 1.6rem 0;
+  font-size: 2rem;
+  line-height: 2.6rem;
+  background-color: white;
+  box-shadow: 0 2rem 6rem rgba(41, 53, 72, 0.15);
+
+  @include below($lg) {
+    padding: 1rem 0 0 2rem;
+    background: none;
+    box-shadow: none;
+  }
+
+  &__list {
+    display: block;
+  }
+
+  &__li {
+    $li: &;
+
+    position: relative;
+
+    @include below($lg) {
+      margin-top: 0.5rem;
+    }
+
+    &.has-drop {
+      padding-right: 1rem;
+
+      @include below($lg) {
+        padding-right: 2.8rem;
+      }
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &-el {
+      $el: &;
+
+      position: relative;
+      display: block;
+      padding: 0.8rem 2.4rem;
+      color: $text-color-black;
+      user-select: none;
+
+      @include below($lg) {
+        padding-right: 0;
+        padding-left: 0;
+      }
+
+      @at-root {
+        // if link
+        a#{$el} {
+          text-decoration: none;
+          transition: color $animation-speed;
+
+          // js hover - class .hover
+          #{$li}.hover & {
+            color: $link-color;
+          }
+        }
+      }
+    }
+
+    &-arrow {
+      $size: 3.2rem;
+
+      position: absolute;
+      top: 0.5rem;
+      right: 0;
+      width: $size;
+      height: $size;
+      font-size: 0;
+      line-height: 0;
+      transform: rotate(-0.25turn);
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+
+      @include below($lg) {
+        $size: 4rem;
+
+        top: -0.6rem;
+        right: -1.3rem;
+        width: $size;
+        height: $size;
+        transform: rotate(0);
+      }
+
+      @at-root {
+        // js hover - class .hover
+        #{$li}.hover & {
+          transform: rotate(0.25turn);
+        }
+
+        // for mobile
+        #{$li}.is-open & {
+          @include below($lg) {
+            transform: rotate(0.5turn);
+          }
+        }
+      }
+
+      &::before {
+        $size: 1.6rem;
+
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        display: block;
+        width: $size;
+        height: $size;
+        margin: -#{round-float($size / 2, 1)};
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTEuOTk5OCAxMy4xNzIyTDE2Ljk0OTggOC4yMjIxN0wxOC4zNjM4IDkuNjM2MTdMMTEuOTk5OCAxNi4wMDAyTDUuNjM1NzcgOS42MzYxN0w3LjA0OTc3IDguMjIyMTdMMTEuOTk5OCAxMy4xNzIyWiIvPjwvc3ZnPg==);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        content: "";
+      }
+    }
+
+    &-drop {
+      position: absolute;
+      top: -1.5rem;
+      left: 100%;
+      min-width: 20rem;
+      margin: 0 -0.5rem;
+      transform: translate3d(-0.2rem, 0, 0);
+      opacity: 0;
+      transition: opacity $animation-speed, transform $animation-speed;
+      pointer-events: none;
+
+      @include below($lg) {
+        position: relative;
+        top: auto;
+        left: auto;
+        display: none;
+        min-width: 0;
+        margin-right: -2.8rem;
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      @at-root {
+        #{$li}.hover & {
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+
+      @at-root {
+        #{$li}.current & {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.sub-sub-nav {
+  padding: 1.6rem 0;
+  font-size: 2rem;
+  line-height: 2.6rem;
+  background-color: white;
+  box-shadow: 0 2rem 6rem rgba(41, 53, 72, 0.15);
+
+  @include below($lg) {
+    padding: 1rem 0 0 2rem;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    background: none;
+    box-shadow: none;
+  }
+
+  &__list {
+    display: block;
+  }
+
+  &__li {
+    $li: &;
+
+    position: relative;
+
+    @include below($lg) {
+      margin-top: 0.5rem;
+    }
+
+    &.has-drop {
+      padding-right: 1rem;
+
+      @include below($lg) {
+        padding-right: 2.8rem;
+      }
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &-el {
+      $el: &;
+
+      position: relative;
+      display: block;
+      padding: 0.8rem 2.4rem;
+      color: $text-color-black;
+      user-select: none;
+
+      @include below($lg) {
+        padding-right: 0;
+        padding-left: 0;
+      }
+
+      @at-root {
+        // if link
+        a#{$el} {
+          text-decoration: none;
+          transition: color $animation-speed;
+
+          @include below($lg) {
+            color: $text-color-grey;
+          }
+
+          // js hover - class .hover
+          #{$li}.hover & {
+            color: $link-color;
+
+            @include below($lg) {
+              font-weight: bold;
+              box-shadow: inset 0 -2px 0 transparent;
+            }
+          }
+        }
+      }
+    }
+
+    &-arrow {
+      $size: 2.8rem;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: $size;
+      height: $size;
+      font-size: 0;
+      line-height: 0;
+      transform: rotate(-0.25turn);
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+
+      @include below($lg) {
+        $size: 4rem;
+
+        top: -0.6rem;
+        right: -1.3rem;
+        width: $size;
+        height: $size;
+        transform: rotate(0);
+      }
+
+      @at-root {
+        // js hover - class .hover
+        #{$li}.hover & {
+          transform: rotate(0.25turn);
+        }
+
+        // for mobile
+        #{$li}.is-open & {
+          @include below($lg) {
+            transform: rotate(0.5turn);
+          }
+        }
+      }
+
+      &::before {
+        $size: 1.6rem;
+
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        display: block;
+        width: $size;
+        height: $size;
+        margin: -#{round-float($size / 2, 1)};
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTEuOTk5OCAxMy4xNzIyTDE2Ljk0OTggOC4yMjIxN0wxOC4zNjM4IDkuNjM2MTdMMTEuOTk5OCAxNi4wMDAyTDUuNjM1NzcgOS42MzYxN0w3LjA0OTc3IDguMjIyMTdMMTEuOTk5OCAxMy4xNzIyWiIvPjwvc3ZnPg==);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        content: "";
+      }
+    }
+
+    &-drop {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      min-width: 20rem;
+      transform: translate3d(-0.5rem, 0, 0);
+      opacity: 0;
+      transition: opacity $animation-speed, transform $animation-speed;
+      pointer-events: none;
+
+      @include below($lg) {
+        position: relative;
+        top: auto;
+        left: auto;
+        display: none;
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      @at-root {
+        #{$li}.hover & {
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+
+      @at-root {
+        #{$li}.current & {
+          display: block;
+        }
+      }
+    }
+  }
+}
