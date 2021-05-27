@@ -1,6 +1,30 @@
 html {
   height: 100%; // Footer at bottom
   font-size: 62.5%;
+
+  //@include below($xxl) {
+  //  font-size: 50%;
+  //}
+  //
+  //@include below($xl) {
+  //  font-size: 40%;
+  //}
+  //
+  //@include below($lg) {
+  //  font-size: 62.5%;
+  //}
+
+  // Блокировать прокрутку
+  &.css-scroll-fixed:not(.open-only-mob) {
+    @include lock-scroll;
+  }
+
+  // Не блокировать прокрутку, если есть класс open-only-mob
+  &.css-scroll-fixed.open-only-mob {
+    @include below($lg) {
+      @include lock-scroll;
+    }
+  }
 }
 
 body {

@@ -1,10 +1,10 @@
 .mob-menu-close {
   position: absolute;
-  top: 1.1rem;
+  top: 0;
   right: 0;
   z-index: 30;
   display: none;
-  width: 5rem;
+  width: 4rem;
   height: $header-height_sm;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -19,10 +19,10 @@
     top: 50%;
     left: 50%;
     display: block;
-    width: 2.3rem;
-    height: 2.3rem;
-    margin: -1.1rem -1.1rem;
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB4PSI0LjQxNDE4IiB5PSIzIiB3aWR0aD0iMjQiIGhlaWdodD0iMiIgdHJhbnNmb3JtPSJyb3RhdGUoNDUgNC40MTQxOCAzKSIgZmlsbD0iYmxhY2siLz48cmVjdCB4PSIzIiB5PSIyMCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjIiIHRyYW5zZm9ybT0icm90YXRlKC00NSAzIDIwKSIgZmlsbD0iYmxhY2siLz48L3N2Zz4=);
+    width: 2.4rem;
+    height: 2.4rem;
+    margin: -1.2rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M12.0002 10.586L16.9502 5.636L18.3642 7.05L13.4142 12L18.3642 16.95L16.9502 18.364L12.0002 13.414L7.05023 18.364L5.63623 16.95L10.5862 12L5.63623 7.05L7.05023 5.636L12.0002 10.586Z'%3E%3C/path%3E%3C/svg%3E%0A");
     background-repeat: no-repeat;
     background-position: 50%;
     content: "";

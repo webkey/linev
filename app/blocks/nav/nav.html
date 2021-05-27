@@ -1,11 +1,3 @@
-<!--<ul>
-  <li><a href="#"></a></li>
-  <li><a href="#"></a></li>
-  <li><a href="#"></a></li>
-  <li><a href="#"></a></li>
-  <li><a href="#"></a></li>
-  <li><a href="#"></a></li>
-</ul>-->
 <nav class="nav">
   <ul class="nav__list js-nav">
     <li class="nav__li js-nav-li has-drop@@if(context.currentItem == 'Company'){ current is-open}">
@@ -13,31 +5,6 @@
       <span class="nav__li-el">Company</span>
       }
       @@if(context.currentItem != 'Company'){
-      <a class="nav__li-el" href="index.html">Company</a>
-      }
-      <em class="nav__li-arrow js-nav-arrow">&#9660;</em>
-      <div class="nav__li-drop js-nav-drop">
-        <div class="sub-nav">
-          <ul class="sub-nav__list">
-            <li class="sub-nav__li js-nav-li">
-              <a class="sub-nav__li-el" href="index.html">Company 1</a>
-            </li>
-            <li class="sub-nav__li js-nav-li">
-              <a class="sub-nav__li-el" href="index.html">Company 2</a>
-            </li>
-            <li class="sub-nav__li js-nav-li">
-              <a class="sub-nav__li-el" href="index.html">Company 3</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </li>
-
-    <li class="nav__li js-nav-li has-drop@@if(context.currentItem == 'Catalog'){ current is-open}">
-      @@if(context.currentItem == 'Catalog'){
-      <span class="nav__li-el">Company</span>
-      }
-      @@if(context.currentItem != 'Catalog'){
       <a class="nav__li-el" href="company.html">Company</a>
       }
       <em class="nav__li-arrow js-nav-arrow">&#9660;</em>
@@ -47,20 +14,45 @@
             <li class="sub-nav__li js-nav-li">
               <a class="sub-nav__li-el" href="company.html">Company 1</a>
             </li>
-            <li class="sub-nav__li js-nav-li has-drop">
+            <li class="sub-nav__li js-nav-li">
               <a class="sub-nav__li-el" href="company.html">Company 2</a>
+            </li>
+            <li class="sub-nav__li js-nav-li">
+              <a class="sub-nav__li-el" href="company.html">Company 3</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+
+    <li class="nav__li js-nav-li has-drop@@if(context.currentItem == 'Expertise'){ current is-open}">
+      @@if(context.currentItem == 'Expertise'){
+      <span class="nav__li-el">Company</span>
+      }
+      @@if(context.currentItem != 'Expertise'){
+      <a class="nav__li-el" href="expertise.html">Expertise</a>
+      }
+      <em class="nav__li-arrow js-nav-arrow">&#9660;</em>
+      <div class="nav__li-drop js-nav-drop">
+        <div class="sub-nav">
+          <ul class="sub-nav__list">
+            <li class="sub-nav__li js-nav-li">
+              <a class="sub-nav__li-el" href="expertise.html">Expertise 1</a>
+            </li>
+            <li class="sub-nav__li js-nav-li has-drop">
+              <a class="sub-nav__li-el" href="expertise.html">Expertise 2</a>
               <em class="sub-nav__li-arrow js-nav-arrow">&#9660;</em>
               <div class="sub-nav__li-drop js-nav-drop">
                 <div class="sub-sub-nav">
                   <ul class="sub-sub-nav__list">
                     <li class="sub-sub-nav__li js-nav-li">
-                      <a class="sub-sub-nav__li-el" href="company.html">Company 2.1</a>
+                      <a class="sub-sub-nav__li-el" href="expertise.html">Expertise 2.1</a>
                     </li>
                     <li class="sub-sub-nav__li js-nav-li">
-                      <a class="sub-sub-nav__li-el" href="company.html">Company 2.2</a>
+                      <a class="sub-sub-nav__li-el" href="expertise.html">Expertise 2.2</a>
                     </li>
                     <li class="sub-sub-nav__li js-nav-li">
-                      <a class="sub-sub-nav__li-el" href="company.html">Company 2.3</a>
+                      <a class="sub-sub-nav__li-el" href="expertise.html">Expertise 2.3</a>
                     </li>
                   </ul>
                 </div>

@@ -1,12 +1,28 @@
 .nav {
   display: block;
-  font: bold 2.8rem/3.6rem $font-button;
+  font: bold 2.8rem/1.29 $font-button;
   letter-spacing: 0.007em;
   transition: opacity $animation-speed;
 
+  @include below($hd) {
+    font-size: 2.4rem;
+  }
+
+  @include below($xxl) {
+    font-size: 2rem;
+  }
+
+  @include below($xl) {
+    font-size: 1.5rem;
+  }
+
+  @include below($lg) {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+
   &__list {
     display: flex;
-    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
 
@@ -14,6 +30,7 @@
       display: block;
       margin-right: 0;
       margin-left: 0;
+      box-shadow: 0 -1px 0 $line-color-blue;
     }
   }
 
@@ -22,8 +39,16 @@
 
     position: relative;
 
+    @include below($lg) {
+      box-shadow: 0 1px 0 $line-color-blue;
+    }
+
     &.has-drop {
       padding-right: 3.4rem;
+
+      @include below($xl) {
+        padding-right: 3.2rem;
+      }
     }
 
     &-el {
@@ -35,6 +60,11 @@
       height: $header-height-bottom;
       color: $text-color-white;
       user-select: none;
+
+      @include below($lg) {
+        height: auto;
+        padding: 1.2rem 2rem;
+      }
 
       @at-root {
         // if link
@@ -51,11 +81,11 @@
     }
 
     &-arrow {
-      $size: 3.2rem;
+      $size: 4rem;
 
       position: absolute;
       top: 50%;
-      right: 0;
+      right: -0.4rem; // Выровнять по правому краю пункта стрелку, которая меньше области клика на 0,8rem
       width: $size;
       height: $size;
       margin-top: -#{$size / 2};
@@ -64,17 +94,27 @@
       user-select: none;
       -webkit-tap-highlight-color: transparent;
 
+      @include below($lg) {
+        top: 0;
+        right: 0;
+        margin: 0.4rem 0 0;
+      }
+
       @at-root {
         // js hover - class .hover
         #{$li}.hover & {
           margin-top: -#{$size / 2 - 0.6};
           transform: rotate(0.5turn);
+
+          @include below($xl) {
+            margin-top: -#{$size / 2 - 0.4};
+          }
         }
 
         // for mobile
         #{$li}.is-open & {
           @include below($lg) {
-            margin-top: -#{$size / 2 - 0.6};
+            margin-top: 0.6rem;
             transform: rotate(0.5turn);
           }
         }
@@ -95,6 +135,14 @@
         background-position: center;
         background-size: contain;
         content: "";
+
+        @include below($xl) {
+          $size: 2.4rem;
+
+          width: $size;
+          height: $size;
+          margin: -#{$size / 2};
+        }
       }
     }
 
@@ -105,11 +153,13 @@
       min-width: 40rem;
       margin: 0 -2.4rem;
       padding: 0;
-      transform: translate3d(0, -0.2rem, 0);
+      transform: translateY(0.5rem) scaleY(1.1);
+      transform-origin: top center;
+      visibility: hidden;
       opacity: 0;
       transition: {
-        property: opacity, transform;
-        duration: $animation-speed;
+        property: opacity, transform, visibility;
+        duration: $animation-speed * 1.5;
       };
       pointer-events: none;
       will-change: opacity, transform;
@@ -119,24 +169,30 @@
         left: auto;
       }
 
+      @include above($lg) {
+        display: block !important; // На десктопе перебивать установленный скриптом display: none;
+      }
+
       @include below($lg) {
         position: relative;
         top: auto;
         left: auto;
         display: none;
         min-width: 0;
-        margin-right: -2.8rem;
-        margin-left: auto;
+        margin: 0 -3.2rem 0 0; // Компенсация отступа под стрелку у родителя
         padding: 0;
-        transform: translate3d(0, 0, 0);
+        transform: none;
+        visibility: visible;
         opacity: 1;
         pointer-events: auto;
       }
 
       @at-root {
         #{$li}.hover & {
-          transform: translate3d(0, 0, 0);
+          transform: translateY(0) scaleY(1);
+          visibility: visible;
           opacity: 1;
+          transition-duration: $animation-speed;
           pointer-events: auto;
         }
       }
@@ -158,13 +214,19 @@
   box-shadow: 0 2rem 6rem rgba(41, 53, 72, 0.15);
 
   @include below($lg) {
-    padding: 1rem 0 0 2rem;
+    padding: 0;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
     background: none;
     box-shadow: none;
   }
 
   &__list {
     display: block;
+
+    @include below($lg) {
+      box-shadow: 0 -1px 0 $line-color-blue;
+    }
   }
 
   &__li {
@@ -173,19 +235,15 @@
     position: relative;
 
     @include below($lg) {
-      margin-top: 0.5rem;
+      box-shadow: 0 1px 0 $line-color-blue;
     }
 
     &.has-drop {
       padding-right: 1rem;
 
       @include below($lg) {
-        padding-right: 2.8rem;
+        padding-right: 3.2rem;
       }
-    }
-
-    &:first-child {
-      margin-top: 0;
     }
 
     &-el {
@@ -198,8 +256,8 @@
       user-select: none;
 
       @include below($lg) {
-        padding-right: 0;
-        padding-left: 0;
+        padding: 0.8rem 2rem 0.8rem 3.6rem;
+        color: rgba($text-color-white, 0.85);
       }
 
       @at-root {
@@ -209,7 +267,8 @@
           transition: color $animation-speed;
 
           // js hover - class .hover
-          #{$li}.hover & {
+          //#{$li}.hover & {
+          &:hover {
             color: $link-color;
           }
         }
@@ -233,8 +292,8 @@
       @include below($lg) {
         $size: 4rem;
 
-        top: -0.6rem;
-        right: -1.3rem;
+        top: 0;
+        right: 0;
         width: $size;
         height: $size;
         transform: rotate(0);
@@ -249,6 +308,7 @@
         // for mobile
         #{$li}.is-open & {
           @include below($lg) {
+            margin-top: 0.2rem;
             transform: rotate(0.5turn);
           }
         }
@@ -269,6 +329,15 @@
         background-position: center;
         background-size: contain;
         content: "";
+
+        @include below($lg) {
+          $size: 2.4rem;
+
+          width: $size;
+          height: $size;
+          margin: -#{round-float($size / 2, 1)};
+          background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.88 14.1064L16 20.2264L22.12 14.1064L24 15.9998L16 23.9998L8 15.9998L9.88 14.1064Z' fill='%23fff'/%3E%3C/svg%3E%0A");
+        }
       }
     }
 
@@ -278,10 +347,14 @@
       left: 100%;
       min-width: 20rem;
       margin: 0 -0.5rem;
-      transform: translate3d(-0.2rem, 0, 0);
+      transform: translateX(-0.2rem);
       opacity: 0;
       transition: opacity $animation-speed, transform $animation-speed;
       pointer-events: none;
+
+      @include above($lg) {
+        display: block !important; // На десктопе перебивать установленный скриптом display: none;
+      }
 
       @include below($lg) {
         position: relative;
@@ -289,15 +362,15 @@
         left: auto;
         display: none;
         min-width: 0;
-        margin-right: -2.8rem;
-        transform: translate3d(0, 0, 0);
+        margin-right: -3.2rem;
+        transform: translateX(0);
         opacity: 1;
         pointer-events: auto;
       }
 
       @at-root {
         #{$li}.hover & {
-          transform: translate3d(0, 0, 0);
+          transform: translateX(0);
           opacity: 1;
           pointer-events: auto;
         }
@@ -320,7 +393,7 @@
   box-shadow: 0 2rem 6rem rgba(41, 53, 72, 0.15);
 
   @include below($lg) {
-    padding: 1rem 0 0 2rem;
+    padding: 0;
     font-size: 1.4rem;
     line-height: 2rem;
     background: none;
@@ -329,6 +402,10 @@
 
   &__list {
     display: block;
+
+    @include below($lg) {
+      box-shadow: 0 -1px 0 $line-color-blue;
+    }
   }
 
   &__li {
@@ -337,7 +414,7 @@
     position: relative;
 
     @include below($lg) {
-      margin-top: 0.5rem;
+      box-shadow: 0 1px 0 $line-color-blue;
     }
 
     &.has-drop {
@@ -346,10 +423,6 @@
       @include below($lg) {
         padding-right: 2.8rem;
       }
-    }
-
-    &:first-child {
-      margin-top: 0;
     }
 
     &-el {
@@ -362,8 +435,8 @@
       user-select: none;
 
       @include below($lg) {
-        padding-right: 0;
-        padding-left: 0;
+        padding: 0.8rem 2rem 0.8rem 5.2rem;
+        color: rgba($text-color-white, 0.7);
       }
 
       @at-root {
@@ -372,18 +445,13 @@
           text-decoration: none;
           transition: color $animation-speed;
 
-          @include below($lg) {
-            color: $text-color-grey;
-          }
-
           // js hover - class .hover
-          #{$li}.hover & {
-            color: $link-color;
+          //#{$li}.hover & {
+          //  color: $link-color;
+          //}
 
-            @include below($lg) {
-              font-weight: bold;
-              box-shadow: inset 0 -2px 0 transparent;
-            }
+          &:hover {
+            color: $link-color;
           }
         }
       }
@@ -450,24 +518,28 @@
       top: 0;
       left: 100%;
       min-width: 20rem;
-      transform: translate3d(-0.5rem, 0, 0);
+      transform: translateX(-0.5rem);
       opacity: 0;
       transition: opacity $animation-speed, transform $animation-speed;
       pointer-events: none;
+
+      @include above($lg) {
+        display: block !important; // На десктопе перебивать установленный скриптом display: none;
+      }
 
       @include below($lg) {
         position: relative;
         top: auto;
         left: auto;
         display: none;
-        transform: translate3d(0, 0, 0);
+        transform: translateX(0);
         opacity: 1;
         pointer-events: auto;
       }
 
       @at-root {
         #{$li}.hover & {
-          transform: translate3d(0, 0, 0);
+          transform: translateX(0);
           opacity: 1;
           pointer-events: auto;
         }

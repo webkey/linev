@@ -1,6 +1,8 @@
 .header-search-control {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 4rem;
   height: 4rem;
   color: inherit;
@@ -9,6 +11,11 @@
   transition: $animation-speed;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+
+  @include below($hd) {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
 
   &:hover {
     color: $line-color-blue;

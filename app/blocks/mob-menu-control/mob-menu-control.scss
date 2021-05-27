@@ -1,26 +1,27 @@
 .mob-menu-control {
   position: relative;
   z-index: 30;
-  display: none;
-  width: 4.3rem;
-  height: 4rem;
+  display: block;
+  //display: none; // Скрывается на десктопе через родителя
+  width: 2.4rem;
+  height: 2.4rem;
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 
-  @include below($lg) {
-    display: block;
-  }
+  //@include below($lg) {
+  //  display: block;
+  //}
 
   &::before {
     position: absolute;
     top: 50%;
     left: 50%;
     display: block;
-    width: 2.3rem;
-    height: 2.3rem;
-    margin: -1.1rem -1.1rem;
-    background-image: url("data:image/svg+xml,%3Csvg width='23' height='23' viewBox='0 0 23 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.4445 18.5278H2.55556C2.38612 18.5278 2.22361 18.4605 2.1038 18.3407C1.98398 18.2208 1.91667 18.0583 1.91667 17.8889C1.91667 17.7194 1.98398 17.5569 2.1038 17.4371C2.22361 17.3173 2.38612 17.25 2.55556 17.25H20.4445C20.6139 17.25 20.7764 17.3173 20.8962 17.4371C21.016 17.5569 21.0833 17.7194 21.0833 17.8889C21.0833 18.0583 21.016 18.2208 20.8962 18.3407C20.7764 18.4605 20.6139 18.5278 20.4445 18.5278Z' fill='black'/%3E%3Cpath d='M20.4445 12.1389H2.55556C2.38612 12.1389 2.22361 12.0716 2.1038 11.9517C1.98398 11.8319 1.91667 11.6694 1.91667 11.5C1.91667 11.3305 1.98398 11.168 2.1038 11.0482C2.22361 10.9284 2.38612 10.8611 2.55556 10.8611H20.4445C20.6139 10.8611 20.7764 10.9284 20.8962 11.0482C21.016 11.168 21.0833 11.3305 21.0833 11.5C21.0833 11.6694 21.016 11.8319 20.8962 11.9517C20.7764 12.0716 20.6139 12.1389 20.4445 12.1389Z' fill='black'/%3E%3Cpath d='M20.4445 5.74995H2.55556C2.38612 5.74995 2.22361 5.68263 2.1038 5.56282C1.98398 5.443 1.91667 5.2805 1.91667 5.11106C1.91667 4.94161 1.98398 4.77911 2.1038 4.65929C2.22361 4.53948 2.38612 4.47217 2.55556 4.47217H20.4445C20.6139 4.47217 20.7764 4.53948 20.8962 4.65929C21.016 4.77911 21.0833 4.94161 21.0833 5.11106C21.0833 5.2805 21.016 5.443 20.8962 5.56282C20.7764 5.68263 20.6139 5.74995 20.4445 5.74995Z' fill='black'/%3E%3C/svg%3E%0A");
+    width: 2.4rem;
+    height: 2.4rem;
+    margin: -1.2rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M21 7H3V5H21V7Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M21 13H3V11H21V13Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M21 19H3V17H21V19Z' fill='black'/%3E%3C/svg%3E%0A");
     background-repeat: no-repeat;
     background-position: 50%;
     content: "";

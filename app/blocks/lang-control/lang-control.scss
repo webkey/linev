@@ -8,4 +8,16 @@
   overflow: hidden;
   text-decoration: none;
   user-select: none;
+
+  @include below($hd) {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    backface-visibility: hidden;
+  }
 }
