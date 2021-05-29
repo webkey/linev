@@ -36,9 +36,9 @@ app.home = {
         }, self.duration);
 
         const $destinationEl = $(destination.item);
-        // const $originEl = $(origin.item);
+        const $originEl = $(origin.item);
 
-        $destinationEl.addClass('animation-end');
+        $destinationEl.addClass('animation-end').addClass('after-ready');
 
         // Удалить класс трансформации шапки после завершения анимации листания
         if (destination.isFirst) {
@@ -47,6 +47,14 @@ app.home = {
 
         if (destination.isLast && $destinationEl.hasClass('fp-auto-height')) {
           $(origin.item).addClass('animation-end');
+        }
+
+        // На вторую секцию добавить класс удаления тени
+        if (origin.isFirst) {
+          $destinationEl.addClass('hide-shade');
+        }
+        if (destination.isFirst) {
+          $originEl.removeClass('hide-shade');
         }
 
         // clearTimeout(timeoutVisualSet);
@@ -81,9 +89,17 @@ app.home = {
           $('.header').add('.header-menu').addClass('is-expanded').removeClass('is-collapsed');
         }
 
-        $destinationEl.addClass('animation-start');
+        $destinationEl.addClass('animation-start').addClass('before-ready');
         if (destination.isLast && $destinationEl.hasClass('fp-auto-height')) {
           $originEl.addClass('animation-start');
+        }
+
+        // На вторую секцию добавить класс удаления тени
+        if (origin.isFirst) {
+          $destinationEl.addClass('hide-shade');
+        }
+        if (destination.isFirst) {
+          $originEl.removeClass('hide-shade');
         }
 
         // if (app.scan) {

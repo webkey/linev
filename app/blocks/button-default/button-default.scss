@@ -1,0 +1,139 @@
+.button-default {
+  $btn: &;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 1.1rem 1.9rem;
+  overflow: hidden;
+  color: $text-color-blue;
+  font: bold 2rem/2.4rem $font-button;
+  letter-spacing: normal;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  vertical-align: top;
+  background-color: $button-color-white;
+  border: 1px solid $button-color-white;
+  box-shadow: none;
+  cursor: pointer;
+  transition: {
+    property: opacity, background-color, border-color;
+    duration: $animation-speed;
+    timing-function: ease-in-out;
+  }
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  @include below($hd) {
+    padding: 0.9rem 1.9rem;
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+
+  @at-root {
+    #{$btn},
+    input#{$btn} {
+      border-radius: 0;
+    }
+  }
+
+  &_fixed-width {
+    width: 22.8rem;
+    max-width: 100%;
+  }
+
+  &_fixed-width-small {
+    width: 9.8rem;
+    max-width: 100%;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  &_full-width {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  &_small {
+    padding: 0.9rem 2.3rem;
+  }
+
+  &_has-arrow {
+    padding-right: 4.1rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.7696 4.32937C7.84066 4.29267 7.89875 4.24356 7.93889 4.18628C7.97903 4.129 8 4.06525 8 4.00054C8 3.93583 7.97903 3.87209 7.93889 3.8148C7.89875 3.75752 7.84066 3.70841 7.7696 3.67172L0.836743 0.0714341C0.756778 0.0297608 0.663118 0.00532298 0.565937 0.000775041C0.468757 -0.0037729 0.371773 0.0117432 0.285523 0.0456379C0.199274 0.0795326 0.127057 0.130509 0.0767188 0.193029C0.0263808 0.25555 -0.000153042 0.327222 3.28908e-07 0.40026L6.43654e-07 7.60082C0.000401904 7.67369 0.027277 7.7451 0.0777355 7.80737C0.128194 7.86964 0.200327 7.92041 0.286377 7.95422C0.372427 7.98804 0.469139 8.00362 0.566112 7.99929C0.663084 7.99496 0.756648 7.97088 0.836743 7.92965L7.7696 4.32937Z' fill='black'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 2.3rem) 50%;
+  }
+
+  // For small screen
+  &_sm {
+    @include below($sm) {
+      &-full-width {
+        display: block;
+        width: 100%;
+      }
+
+      &-no-min-width {
+        min-width: 0;
+      }
+    }
+  }
+
+  span {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__icon {
+    $size: 1.8rem;
+    $line-height-of-text: 1.4rem; // 1.5rem -> 1.4rem
+
+    display: inline-block;
+    width: $size;
+    height: $size;
+    margin: -#{round-float(($size - $line-height-of-text) / 2, 1)} 0 -#{round-float(($size - $line-height-of-text) / 2, 1)} 1.2rem;
+    vertical-align: top;
+
+    svg {
+      display: block;
+      width: $size;
+      height: $size;
+      fill: currentColor; // kill style
+
+      path {
+        color: currentColor;
+      }
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  &:not(:disabled):not(.disabled):hover {
+    background-color: $button-color-white--hover;
+    border-color: $button-color-white--hover;
+  }
+
+  &:not(:disabled):not(.disabled):active {
+    transform: scale(0.98);
+  }
+
+  &.active:not(:disabled):not(.disabled) {
+    color: #fff;
+    background-color: $button-color-white--active;
+    border-color: $button-color-white--active;
+
+    &:hover {
+      background-color: darken($button-color-white--active, 10);
+      border-color: darken($button-color-white--active, 10);
+    }
+  }
+}

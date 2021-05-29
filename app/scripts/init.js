@@ -5,3 +5,4 @@ app.lang.init();
 app.headerSearch.init();
 app.nav.init();
 app.mobMenu.init();
+app.innovative.init();

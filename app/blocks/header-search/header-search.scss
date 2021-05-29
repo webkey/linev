@@ -11,6 +11,8 @@
   width: $search-form-width;
   padding: 3.6rem 4.8rem;
   background-color: rgba($bg-color-blue, 0.98);
+  border: solid $line-color-blue;
+  border-width: 0 0 1px 1px;
   transform: translateX(100%);
   opacity: 0;
   transition: $animation-speed;

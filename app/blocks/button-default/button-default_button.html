@@ -1,0 +1,1 @@
+<button class="button-default@@if(context.mods){@@for (var i = 0; i < mods.length; i++){ button-default_`+mods[i]+`}}@@if(context.class){ @@class}"@@if(context.type){ type="@@type"}@@if(context.attrs){@@for (var i = 0; i < attrs.length; i++){ `+attrs[i].attr+`="`+attrs[i].value+`"}}>@@if(context.icon){<i>@@icon</i>}<span>@@text</span></button>
