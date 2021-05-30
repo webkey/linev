@@ -6,3 +6,5 @@ app.headerSearch.init();
 app.nav.init();
 app.mobMenu.init();
 app.innovative.init();
+app.powerfulSlider.init();
+app.powerful.init();

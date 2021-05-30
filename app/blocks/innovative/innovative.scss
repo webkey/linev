@@ -72,7 +72,7 @@
     &-text {
       max-width: 55rem;
       color: $text-color-white;
-      font: 500 3.2rem/1.25 $font-title;
+      font: 500 3.2rem/4rem $font-title;
       letter-spacing: 0.006em;
 
       @include below($hd) {

@@ -52,11 +52,17 @@ app.home = {
         }
 
         // На вторую секцию добавить класс удаления тени
-        if (origin.isFirst) {
-          $destinationEl.addClass('hide-shade');
+        if (destination.index > 0) {
+          $(self.sectionEl).addClass('hide-shade');
         }
         if (destination.isFirst) {
           $originEl.removeClass('hide-shade');
+        }
+
+        // Открыть первый рол
+        const $innovative = $('.js-innovative-data', $destinationEl);
+        if ($innovative.length) {
+          $innovative.msRolls('open', $('#auto-open'));
         }
 
         // clearTimeout(timeoutVisualSet);

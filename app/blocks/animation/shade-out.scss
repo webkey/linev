@@ -1,0 +1,22 @@
+@keyframes shadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.shade-out {
+  animation: {
+    duration: $fp-animation-speed;
+    timing-function: linear;
+    fill-mode: both;
+  };
+  will-change: opacity, transform;
+
+  .hide-shade & {
+    animation-name: shadeOut;
+  }
+}
