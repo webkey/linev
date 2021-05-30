@@ -50,6 +50,7 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
+      transform: scale(1.4);
       opacity: 0.15;
     }
 
@@ -91,6 +92,7 @@
     max-width: $width;
     height: 100%;
     padding: 0 #{$layout-page-space-h};
+    background-color: $bg-color-blue;
 
     @include below($hd) {
       $width: 50%;

@@ -2,10 +2,12 @@ app.home = {
   initEl: '#js-fp',
   sectionEl: '#js-fp > section',
   nextBtnEl: '.js-fp-next',
+  typeTextAnimationEl: '.js-type-text-animation',
   duration: 500,
   init() {
     if ($(this.initEl).length) {
       this.run();
+      this.typeAnimation();
     }
   },
   run() {
@@ -102,6 +104,19 @@ app.home = {
           $originEl.removeClass('hide-shade');
         }
 
+        // Запустить анимацию "набор текста"
+        const typeitInstanceDest = $destinationEl.data('typeit');
+        if (typeitInstanceDest && !(typeitInstanceDest.is('started') || typeitInstanceDest.is('completed'))) {
+          typeitInstanceDest.go();
+        }
+        if (typeitInstanceDest && typeitInstanceDest.is('frozen')) {
+          typeitInstanceDest.unfreeze();
+        }
+        const typeitInstanceOrig = $originEl.data('typeit');
+        if (typeitInstanceOrig && typeitInstanceOrig.is('started') && !typeitInstanceOrig.is('completed')) {
+          typeitInstanceOrig.freeze();
+        }
+
         // if (app.scan) {
         //   app.scan.reset();
         // }
@@ -139,5 +154,18 @@ app.home = {
     });
 
     return anchors;
+  },
+  typeAnimation() {
+    const elements = document.querySelectorAll(this.typeTextAnimationEl);
+
+    elements.forEach((el) => {
+      const instance = new TypeIt(el, {
+        speed: 50,
+        waitUntilVisible: true,
+        loop: false,
+      });
+
+      $(el).closest(this.sectionEl).data('typeit', instance);
+    });
   },
 };

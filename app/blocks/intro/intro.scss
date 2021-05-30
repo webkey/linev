@@ -13,6 +13,7 @@
     max-width: $width;
     height: 50%;
     padding: 4.4rem #{$layout-page-space-h};
+    overflow: hidden;
     background-color: $bg-color-blue;
 
     @include below($hd) {
@@ -43,16 +44,22 @@
     }
 
     &-title {
+      $line-height: 11.6rem;
+
       position: relative;
+      width: 100%;
+      height: $line-height * 2;
       color: $text-color-white;
-      font: 700 11.6rem/1 $font-title;
-      line-height: 0.97;
+      font: 700 11.6rem/#{$line-height} $font-title;
       letter-spacing: -0.02em;
       text-transform: uppercase;
 
       @include below($hd) {
+        $line-height: 11.6rem;
+
+        height: $line-height * 2;
         font-size: 6.8rem;
-        line-height: 7.2rem;
+        line-height: $line-height;
       }
     }
   }
