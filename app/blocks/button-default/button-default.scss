@@ -136,4 +136,48 @@
       border-color: darken($button-color-white--active, 10);
     }
   }
+
+  &_security {
+    color: $text-color-white;
+    background-color: $brand-color-security;
+    border-color: $brand-color-security;
+
+    &:not(:disabled):not(.disabled):hover {
+      background-color: darken($brand-color-security, 10);
+      border-color: darken($brand-color-security, 10);
+    }
+  }
+
+  &_medical {
+    color: $text-color-white;
+    background-color: $brand-color-medical;
+    border-color: $brand-color-medical;
+
+    &:not(:disabled):not(.disabled):hover {
+      background-color: darken($brand-color-medical, 20);
+      border-color: darken($brand-color-medical, 20);
+    }
+  }
+
+  &_science {
+    color: $text-color-white;
+    background-color: $brand-color-science;
+    border-color: $brand-color-science;
+
+    &:not(:disabled):not(.disabled):hover {
+      background-color: darken($brand-color-science, 10);
+      border-color: darken($brand-color-science, 10);
+    }
+  }
+
+  &_innovation {
+    color: $text-color-white;
+    background-color: $brand-color-innovation;
+    border-color: $brand-color-innovation;
+
+    &:not(:disabled):not(.disabled):hover {
+      background-color: darken($brand-color-innovation, 10);
+      border-color: darken($brand-color-innovation, 10);
+    }
+  }
 }

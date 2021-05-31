@@ -203,4 +203,304 @@
       opacity: 0; // hide panels before initialized
     }
   }
+
+  // Slider
+  &__slider {
+    position: relative;
+    padding: 0 #{$layout-page-space-h};
+    overflow: hidden;
+
+    @include below($lg) {
+      padding: 0 #{$layout-page-space-h_md};
+    }
+
+    @include below($md) {
+      padding: 0 #{$layout-page-space-h_sm};
+    }
+
+    html:not(.no-js) &:not(.is-loaded) {
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .swiper-container {
+      overflow: visible;
+    }
+
+    &-slide {
+      position: relative;
+      width: calc((100vh - 55.6rem) / 0.61); // Изменение ширины слайда через относительную высоту
+
+      &-photo {
+        position: relative;
+        overflow: hidden;
+        background-color: $bg-color-blue;
+
+        &::before {
+          display: block;
+          content: "";
+
+          @include ratio(868, 524);
+        }
+
+        &-img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    &-pagination {
+      position: relative;
+      bottom: auto;
+      left: auto;
+      z-index: 5;
+      display: none;
+      width: 100%;
+      margin-top: 1.5rem;
+      pointer-events: none;
+
+      @include below($lg) {
+        display: block;
+      }
+
+      &-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: -0.5rem 0;
+
+        &.swiper-pagination-lock {
+          display: none;
+        }
+      }
+
+      &-bullet {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        user-select: none;
+        pointer-events: auto;
+        -webkit-tap-highlight-color: transparent;
+
+        span {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          z-index: 5;
+          display: block;
+          width: 14px;
+          height: 14px;
+          margin: -7px;
+          background-color: $base-color;
+          border-radius: 14px;
+          opacity: 0.6;
+          transition: opacity $animation-speed;
+        }
+
+        // Active
+        &_active {
+          cursor: default;
+
+          span {
+            transform: scale(1) !important;
+            opacity: 1 !important;
+          }
+        }
+
+        // :hover
+        &:hover {
+          span {
+            opacity: 0.8;
+          }
+        }
+
+        // :active
+        &:active {
+          span {
+            transform: scale(0.96);
+          }
+        }
+      }
+    }
+
+    &-controls {
+      position: absolute;
+      top: 50%;
+      z-index: 5;
+      width: 100%;
+      height: 0;
+    }
+
+    &-button {
+      $size: 4rem;
+
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: $size;
+      height: $size;
+      margin-top: -#{round-float($size / 2, 1)};
+      color: black;
+      border-radius: $size;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity $animation-speed;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 1.2rem;
+        height: 2rem;
+        margin: -1rem -0.6rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        content: "";
+      }
+
+      &.swiper-button-lock {
+        display: none;
+      }
+
+      &_prev {
+        float: left;
+        margin-left: -1.4rem;
+
+        &::before {
+          background-image: url("data:image/svg+xml,%3Csvg width='12' height='20' viewBox='0 0 12 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2.85714L4.5 10L12 17.1429L10.5 20L0 10L10.5 0L12 2.85714Z' fill='%23000'/%3E%3C/svg%3E%0A");
+        }
+      }
+
+      &_next {
+        float: right;
+        margin-right: -1.4rem;
+
+        &::before {
+          background-image: url("data:image/svg+xml,%3Csvg width='12' height='20' viewBox='0 0 12 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 2.85714L7.5 10L0 17.1429L1.5 20L12 10L1.5 0L0 2.85714Z' fill='%23000'/%3E%3C/svg%3E%0A");
+        }
+      }
+
+      // :hover
+      &:not(.swiper-button-disabled):hover {
+        opacity: 1;
+      }
+
+      // :active
+      &:not(.swiper-button-disabled):active {
+        transform: scale(0.95);
+      }
+
+      // Disabled
+      &.swiper-button-disabled {
+        opacity: 0.3;
+      }
+    }
+  }
+
+  // person
+  &__person {
+    $photo-size: 6.4rem;
+
+    position: relative;
+    padding: 4.4rem #{$layout-page-space-h} 0;
+
+    @include below($hd) {
+      padding-top: 2.8rem;
+    }
+
+    @include below($lg) {
+      padding: 3.6rem #{$layout-page-space-h_md} 0;
+    }
+
+    @include below($md) {
+      padding: 2.4rem #{$layout-page-space-h_sm} 0;
+    }
+
+    &-meta {
+      @include clearfix;
+
+      margin-bottom: 1.6rem;
+    }
+
+    &-photo {
+      position: relative;
+      float: left;
+      width: $photo-size;
+      height: $photo-size;
+      overflow: hidden;
+      background-color: $bg-color-blue;
+      border-radius: $photo-size;
+
+      &-img {
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    &-name {
+      margin-left: $photo-size + 1.6rem;
+      color: $text-color-black;
+      font: bold 2.4rem/3.2rem $font-title;
+      letter-spacing: 0.006rem;
+      text-transform: uppercase;
+
+      @include truncate(100%);
+    }
+
+    &-post {
+      margin-left: $photo-size + 1.6rem;
+      color: $text-color-black;
+      font: 2rem/2.8rem $font;
+      letter-spacing: 0.02em;
+
+      @include truncate(100%);
+    }
+
+    &-descr {
+      $line-height: 3.2rem;
+      $line-count: 3;
+
+      display: -webkit-box;
+      max-height: $line-height * $line-count;
+      overflow: hidden;
+      font: 2.4rem/#{$line-height} $font;
+      letter-spacing: 0.02em;
+      -webkit-line-clamp: $line-count;
+      -webkit-box-orient: vertical;
+    }
+
+    &-footer {
+      margin-top: 4.2rem;
+
+      @include below($hd) {
+        margin-top: 2.8rem;
+      }
+
+      @include below($lg) {
+        margin-top: 3.6rem;
+      }
+
+      @include below($md) {
+        margin-top: 2.4rem;
+      }
+    }
+  }
 }
