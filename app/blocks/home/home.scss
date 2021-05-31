@@ -7,7 +7,7 @@
     padding-top: $header-height-top;
     overflow: hidden;
 
-    .fp-auto-height {
+    &.fp-auto-height {
       padding-top: 0;
     }
 

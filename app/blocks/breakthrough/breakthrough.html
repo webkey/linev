@@ -1,0 +1,32 @@
+<div class="breakthrough">
+  <div class="breakthrough__heading">
+    <div class="breakthrough__heading-figure scale-in js-lazy-load" data-bg="./assets/images/img-breakthrough-heading.jpg">&nbsp;</div>
+    <div class="breakthrough__heading-title fade-in-down">Breakthrough<br> news</div>
+  </div>
+  <div class="breakthrough__data">
+    <div class="breakthrough-data js-breakthrough-data">
+      <div class="breakthrough-data__thumbs">
+        <div class="breakthrough-data__thumbs-nav js-breakthrough-data-thumbs">
+          <a class="breakthrough-data__thumbs-item" href="#p1"><span>Company news</span></a>
+          <a class="breakthrough-data__thumbs-item" href="#p2"><span>Events</span></a>
+          <a class="breakthrough-data__thumbs-item" href="#p3"><span>Media and Press</span></a>
+          <a class="breakthrough-data__thumbs-item" href="#p4"><span>Journal</span></a>
+        </div>
+      </div>
+      <div class="breakthrough-data__panels js-breakthrough-data-thumbs-panels">
+        <div class="breakthrough-data__panel" id="p1">
+          @@include("blocks/breakthrough-data__panel/breakthrough-data__panel.html", { "part": "security" })
+        </div>
+        <div class="breakthrough-data__panel" id="p2">
+          @@include("blocks/breakthrough-data__panel/breakthrough-data__panel.html", { "part": "medical" })
+        </div>
+        <div class="breakthrough-data__panel" id="p3">
+          @@include("blocks/breakthrough-data__panel/breakthrough-data__panel.html", { "part": "science" })
+        </div>
+        <div class="breakthrough-data__panel" id="p4">
+          @@include("blocks/breakthrough-data__panel/breakthrough-data__panel.html", { "part": "innovation" })
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,3 +7,4 @@ app.nav.init();
 app.mobMenu.init();
 app.innovative.init();
 app.powerful.init();
+app.breakthrough.init();
