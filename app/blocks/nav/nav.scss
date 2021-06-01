@@ -25,6 +25,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    margin: 0 -2.4rem;
 
     @include below($lg) {
       display: block;
@@ -38,16 +39,20 @@
     $li: &;
 
     position: relative;
+    transition: {
+      property: filter;
+      duration: $animation-speed * 1.5;
+    };
 
     @include below($lg) {
       box-shadow: 0 1px 0 $line-color-blue;
     }
 
-    &.has-drop {
-      padding-right: 3.4rem;
+    &.hover {
+      filter: drop-shadow(0 2rem 6rem rgba(black, 0.2));
 
-      @include below($xl) {
-        padding-right: 3.2rem;
+      @include below($lg) {
+        filter: none;
       }
     }
 
@@ -58,6 +63,7 @@
       display: flex;
       align-items: center;
       height: $header-height-bottom;
+      padding: 0 2.4rem;
       color: $text-color-white;
       user-select: none;
 
@@ -66,16 +72,51 @@
         padding: 1.2rem 2rem;
       }
 
+      &::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        display: block;
+        background-color: $bg-color-white;
+        transform: scaleY(0);
+        transform-origin: left bottom;
+        transition: {
+          property: transform;
+          duration: $animation-speed;
+        };
+        content: "";
+        will-change: transform;
+      }
+
       @at-root {
+        #{$li}.has-drop & {
+          padding-right: 3.4rem;
+
+          &::before {
+            right: -1rem;
+          }
+
+          @include below($hd) {
+            padding-right: 3.2rem;
+          }
+        }
+
         // if link
         a#{$el} {
           text-decoration: none;
           transition: color $animation-speed;
 
           // js hover - class .hover
-          //#{$li}.hover & {
-          //  color: $link-color;
-          //}
+          #{$li}.hover & {
+            color: $link-color;
+
+            &::before {
+              transform: scaleY(1);
+            }
+          }
         }
       }
     }
@@ -88,9 +129,13 @@
       right: -0.4rem; // Выровнять по правому краю пункта стрелку, которая меньше области клика на 0,8rem
       width: $size;
       height: $size;
-      margin-top: -#{$size / 2};
+      margin-top: -#{$size / 2 - 0.3};
       font-size: 0;
       line-height: 0;
+      transition: {
+        property: transform;
+        duration: $animation-speed;
+      };
       user-select: none;
       -webkit-tap-highlight-color: transparent;
 
@@ -100,14 +145,63 @@
         margin: 0.4rem 0 0;
       }
 
+      @include below($hd) {
+        margin-top: -#{$size / 2 - 0.4};
+      }
+
+      &::before,
+      &::after {
+        $size: 3.2rem;
+
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        display: block;
+        width: $size;
+        height: $size;
+        margin: -#{round-float($size / 2, 1)};
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        transition: {
+          property: opacity;
+          duration: $animation-speed;
+        };
+        content: "";
+
+        @include below($hd) {
+          $size: 2.4rem;
+
+          width: $size;
+          height: $size;
+          margin: -#{$size / 2};
+        }
+      }
+
+      &::before {
+        background-image: url("data:image/svg+xml,%3Csvg width='33' height='32' viewBox='0 0 33 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.68 11.1064L16.8 17.2264L22.92 11.1064L24.8 12.9998L16.8 20.9998L8.80005 12.9998L10.68 11.1064Z' fill='white'/%3E%3C/svg%3E%0A");
+      }
+
+      &::after {
+        background-image: url("data:image/svg+xml,%3Csvg width='33' height='32' viewBox='0 0 33 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.68 11.1064L16.8 17.2264L22.92 11.1064L24.8 12.9998L16.8 20.9998L8.80005 12.9998L10.68 11.1064Z' fill='%23858585'/%3E%3C/svg%3E%0A");
+        opacity: 0;
+      }
+
       @at-root {
+        #{$li}:not(.has-drop) & {
+          display: none;
+        }
+
         // js hover - class .hover
         #{$li}.hover & {
-          margin-top: -#{$size / 2 - 0.6};
           transform: rotate(0.5turn);
 
-          @include below($xl) {
-            margin-top: -#{$size / 2 - 0.4};
+          &::before {
+            opacity: 0;
+          }
+
+          &::after {
+            opacity: 1;
           }
         }
 
@@ -119,42 +213,17 @@
           }
         }
       }
-
-      &::before {
-        $size: 3.2rem;
-
-        position: absolute;
-        top: 50%;
-        right: 50%;
-        display: block;
-        width: $size;
-        height: $size;
-        margin: -#{round-float($size / 2, 1)};
-        background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.88 14.1064L16 20.2264L22.12 14.1064L24 15.9998L16 23.9998L8 15.9998L9.88 14.1064Z' fill='%23fff'/%3E%3C/svg%3E%0A");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        content: "";
-
-        @include below($xl) {
-          $size: 2.4rem;
-
-          width: $size;
-          height: $size;
-          margin: -#{$size / 2};
-        }
-      }
     }
 
     &-drop {
       position: absolute;
       top: 100%;
       left: 0;
-      min-width: 40rem;
-      margin: 0 -2.4rem;
+      min-width: calc(100% + 1rem); // Компенсация отступа белой плашки под стрелкой
       padding: 0;
-      transform: translateY(0.5rem) scaleY(1.1);
+      transform: scaleY(1.15);
       transform-origin: top center;
+      backface-visibility: hidden;
       visibility: hidden;
       opacity: 0;
       transition: {
@@ -165,7 +234,7 @@
       will-change: opacity, transform;
 
       #{$li}:last-child & {
-        right: 0;
+        right: -1rem;
         left: auto;
       }
 
@@ -189,7 +258,7 @@
 
       @at-root {
         #{$li}.hover & {
-          transform: translateY(0) scaleY(1);
+          transform: scaleY(1);
           visibility: visible;
           opacity: 1;
           transition-duration: $animation-speed;
@@ -207,11 +276,9 @@
 }
 
 .sub-nav {
-  padding: 1.6rem 0;
-  font-size: 2rem;
-  line-height: 2.6rem;
+  padding: 0;
+  font-weight: 300;
   background-color: white;
-  box-shadow: 0 2rem 6rem rgba(41, 53, 72, 0.15);
 
   @include below($lg) {
     padding: 0;
@@ -233,14 +300,13 @@
     $li: &;
 
     position: relative;
+    padding: 0 2.4rem;
 
     @include below($lg) {
       box-shadow: 0 1px 0 $line-color-blue;
     }
 
     &.has-drop {
-      padding-right: 1rem;
-
       @include below($lg) {
         padding-right: 3.2rem;
       }
@@ -251,9 +317,21 @@
 
       position: relative;
       display: block;
-      padding: 0.8rem 2.4rem;
+      padding: 1.6rem 0;
       color: $text-color-black;
+      white-space: nowrap;
       user-select: none;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 0;
+        border-top: 1px solid $line-color-grey-divider;
+        content: "";
+      }
 
       @include below($lg) {
         padding: 0.8rem 2rem 0.8rem 3.6rem;
@@ -261,6 +339,16 @@
       }
 
       @at-root {
+        #{$li}:first-child & {
+          &::before {
+            content: none;
+          }
+        }
+
+        #{$li}.has-drop & {
+          padding-right: 1rem;
+        }
+
         // if link
         a#{$el} {
           text-decoration: none;
@@ -279,7 +367,204 @@
       $size: 3.2rem;
 
       position: absolute;
-      top: 0.5rem;
+      top: 2rem;
+      right: 0;
+      width: $size;
+      height: $size;
+      font-size: 0;
+      line-height: 0;
+      transform: rotate(-0.25turn);
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+
+      @include below($lg) {
+        $size: 4rem;
+
+        top: 0;
+        right: 0;
+        width: $size;
+        height: $size;
+        transform: rotate(0);
+      }
+
+      @at-root {
+        // js hover - class .hover
+        #{$li}.hover & {
+          transform: rotate(0.25turn);
+        }
+
+        // for mobile
+        #{$li}.is-open & {
+          @include below($lg) {
+            margin-top: 0.2rem;
+            transform: rotate(0.5turn);
+          }
+        }
+      }
+
+      &::before {
+        $size: 1.6rem;
+
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        display: block;
+        width: $size;
+        height: $size;
+        margin: -#{round-float($size / 2, 1)};
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTEuOTk5OCAxMy4xNzIyTDE2Ljk0OTggOC4yMjIxN0wxOC4zNjM4IDkuNjM2MTdMMTEuOTk5OCAxNi4wMDAyTDUuNjM1NzcgOS42MzYxN0w3LjA0OTc3IDguMjIyMTdMMTEuOTk5OCAxMy4xNzIyWiIvPjwvc3ZnPg==);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        content: "";
+
+        @include below($lg) {
+          $size: 2.4rem;
+
+          width: $size;
+          height: $size;
+          margin: -#{round-float($size / 2, 1)};
+          background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.88 14.1064L16 20.2264L22.12 14.1064L24 15.9998L16 23.9998L8 15.9998L9.88 14.1064Z' fill='%23fff'/%3E%3C/svg%3E%0A");
+        }
+      }
+    }
+
+    &-drop {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      min-width: 20rem;
+      transform: translateX(-0.2rem);
+      opacity: 0;
+      transition: opacity $animation-speed, transform $animation-speed;
+      pointer-events: none;
+
+      @include above($lg) {
+        display: block !important; // На десктопе перебивать установленный скриптом display: none;
+      }
+
+      @include below($lg) {
+        position: relative;
+        top: auto;
+        left: auto;
+        display: none;
+        min-width: 0;
+        margin-right: -3.2rem;
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      @at-root {
+        #{$li}.hover & {
+          transform: translateX(0);
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+
+      @at-root {
+        #{$li}.current & {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.sub-sub-nav {
+  padding: 0;
+  font-weight: 300;
+  background-color: white;
+
+  @include below($lg) {
+    padding: 0;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    background: none;
+    box-shadow: none;
+  }
+
+  &__list {
+    display: block;
+
+    @include below($lg) {
+      box-shadow: 0 -1px 0 $line-color-blue;
+    }
+  }
+
+  &__li {
+    $li: &;
+
+    position: relative;
+    padding: 0 2.4rem;
+
+    @include below($lg) {
+      box-shadow: 0 1px 0 $line-color-blue;
+    }
+
+    &.has-drop {
+      @include below($lg) {
+        padding-right: 3.2rem;
+      }
+    }
+
+    &-el {
+      $el: &;
+
+      position: relative;
+      display: block;
+      padding: 1.6rem 0;
+      color: $text-color-black;
+      white-space: nowrap;
+      user-select: none;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 0;
+        border-top: 1px solid $line-color-grey-divider;
+        content: "";
+      }
+
+      @include below($lg) {
+        padding: 0.8rem 2rem 0.8rem 3.6rem;
+        color: rgba($text-color-white, 0.85);
+      }
+
+      @at-root {
+        #{$li}:first-child & {
+          &::before {
+            content: none;
+          }
+        }
+
+        #{$li}.has-drop & {
+          padding-right: 1rem;
+        }
+
+        // if link
+        a#{$el} {
+          text-decoration: none;
+          transition: color $animation-speed;
+
+          // js hover - class .hover
+          //#{$li}.hover & {
+          &:hover {
+            color: $link-color;
+          }
+        }
+      }
+    }
+
+    &-arrow {
+      $size: 3.2rem;
+
+      position: absolute;
+      top: 2rem;
       right: 0;
       width: $size;
       height: $size;
@@ -363,175 +648,6 @@
         display: none;
         min-width: 0;
         margin-right: -3.2rem;
-        transform: translateX(0);
-        opacity: 1;
-        pointer-events: auto;
-      }
-
-      @at-root {
-        #{$li}.hover & {
-          transform: translateX(0);
-          opacity: 1;
-          pointer-events: auto;
-        }
-      }
-
-      @at-root {
-        #{$li}.current & {
-          display: block;
-        }
-      }
-    }
-  }
-}
-
-.sub-sub-nav {
-  padding: 1.6rem 0;
-  font-size: 2rem;
-  line-height: 2.6rem;
-  background-color: white;
-  box-shadow: 0 2rem 6rem rgba(41, 53, 72, 0.15);
-
-  @include below($lg) {
-    padding: 0;
-    font-size: 1.4rem;
-    line-height: 2rem;
-    background: none;
-    box-shadow: none;
-  }
-
-  &__list {
-    display: block;
-
-    @include below($lg) {
-      box-shadow: 0 -1px 0 $line-color-blue;
-    }
-  }
-
-  &__li {
-    $li: &;
-
-    position: relative;
-
-    @include below($lg) {
-      box-shadow: 0 1px 0 $line-color-blue;
-    }
-
-    &.has-drop {
-      padding-right: 1rem;
-
-      @include below($lg) {
-        padding-right: 2.8rem;
-      }
-    }
-
-    &-el {
-      $el: &;
-
-      position: relative;
-      display: block;
-      padding: 0.8rem 2.4rem;
-      color: $text-color-black;
-      user-select: none;
-
-      @include below($lg) {
-        padding: 0.8rem 2rem 0.8rem 5.2rem;
-        color: rgba($text-color-white, 0.7);
-      }
-
-      @at-root {
-        // if link
-        a#{$el} {
-          text-decoration: none;
-          transition: color $animation-speed;
-
-          // js hover - class .hover
-          //#{$li}.hover & {
-          //  color: $link-color;
-          //}
-
-          &:hover {
-            color: $link-color;
-          }
-        }
-      }
-    }
-
-    &-arrow {
-      $size: 2.8rem;
-
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: $size;
-      height: $size;
-      font-size: 0;
-      line-height: 0;
-      transform: rotate(-0.25turn);
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
-
-      @include below($lg) {
-        $size: 4rem;
-
-        top: -0.6rem;
-        right: -1.3rem;
-        width: $size;
-        height: $size;
-        transform: rotate(0);
-      }
-
-      @at-root {
-        // js hover - class .hover
-        #{$li}.hover & {
-          transform: rotate(0.25turn);
-        }
-
-        // for mobile
-        #{$li}.is-open & {
-          @include below($lg) {
-            transform: rotate(0.5turn);
-          }
-        }
-      }
-
-      &::before {
-        $size: 1.6rem;
-
-        position: absolute;
-        top: 50%;
-        right: 50%;
-        display: block;
-        width: $size;
-        height: $size;
-        margin: -#{round-float($size / 2, 1)};
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTEuOTk5OCAxMy4xNzIyTDE2Ljk0OTggOC4yMjIxN0wxOC4zNjM4IDkuNjM2MTdMMTEuOTk5OCAxNi4wMDAyTDUuNjM1NzcgOS42MzYxN0w3LjA0OTc3IDguMjIyMTdMMTEuOTk5OCAxMy4xNzIyWiIvPjwvc3ZnPg==);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        content: "";
-      }
-    }
-
-    &-drop {
-      position: absolute;
-      top: 0;
-      left: 100%;
-      min-width: 20rem;
-      transform: translateX(-0.5rem);
-      opacity: 0;
-      transition: opacity $animation-speed, transform $animation-speed;
-      pointer-events: none;
-
-      @include above($lg) {
-        display: block !important; // На десктопе перебивать установленный скриптом display: none;
-      }
-
-      @include below($lg) {
-        position: relative;
-        top: auto;
-        left: auto;
-        display: none;
         transform: translateX(0);
         opacity: 1;
         pointer-events: auto;
