@@ -108,6 +108,20 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
+      transform: translateY(20px);
+      visibility: hidden;
+      opacity: 0;
+      transition: {
+        property: opacity, visibility, transform;
+        delay: 0.2s;
+        duration: 0.5s;
+      };
+
+      &.completed {
+        transform: translateY(0);
+        visibility: visible;
+        opacity: 1;
+      }
     }
 
     &-link {
@@ -124,6 +138,11 @@
       letter-spacing: 0.03em;
       text-transform: uppercase;
       text-decoration: none;
+      transition: color $animation-speed;
+
+      &:hover {
+        color: #f11b1b;
+      }
 
       @include below($hd) {
         font-size: 1.6rem;
@@ -158,6 +177,8 @@
     align-items: flex-end;
     width: 100%;
     height: 50%;
+    overflow: hidden;
+    background-color: $brand-color-grey-2;
 
     &-figure {
       position: absolute;
@@ -198,6 +219,7 @@
       color: $text-color-white;
       font: bold 2.4rem/3.2rem $font-title;
       letter-spacing: 0.006em;
+      white-space: nowrap;
       text-transform: uppercase;
 
       @include below($hd) {

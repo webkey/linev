@@ -1,4 +1,5 @@
 app.common.init();
+app.pagePreloader.init();
 app.home.init();
 app.lazyLoad.init();
 app.lang.init();

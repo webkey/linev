@@ -7,6 +7,7 @@ app.home = {
   init() {
     if ($(this.initEl).length) {
       this.run();
+      this.typeAnimationIntro();
       this.typeAnimation();
     }
   },
@@ -60,10 +61,10 @@ app.home = {
         }
 
         // Открыть первый рол
-        const $innovative = $('.js-innovative-data', $destinationEl);
-        if ($innovative.length) {
-          $innovative.msRolls('open', $('#auto-open'));
-        }
+        // const $innovative = $('.js-innovative-data', $destinationEl);
+        // if ($innovative.length) {
+        //   $innovative.msRolls('open', $('#auto-open'));
+        // }
 
         // clearTimeout(timeoutVisualSet);
 
@@ -144,7 +145,6 @@ app.home = {
         }
       },
       afterRender() {
-        console.log('render');
         $('.js-fp-first').on('click', (e) => {
           e.preventDefault();
           fullpage_api.moveTo(1);
@@ -172,6 +172,25 @@ app.home = {
       });
 
       $(el).closest(this.sectionEl).data('typeit', instance);
+    });
+  },
+  typeAnimationIntro() {
+    const el = document.getElementById('js-text-intro');
+    const elShow = document.getElementById('js-show-text');
+
+    const instance = new TypeIt(el, {
+      speed: 30,
+      waitUntilVisible: true,
+      loop: false,
+      afterComplete() {
+        elShow.classList.add('completed');
+      },
+    });
+
+    $(window).on('load', () => {
+      setTimeout(() => {
+        instance.go();
+      }, 500);
     });
   },
 };

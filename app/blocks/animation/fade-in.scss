@@ -1,19 +1,16 @@
-@keyframes scaleIn {
+@keyframes fadeIn {
   from {
-    transform: scale(1.4);
     opacity: 0;
   }
 
   to {
-    transform: scale(1);
     opacity: 1;
   }
 }
 
-.scale-in {
-  $initDelay: 0.8s;
+.fade-in {
+  $initDelay: 0.5s;
 
-  transform: scale(1.4);
   opacity: 0;
   animation: {
     duration: $fp-animation-speed * 2;
@@ -25,14 +22,14 @@
   //.animation-start &,
   //.animation-end & {
   .after-ready & {
-    animation-name: scaleIn;
+    animation-name: fadeIn;
   }
 
   @for $i from 0 through 10 {
     //.animation-start &.dl-#{$i},
     //.animation-end &.dl-#{$i} {
     .after-ready &.dl-#{$i} {
-      animation-delay: $initDelay * $i * 0.25;
+      animation-delay: $initDelay * $i * 0.5;
     }
   }
 }

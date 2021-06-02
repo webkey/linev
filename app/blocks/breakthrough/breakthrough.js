@@ -35,7 +35,6 @@ app.breakthrough = {
     });
   },
   slider() {
-    const self = this;
     const $slider = $(this.sliderElement);
 
     if ($slider.length) {

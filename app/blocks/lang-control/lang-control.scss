@@ -7,7 +7,15 @@
   height: 4rem;
   overflow: hidden;
   text-decoration: none;
+  transition: {
+    property: opacity;
+    duration: $animation-speed;
+  };
   user-select: none;
+
+  &:hover {
+    opacity: 0.7;
+  }
 
   @include below($hd) {
     width: 2.4rem;
