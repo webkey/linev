@@ -82,11 +82,8 @@
         display: block;
         background-color: $bg-color-white;
         transform: scaleY(0);
-        transform-origin: left bottom;
-        transition: {
-          property: transform;
-          duration: $animation-speed;
-        };
+        transform-origin: right bottom;
+        transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
         content: "";
         will-change: transform;
       }
@@ -112,9 +109,11 @@
           // js hover - class .hover
           #{$li}.hover & {
             color: $link-color;
+            transition-duration: $animation-speed;
 
             &::before {
-              transform: scaleY(1);
+              transform: scaleY(1) skewY(0deg);
+              transition-duration: $animation-speed;
             }
           }
         }
@@ -221,7 +220,7 @@
       left: 0;
       min-width: calc(100% + 1rem); // Компенсация отступа белой плашки под стрелкой
       padding: 0;
-      transform: scaleY(1.15);
+      transform: scaleY(0.92);
       transform-origin: top center;
       backface-visibility: hidden;
       visibility: hidden;

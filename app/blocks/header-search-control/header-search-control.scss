@@ -1,34 +1,102 @@
 .header-search-control {
+  $btn: &;
+
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 4rem;
-  height: 4rem;
+  width: $header-height-top;
+  height: $header-height-top;
   color: inherit;
   text-decoration: none;
   cursor: pointer;
-  transition: $animation-speed;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 
-  @include below($hd) {
-    width: 2.4rem;
-    height: 2.4rem;
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    background-color: $bg-color-blue;
+    transform: scaleY(0) skewX(-18deg);
+    transform-origin: right bottom;
+    transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
+    content: "";
+    will-change: transform;
   }
 
   &:hover {
-    color: $line-color-blue;
+    &::before {
+      transform: scaleY(1) skewX(0deg);
+      transition-duration: $animation-speed;
+    }
   }
 
-  &__svg {
+  &__icon {
+    position: relative;
     display: block;
-    width: 100%;
-    height: 100%;
-    fill: currentColor;
+    width: 4rem;
+    height: 4rem;
+    transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
 
-    path {
-      fill: currentColor;
+    @include below($hd) {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
+      content: "";
+    }
+
+    &::before {
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.8333 23.3333H24.5167L24.05 22.8833C25.7398 20.9234 26.6685 18.4212 26.6667 15.8333C26.6667 12.9602 25.5253 10.2047 23.4937 8.17301C21.462 6.14137 18.7065 5 15.8333 5C12.9602 5 10.2047 6.14137 8.17301 8.17301C6.14137 10.2047 5 12.9602 5 15.8333C5 18.7065 6.14137 21.462 8.17301 23.4937C10.2047 25.5253 12.9602 26.6667 15.8333 26.6667C18.5167 26.6667 20.9833 25.6833 22.8833 24.05L23.3333 24.5167V25.8333L31.6667 34.1667L34.1667 31.6667L25.8333 23.3333ZM15.8333 23.3333C11.6667 23.3333 8.33333 20 8.33333 15.8333C8.33333 11.6667 11.6667 8.33333 15.8333 8.33333C20 8.33333 23.3333 11.6667 23.3333 15.8333C23.3333 20 20 23.3333 15.8333 23.3333Z' fill='%230D1623'/%3E%3C/svg%3E%0A");
+    }
+
+    &::after {
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.8333 23.3333H24.5167L24.05 22.8833C25.7398 20.9234 26.6685 18.4212 26.6667 15.8333C26.6667 12.9602 25.5253 10.2047 23.4937 8.17301C21.462 6.14137 18.7065 5 15.8333 5C12.9602 5 10.2047 6.14137 8.17301 8.17301C6.14137 10.2047 5 12.9602 5 15.8333C5 18.7065 6.14137 21.462 8.17301 23.4937C10.2047 25.5253 12.9602 26.6667 15.8333 26.6667C18.5167 26.6667 20.9833 25.6833 22.8833 24.05L23.3333 24.5167V25.8333L31.6667 34.1667L34.1667 31.6667L25.8333 23.3333ZM15.8333 23.3333C11.6667 23.3333 8.33333 20 8.33333 15.8333C8.33333 11.6667 11.6667 8.33333 15.8333 8.33333C20 8.33333 23.3333 11.6667 23.3333 15.8333C23.3333 20 20 23.3333 15.8333 23.3333Z' fill='%23ffffff'/%3E%3C/svg%3E%0A");
+      opacity: 0;
+    }
+
+    #{$btn}:hover & {
+      transform: translateX(-8%) translateY(8%);
+      transition-duration: $animation-speed;
+
+      &::before,
+      &::after {
+        transition-duration: $animation-speed;
+      }
+
+      &::before {
+        opacity: 0;
+      }
+
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    .is-collapsed & {
+      &::before {
+        opacity: 0;
+      }
+
+      &::after {
+        opacity: 1;
+      }
     }
   }
 }

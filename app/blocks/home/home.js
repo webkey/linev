@@ -7,7 +7,7 @@ app.home = {
   init() {
     if ($(this.initEl).length) {
       this.run();
-      this.typeAnimationIntro();
+      // this.typeAnimationIntro();
       this.typeAnimation();
     }
   },
@@ -114,7 +114,9 @@ app.home = {
         // Запустить анимацию "набор текста"
         const typeitInstanceDest = $destinationEl.data('typeit');
         if (typeitInstanceDest && !(typeitInstanceDest.is('started') || typeitInstanceDest.is('completed'))) {
-          typeitInstanceDest.go();
+          setTimeout(() => {
+            typeitInstanceDest.pause(500).go();
+          }, 1200);
         }
         if (typeitInstanceDest && typeitInstanceDest.is('frozen')) {
           typeitInstanceDest.unfreeze();
@@ -166,7 +168,7 @@ app.home = {
 
     elements.forEach((el) => {
       const instance = new TypeIt(el, {
-        speed: 50,
+        speed: 30,
         waitUntilVisible: true,
         loop: false,
       });
@@ -174,23 +176,23 @@ app.home = {
       $(el).closest(this.sectionEl).data('typeit', instance);
     });
   },
-  typeAnimationIntro() {
-    const el = document.getElementById('js-text-intro');
-    const elShow = document.getElementById('js-show-text');
-
-    const instance = new TypeIt(el, {
-      speed: 30,
-      waitUntilVisible: true,
-      loop: false,
-      afterComplete() {
-        elShow.classList.add('completed');
-      },
-    });
-
-    $(window).on('load', () => {
-      setTimeout(() => {
-        instance.go();
-      }, 500);
-    });
-  },
+  // typeAnimationIntro() {
+  //   const el = document.getElementById('js-text-intro');
+  //   const elShow = document.getElementById('js-show-text');
+  //
+  //   const instance = new TypeIt(el, {
+  //     speed: 20,
+  //     waitUntilVisible: true,
+  //     loop: false,
+  //     afterComplete() {
+  //       elShow.classList.add('completed');
+  //     },
+  //   });
+  //
+  //   $(window).on('load', () => {
+  //     setTimeout(() => {
+  //       instance.go();
+  //     }, 1200);
+  //   });
+  // },
 };

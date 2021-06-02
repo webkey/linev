@@ -176,6 +176,7 @@
   &__options {
     display: flex;
     align-items: center;
+    margin-right: -1rem;
   }
 
   &__search {
@@ -183,12 +184,12 @@
   }
 
   &__lang {
-    margin-left: 2.4rem;
+    margin-left: 0.4rem;
   }
 
   &__opener {
     display: none;
-    margin-left: 2.4rem;
+    margin-left: 0.4rem;
 
     @include below($lg) {
       display: block;

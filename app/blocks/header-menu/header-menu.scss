@@ -17,7 +17,7 @@
   }
 
   &.is-collapsed {
-    max-width: calc(100vw - 15rem - 8.2rem);
+    max-width: calc(100vw - 16rem - 8.2rem);
     transform: translateX(8.2rem) translateY(-100%);
 
     @include below($hd) {

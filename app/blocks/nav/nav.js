@@ -13,5 +13,9 @@ app.nav = {
         submenuPosition: false,
       });
     }
+
+    $(window).on('load', () => {
+      $nav.addClass('after-ready');
+    });
   },
 };

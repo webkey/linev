@@ -1,45 +1,41 @@
+@keyframes textSlideIn {
+  from {
+    transform: translateY(120%) skewY(8deg);
+  }
+
+  to {
+    transform: translateY(0) skewY(0deg);
+  }
+}
+
 .ts {
   $ts: &;
 
-  //margin: 0 0 -1rem;
-  //padding: 0 0 1rem;
-  display: inline-block;
   overflow: hidden;
-  vertical-align: top;
 
-  &_db {
-    display: block;
+  @at-root {
+    span#{$ts} {
+      display: inline-flex;
+    }
   }
 
   &__i {
-    $initDelay: 0.8s;
-
     position: relative;
     display: block;
-    transform: translateY(120%);
-    transition: {
-      property: transform, opacity;
-      delay: $initDelay;
-      duration: 1.2s;
-      //timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
-      timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    }
-    will-change: transform, opacity;
+    transform: translateY(120%) skewY(8deg);
+    animation: {
+      duration: $animation-duration;
+      timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); // cubic-bezier(0.35, 0.84, 0.42, 0.99)
+      fill-mode: both;
+    };
+    transform-origin: top left;
+    will-change: transform;
 
     @include antialiased;
 
     .no-js &,
     .after-ready & {
-      transform: translateY(0);
-    }
-
-    @for $i from 0 through 10 {
-      @at-root {
-        //.page-loaded .after-ready #{$ts}:nth-child(#{$i}) &,
-        .after-ready #{$ts}_dl-#{$i} & {
-          transition-delay: $initDelay * $i * 0.25;
-        }
-      }
+      animation-name: textSlideIn;
     }
   }
 }

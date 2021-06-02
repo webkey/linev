@@ -2,11 +2,31 @@
   display: flex;
   flex-wrap: wrap;
   height: 100%;
+  overflow: hidden;
   transform: translateY(-50%);
   transition: 0.5s;
 
   .hide-shade & {
     transform: translateY(0);
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &-inner {
+      height: 100%;
+      font-size: 0;
+      line-height: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      transform: scale(1.4);
+      opacity: 0.15;
+    }
   }
 
   &__heading {
@@ -18,7 +38,7 @@
     max-width: $width;
     height: 100%;
     padding: 4.4rem #{$layout-page-space-h};
-    background-color: $bg-color-blue;
+    //background-color: $bg-color-blue;
 
     @include below($hd) {
       $width: 50%;
@@ -39,20 +59,20 @@
       padding: 2.4rem #{$layout-page-space-h_sm};
     }
 
-    &-figure {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      font-size: 0;
-      line-height: 0;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      transform: scale(1.4);
-      opacity: 0.15;
-    }
+    //&-figure {
+    //  position: absolute;
+    //  top: 0;
+    //  left: 0;
+    //  width: 100%;
+    //  height: 100%;
+    //  font-size: 0;
+    //  line-height: 0;
+    //  background-repeat: no-repeat;
+    //  background-position: center;
+    //  background-size: cover;
+    //  transform: scale(1.4);
+    //  opacity: 0.15;
+    //}
 
     &-title {
       position: relative;
@@ -91,7 +111,6 @@
     width: $width;
     max-width: $width;
     height: 100%;
-    padding: 0 #{$layout-page-space-h};
     background-color: $bg-color-blue;
 
     @include below($hd) {
@@ -103,14 +122,6 @@
       height: 100%;
     }
 
-    @include below($lg) {
-      padding: 0 #{$layout-page-space-h_md};
-    }
-
-    @include below($md) {
-      padding: 0 #{$layout-page-space-h_sm};
-    }
-
     &-list {
       display: block;
     }
@@ -118,13 +129,7 @@
     &-item {
       $panel-height: 38vh;
 
-      padding: calc(10vh - #{$header-height-top / (5 * 2)} - #{(4rem / 2)} - #{$panel-height / (5 * 2)}) 0;
-      // Для компенсации статических элементов,
-      // из относительной высоты внутренних отступов вычитается:
-      // 1) высота шапки сайта разделенная на количество элементов ...-item * 2, т.к. отступы нижний и верхний
-      // 2) высота шапки пунктов разделенная на 2, т.к. отступы нижний и верхний
-      // 3) высота (тоже относительная) контента развернутого элемента разделенная на количество элементов ...-item * 2, т.к. отступы нижний и верхний
-      box-shadow: inset 0 -1px 0 $line-color-blue;
+      position: relative;
 
       @include below($lg) {
         padding: 3.6rem 0;
@@ -138,11 +143,27 @@
         border-bottom: none;
       }
 
+      &-divider {
+        position: absolute;
+        right: $layout-page-space-h;
+        bottom: 0;
+        left: $layout-page-space-h;
+        z-index: -1;
+        font-size: 0;
+        line-height: 0;
+        border-top: 1px solid $line-color-blue;
+      }
+
       &-header {
         $header: &;
 
         position: relative;
-        padding: 0.4rem 5.4rem 0.4rem 0;
+        padding: calc(10vh - #{$header-height-top / (5 * 2)} - #{(4rem / 2)} - #{$panel-height / (5 * 2)}) #{$layout-page-space-h};
+        // Для компенсации статических элементов,
+        // из относительной высоты внутренних отступов вычитается:
+        // 1) высота шапки сайта разделенная на количество элементов ...-item * 2, т.к. отступы нижний и верхний
+        // 2) высота шапки пунктов разделенная на 2, т.к. отступы нижний и верхний
+        // 3) высота (тоже относительная) контента развернутого элемента разделенная на количество элементов ...-item * 2, т.к. отступы нижний и верхний
         overflow: hidden;
         color: $text-color-white;
         font: bold 2.4rem/3.2rem $font-title;
@@ -151,32 +172,72 @@
         text-transform: uppercase;
         text-overflow: ellipsis;
         cursor: pointer;
-        transition: $animation-speed;
+        transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
         user-select: none;
 
         @include below($hd) {
           font-size: 2rem;
         }
 
+        @include below($lg) {
+          padding-right: #{$layout-page-space-h_md};
+          padding-left: #{$layout-page-space-h_md};
+        }
+
+        @include below($md) {
+          padding-right: #{$layout-page-space-h_sm};
+          padding-left: #{$layout-page-space-h_sm};
+        }
+
+        &::before {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: -1;
+          display: block;
+          background-color: $bg-color-white;
+          transform: scaleY(0) skewY(-12deg);
+          transform-origin: right bottom;
+          transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
+          content: "";
+          will-change: transform;
+        }
+
         &:hover {
-          opacity: 0.7;
+          color: $text-color-blue;
+          transition: $animation-speed;
+
+          &::before {
+            transform: scaleY(1) skewY(0deg);
+            transition-duration: $animation-speed;
+          }
+        }
+
+        &-inner {
+          display: block;
+          padding: 0.4rem 5.4rem 0.4rem 0;
         }
 
         &-angle {
           position: absolute;
-          top: 0;
-          right: 0;
+          top: 50%;
+          right: $layout-page-space-h;
           display: block;
           width: 4rem;
           height: 4rem;
+          margin-top: -2rem;
           font-size: 0;
           line-height: 0;
           //background-color: peru;
 
-          @include below($hd) {
-            top: 0.8rem;
-            width: 2.4rem;
-            height: 2.4rem;
+          @include below($lg) {
+            right: #{$layout-page-space-h_md};
+          }
+
+          @include below($md) {
+            right: #{$layout-page-space-h_sm};
           }
 
           span {
@@ -186,22 +247,47 @@
             height: 100%;
             transition: $animation-speed;
 
-            &::before {
+            &::before,
+            &::after {
               position: absolute;
               top: 0;
               left: 0;
               display: block;
               width: 100%;
               height: 100%;
-              background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.35 14.3002L20 21.9502L27.65 14.3002L30 16.6668L20 26.6668L10 16.6668L12.35 14.3002Z' fill='white'/%3E%3C/svg%3E%0A");
               background-repeat: no-repeat;
               background-position: center;
               background-size: contain;
+              transition: opacity $animation-speed-out;
               content: "";
+            }
+
+            &::before {
+              background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.35 14.3002L20 21.9502L27.65 14.3002L30 16.6668L20 26.6668L10 16.6668L12.35 14.3002Z' fill='white'/%3E%3C/svg%3E%0A");
+            }
+
+            &::after {
+              background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.35 14.3002L20 21.9502L27.65 14.3002L30 16.6668L20 26.6668L10 16.6668L12.35 14.3002Z' fill='%230870d8'/%3E%3C/svg%3E%0A");
+              opacity: 0;
             }
 
             #{$header}.is-active & {
               transform: rotate(0.5turn);
+            }
+
+            #{$header}:hover & {
+              &::before,
+              &::after {
+                transition-duration: $animation-speed;
+              }
+
+              &::before {
+                opacity: 0;
+              }
+
+              &::after {
+                opacity: 1;
+              }
             }
           }
         }
@@ -211,7 +297,19 @@
         $panel: &;
 
         height: $panel-height;
-        padding-top: 1.6rem;
+        padding: 1vh #{$layout-page-space-h} 2.4vh;
+
+        @include below($hd) {
+          padding-bottom: 2.8rem;
+        }
+
+        @include below($lg) {
+          padding: 1vh #{$layout-page-space-h_md} 2.4vh;
+        }
+
+        @include below($md) {
+          padding: 1vh #{$layout-page-space-h_sm} 2.4vh;
+        }
 
         &-content {
           display: flex;

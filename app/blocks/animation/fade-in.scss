@@ -9,8 +9,6 @@
 }
 
 .fade-in {
-  $initDelay: 0.5s;
-
   opacity: 0;
   animation: {
     duration: $fp-animation-speed * 2;
@@ -29,7 +27,7 @@
     //.animation-start &.dl-#{$i},
     //.animation-end &.dl-#{$i} {
     .after-ready &.dl-#{$i} {
-      animation-delay: $initDelay * $i * 0.5;
+      animation-delay: $animation-delay-start * $i * 0.5;
     }
   }
 }
