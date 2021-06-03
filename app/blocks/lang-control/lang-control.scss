@@ -16,7 +16,7 @@
     left: 0;
     display: block;
     background-color: $bg-color-blue;
-    transform: scaleY(0) skewX(-18deg);
+    transform: scaleY(0);
     transform-origin: right bottom;
     transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
     content: "";
@@ -28,8 +28,6 @@
     display: block;
     width: 4rem;
     height: auto;
-    backface-visibility: hidden;
-    transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
 
     @include below($hd) {
       width: 2.4rem;
@@ -38,12 +36,7 @@
 
   &:hover {
     &::before {
-      transform: scaleY(1) skewX(0deg);
-      transition-duration: $animation-speed;
-    }
-
-    img {
-      transform: translateX(-8%) translateY(8%);
+      transform: scaleY(1);
       transition-duration: $animation-speed;
     }
   }

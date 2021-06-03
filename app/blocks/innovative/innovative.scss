@@ -198,7 +198,7 @@
           z-index: -1;
           display: block;
           background-color: $bg-color-white;
-          transform: scaleY(0) skewY(-12deg);
+          transform: scaleY(0);
           transform-origin: right bottom;
           transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
           content: "";
@@ -210,7 +210,7 @@
           transition: $animation-speed;
 
           &::before {
-            transform: scaleY(1) skewY(0deg);
+            transform: scaleY(1);
             transition-duration: $animation-speed;
           }
         }
@@ -297,7 +297,7 @@
         $panel: &;
 
         height: $panel-height;
-        padding: 1vh #{$layout-page-space-h} 2.4vh;
+        padding: 1vh #{$layout-page-space-h} 4.4vh;
 
         @include below($hd) {
           padding-bottom: 2.8rem;
@@ -349,7 +349,7 @@
           bottom: 0;
           left: 0;
           display: block;
-          height: 3.2rem;
+          height: 2rem;
           background: linear-gradient(to top, rgba($color, 1) 0%, rgba($color, 0.9) 20%, rgba($color, 0) 100%);
           content: "";
 
@@ -376,10 +376,10 @@
 
       &-footer {
         width: 100%;
-        padding-top: 3.2rem;
+        padding-top: 1.6rem;
 
         @include below($hd) {
-          padding-top: 1.6rem;
+          padding-top: 0.8rem;
         }
 
         &:first-child {

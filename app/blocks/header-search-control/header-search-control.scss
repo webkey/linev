@@ -21,7 +21,7 @@
     left: 0;
     display: block;
     background-color: $bg-color-blue;
-    transform: scaleY(0) skewX(-18deg);
+    transform: scaleY(0);
     transform-origin: right bottom;
     transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
     content: "";
@@ -30,7 +30,7 @@
 
   &:hover {
     &::before {
-      transform: scaleY(1) skewX(0deg);
+      transform: scaleY(1);
       transition-duration: $animation-speed;
     }
   }
@@ -58,7 +58,6 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
-      transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
       content: "";
     }
 
@@ -72,9 +71,6 @@
     }
 
     #{$btn}:hover & {
-      transform: translateX(-8%) translateY(8%);
-      transition-duration: $animation-speed;
-
       &::before,
       &::after {
         transition-duration: $animation-speed;

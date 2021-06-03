@@ -1,17 +1,20 @@
 @keyframes slideFadeUpShortIn {
   from {
-    transform: translateY(5%) skewY(8deg);
+    //transform: translateY(5%) skewY(8deg);
+    transform: translateY(5%);
     opacity: 0;
   }
 
   to {
-    transform: translateY(0) skewY(0deg);
+    //transform: translateY(0) skewY(0deg);
+    transform: translateY(0);
     opacity: 1;
   }
 }
 
 .slide-fade-up-in-short {
-  transform: translateY(5%) skewY(8deg);
+  //transform: translateY(5%) skewY(8deg);
+  transform: translateY(5%);
   transform-origin: left top;
   opacity: 0;
   animation: {

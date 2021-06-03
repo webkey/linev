@@ -1,5 +1,5 @@
 @for $i from 1 through 10 {
   .after-ready .delay-#{$i} {
-    animation-delay: floor-float($i * ($animation-duration / 2) - $i * 0.25, 2);
+    animation-delay: floor-float($i * ($animation-duration / 2) - $i * 0.1, 2);
   }
 }

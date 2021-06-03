@@ -112,7 +112,7 @@
             transition-duration: $animation-speed;
 
             &::before {
-              transform: scaleY(1) skewY(0deg);
+              transform: scaleY(1);
               transition-duration: $animation-speed;
             }
           }

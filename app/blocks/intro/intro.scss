@@ -168,7 +168,7 @@
         z-index: -1;
         display: block;
         background-color: #f11b1b;
-        transform: scaleY(0) skewY(-8deg);
+        transform: scaleY(0);
         transform-origin: right bottom;
         transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
         content: "";
@@ -180,7 +180,7 @@
         transition: $animation-speed;
 
         &::before {
-          transform: scaleY(1) skewY(0deg);
+          transform: scaleY(1);
           transition-duration: $animation-speed;
         }
       }
@@ -205,7 +205,7 @@
 
         path:not(.play) {
           transition: $animation-speed-out;
-          fill: $brand-color-grey-2;
+          fill: #f11b1b;
 
           @at-root {
             #{$link}:hover & {
@@ -236,7 +236,7 @@
     width: 100%;
     height: 50%;
     overflow: hidden;
-    background-color: $brand-color-grey-2;
+    background-color: #a2adb3;
 
     &-figure {
       position: absolute;
