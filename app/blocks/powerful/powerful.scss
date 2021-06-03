@@ -9,6 +9,25 @@
     transform: translateY(0);
   }
 
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &-inner {
+      height: 100%;
+      font-size: 0;
+      line-height: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      transform: scale(1.4);
+      opacity: 0.15;
+    }
+  }
+
   &__heading {
     $width: 50%;
 
@@ -18,7 +37,7 @@
     max-width: $width;
     height: 100%;
     padding: 4.4rem #{$layout-page-space-h};
-    background-color: $bg-color-white;
+    //background-color: $bg-color-white;
 
     @include below($hd) {
       $width: 35.2%;
@@ -39,20 +58,20 @@
       padding: 2.4rem #{$layout-page-space-h_sm};
     }
 
-    &-figure {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      font-size: 0;
-      line-height: 0;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      transform: scale(1.4);
-      opacity: 0.15;
-    }
+    //&-figure {
+    //  position: absolute;
+    //  top: 0;
+    //  left: 0;
+    //  width: 100%;
+    //  height: 100%;
+    //  font-size: 0;
+    //  line-height: 0;
+    //  background-repeat: no-repeat;
+    //  background-position: center;
+    //  background-size: cover;
+    //  transform: scale(1.4);
+    //  opacity: 0.15;
+    //}
 
     &-title {
       position: relative;
@@ -233,19 +252,22 @@
 
     &-slide {
       position: relative;
-      width: calc((100vh - 55.6rem) / 0.61); // Изменение ширины слайда через относительную высоту
+      //width: calc((100vh - 55.6rem) / 0.61); // Изменение ширины слайда через относительную высоту
+      width: 100%;
+      height: calc(100vh - 55.6rem);
 
       &-photo {
         position: relative;
+        height: 100%;
         overflow: hidden;
         background-color: $bg-color-blue;
 
-        &::before {
-          display: block;
-          content: "";
-
-          @include ratio(868, 524);
-        }
+        //&::before {
+        //  display: block;
+        //  content: "";
+        //
+        //  @include ratio(868, 524);
+        //}
 
         &-img {
           position: absolute;
@@ -347,7 +369,7 @@
     }
 
     &-button {
-      $size: 4.8rem;
+      $size: 4.6rem;
 
       position: relative;
       display: flex;
@@ -411,7 +433,8 @@
 
       // Disabled
       &.swiper-button-disabled {
-        opacity: 0.3;
+        opacity: 0;
+        pointer-events: none;
       }
     }
   }
