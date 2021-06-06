@@ -1,19 +1,38 @@
 .expertise {
-  position: relative;
+  display: flex;
+  flex-wrap: wrap;
   height: 100%;
-  background-color: $bg-color-blue;
 
-  &__heading {
-    $width: 65%;
-
+  &__bg {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 5;
+    width: 100%;
+    height: 100%;
+
+    &-inner {
+      height: 100%;
+      font-size: 0;
+      line-height: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      transform: scale(1.4);
+    }
+  }
+
+  &__heading {
+    $width: 50%;
+
+    position: relative;
+    flex: 1 0 $width;
+    width: $width;
+    max-width: $width;
+    height: 100%;
     padding: 4.4rem #{$layout-page-space-h};
 
     @include below($hd) {
-      $width: 50%;
+      $width: 35.2%;
 
       flex-basis: $width;
       width: $width;
@@ -61,16 +80,162 @@
   }
 
   &__data {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    $width: 50%;
+
+    position: relative;
+    flex: 1 0 $width;
+    width: $width;
+    max-width: $width;
     height: 100%;
-    font-size: 0;
-    line-height: 0;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100% 100%;
-    transform: scale(1.4);
+    padding: 4.4rem #{$layout-page-space-h};
+    background-color: $bg-color-blue;
+
+    @include below($hd) {
+      $width: 64.8%;
+
+      flex: 1 0 $width;
+      width: $width;
+      max-width: $width;
+      height: 100%;
+      padding-top: 2.8rem;
+      padding-bottom: 2.8rem;
+    }
+
+    @include below($lg) {
+      padding: 3.6rem #{$layout-page-space-h_md};
+    }
+
+    @include below($md) {
+      padding: 2.4rem #{$layout-page-space-h_sm};
+    }
+
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin: 0 -1.4rem -2.8rem;
+    }
+
+    &-item {
+      $item: &;
+      $width: 50%;
+
+      flex: 1 0 $width;
+      max-width: $width;
+      padding: 0 1.4rem 2.8rem;
+
+      &-el {
+        $el: &;
+
+        position: relative;
+        display: block;
+        color: inherit;
+        text-decoration: none;
+
+        &::before {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          display: block;
+          background-color: $button-color-white;
+          transform: scaleY(0);
+          transform-origin: right bottom;
+          transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
+          content: "";
+          will-change: transform;
+        }
+
+        #{$item}:nth-child(1) & {
+          &::before {
+            background-color: $brand-color-security;
+          }
+        }
+
+        #{$item}:nth-child(2) & {
+          &::before {
+            background-color: $brand-color-medical;
+          }
+        }
+
+        #{$item}:nth-child(3) & {
+          &::before {
+            background-color: $brand-color-innovation;
+          }
+        }
+
+        #{$item}:nth-child(4) & {
+          &::before {
+            background-color: $brand-color-science;
+          }
+        }
+
+        &:hover {
+          &::before {
+            transform: scaleY(1);
+            transition-duration: $animation-speed * 3;
+          }
+        }
+
+        &-photo {
+          position: relative;
+          height: calc((100vh - #{6rem + 4.4rem * 2 + 2.8rem}) / 2 - 1rem - 3.4rem);
+          margin-bottom: 1rem;
+          overflow: hidden;
+
+          &-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            backface-visibility: hidden;
+            transition: $animation-speed-out;
+
+            #{$el}:hover & {
+              transform: scale(0.88);
+              transition: $animation-speed;
+            }
+          }
+        }
+
+        &-title {
+          position: relative;
+          display: inline-block;
+          padding: 0.6rem 0;
+          color: $text-color-white;
+          font: bold 2rem/2.4rem $font-button;
+          letter-spacing: 0.03rem;
+          text-transform: uppercase;
+          vertical-align: top;
+
+          #{$item}:nth-child(1) & {
+            box-shadow: inset 0 -2px 0 $brand-color-security;
+          }
+
+          #{$item}:nth-child(2) & {
+            box-shadow: inset 0 -2px 0 $brand-color-medical;
+          }
+
+          #{$item}:nth-child(3) & {
+            box-shadow: inset 0 -2px 0 $brand-color-innovation;
+          }
+
+          #{$item}:nth-child(4) & {
+            box-shadow: inset 0 -2px 0 $brand-color-science;
+          }
+
+          & > span {
+            display: block;
+            transform-origin: bottom left;
+            transition: transform $animation-speed-out;
+
+            #{$el}:hover & {
+              transform: translateX(2.4rem) scale(0.88, 1);
+              transition: $animation-speed;
+            }
+          }
+        }
+      }
+    }
   }
 }

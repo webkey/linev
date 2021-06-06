@@ -1,0 +1,13 @@
+<a href="#" class="expertise__data-item-el">
+  @@if(context.nth == 1){<div class="expertise__data-item-el-photo slide-fade-up-in-short delay-4">}
+  @@if(context.nth == 2){<div class="expertise__data-item-el-photo slide-fade-up-in-short delay-8">}
+  @@if(context.nth == 3){<div class="expertise__data-item-el-photo slide-fade-up-in-short delay-6">}
+  @@if(context.nth == 4){<div class="expertise__data-item-el-photo slide-fade-up-in-short delay-10">}
+    <img class="expertise__data-item-el-photo-img js-lazy-load" src="assets/images/empty.png" data-src="@@image" alt="@@title">
+  </div>
+  @@if(context.nth == 1){<div class="expertise__data-item-el-title slide-fade-up-in-short delay-5"><span>@@title</span></div>}
+  @@if(context.nth == 2){<div class="expertise__data-item-el-title slide-fade-up-in-short delay-9"><span>@@title</span></div>}
+  @@if(context.nth == 3){<div class="expertise__data-item-el-title slide-fade-up-in-short delay-7"><span>@@title</span></div>}
+  @@if(context.nth == 4){<div class="expertise__data-item-el-title slide-fade-up-in-short delay-11"><span>@@title</span></div>}
+</a>
+

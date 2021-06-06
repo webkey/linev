@@ -1,7 +1,45 @@
 <div class="expertise">
-<!--  <div class="expertise__heading">
-    <div class="expertise__heading-title">Ultra-fast<br> expertise</div>
-    <div class="expertise__heading-text js-type-text-animation">of complex and innovative products</div>
-  </div>-->
-  <div class="expertise__data scale-in js-lazy-load" data-bg="./assets/images/img-expertise-bg.jpg"></div>
+  <div class="expertise__bg scale-fade-down-in">
+    <div class="expertise__bg-inner js-lazy-load" data-bg="./assets/images/img-expertise-bg.jpg">&nbsp;</div>
+  </div>
+  <div class="expertise__heading">
+    <div class="expertise__heading-title fade-in-down">
+      <div class="ts"><span class="ts__i delay-1">expertise</span></div>
+      <div class="ts"><span class="ts__i delay-2">news</span></div>
+    </div>
+    <div class="expertise__heading-text js-type-text-animation">in the global security <span class="nobr">and healthcare</span> markets</div>
+  </div>
+  <div class="expertise__data slide-fade-right-in delay-2">
+    <div class="expertise__data-list">
+      <div class="expertise__data-item">
+        @@include("blocks/expertise__data-item-el/expertise__data-item-el.html", {
+        "image": "assets/images/img-expertise-01.jpg",
+        "title": "X-ray Security Screening Systems",
+        "nth": 1
+        })
+      </div>
+      <div class="expertise__data-item">
+        @@include("blocks/expertise__data-item-el/expertise__data-item-el.html", {
+        "image": "assets/images/img-expertise-02.jpg",
+        "title": "X-ray Medical Imaging Systems",
+        "nth": 2
+        })
+      </div>
+      <div class="expertise__data-item">
+        @@include("blocks/expertise__data-item-el/expertise__data-item-el.html", {
+        "image": "assets/images/img-expertise-03.jpg",
+        "title": "Benchtop Analytical Instruments",
+        "nth": 3
+        })
+      </div>
+      <div class="expertise__data-item">
+        @@include("blocks/expertise__data-item-el/expertise__data-item-el.html", {
+        "image": "assets/images/img-expertise-04.jpg",
+        "title": "X-ray NDT Inspection Systems",
+        "nth": 4
+        })
+      </div>
+    </div>
+  </div>
 </div>
+

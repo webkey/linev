@@ -2,12 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   height: 100%;
-  transform: translateY(-50%);
-  transition: 0.5s;
-
-  .hide-shade & {
-    transform: translateY(0);
-  }
 
   &__bg {
     position: absolute;
