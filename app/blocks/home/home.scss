@@ -19,6 +19,20 @@
       background-color: $bg-color-blue;
     }
 
+    &_bg {
+      &-white {
+        background-color: $bg-color-black;
+      }
+
+      &-blue {
+        background-color: $bg-color-black;
+      }
+
+      &-black {
+        background-color: $bg-color-black;
+      }
+    }
+
     &__shade {
       position: absolute;
       top: 0;
