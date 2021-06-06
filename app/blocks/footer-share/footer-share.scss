@@ -1,0 +1,52 @@
+.f-share {
+  $space: 0.9rem;
+
+  &__list {
+    display: flex;
+    align-items: flex-start;
+    margin: 0 -#{$space / 2} -#{$space};
+  }
+
+  &__item {
+    $size: 4rem;
+
+    position: relative;
+    display: inline-block;
+    width: $size;
+    height: $size;
+    margin: 0 #{$space / 2} #{$space};
+    color: rgba(white, 0.5);
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    text-align: left;
+    text-decoration: none;
+    vertical-align: top;
+    transition: color $animation-speed;
+
+    &:hover {
+      color: white;
+    }
+
+    & > span {
+      @include hide-text;
+    }
+
+    svg {
+      $size: 4rem;
+      $int: round-float($size / 2, 1);
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: inline-block;
+      width: $size;
+      height: $size;
+      margin: -#{$int} 0 0 -#{$int};
+      vertical-align: top;
+    }
+
+    path {
+      fill: currentColor;
+    }
+  }
+}

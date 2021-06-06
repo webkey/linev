@@ -1,4 +1,204 @@
 .footer {
-  color: $text-color-white;
+  color: rgba($text-color-white, 0.5);
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.03em;
   background: $bg-color-black;
+
+  &__top {
+    padding: 4.6rem #{$layout-page-space-h};
+    overflow: hidden;
+    border-top: 1px solid $line-color-black;
+
+    @include below($lg) {
+      padding: 1.4rem #{$layout-page-space-h_md};
+    }
+
+    @include below($md) {
+      padding: 1.4rem #{$layout-page-space-h_sm};
+    }
+  }
+
+  &__grid {
+    display: flex;
+    align-items: stretch;
+    margin: 0 -1.2rem;
+
+    &-item {
+      $width: 25%;
+
+      display: flex;
+      flex: 1 0 $width;
+      flex-direction: column;
+      max-width: $width;
+      padding: 0 1.2rem;
+      color: rgba($text-color-white, 0.5);
+
+      &-title {
+        width: 100%;
+        margin-bottom: 2rem;
+        color: $text-color-white;
+        font: bold 2.4rem/3.2rem $font-title;
+        letter-spacing: 0.006em;
+        text-transform: uppercase;
+
+        a {
+          color: inherit;
+          text-decoration: none;
+          transition: opacity $animation-speed;
+
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+      }
+
+      &-logo {
+        display: block;
+        width: 18.4rem;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: -0.4rem;
+      }
+
+      &-label {
+        width: 100%;
+        margin-bottom: 0.4rem;
+        color: $text-color-white;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        letter-spacing: 0.03em;
+      }
+
+      &-subscribe {
+        width: 100%;
+        margin-bottom: 1.6rem;
+      }
+
+      &-share {
+        width: 100%;
+        margin-top: auto;
+      }
+
+      &-links {
+        width: 100%;
+        margin-bottom: 2.4rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      &-link {
+        margin-bottom: 1.6rem;
+        font: 300 2.4rem/2.8rem $font-button;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        a {
+          color: $text-color-white;
+          text-decoration: none;
+          opacity: 0.5;
+          transition: opacity $animation-speed;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem #{$layout-page-space-h};
+    border-top: 1px solid $line-color-black;
+
+    @include below($lg) {
+      padding: 1.4rem #{$layout-page-space-h_md};
+    }
+
+    @include below($md) {
+      padding: 1.4rem #{$layout-page-space-h_sm};
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color $animation-speed;
+
+      &:hover {
+        color: $text-color-white;
+      }
+    }
+
+    .developer {
+      position: relative;
+      display: inline-block;
+      padding-right: 1.6rem;
+      color: $text-color-blue;
+      transition: color $animation-speed;
+
+      &::before,
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        width: 1.6rem;
+        height: 1.6rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        transition: opacity $animation-speed;
+        content: "";
+      }
+
+      &::before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M6.18364 3.59017C6.75535 1.83062 9.24465 1.83062 9.81636 3.59017C10.072 4.37706 10.8053 4.90983 11.6327 4.90983C13.4828 4.90983 14.252 7.27729 12.7553 8.36475C12.0859 8.85107 11.8058 9.71311 12.0615 10.5C12.6332 12.2595 10.6193 13.7227 9.12257 12.6353C8.4532 12.1489 7.5468 12.1489 6.87743 12.6353C5.38067 13.7227 3.36679 12.2595 3.9385 10.5C4.19418 9.71311 3.91409 8.85107 3.24472 8.36475C1.74796 7.27729 2.51719 4.90983 4.36729 4.90983C5.19468 4.90983 5.92797 4.37706 6.18364 3.59017Z' fill='%230870D8'/%3E%3C/svg%3E");
+      }
+
+      &::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M6.18364 3.59017C6.75535 1.83062 9.24465 1.83062 9.81636 3.59017C10.072 4.37706 10.8053 4.90983 11.6327 4.90983C13.4828 4.90983 14.252 7.27729 12.7553 8.36475C12.0859 8.85107 11.8058 9.71311 12.0615 10.5C12.6332 12.2595 10.6193 13.7227 9.12257 12.6353C8.4532 12.1489 7.5468 12.1489 6.87743 12.6353C5.38067 13.7227 3.36679 12.2595 3.9385 10.5C4.19418 9.71311 3.91409 8.85107 3.24472 8.36475C1.74796 7.27729 2.51719 4.90983 4.36729 4.90983C5.19468 4.90983 5.92797 4.37706 6.18364 3.59017Z' fill='%23fff'/%3E%3C/svg%3E");
+        opacity: 0;
+      }
+
+      &:hover {
+        color: $text-color-white;
+
+        &::before {
+          opacity: 0;
+        }
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    &-l {
+      max-width: 49rem;
+    }
+
+    &-r {
+      display: flex;
+      align-items: center;
+
+      &-item {
+        &:not(:last-child) {
+          margin-right: 0.8rem;
+
+          &::after {
+            display: inline;
+            margin-left: 0.8rem;
+            content: "|";
+          }
+        }
+      }
+    }
+  }
 }

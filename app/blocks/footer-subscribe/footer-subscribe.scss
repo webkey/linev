@@ -1,0 +1,179 @@
+.footer-subscribe {
+  $search-form-height: 4rem;
+
+  &__label {
+    margin-bottom: 0.4rem;
+
+    @include below($sm) {
+      margin-bottom: 1rem;
+    }
+
+    &-inner {
+      color: $text-color-white;
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      letter-spacing: 0.03em;
+    }
+  }
+
+  &__field {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__entry {
+    $width: 19.7rem;
+
+    flex: 1 0 $width;
+    max-width: $width;
+    margin-right: 1px;
+  }
+
+  &__input {
+    $input: &;
+    $font-size: 1.6rem;
+    $line-height: 2.8rem;
+    $ident-v: #{round-float(($search-form-height - $line-height) / 2, 1)};
+
+    display: block;
+    width: 100%;
+    height: $search-form-height;
+    margin: 0;
+    padding: #{$ident-v} 1.2rem;
+    color: white;
+    font-size: $font-size;
+    font-family: inherit;
+    line-height: $line-height;
+    background: rgba(white, 0.1);
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    cursor: text;
+
+    @at-root {
+      #{$input},
+      input#{$input} {
+        border-radius: 0;
+      }
+    }
+
+    @include input-placeholder {
+      color: rgba(white, 0.5);
+      transition: {
+        property: color, opacity;
+        duration: $animation-speed;
+      };
+    }
+
+    @include input-placeholder-focus {
+      opacity: 0;
+    }
+  }
+
+  &__submit {
+    $submit: &;
+    $width: 4rem;
+
+    position: relative;
+    display: block;
+    flex: 1 0 $width;
+    width: $width;
+    max-width: $width;
+    height: $width;
+    background-color: $button-color-blue;
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      background-color: #fff;
+      transform: scaleY(0);
+      transform-origin: right bottom;
+      transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
+      content: "";
+      will-change: transform;
+    }
+
+    input {
+      @include hide-text;
+    }
+
+    &-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      &::before,
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 4rem;
+        height: 4rem;
+        margin: -2rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        transition: opacity $animation-speed-out;
+        content: "";
+      }
+
+      &::before {
+        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.66669 18.3334V21.6667H26.6667L17.5 30.8334L19.8667 33.2001L33.0667 20L19.8667 6.80005L17.5 9.16672L26.6667 18.3334H6.66669Z' fill='white'/%3E%3C/svg%3E%0A");
+      }
+
+      &::after {
+        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.66669 18.3334V21.6667H26.6667L17.5 30.8334L19.8667 33.2001L33.0667 20L19.8667 6.80005L17.5 9.16672L26.6667 18.3334H6.66669Z' fill='%230870d8'/%3E%3C/svg%3E%0A");
+        opacity: 0;
+      }
+
+      #{$submit}:hover & {
+        &::before,
+        &::after {
+          transition: opacity $animation-speed;
+        }
+
+        &::before {
+          opacity: 0;
+        }
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    &:hover {
+      &::before {
+        transform: scaleY(1);
+        transition-duration: $animation-speed-out;
+      }
+    }
+
+    &:active {
+      transform: scale(0.94);
+      transition: 0.1s;
+    }
+  }
+
+  &__note {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 23.8rem;
+    max-width: 100%;
+    padding: 0.4rem 0;
+    color: $text-color-white;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    letter-spacing: 0.03em;
+    text-align: right;
+  }
+}
