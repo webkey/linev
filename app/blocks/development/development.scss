@@ -25,21 +25,20 @@
     }
   }
 
-  &__side-left,
-  &__side-right {
+  &__side {
     position: absolute;
     top: 0;
     width: 35%;
     height: 100%;
     background-color: $bg-color-blue;
-  }
 
-  &__side-left {
-    left: 0;
-  }
+    &_left {
+      left: 0;
+    }
 
-  &__side-right {
-    right: 0;
+    &_right {
+      right: 0;
+    }
   }
 
   &__heading {

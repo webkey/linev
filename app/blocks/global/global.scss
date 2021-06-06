@@ -1,46 +1,6 @@
 .global {
-  $start-delay: 0.4s;
-  $animation-speed: 0.8s;
-  $animation-speed-bottom-curve: 2.8s + 0.2s + 0.2s;
-
   position: relative;
   height: 100%;
-
-  &__bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: $bg-color-blue;
-
-    &-inner {
-      height: 100%;
-      font-size: 0;
-      line-height: 0;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      transform: scale(1.4);
-    }
-  }
-
-  &__side-left,
-  &__side-right {
-    position: absolute;
-    top: 0;
-    width: 35%;
-    height: 100%;
-    background-color: $bg-color-blue;
-  }
-
-  &__side-left {
-    left: 0;
-  }
-
-  &__side-right {
-    right: 0;
-  }
 
   &__heading {
     $width: 65%;
@@ -50,6 +10,7 @@
     left: 0;
     z-index: 5;
     padding: 4.4rem #{$layout-page-space-h};
+    pointer-events: none;
 
     @include below($hd) {
       $width: 50%;
@@ -86,6 +47,7 @@
     }
 
     &-text {
+      max-width: 55rem;
       color: $text-color-white;
       font: 500 3.2rem/4rem $font-title;
       letter-spacing: 0.006em;
@@ -109,428 +71,217 @@
     height: 100%;
   }
 
-  &__chart {
+  &__map {
     position: relative;
     // 1920 1020
-    //width: calc((100vh - #{$header-height-top}) / (1020 / 1920)); // Изменение ширины слайда через относительную высоту
-    width: 100%;
-    height: 100%;
+    width: calc((100vh - #{$header-height-top} - 17.9rem) / (698 / 1286)); // Изменение ширины слайда через относительную высоту
+    //width: 100%;
+    //height: 100%;
 
-    //&::before {
-    //  display: block;
-    //  content: "";
-    //
-    //  @include ratio(1020, 1920);
-    //}
+    &::before {
+      display: block;
+      content: "";
+
+      @include ratio(1286, 698);
+    }
 
     &-svg {
       position: absolute;
-      //top: 0;
+      top: 0;
       bottom: 0;
       left: 0;
       width: 100%;
-      //height: 100%;
-      height: auto;
-
-      //path {
-      //  stroke-dasharray: 2000;
-      //  stroke-dashoffset: 2000;
-      //  animation: dash 5s linear alternate forwards;
-      //}
-
-      .agile {
-        opacity: 0;
-
-        .after-ready & {
-          animation: agile 0.25s linear #{$start-delay + $animation-speed-bottom-curve + 0.5} alternate forwards;
-        }
-
-        @keyframes agile {
-          from {
-            opacity: 0;
-          }
-
-          to {
-            opacity: 1;
-          }
-        }
-      }
-
-      .arrow-left {
-        transform: translateX(4rem);
-        opacity: 0;
-
-        .after-ready & {
-          animation: arrow-left 0.3s linear #{$start-delay + $animation-speed-bottom-curve + 0.7} alternate forwards;
-        }
-
-        @keyframes arrow-left {
-          from {
-            transform: translateX(4rem);
-            opacity: 0;
-          }
-
-          to {
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
-      }
-
-      .arrow-right {
-        transform: translateX(-4rem);
-        opacity: 0;
-
-        .after-ready & {
-          animation: arrow-right 0.3s linear #{$start-delay + $animation-speed-bottom-curve + 0.7} alternate forwards;
-        }
-
-        @keyframes arrow-right {
-          from {
-            transform: translateX(-4rem);
-            opacity: 0;
-          }
-
-          to {
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
-      }
-
-      .x-axes {
-        stroke-dasharray: 1920;
-        stroke-dashoffset: 1920;
-
-        .after-ready & {
-          animation: x-axes $animation-speed linear #{$start-delay} alternate forwards;
-        }
-
-        @keyframes x-axes {
-          from {
-            stroke-dashoffset: 1920;
-          }
-
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-      }
-
-      .x-axes-2 {
-        stroke-dasharray: 1825;
-        stroke-dashoffset: 1825;
-
-        .after-ready & {
-          animation: x-axes-2 $animation-speed linear #{$start-delay} alternate forwards;
-        }
-
-        @keyframes x-axes-2 {
-          from {
-            stroke-dashoffset: 1825;
-          }
-
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-      }
-
-      .x-axes-3 {
-        stroke-dasharray: 580;
-        stroke-dashoffset: 580;
-
-        .after-ready & {
-          animation: x-axes-3 0.5s linear #{$start-delay + $animation-speed-bottom-curve + 0.8s} alternate forwards;
-        }
-
-        @keyframes x-axes-3 {
-          from {
-            stroke-dashoffset: 580;
-          }
-
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-      }
-
-      .y-axes {
-        stroke-dasharray: 1020;
-        stroke-dashoffset: 1020;
-
-        .after-ready & {
-          animation: y-axes $animation-speed linear #{$start-delay} alternate forwards;
-        }
-
-        @keyframes y-axes {
-          from {
-            stroke-dashoffset: 1020;
-          }
-
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-      }
-
-      .y-axes-2 {
-        stroke-dasharray: 176;
-        stroke-dashoffset: 176;
-
-        .after-ready & {
-          animation: y-axes-2 0.1s linear #{$start-delay + 7s + 0.45} alternate forwards;
-        }
-
-        @keyframes y-axes-2 {
-          from {
-            stroke-dashoffset: 176;
-          }
-
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-      }
-
-      .grids {
-        stroke-dasharray: 948;
-        stroke-dashoffset: 948;
-
-        .after-ready & {
-          animation: grids $animation-speed * 2 linear #{$start-delay + $animation-speed-bottom-curve} alternate forwards;
-        }
-
-        @keyframes grids {
-          from {
-            stroke-dashoffset: 948;
-          }
-
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-      }
-
-      .edges {
-        stroke-dasharray: 902;
-        stroke-dashoffset: 902;
-
-        .after-ready & {
-          animation: edges 0.5s linear #{$start-delay + $animation-speed-bottom-curve + 1s} alternate forwards;
-        }
-
-        @keyframes edges {
-          from {
-            stroke-dashoffset: 902;
-          }
-
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-      }
-
-      .top-curve {
-        stroke-dasharray: 1704;
-        stroke-dashoffset: 1704;
-
-        .after-ready & {
-          animation: top-curve #{$animation-speed} linear #{$start-delay + $animation-speed-bottom-curve + 1s} alternate forwards;
-        }
-
-        @keyframes top-curve {
-          from {
-            stroke-dashoffset: 1704;
-          }
-
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-      }
-
-      .bottom-curve {
-        stroke-dasharray: 1944;
-        stroke-dashoffset: 1944;
-
-        .after-ready & {
-          animation: bottom-curve #{$animation-speed-bottom-curve} linear #{$start-delay + 0.5} alternate forwards;
-        }
-
-        @keyframes bottom-curve {
-          from {
-            stroke-dashoffset: 1944;
-          }
-
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-      }
-
-      .dot-top-l {
-        transform: scale(0);
-        transform-origin: (670 / 1920 * 100%) (334 / 1020 * 100%);
-
-        .after-ready & {
-          animation: dot 0.3s linear #{$start-delay + $animation-speed-bottom-curve + 1.5s} alternate forwards;
-        }
-      }
-
-      .dot-top-r {
-        transform: scale(0);
-        transform-origin: (1252 / 1920 * 100%) (334 / 1020 * 100%);
-
-        .after-ready & {
-          animation: dot 0.3s linear #{$start-delay + $animation-speed-bottom-curve + 1.5s} alternate forwards;
-        }
-      }
-
-      .dot-bottom-l {
-        transform: scale(0);
-        transform-origin: (48 / 1920 * 100%) (763 / 1020 * 100%);
-
-        .after-ready & {
-          animation: dot 0.3s linear #{$start-delay + 0.5} alternate forwards;
-        }
-      }
-
-      .dot-bottom-r {
-        transform: scale(0);
-        transform-origin: (1874 / 1920 * 100%) (763 / 1020 * 100%);
-
-        .after-ready & {
-          animation: dot 0.3s linear #{$start-delay + $animation-speed-bottom-curve + 0.3} alternate forwards;
-        }
-      }
-
-      @keyframes dot {
-        from {
-          transform: scale(0);
-        }
-
-        50% {
-          transform: scale(1.5);
-        }
-
-        to {
-          transform: scale(1);
-        }
-      }
+      height: 100%;
     }
 
-    &-labels-y {
+    &-balloon {
       position: absolute;
-      bottom: 48.9rem;
-      left: floor-float(49 / 1920 * 100, 1) * 1%;
-      z-index: 10;
-      display: flex;
-      width: 100%;
-      color: $text-color-white;
-      font: bold 2rem/2.4rem $font-button;
-      letter-spacing: 0.03em;
-      text-align: center;
-      text-transform: uppercase;
+      top: 0;
+      left: 0;
+
+      &.is-open {
+        z-index: 5;
+      }
+
+      &_minsk {
+        top: 30.4%;
+        left: 55.9%;
+      }
+
+      &_conroe {
+        top: 43.3%;
+        left: 18.6%;
+      }
+
+      &_shenzhen {
+        top: 48.8%;
+        left: 81.2%;
+      }
+
+      &_kent {
+        top: 34%;
+        left: 46.3%;
+      }
+
+      &_petersburg {
+        top: 24%;
+        left: 56.2%;
+      }
 
       &-inner {
-        margin-left: 0.3rem;
-        transform: rotate(-0.25turn);
+        position: relative;
       }
-    }
 
-    &-labels-x {
-      position: absolute;
-      bottom: 4rem;
-      left: 0;
-      z-index: 10;
-      display: flex;
-      width: 100%;
-      padding: 0 (floor-float(49 / 1920 * 100, 1) * 1%);
-      color: $text-color-white;
-      font: bold 2rem/2.4rem $font-button;
-      letter-spacing: 0.03em;
-      text-align: center;
-      text-transform: uppercase;
+      &-hand {
+        $hand: &;
 
-      &-item {
-        flex: 1 0;
-        width: floor-float(100 / 7, 1) * 1%;
+        position: relative;
+        display: block;
+        padding-left: 3.2rem;
+        color: $text-color-grey;
+        white-space: nowrap;
+        text-decoration: none;
+        transform-origin: left center;
+        transition: color $animation-speed-out;
 
-        @for $i from 1 through 7 {
-          .after-ready &:nth-child(#{$i}) {
-            animation-delay: floor-float($start-delay - 0.2 + $i * ($animation-speed-bottom-curve / 7), 2);
+        &.is-open,
+        &:hover {
+          color: $text-color-white;
+          transition-duration: $animation-speed;
+        }
+
+        &-dot {
+          position: absolute;
+          top: 0.8rem;
+          left: 0;
+          width: 1.6rem;
+          height: 1.6rem;
+          border-radius: 50%;
+          box-shadow: 0 0 0 0.4rem currentColor;
+          transition: background-color $animation-speed-out;
+
+          #{$hand}.is-open & {
+            background-color: $bg-color-blue;
           }
         }
+
+        &-text {
+          font: bold 2.4rem/3.2rem $font-title;
+          letter-spacing: 0.006em;
+          text-transform: uppercase;
+        }
       }
-    }
 
-    &-caption {
-      position: absolute;
-      bottom: 17.1rem;
-      left: 0;
-      z-index: 10;
-      width: 100%;
-      color: $text-color-white;
+      &-popup {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 0.4rem 0;
+        overflow: hidden;
+        border-radius: 0 0 20rem 0;
+        transform: scale(0);
+        transform-origin: 0 0;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: {
+          property: border-radius, opacity, transform, visibility;
+          duration: $animation-speed-out;
+        };
 
-      &_up {
-        bottom: 67rem;
+        &.is-open {
+          border-radius: 0;
+          transform: scale(1);
+          visibility: visible;
+          opacity: 1;
+          transition-duration: $animation-speed;
+          pointer-events: auto;
+        }
 
-        & > div {
-          @for $i from 1 through 2 {
-            .after-ready &:nth-child(#{$i}) {
-              animation-delay: floor-float($start-delay + $animation-speed-bottom-curve + 0.5 + $i * 0.2, 2);
+        &-inner {
+          width: 27.9rem;
+          padding: 1.6rem;
+          background-color: $bg-color-white;
+          box-shadow: 0 0.4rem 2.4rem rgba(0, 0, 0, 0.2);
+        }
+
+        &-photo {
+          position: relative;
+          margin-bottom: 1.6rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          &::before {
+            display: block;
+            content: "";
+
+            @include ratio(247, 126);
+          }
+
+          &-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        &-logo {
+          display: block;
+          max-width: 100%;
+          height: auto;
+          margin-bottom: 1.2rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        &-address {
+          margin-bottom: 0.4rem;
+          color: #696969;
+          font-size: 2rem;
+          line-height: 2.8rem;
+          letter-spacing: 0.02em;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        &-phones {
+          margin-bottom: 1.6rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        &-phone {
+          margin-bottom: 0.8rem;
+          color: #696969;
+          font-size: 2rem;
+          line-height: 2.8rem;
+          letter-spacing: 0.02em;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          a {
+            color: inherit;
+            text-decoration: none;
+            transition: $animation-speed;
+
+            &:hover {
+              color: $link-color;
             }
           }
         }
-      }
-
-      &_middle {
-        bottom: 39.6rem;
-
-        & > div {
-          @for $i from 1 through 2 {
-            .after-ready &:nth-child(#{$i}) {
-              animation-delay: floor-float($start-delay + $animation-speed-bottom-curve + $i * 0.2, 2);
-            }
-          }
-        }
-      }
-
-      &_low {
-        bottom: 17.1rem;
-
-        & > div {
-          @for $i from 1 through 2 {
-            .after-ready &:nth-child(#{$i}) {
-              animation-delay: floor-float($start-delay + $i * 0.2, 2);
-            }
-          }
-        }
-      }
-
-      &-title {
-        width: 42rem;
-        max-width: 100%;
-        margin: 0 auto 0.8rem;
-        font: bold 2.4rem/3.2rem $font-title;
-        letter-spacing: 0.006em;
-        text-align: center;
-        text-transform: uppercase;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-
-      &-text {
-        width: 42rem;
-        max-width: 100%;
-        margin: 0 auto;
-        font-size: 2rem;
-        line-height: 2.8rem;
-        letter-spacing: 0.02em;
-        text-align: center;
       }
     }
   }

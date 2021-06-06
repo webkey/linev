@@ -10,3 +10,4 @@ app.mobMenu.init();
 app.innovative.init();
 app.powerful.init();
 app.breakthrough.init();
+app.global.init();

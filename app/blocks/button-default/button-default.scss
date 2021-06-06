@@ -154,6 +154,15 @@
     }
   }
 
+  &_blue {
+    color: $text-color-white;
+    background-color: $button-color-blue;
+
+    &::before {
+      background-color: $button-color-black;
+    }
+  }
+
   &_security {
     color: $text-color-white;
     text-transform: none;

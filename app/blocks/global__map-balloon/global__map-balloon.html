@@ -1,0 +1,21 @@
+<div class="global__map-balloon-inner js-balloon">
+  <a href="#" class="global__map-balloon-hand js-balloon-open">
+    <span class=" global__map-balloon-hand-dot scale-fade-down-in @@if(context.nth === 1){delay-4}@@if(context.nth === 2){delay-5}@@if(context.nth === 3){delay-6}@@if(context.nth === 4){delay-7}@@if(context.nth === 5){delay-8}"></span>
+    <div class="global__map-balloon-hand-text slide-fade-right-in-short @@if(context.nth === 1){delay-5}@@if(context.nth === 2){delay-6}@@if(context.nth === 3){delay-7}@@if(context.nth === 4){delay-8}@@if(context.nth === 5){delay-9}">@@city</div>
+  </a>
+  <div class="global__map-balloon-popup js-balloon-popup js-balloon-prevent-hide">
+    <div class="global__map-balloon-popup-inner">
+      <div class="global__map-balloon-popup-photo">
+        <img class="global__map-balloon-popup-photo-img" src="@@image" alt="image description" />
+      </div>
+      <img class="global__map-balloon-popup-logo" src="assets/images/contacts-logo.svg" alt="LINEV Group" />
+      <div class="global__map-balloon-popup-address">@@address</div>
+      <div class="global__map-balloon-popup-phones">
+        @@for (var i = 0; i < phone.length; i++){<div class="global__map-balloon-popup-phone"><a href="tel:`+phone[i]+`">`+phone[i]+`</a></div>}
+      </div>
+      <div class="global__map-balloon-popup-button">
+        @@include("blocks/button-default/button-default.html", { "href": "#", "text": "Follow to know more", "mods": ["blue", "full-width"]})
+      </div>
+    </div>
+  </div>
+</div>
