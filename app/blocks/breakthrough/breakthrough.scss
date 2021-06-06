@@ -9,6 +9,24 @@
     transform: translateY(0);
   }
 
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &-inner {
+      height: 100%;
+      font-size: 0;
+      line-height: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      transform: scale(1.4);
+    }
+  }
+
   &__heading {
     $width: 50%;
 
@@ -18,7 +36,6 @@
     max-width: $width;
     height: 100%;
     padding: 4.4rem #{$layout-page-space-h};
-    background-color: $bg-color-white;
 
     @include below($hd) {
       $width: 35.2%;
@@ -37,20 +54,6 @@
 
     @include below($md) {
       padding: 2.4rem #{$layout-page-space-h_sm};
-    }
-
-    &-figure {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      font-size: 0;
-      line-height: 0;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      transform: scale(1.4);
     }
 
     &-title {
@@ -134,49 +137,73 @@
       $line-height: 2.4rem;
 
       position: relative;
+      z-index: 1;
       display: block;
-      height: $line-height * 1 + 0.6;
+      height: $line-height * 1 + 1.2;
       margin-right: 1.8rem;
-      padding: 0 0 0.6rem;
+      padding: 0.6rem 0;
       overflow: hidden;
       color: $text-color-grey;
       font: bold 2rem/#{$line-height} $font-button;
       text-transform: uppercase;
       text-decoration: none;
-      box-shadow: inset 0 -1px 0 transparent;
-      transition: $animation-speed;
+      box-shadow: inset 0 -2px 0 transparent;
+      transform-origin: center bottom;
+      transition: $animation-speed-out;
       user-select: none;
       -webkit-tap-highlight-color: transparent;
 
-      &::after {
+      @include antialiased;
+
+      &::before {
         position: absolute;
+        top: 0;
+        right: 0;
         bottom: 0;
         left: 0;
+        z-index: -1;
         display: block;
-        width: 100%;
-        border-top: 2px solid $line-color-grey-slider;
-        transform: scaleX(0);
-        transform-origin: 100% 100%;
-        transition: $animation-speed;
+        background-color: $button-color-blue;
+        transform: scaleY(0);
+        transform-origin: left bottom;
+        transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
         content: "";
+        will-change: transform;
+      }
+
+      & > div {
+        position: relative;
+        transition: transform $animation-speed-out;
       }
 
       &:last-child {
         margin-right: 0;
       }
 
-      &:hover {
-        color: $text-color-blue;
+      &:not(.is-active):hover {
+        color: $text-color-white;
+        transition-duration: $animation-speed;
+
+        &::before {
+          transform: scaleY(1);
+          transition-duration: $animation-speed;
+        }
+
+        & > div {
+          transform: scale(0.8, 0.9);
+          transition-duration: $animation-speed;
+        }
+      }
+
+      &:active {
+        transform: scale(0.98);
+        transition: 0.1s;
       }
 
       &.is-active {
         color: $text-color-blue;
-
-        &::after {
-          border-color: currentColor;
-          transform: scaleX(1);
-          transform-origin: 0 100%;
-        }
+        box-shadow: inset 0 -2px 0 $text-color-blue;
+        cursor: default;
       }
     }
   }
@@ -219,26 +246,27 @@
 
     &-slide {
       position: relative;
-      width: calc((100vh - 43rem) / 1.4); // Изменение ширины слайда через относительную высоту
+      //width: calc((100vh - 43rem) / 1.4); // Изменение ширины слайда через относительную высоту
 
       &-photo {
         position: relative;
+        height: calc(100vh - 42.6rem);
         margin-bottom: 1.6rem;
         overflow: hidden;
         background-color: $bg-color-blue;
 
-        &::before {
-          display: block;
-          content: "";
-
-          @include ratio(420, 589);
-        }
+        //&::before {
+        //  display: block;
+        //  content: "";
+        //
+        //  @include ratio(420, 589);
+        //}
 
         &-img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 1;
+          //position: absolute;
+          //top: 0;
+          //left: 0;
+          //z-index: 1;
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -277,19 +305,55 @@
       }
 
       &-footer {
-        display: block;
+        display: flex;
+        align-items: flex-start;
       }
 
       &-link {
+        width: 100%;
+        padding: 1.2rem 2rem;
         color: $button-color-blue;
         font: bold 1.6rem/2rem $font-button;
         letter-spacing: 0.04rem;
         text-transform: uppercase;
         text-decoration: none;
-        transition: $animation-speed;
+        transition: color $animation-speed-out;
+
+        &::before {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          display: block;
+          background-color: $button-color-blue;
+          transform: scaleY(0);
+          transform-origin: right bottom;
+          transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
+          content: "";
+          will-change: transform;
+        }
+
+        & > span {
+          position: relative;
+          display: block;
+          transform: translateX(-2rem);
+          transition: transform $animation-speed-out;
+        }
 
         &:hover {
-          color: $button-color-blue--hover;
+          color: $button-color-white;
+          transition-duration: $animation-speed;
+
+          &::before {
+            transform: scaleY(1);
+            transition-duration: $animation-speed;
+          }
+
+          & > span {
+            transform: translateX(0);
+            transition-duration: $animation-speed;
+          }
         }
 
         &:active {
@@ -386,7 +450,7 @@
     }
 
     &-button {
-      $size: 4.8rem;
+      $size: 4.6rem;
 
       position: relative;
       display: flex;
@@ -404,17 +468,35 @@
       -webkit-tap-highlight-color: transparent;
       user-select: none;
 
-      &::before {
+      &::before,
+      &::after {
         position: absolute;
+        display: block;
+        content: "";
+      }
+
+      &::before {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
+        background-color: $button-color-black;
+        transform: scaleY(0);
+        transform-origin: right bottom;
+        //filter: invert(1);
+        transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
+        will-change: transform;
+      }
+
+      &::after {
         top: 50%;
         left: 50%;
-        display: block;
         width: 1.2rem;
         height: 2rem;
         margin: -1rem -0.6rem;
         background-repeat: no-repeat;
         background-position: center;
-        content: "";
       }
 
       &.swiper-button-lock {
@@ -424,7 +506,7 @@
       &_prev {
         float: left;
 
-        &::before {
+        &::after {
           background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.6835 27.6333L18.0502 20L25.6835 12.35L23.3335 10L13.3335 20L23.3335 30L25.6835 27.6333Z' fill='white'/%3E%3C/svg%3E%0A");
         }
       }
@@ -432,25 +514,34 @@
       &_next {
         float: right;
 
-        &::before {
+        &::after {
           background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.3165 27.6333L21.9499 20L14.3165 12.35L16.6665 10L26.6665 20L16.6665 30L14.3165 27.6333Z' fill='white'/%3E%3C/svg%3E%0A");
         }
       }
 
       // :hover
       &:not(.swiper-button-disabled):hover {
-        background-color: $button-color-blue--hover;
+        &::before {
+          transform: scaleY(1);
+          transition-duration: $animation-speed;
+        }
       }
 
       // :active
       &:not(.swiper-button-disabled):active {
-        background-color: $button-color-blue--active;
         transform: scale(0.95);
+        transition: 0.1s;
+
+        &::before {
+          transform: scaleY(1);
+          transition-duration: $animation-speed;
+        }
       }
 
       // Disabled
       &.swiper-button-disabled {
-        opacity: 0.3;
+        opacity: 0;
+        pointer-events: none;
       }
     }
   }

@@ -9,7 +9,7 @@ app.breakthrough = {
     },
   },
   sliderElement: '.js-breakthrough-slider',
-  slidesPerView: 1,
+  slidesPerView: 2,
   init() {
     if ($(this.tabs.el).length) {
       this.main();
@@ -35,6 +35,7 @@ app.breakthrough = {
     });
   },
   slider() {
+    const self = this;
     const $slider = $(this.sliderElement);
 
     if ($slider.length) {
@@ -48,9 +49,9 @@ app.breakthrough = {
           init: false,
           loop: false, // not work correctly along with "watchOverflow: true"
           autoHeight: false,
-          // slidesPerView: self.slidesPerView,
-          slidesPerView: 'auto',
-          // slidesPerGroup: self.slidesPerView,
+          // slidesPerView: 'auto',
+          slidesPerView: self.slidesPerView,
+          slidesPerGroup: self.slidesPerView,
           spaceBetween: 24,
           watchSlidesVisibility: true,
           lazy: false,
