@@ -315,8 +315,8 @@
       }
 
       .edges {
-        stroke-dasharray: 900;
-        stroke-dashoffset: 900;
+        stroke-dasharray: 902;
+        stroke-dashoffset: 902;
 
         .after-ready & {
           animation: edges 0.5s linear #{$start-delay + $animation-speed-bottom-curve + 1s} alternate forwards;
@@ -324,7 +324,7 @@
 
         @keyframes edges {
           from {
-            stroke-dashoffset: 900;
+            stroke-dashoffset: 902;
           }
 
           to {
