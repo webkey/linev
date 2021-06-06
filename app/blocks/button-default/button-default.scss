@@ -170,8 +170,7 @@
     //border-color: $brand-color-security;
 
     &::before {
-      background-color: $brand-color-security;
-      filter: invert(1);
+      background-color: $button-color-black;
     }
   }
 
@@ -182,8 +181,7 @@
     //border-color: $brand-color-medical;
 
     &::before {
-      background-color: $brand-color-medical;
-      filter: invert(1);
+      background-color: $button-color-black;
     }
   }
 
@@ -194,8 +192,7 @@
     //border-color: $brand-color-innovation;
 
     &::before {
-      background-color: $brand-color-innovation;
-      filter: invert(1);
+      background-color: $button-color-black;
     }
   }
 
@@ -206,8 +203,7 @@
     //border-color: $brand-color-science;
 
     &::before {
-      background-color: $brand-color-science;
-      filter: invert(1);
+      background-color: $button-color-black;
     }
   }
 }

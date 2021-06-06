@@ -230,7 +230,7 @@
             transition: transform $animation-speed-out;
 
             #{$el}:hover & {
-              transform: translateX(2.4rem) scale(0.88, 1);
+              transform: translateX(2.4rem) translateY(-1.5rem) scale(0.88, 1);
               transition: $animation-speed;
             }
           }

@@ -272,6 +272,12 @@
       visibility: hidden; // hide panels before initialized
       opacity: 0; // hide panels before initialized
     }
+
+    &-el {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
   }
 
   // Photo
@@ -279,7 +285,7 @@
     position: relative;
     //width: calc((100vh - 55.6rem) / 0.61); // Изменение ширины слайда через относительную высоту
     width: 100%;
-    height: calc(100vh - 55rem);
+    height: calc(100vh - 56.2rem);
     padding: 0 #{$layout-page-space-h};
     overflow: hidden;
 
@@ -304,18 +310,18 @@
     $photo-size: 6.4rem;
 
     position: relative;
-    padding: 4.4rem #{$layout-page-space-h} 0;
+    padding: 4.4rem #{$layout-page-space-h};
 
     @include below($hd) {
       padding-top: 2.8rem;
     }
 
     @include below($lg) {
-      padding: 3.6rem #{$layout-page-space-h_md} 0;
+      padding: 3.6rem #{$layout-page-space-h_md};
     }
 
     @include below($md) {
-      padding: 2.4rem #{$layout-page-space-h_sm} 0;
+      padding: 2.4rem #{$layout-page-space-h_sm};
     }
 
     &-meta {
