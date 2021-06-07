@@ -29,7 +29,6 @@ app.home = {
       navigationTooltips: self.historyAnchors(),
       afterLoad(origin, destination) {
         $(self.sectionEl).removeClass('animation-end');
-        console.log('afterLoad');
 
         // Step scroll
         clearTimeout(scrollStep);
@@ -47,8 +46,6 @@ app.home = {
           $('.header').add('.header-menu').removeClass('is-collapsed');
         }
 
-        console.log('afterLoad origin: ', origin);
-        console.log('afterLoad destination: ', destination);
         if (destination.isLast && $destinationEl.hasClass('fp-auto-height')) {
           $destinationEl.prev().addClass('animation-end').addClass('after-ready');
           // $(origin.item).addClass('animation-end');
@@ -63,7 +60,6 @@ app.home = {
         }
       },
       onLeave(origin, destination) {
-        console.log('onLeave');
         fullpage_api.setAllowScrolling(false);
 
         $(self.sectionEl).removeClass('animation-start');
@@ -78,8 +74,6 @@ app.home = {
           $('.header').add('.header-menu').addClass('is-expanded').removeClass('is-collapsed');
         }
 
-        console.log('onLeave origin: ', origin);
-        console.log('onLeave destination: ', destination);
         $destinationEl.addClass('animation-start').addClass('before-ready');
         if (destination.isLast && $destinationEl.hasClass('fp-auto-height')) {
           $destinationEl.prev().addClass('animation-start').addClass('before-ready');

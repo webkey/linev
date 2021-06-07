@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "dev": "gulp dev",
-    "production": "cross-env NODE_ENV=prod npm-run-all build clean rename",
+    "deploy": "cross-env NODE_ENV=prod npm-run-all build clean rename",
     "build": "gulp build",
     "clean": "rimraf dist",
     "rename": "gulp renamePredistToDist",

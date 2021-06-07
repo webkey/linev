@@ -1,0 +1,20 @@
+<div class="breadcrumbs">
+  <ul itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs__list">
+    @@for (var i = 0; i < items.length; i++) {
+    <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <a class="breadcrumbs__item-el" itemprop="item" href="`+items[i].href+`"
+         title="Перейти на страницу: `+items[i].text+`">
+        <span class="breadcrumbs__item-el-in" itemprop="name">`+items[i].text+`</span>
+        <meta itemprop="position" content="`+i+`"/>
+      </a>
+    </li>
+    }
+    @@if(context.current){
+    <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <strong class="breadcrumbs__item-el">
+        <span class="breadcrumbs__item-el-in" itemprop="name">@@current</span>
+      </strong>
+    </li>
+    }
+  </ul>
+</div>

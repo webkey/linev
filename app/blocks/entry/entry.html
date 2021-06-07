@@ -1,0 +1,29 @@
+<div class="entry" data-aos="fade">
+  <div class="entry__bg"></div>
+  <div class="entry__container layout-content layout-content_has-spaces">
+    <div class="entry__breadcrumbs">
+      <div class="breadcrumbs breadcrumbs_white">
+        <ul itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs__list">
+          @@for (var i = 0; i < breadcrumbs.items.length; i++) {
+          <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a class="breadcrumbs__item-el" itemprop="item" href="`+breadcrumbs.items[i].href+`"
+               title="Перейти на страницу: `+breadcrumbs.items[i].text+`">
+              <span class="breadcrumbs__item-el-in" itemprop="name">`+breadcrumbs.items[i].text+`</span>
+              <meta itemprop="position" content="`+i+`"/>
+            </a>
+          </li>
+          }
+          @@if(context.breadcrumbs.current){
+          <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <strong class="breadcrumbs__item-el">
+              <span class="breadcrumbs__item-el-in" itemprop="name">@@breadcrumbs.current</span>
+            </strong>
+          </li>
+          }
+        </ul>
+      </div>
+    </div>
+    <h1 class="entry__title">@@title</h1>
+    <div class="entry__nav">{{ nav }}</div>
+  </div>
+</div>

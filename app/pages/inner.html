@@ -2,7 +2,18 @@
 @@include("blocks/header/header.html", {"currentItem": "Inner", "mods": ["float"]})
 @@include("blocks/page-preloader/page-preloader.html")
 <main class="main">
-  Main
+  @@include("blocks/entry/entry.html", {
+    "title": "Conpass story",
+    "breadcrumbs": {
+      "items": [
+        {"href": "index.html", "text": "Home"},
+        {"href": "company.html", "text": "Company"},
+        {"href": "inner.html", "text": "Articles"}
+      ],
+      "current": false
+    }
+  })
+  @@include("blocks/section-text-img-text/section-text-img-text.html")
 </main>
 @@include("blocks/footer/footer.html")
 @@include("blocks/link/link.html")

@@ -1,6 +1,7 @@
 app.common.init();
 app.pagePreloader.init();
 app.home.init();
+app.scrollEvents.init();
 app.aosAnimate.init();
 app.header.init();
 app.nav.init();

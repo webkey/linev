@@ -44,12 +44,96 @@ body {
 .main {
   position: relative;
   flex: 1 0 auto; // Footer at bottom
+  padding: #{$header-height-top + $header-height-bottom} 0 0;
 }
 
 .footer {
   z-index: 10;
   flex-shrink: 0; // Footer at bottom
   margin-top: auto;
+}
+
+.layout-site {
+  max-width: $layout-site-max-width;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.layout-page,
+.layout-content,
+.layout-narrow, {
+  &_has-spaces {
+    padding-right: $layout-page-space_h;
+    padding-left: $layout-page-space_h;
+
+    @include below($lg) {
+      padding-right: $layout-page-space_h_md;
+      padding-left: $layout-page-space_h_md;
+    }
+
+    @include below($md) {
+      padding-right: $layout-page-space_h_sm;
+      padding-left: $layout-page-space_h_sm;
+    }
+  }
+
+  &_no-max-width {
+    max-width: none;
+  }
+}
+
+.layout-page {
+  max-width: $layout-page-max-width;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.layout-content {
+  max-width: $layout-content-max-width;
+
+  &_has-spaces {
+    max-width: calc(#{$layout-content-max-width} + #{$layout-page-space-h} * 2);
+
+    @include below($lg) {
+      max-width: calc(#{$layout-content-max-width} + #{$layout-page-space-h_md} * 2);
+    }
+
+    @include below($md) {
+      max-width: calc(#{$layout-content-max-width} + #{$layout-page-space-h_sm} * 2);
+    }
+  }
+}
+
+.layout-narrow {
+  max-width: $layout-narrow-max-width;
+
+  &_has-spaces {
+    max-width: calc(#{$layout-narrow-max-width} + #{$layout-page-space_h} * 2);
+
+    @include below($lg) {
+      max-width: calc(#{$layout-narrow-max-width} + #{$layout-page-space_h_md} * 2);
+    }
+
+    @include below($md) {
+      max-width: calc(#{$layout-narrow-max-width} + #{$layout-page-space_h_sm} * 2);
+    }
+  }
+}
+
+.layout-content,
+.layout-narrow {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  &_align-left {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  &_align-right {
+    margin-right: 0;
+  }
 }
 
 img {

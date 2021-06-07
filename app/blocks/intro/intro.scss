@@ -31,21 +31,21 @@
     align-items: flex-end;
     max-width: $width;
     height: 50%;
-    padding: 4.4rem #{$layout-page-space-h};
+    padding: #{$layout-page-space-v} #{$layout-page-space-h};
     overflow: hidden;
     //background-color: $bg-color-blue;
 
     @include below($hd) {
-      padding-top: 2.8rem;
-      padding-bottom: 2.8rem;
+      padding-top: #{$layout-page-space-v_lg};
+      padding-bottom: #{$layout-page-space-v_lg};
     }
 
     @include below($lg) {
-      padding: 3.6rem #{$layout-page-space-h_md};
+      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
     @include below($md) {
-      padding: 2.4rem #{$layout-page-space-h_sm};
+      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
 
     //&-figure {
@@ -92,20 +92,20 @@
     flex-direction: column;
     max-width: $width;
     height: 50%;
-    padding: 4.4rem #{$layout-page-space-h};
+    padding: #{$layout-page-space-v} #{$layout-page-space-h};
     background-color: $bg-color-white;
 
     @include below($hd) {
-      padding-top: 2.8rem;
-      padding-bottom: 2.8rem;
+      padding-top: #{$layout-page-space-v_lg};
+      padding-bottom: #{$layout-page-space-v_lg};
     }
 
     @include below($lg) {
-      padding: 3.6rem #{$layout-page-space-h_md};
+      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
     @include below($md) {
-      padding: 2.4rem #{$layout-page-space-h_sm};
+      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
 
     &-text {
@@ -256,19 +256,19 @@
       align-items: flex-end;
       justify-content: space-between;
       width: 100%;
-      padding: 4.4rem #{$layout-page-space-h};
+      padding: #{$layout-page-space-v} #{$layout-page-space-h};
 
       @include below($hd) {
-        padding-top: 2.8rem;
-        padding-bottom: 2.8rem;
+        padding-top: #{$layout-page-space-v_lg};
+        padding-bottom: #{$layout-page-space-v_lg};
       }
 
       @include below($lg) {
-        padding: 3.6rem #{$layout-page-space-h_md};
+        padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
       }
 
       @include below($md) {
-        padding: 2.4rem #{$layout-page-space-h_sm};
+        padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
       }
     }
 
