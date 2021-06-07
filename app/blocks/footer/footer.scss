@@ -116,6 +116,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.4rem #{$layout-page-space-h};
+    overflow: hidden;
     border-top: 1px solid $line-color-black;
 
     @include below($lg) {

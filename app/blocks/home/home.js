@@ -7,7 +7,6 @@ app.home = {
   init() {
     if ($(this.initEl).length) {
       this.run();
-      // this.typeAnimationIntro();
       this.typeAnimation();
     }
   },
@@ -48,8 +47,11 @@ app.home = {
           $('.header').add('.header-menu').removeClass('is-collapsed');
         }
 
+        console.log('afterLoad origin: ', origin);
+        console.log('afterLoad destination: ', destination);
         if (destination.isLast && $destinationEl.hasClass('fp-auto-height')) {
-          $(origin.item).addClass('animation-end');
+          $destinationEl.prev().addClass('animation-end').addClass('after-ready');
+          // $(origin.item).addClass('animation-end');
         }
 
         // На вторую секцию добавить класс удаления тени
@@ -59,28 +61,6 @@ app.home = {
         if (destination.isFirst) {
           $originEl.removeClass('hide-shade');
         }
-
-        // Открыть первый рол
-        // const $innovative = $('.js-innovative-data', $destinationEl);
-        // if ($innovative.length) {
-        //   $innovative.msRolls('open', $('#auto-open'));
-        // }
-
-        // clearTimeout(timeoutVisualSet);
-
-        // timeoutVisualSet = setTimeout(function () {
-        //   // Play accident video
-        //   const $accident = $destinationEl.find('.accident');
-        //   if ($accident.length) {
-        //     app.accident.playVideo();
-        //   }
-        // }, 50);
-
-        // Reset accident video
-        // const $accident = $originEl.find('.accident');
-        // if ($accident.length) {
-        //   app.accident.resetVideo();
-        // }
       },
       onLeave(origin, destination) {
         console.log('onLeave');
@@ -98,9 +78,12 @@ app.home = {
           $('.header').add('.header-menu').addClass('is-expanded').removeClass('is-collapsed');
         }
 
+        console.log('onLeave origin: ', origin);
+        console.log('onLeave destination: ', destination);
         $destinationEl.addClass('animation-start').addClass('before-ready');
         if (destination.isLast && $destinationEl.hasClass('fp-auto-height')) {
-          $originEl.addClass('animation-start');
+          $destinationEl.prev().addClass('animation-start').addClass('before-ready');
+          // $originEl.addClass('animation-start');
         }
 
         // На вторую секцию добавить класс удаления тени
@@ -125,18 +108,6 @@ app.home = {
         if (typeitInstanceOrig && typeitInstanceOrig.is('started') && !typeitInstanceOrig.is('completed')) {
           typeitInstanceOrig.freeze();
         }
-
-        // if (app.scan) {
-        //   app.scan.reset();
-        // }
-        //
-        // if (app.macro) {
-        //   app.macro.reset();
-        // }
-        //
-        // if (app.micro) {
-        //   app.micro.reset();
-        // }
 
         if (app.lang) {
           $('.js-lang-control').switchClass('remove');
@@ -176,23 +147,4 @@ app.home = {
       $(el).closest(this.sectionEl).data('typeit', instance);
     });
   },
-  // typeAnimationIntro() {
-  //   const el = document.getElementById('js-text-intro');
-  //   const elShow = document.getElementById('js-show-text');
-  //
-  //   const instance = new TypeIt(el, {
-  //     speed: 20,
-  //     waitUntilVisible: true,
-  //     loop: false,
-  //     afterComplete() {
-  //       elShow.classList.add('completed');
-  //     },
-  //   });
-  //
-  //   $(window).on('load', () => {
-  //     setTimeout(() => {
-  //       instance.go();
-  //     }, 1200);
-  //   });
-  // },
 };
