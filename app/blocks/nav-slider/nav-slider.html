@@ -1,0 +1,28 @@
+<div class="nav-slider js-nav-slider">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      @@for (var i = 0; i < slides.length; i++) {
+      <a href="`+slides[i].href+`" class="swiper-slide nav-slider__slide">
+        <div class="nav-slider__slide-figure">
+          <div class="nav-slider__slide-figure-inner">
+            <img class="nav-slider__slide-figure-img js-lazy-load" src="assets/images/empty.png" data-src="`+slides[i].image+`" alt="image description" />
+          </div>
+          <div class="nav-slider__slide-number">`+slides[i].number+`</div>
+        </div>
+        <div class="nav-slider__slide-text">`+slides[i].text+`</div>
+      </a>
+      }
+    </div>
+  </div>
+  <div class="nav-slider__pagination">
+    <div class="layout-content layout-content_has-spaces">
+      <div class="nav-slider__pagination-list js-nav-slider__pagination"></div>
+    </div>
+  </div>
+  <div class="nav-slider__controls">
+    <div class="nav-slider__controls-holder">
+      <div class="nav-slider__button nav-slider__button_prev js-nav-slider-button-prev"></div>
+      <div class="nav-slider__button nav-slider__button_next js-nav-slider-button-next"></div>
+    </div>
+  </div>
+</div>

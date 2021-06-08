@@ -1,6 +1,5 @@
 app.scrollEvents = {
   init() {
-    const self = this;
     const $WINDOW = $(window);
     const $HTML = $('html');
 

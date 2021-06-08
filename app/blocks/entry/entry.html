@@ -24,6 +24,59 @@
       </div>
     </div>
     <h1 class="entry__title">@@title</h1>
-    <div class="entry__nav">{{ nav }}</div>
+    <div class="entry__nav">
+      @@include("blocks/nav-slider/nav-slider.html", {
+        "slides": [
+          {
+            "href": "",
+            "number": 1,
+            "text": "Firs ideas",
+            "image": "assets/images/img-nav-slider-01.jpg",
+          },
+          {
+            "href": "",
+            "number": 2,
+            "text": "From idea to prototype",
+            "image": "assets/images/img-nav-slider-02.jpg",
+          },
+          {
+            "href": "",
+            "number": 3,
+            "text": "The first client and his experience",
+            "image": "assets/images/img-nav-slider-03.jpg",
+          },
+          {
+            "href": "",
+            "number": 4,
+            "text": "Security in prisons",
+            "image": "assets/images/img-nav-slider-04.jpg",
+          },
+          {
+            "href": "",
+            "number": 5,
+            "text": "Counteracting smuggling",
+            "image": "assets/images/img-nav-slider-05.jpg",
+          },
+          {
+            "href": "",
+            "number": 6,
+            "text": "About the latest version",
+            "image": "assets/images/img-nav-slider-06.jpg",
+          },
+          {
+            "href": "",
+            "number": 7,
+            "text": "Application fields",
+            "image": "assets/images/img-nav-slider-07.jpg",
+          },
+          {
+            "href": "",
+            "number": 8,
+            "text": "Facts about CONPASS",
+            "image": "assets/images/img-nav-slider-08.jpg",
+          }
+        ]
+      })
+    </div>
   </div>
 </div>
