@@ -2,7 +2,7 @@
   <div class="swiper-container">
     <div class="swiper-wrapper">
       @@for (var i = 0; i < slides.length; i++) {
-      <a href="`+slides[i].href+`" class="swiper-slide nav-slider__slide">
+      <a href="`+slides[i].href+`" class="swiper-slide nav-slider__slide js-nav-slider-anchor">
         <div class="nav-slider__slide-figure">
           <div class="nav-slider__slide-figure-inner">
             <img class="nav-slider__slide-figure-img js-lazy-load" src="assets/images/empty.png" data-src="`+slides[i].image+`" alt="image description" />

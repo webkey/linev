@@ -1,14 +1,16 @@
 app.navSlider = {
-  sliderElement: '.js-nav-slider',
+  sliderEl: '.js-nav-slider',
+  anchor: '.js-nav-slider-anchor',
   slidesPerView: 6,
   init() {
-    if ($(this.sliderElement).length) {
+    if ($(this.sliderEl).length) {
       this.slider();
+      this.scrollTo();
     }
   },
   slider() {
     const self = this;
-    const $slider = $(this.sliderElement);
+    const $slider = $(this.sliderEl);
 
     if ($slider.length) {
       $.each($slider, function () {
@@ -62,5 +64,22 @@ app.navSlider = {
         sliderInstance.init();
       });
     }
+  },
+  scrollTo() {
+    $(this.anchor).on('click', function (e) {
+      e.preventDefault();
+
+      const $this = $(this);
+      const id = $this.attr('href');
+
+      if ($(id).length) {
+        const $html = $('html, body');
+        if (!$html.is(':animated')) {
+          $html.stop().animate({
+            scrollTop: $(id).offset().top - $('.header').innerHeight(),
+          }, 300);
+        }
+      }
+    });
   },
 };
