@@ -13,11 +13,6 @@
     background-color: $bg-color-white;
   }
 
-  @include below($hd) {
-    padding-top: #{$layout-page-space-v_lg};
-    padding-bottom: #{$layout-page-space-v_lg};
-  }
-
   @include below($lg) {
     padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
   }
@@ -69,10 +64,6 @@
 
     #{$el}_blue & {
       color: $text-color-blue;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
     }
 
     & > span {

@@ -1,0 +1,93 @@
+.section-definitions {
+  $el: &;
+
+  position: relative;
+  padding: #{$layout-page-space-v} #{$layout-page-space-h};
+  overflow: hidden;
+  background-color: $bg-color-white;
+
+  @include below($lg) {
+    padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+  }
+
+  @include below($md) {
+    padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+  }
+
+  &__row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: #{$layout-page-space-v};
+
+    @include below($lg) {
+      margin-bottom: #{$layout-page-space-v_md};
+    }
+
+    @include below($md) {
+      margin-bottom: #{$layout-page-space-v_sm};
+    }
+  }
+
+  &__title {
+    $width: 34%;
+
+    flex: 1 0 $width;
+    max-width: $width;
+    padding-right: 2.8rem;
+    color: $text-color-black;
+    font: bold 3.2rem/4rem $font-title;
+    text-transform: uppercase;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    & > span {
+      display: block;
+    }
+  }
+
+  &__description {
+    $width: 66%;
+
+    flex: 1 0 $width;
+    max-width: $width;
+    color: $text-color-black;
+    font-size: 2rem;
+    line-height: 2.4rem;
+    letter-spacing: 0.02em;
+
+    p {
+      margin-bottom: 2.8rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__figure {
+    display: block;
+    margin-bottom: 2.8rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-bottom: 0.8rem;
+    }
+
+    &-caption {
+      display: block;
+      color: $text-color-black;
+      font-size: 1.6rem;
+      line-height: 2rem;
+      letter-spacing: 0.025em;
+      opacity: 0.5;
+    }
+  }
+}

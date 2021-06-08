@@ -14,11 +14,6 @@
     padding: #{$layout-page-space-v} 4.4rem #{$layout-page-space-v} #{$layout-page-space-h};
     background-color: $bg-color-white;
 
-    @include below($hd) {
-      padding-top: #{$layout-page-space-v_lg};
-      padding-bottom: #{$layout-page-space-v_lg};
-    }
-
     @include below($lg) {
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
@@ -91,11 +86,6 @@
     max-width: $width;
     padding: #{$layout-page-space-v} #{$layout-page-space-h} #{$layout-page-space-v} 4.4rem;
     background-color: $bg-color-white;
-
-    @include below($hd) {
-      padding-top: #{$layout-page-space-v_lg};
-      padding-bottom: #{$layout-page-space-v_lg};
-    }
 
     @include below($lg) {
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
