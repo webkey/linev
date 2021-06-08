@@ -1,66 +1,166 @@
-.section-heading {
-  position: relative;
+.section-text-img-text {
   display: flex;
-  flex-direction: column;
-  min-height: 100vw * 596/1366;
-  padding: #{$layout-page-space-v} #{$layout-page-space-h};
-  background-color: $bg-color-blue;
+  align-items: stretch;
+  overflow: hidden;
+  background-color: $bg-color-white;
 
-  @include below($hd) {
-    padding-top: #{$layout-page-space-v_lg};
-    padding-bottom: #{$layout-page-space-v_lg};
-  }
+  &__intro {
+    $width: 33.2%;
 
-  @include below($lg) {
-    padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
-  }
-
-  @include below($md) {
-    padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
-  }
-
-  &__bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    opacity: 0.45;
-  }
-
-  &__number {
-    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 6.4rem;
-    height: 6.4rem;
-    margin-bottom: 1.6rem;
-    padding: 0.5rem;
-    color: $text-color-blue;
-    font: 500 3.2rem/4rem $font-title;
-    letter-spacing: 0.005em;
+    flex: 1 0 $width;
+    flex-direction: column;
+    max-width: $width;
+    padding: #{$layout-page-space-v} 4.4rem #{$layout-page-space-v} #{$layout-page-space-h};
     background-color: $bg-color-white;
-  }
 
-  &__title {
-    position: relative;
-    width: 62rem;
-    max-width: 100%;
-    margin-top: auto;
-    color: $text-color-white;
-    font: 500 6.8rem/7.2rem $font-title;
-    text-transform: uppercase;
-
-    &:last-child {
-      margin-bottom: 0;
+    @include below($hd) {
+      padding-top: #{$layout-page-space-v_lg};
+      padding-bottom: #{$layout-page-space-v_lg};
     }
 
-    & > span {
-      display: block;
+    @include below($lg) {
+      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+    }
+
+    @include below($md) {
+      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+    }
+
+    &-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 6.4rem;
+      height: 6.4rem;
+      margin-bottom: 1.6rem;
+      padding: 0.5rem;
+      color: $text-color-white;
+      font: 500 3.2rem/4rem $font-title;
+      letter-spacing: 0.005em;
+      background-color: $bg-color-blue;
+    }
+
+    &-title {
+      width: 100%;
+      margin: 0 0 6.4rem;
+      color: $text-color-black;
+      font: 700 3.4rem/4rem $font-title;
+      text-transform: uppercase;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &-text {
+      width: 100%;
+      margin-top: auto;
+      color: $text-color-black;
+      font-size: 2rem;
+      line-height: 2.8rem;
+      letter-spacing: 0.02em;
+    }
+  }
+
+  &__figure {
+    $width: 100 - 33.2 * 2 * 1%;
+
+    position: relative;
+    display: flex;
+    flex: 1 0 $width;
+    flex-direction: column;
+    max-width: $width;
+
+    &-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__quote {
+    $width: 33.2%;
+
+    display: flex;
+    flex: 1 0 $width;
+    flex-direction: column;
+    max-width: $width;
+    padding: #{$layout-page-space-v} #{$layout-page-space-h} #{$layout-page-space-v} 4.4rem;
+    background-color: $bg-color-white;
+
+    @include below($hd) {
+      padding-top: #{$layout-page-space-v_lg};
+      padding-bottom: #{$layout-page-space-v_lg};
+    }
+
+    @include below($lg) {
+      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+    }
+
+    @include below($md) {
+      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+    }
+
+    &-author {
+      $photo-size: 6.4rem;
+
+      width: 100%;
+      margin-bottom: 6.4rem;
+
+      @include clearfix;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &-photo {
+        position: relative;
+        float: left;
+        width: $photo-size;
+        height: $photo-size;
+        overflow: hidden;
+        background-color: $bg-color-blue;
+        border-radius: $photo-size;
+
+        &-img {
+          z-index: 1;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+
+      &-name {
+        margin-left: $photo-size + 1.6rem;
+        color: $text-color-black;
+        font: bold 2.4rem/3.2rem $font-title;
+        letter-spacing: 0.006rem;
+        text-transform: uppercase;
+
+        @include truncate(100%);
+      }
+
+      &-post {
+        margin-left: $photo-size + 1.6rem;
+        color: $text-color-black;
+        font: 2rem/2.8rem $font;
+        letter-spacing: 0.02em;
+
+        @include truncate(100%);
+      }
+    }
+
+    &-text {
+      width: 100%;
+      margin-top: auto;
+      color: $text-color-blue;
+      font: 500 2.4rem/3.2rem $font-title;
+      letter-spacing: 0.008em;
     }
   }
 }
