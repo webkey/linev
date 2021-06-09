@@ -14,3 +14,4 @@ app.powerful.init();
 app.breakthrough.init();
 app.global.init();
 app.navSlider.init();
+app.sectionCounter.init();
