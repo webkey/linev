@@ -9,7 +9,7 @@
     top: 0;
     left: 0;
     z-index: 5;
-    padding: 4.4rem #{$layout-page-space-h};
+    padding: #{$layout-page-space-v} #{$layout-page-space-h};
     pointer-events: none;
 
     @include below($hd) {
@@ -19,16 +19,16 @@
       width: $width;
       max-width: $width;
       height: 100%;
-      padding-top: 2.8rem;
-      padding-bottom: 2.8rem;
+
+      @include padding-y($layout-page-space-v_lg);
     }
 
     @include below($lg) {
-      padding: 3.6rem #{$layout-page-space-h_md};
+      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
     @include below($md) {
-      padding: 2.4rem #{$layout-page-space-h_sm};
+      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
 
     &-title {
@@ -166,7 +166,7 @@
         }
 
         &-text {
-          font: bold 2.4rem/3.2rem $font-title;
+          font: bold 2rem/3.2rem $font-title;
           letter-spacing: 0.006em;
           text-transform: uppercase;
         }

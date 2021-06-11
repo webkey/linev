@@ -1,12 +1,8 @@
 .nav {
   display: block;
-  font: bold 2.8rem/1.29 $font-button;
+  font: bold 2.4rem/1.29 $font-button;
   letter-spacing: 0.007em;
   transition: opacity $animation-speed;
-
-  @include below($hd) {
-    font-size: 2.4rem;
-  }
 
   @include below($xxl) {
     font-size: 2rem;
@@ -24,7 +20,7 @@
   &__list {
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 0 -2.4rem;
 
     @include below($lg) {
@@ -145,7 +141,7 @@
       }
 
       @include below($hd) {
-        margin-top: -#{$size / 2 - 0.4};
+        margin-top: -#{$size / 2 - 0.2};
       }
 
       &::before,

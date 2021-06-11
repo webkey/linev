@@ -1,23 +1,23 @@
-<div class="powerful-data__person">
-  <div class="powerful-data__person-meta slide-fade-up-in-short delay-7">
-    <div class="powerful-data__person-photo">
-      <img class="powerful-data__person-photo-img js-lazy-load" src="assets/images/empty.png" data-src="assets/images/img-person.jpg" alt="Vladimir Linev" />
+<div class="powerful-data__panel-el-person">
+  <div class="powerful-data__panel-el-person-meta slide-fade-up-in-short delay-7">
+    <div class="powerful-data__panel-el-person-photo">
+      <img class="powerful-data__panel-el-person-photo-img js-lazy-load" src="assets/images/empty.png" data-src="assets/images/img-person.jpg" alt="Vladimir Linev" />
     </div>
-    <div class="powerful-data__person-name">
+    <div class="powerful-data__panel-el-person-name">
       @@if(context.part === "security") {Vladimir Linev}
       @@if(context.part === "medical") {Ivashchenko Stepan}
       @@if(context.part === "science") {Murav'yov SHerlok}
       @@if(context.part === "innovation") {Gorodeckij Hariton}
     </div>
-    <div class="powerful-data__person-post">Founder of Linev Group</div>
+    <div class="powerful-data__panel-el-person-post">Founder of Linev Group</div>
   </div>
-  <div class="powerful-data__person-descr slide-fade-up-in-short delay-8">
-    @@if(context.part === "security") {At this stage, we develop a product idea based on the actual needs of the customer.At this stage, we develop a product idea based on the actual needs of the customer.}
+  <div class="powerful-data__panel-el-person-descr slide-fade-up-in-short delay-8">
+    @@if(context.part === "security") {In 1991, we created an idea that truly disrupted the global market. To see the unseen, with minimal risk to human health – that was the challenge...}
     @@if(context.part === "medical") {Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, at sunt! Asperiores commodi corporis cupiditate ipsa iste labore laborum mollitia quaerat! Amet atque molestias nulla, odit perferendis voluptatem voluptates voluptatum.}
     @@if(context.part === "science") {Lorem ipsum dolor sit amet.}
     @@if(context.part === "innovation") {Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consequuntur expedita hic ipsa laborum magni natus optio, perspiciatis placeat quisquam reiciendis reprehenderit saepe sequi unde ut vero voluptatem? Ipsa, sint.}
   </div>
-  <div class="powerful-data__person-footer slide-fade-up-in-short delay-9">
+  <div class="powerful-data__panel-el-person-footer slide-fade-up-in-short delay-9">
     @@if(context.part === "security") {@@include("blocks/button-default/button-default_button.html", { "href": "#", "text": "CONPASS Story", "mods": ["security"] })}
     @@if(context.part === "medical") {@@include("blocks/button-default/button-default_button.html", { "href": "#", "text": "PULMOSCAN Story", "mods": ["medical"] })}
     @@if(context.part === "science") {@@include("blocks/button-default/button-default_button.html", { "href": "#", "text": "RUG Story", "mods": ["science"] })}

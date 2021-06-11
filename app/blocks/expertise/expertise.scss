@@ -29,7 +29,7 @@
     width: $width;
     max-width: $width;
     height: 100%;
-    padding: 4.4rem #{$layout-page-space-h};
+    padding: #{$layout-page-space-v} #{$layout-page-space-h};
 
     @include below($hd) {
       $width: 35.2%;
@@ -38,16 +38,20 @@
       width: $width;
       max-width: $width;
       height: 100%;
-      padding-top: 2.8rem;
-      padding-bottom: 2.8rem;
+
+      @include padding-y($layout-page-space-v_lg);
+    }
+
+    @include below($hd) {
+      @include padding-y($layout-page-space-v_lg);
     }
 
     @include below($lg) {
-      padding: 3.6rem #{$layout-page-space-h_md};
+      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
     @include below($md) {
-      padding: 2.4rem #{$layout-page-space-h_sm};
+      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
 
     &-title {
@@ -87,7 +91,7 @@
     width: $width;
     max-width: $width;
     height: 100%;
-    padding: 4.4rem #{$layout-page-space-h};
+    padding: #{$layout-page-space-v} #{$layout-page-space-h};
     background-color: $bg-color-blue;
 
     @include below($hd) {
@@ -97,16 +101,20 @@
       width: $width;
       max-width: $width;
       height: 100%;
-      padding-top: 2.8rem;
-      padding-bottom: 2.8rem;
+
+      @include padding-y($layout-page-space-v_lg);
+    }
+
+    @include below($hd) {
+      @include padding-y($layout-page-space-v_lg);
     }
 
     @include below($lg) {
-      padding: 3.6rem #{$layout-page-space-h_md};
+      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
     @include below($md) {
-      padding: 2.4rem #{$layout-page-space-h_sm};
+      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
 
     &-list {
@@ -180,7 +188,7 @@
 
         &-photo {
           position: relative;
-          height: calc((100vh - #{6rem + 4.4rem * 2 + 2.8rem}) / 2 - 1rem - 3.4rem);
+          height: calc((100vh - #{6rem + $layout-page-space-v * 2 + 2.8rem}) / 2 - 1rem - 3.4rem);
           margin-bottom: 1rem;
           overflow: hidden;
 

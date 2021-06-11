@@ -15,7 +15,7 @@
     "lint:scripts": "gulp scriptsLint",
     "lint:styles": "gulp stylesLint",
     "lint": "npm-run-all -p lint:*",
-    "prezip": "npm run production",
+    "prezip": "npm run deploy",
     "zip": "gulp zip"
   },
   "husky": {

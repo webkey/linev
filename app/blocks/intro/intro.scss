@@ -74,7 +74,7 @@
       text-transform: uppercase;
 
       @include below($hd) {
-        $line-height: 11.6rem;
+        $line-height: 7.2rem;
 
         height: $line-height * 2;
         font-size: 6.8rem;

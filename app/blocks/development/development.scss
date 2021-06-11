@@ -61,7 +61,7 @@
     top: 0;
     left: 0;
     z-index: 5;
-    padding: 4.4rem #{$layout-page-space-h};
+    padding: #{$layout-page-space-v} #{$layout-page-space-h};
 
     @include below($hd) {
       $width: 50%;
@@ -70,16 +70,16 @@
       width: $width;
       max-width: $width;
       height: 100%;
-      padding-top: 2.8rem;
-      padding-bottom: 2.8rem;
+
+      @include padding-y($layout-page-space-v_lg);
     }
 
     @include below($lg) {
-      padding: 3.6rem #{$layout-page-space-h_md};
+      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
     @include below($md) {
-      padding: 2.4rem #{$layout-page-space-h_sm};
+      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
 
     &-title {
@@ -98,6 +98,7 @@
     }
 
     &-text {
+      max-width: 60rem;
       color: $text-color-white;
       font: 500 3.2rem/4rem $font-title;
       letter-spacing: 0.006em;
@@ -395,7 +396,7 @@
         transform-origin: (1252 / 1920 * 100%) (334 / 1020 * 100%);
 
         .after-ready & {
-          animation: dot 0.3s linear #{$start-delay + $animation-speed-bottom-curve + 2.5s} alternate forwards;
+          animation: dot 0.3s linear #{$start-delay + $animation-speed-bottom-curve + 2.8s} alternate forwards;
         }
       }
 

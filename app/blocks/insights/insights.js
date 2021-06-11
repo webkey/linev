@@ -1,14 +1,14 @@
-app.breakthrough = {
+app.insights = {
   tabs: {
-    el: '.js-breakthrough-data',
-    thumb: '.js-breakthrough-data-thumbs a',
-    panels: '.js-breakthrough-data-thumbs-panels',
-    panel: '.js-breakthrough-data-thumbs-panels > div',
+    el: '.js-insights-data',
+    thumb: '.js-insights-data-thumbs a',
+    panels: '.js-insights-data-thumbs-panels',
+    panel: '.js-insights-data-thumbs-panels > div',
     modifiers: {
       activeClass: 'is-active',
     },
   },
-  sliderElement: '.js-breakthrough-slider',
+  sliderElement: '.js-insights-slider',
   slidesPerView: 2,
   init() {
     if ($(this.tabs.el).length) {
@@ -41,9 +41,9 @@ app.breakthrough = {
     if ($slider.length) {
       $.each($slider, function () {
         const $curSlider = $(this);
-        const $nextEl = $curSlider.find('.js-breakthrough-data__slider-button-next');
-        const $prevEl = $curSlider.find('.js-breakthrough-data__slider-button-prev');
-        const $paginationEl = $curSlider.find('.js-breakthrough-data__slider-pagination');
+        const $nextEl = $curSlider.find('.js-insights-data__slider-button-next');
+        const $prevEl = $curSlider.find('.js-insights-data__slider-button-prev');
+        const $paginationEl = $curSlider.find('.js-insights-data__slider-pagination');
 
         const sliderInstance = new Swiper($curSlider.find('.swiper-container'), {
           init: false,
@@ -66,8 +66,8 @@ app.breakthrough = {
             type: 'bullets',
             el: $paginationEl,
             clickable: true,
-            bulletClass: 'breakthrough-slider__pagination-bullet',
-            bulletActiveClass: 'breakthrough-slider__pagination-bullet_active',
+            bulletClass: 'insights-slider__pagination-bullet',
+            bulletActiveClass: 'insights-slider__pagination-bullet_active',
             renderBullet(index, className) {
               return `<div class="${className}"><span></span></div>`;
             },
