@@ -1,11 +1,9 @@
 @keyframes textSlideIn {
   from {
-    //transform: translateY(120%) skewY(8deg);
     transform: translateY(120%);
   }
 
   to {
-    //transform: translateY(0) skewY(0deg);
     transform: translateY(0);
   }
 }
@@ -24,7 +22,6 @@
   &__i {
     position: relative;
     display: block;
-    //transform: translateY(120%) skewY(8deg);
     transform: translateY(120%);
     animation: {
       duration: $animation-duration;

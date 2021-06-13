@@ -17,15 +17,8 @@
   animation-fill-mode: both;
   will-change: opacity, transform;
 
-  .animation-start &,
-  .animation-end & {
+  .no-js &,
+  .after-ready & {
     animation-name: fadeInDown;
-  }
-
-  @for $i from 0 through 10 {
-    .animation-start &.delay-#{$i},
-    .animation-end &.delay-#{$i} {
-      animation-delay: $initDelay * $i * 0.5;
-    }
   }
 }

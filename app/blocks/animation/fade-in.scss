@@ -17,17 +17,8 @@
   };
   will-change: opacity, transform;
 
-  //.animation-start &,
-  //.animation-end & {
+  .no-js &,
   .after-ready & {
-    animation-name: fadeIn;
-  }
-
-  @for $i from 0 through 10 {
-    //.animation-start &.dl-#{$i},
-    //.animation-end &.dl-#{$i} {
-    .after-ready &.dl-#{$i} {
-      animation-delay: $animation-delay-start * $i * 0.5;
-    }
+    animation-name: fadeIN;
   }
 }

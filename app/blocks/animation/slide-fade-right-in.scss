@@ -1,19 +1,16 @@
 @keyframes slideFadeRightIn {
   from {
-    //transform: translateX(100%) skewX(35deg);
     transform: translateX(100%);
     opacity: 0;
   }
 
   to {
-    //transform: translateX(0) skewX(0deg);
     transform: translateX(0);
     opacity: 1;
   }
 }
 
 .slide-fade-right-in {
-  //transform: translateX(100%) skewX(35deg);
   transform: translateX(100%);
   opacity: 0;
   animation: {
