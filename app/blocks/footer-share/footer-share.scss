@@ -1,4 +1,4 @@
-.f-share {
+.footer-share {
   $space: 0.9rem;
 
   &__list {
@@ -23,6 +23,13 @@
     vertical-align: top;
     transition: color $animation-speed;
 
+    @include below($hd) {
+      $size: 2.4rem;
+
+      width: $size;
+      height: $size;
+    }
+
     &:hover {
       color: white;
     }
@@ -43,6 +50,15 @@
       height: $size;
       margin: -#{$int} 0 0 -#{$int};
       vertical-align: top;
+
+      @include below($hd) {
+        $size: 2.4rem;
+        $int: round-float($size / 2, 1);
+
+        width: $size;
+        height: $size;
+        margin: -#{$int} 0 0 -#{$int};
+      }
     }
 
     path {

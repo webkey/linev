@@ -4,14 +4,6 @@
   letter-spacing: 0.007em;
   transition: opacity $animation-speed;
 
-  @include below($xxl) {
-    font-size: 2rem;
-  }
-
-  @include below($xl) {
-    font-size: 1.5rem;
-  }
-
   @include below($lg) {
     font-size: 2rem;
     line-height: 2.4rem;
@@ -22,6 +14,10 @@
     align-items: flex-start;
     justify-content: space-around;
     margin: 0 -2.4rem;
+
+    @include below($hd) {
+      justify-content: space-between;
+    }
 
     @include below($lg) {
       display: block;
@@ -86,14 +82,10 @@
 
       @at-root {
         #{$li}.has-drop & {
-          padding-right: 3.4rem;
-
-          &::before {
-            right: -1rem;
-          }
+          padding-right: #{2.4rem + 4rem - 0.2rem - 1.2rem};
 
           @include below($hd) {
-            padding-right: 3.2rem;
+            padding-right: #{2.4rem + 4rem - 0.6rem - 1.2rem};
           }
         }
 
@@ -121,7 +113,7 @@
 
       position: absolute;
       top: 50%;
-      right: -0.4rem; // Выровнять по правому краю пункта стрелку, которая меньше области клика на 0,8rem
+      right: 1.2rem; // Выровнять по правому краю пункта стрелку
       width: $size;
       height: $size;
       margin-top: -#{$size / 2 - 0.3};
@@ -134,14 +126,14 @@
       user-select: none;
       -webkit-tap-highlight-color: transparent;
 
+      @include below($hd) {
+        margin-top: -#{$size / 2 - 0.2};
+      }
+
       @include below($lg) {
         top: 0;
         right: 0;
         margin: 0.4rem 0 0;
-      }
-
-      @include below($hd) {
-        margin-top: -#{$size / 2 - 0.2};
       }
 
       &::before,
@@ -214,7 +206,7 @@
       position: absolute;
       top: 100%;
       left: 0;
-      min-width: calc(100% + 1rem); // Компенсация отступа белой плашки под стрелкой
+      min-width: 100%; // Компенсация отступа белой плашки под стрелкой
       padding: 0;
       transform: scaleY(0.92);
       transform-origin: top center;
@@ -229,7 +221,7 @@
       will-change: opacity, transform;
 
       #{$li}:last-child & {
-        right: -1rem;
+        right: 0;
         left: auto;
       }
 
@@ -362,7 +354,7 @@
       $size: 3.2rem;
 
       position: absolute;
-      top: 2rem;
+      top: 1.7rem;
       right: 0;
       width: $size;
       height: $size;

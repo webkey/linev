@@ -55,22 +55,14 @@
   }
 
   &__heading {
-    $width: 65%;
-
     position: absolute;
     top: 0;
     left: 0;
     z-index: 20;
+    max-width: 40%;
     padding: #{$layout-page-space-v} #{$layout-page-space-h};
 
     @include below($hd) {
-      $width: 50%;
-
-      flex-basis: $width;
-      width: $width;
-      max-width: $width;
-      height: 100%;
-
       @include padding-y($layout-page-space-v_lg);
     }
 
@@ -128,6 +120,7 @@
     //width: calc((100vh - #{$header-height-top}) / (1020 / 1920)); // Изменение ширины слайда через относительную высоту
     width: 100%;
     height: 100%;
+    line-height: 1;
 
     //&::before {
     //  display: block;
@@ -435,16 +428,23 @@
 
     &-labels-y {
       position: absolute;
-      bottom: 48.9rem;
+      //bottom: 48.9rem;
+      bottom: 23vw;
       left: floor-float(49 / 1920 * 100, 1) * 1%;
       z-index: 10;
       display: flex;
-      width: 100%;
       color: $text-color-white;
       font: bold 2rem/2.4rem $font-button;
       letter-spacing: 0.03em;
       text-align: center;
       text-transform: uppercase;
+
+      @include below($hd) {
+        bottom: 20vw;
+        font-size: 1.6rem;
+        line-height: 2rem;
+        letter-spacing: 0.06rem;
+      }
 
       &-inner {
         margin-left: 0.3rem;
@@ -454,17 +454,27 @@
 
     &-labels-x {
       position: absolute;
-      bottom: 4rem;
+      bottom: 0;
       left: 0;
       z-index: 10;
       display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
+      //height: 11.5vh;
+      height: 5.6vw;
       padding: 0 (floor-float(49 / 1920 * 100, 1) * 1%);
       color: $text-color-white;
       font: bold 2rem/2.4rem $font-button;
       letter-spacing: 0.03em;
       text-align: center;
       text-transform: uppercase;
+
+      @include below($hd) {
+        font-size: 1.6rem;
+        line-height: 2rem;
+        letter-spacing: 0.06rem;
+      }
 
       &.is-open {
         z-index: 15;
@@ -506,7 +516,8 @@
 
     &-caption {
       position: absolute;
-      bottom: 17.1rem;
+      //bottom: 17.1rem;
+      bottom: 9vw;
       left: 0;
       z-index: 10;
       display: flex;
@@ -517,6 +528,10 @@
       &.is-open {
         z-index: 15;
       }
+
+      //&:not(.is-open):hover {
+      //  z-index: 15;
+      //}
 
       &-inner {
         position: relative;
@@ -536,17 +551,24 @@
       }
 
       &_up {
-        bottom: 67rem;
+        //bottom: 67rem;
+        bottom: 35vw;
         animation-delay: floor-float($svg-start-delay + $svg-animation-speed-bottom-curve + 1.8s, 2);
       }
 
       &_middle {
-        bottom: 39.6rem;
+        //bottom: 39.6rem;
+        bottom: 20.7vw;
         animation-delay: floor-float($svg-start-delay + $svg-animation-speed-bottom-curve + 3.1s, 2);
+
+        @include below($hd) {
+          bottom: 25vw;
+        }
       }
 
       &_low {
-        bottom: 17.1rem;
+        //bottom: 17.1rem;
+        bottom: 9vw;
         animation-delay: floor-float(($svg-start-delay + $svg-animation-speed-bottom-curve) * 0.5, 2);
       }
 
@@ -559,6 +581,13 @@
         text-align: center;
         text-transform: uppercase;
 
+        @include below($hd) {
+          margin-bottom: 0;
+          font-size: 2rem;
+          line-height: 2.4rem;
+          letter-spacing: 0.015rem;
+        }
+
         &:last-child {
           margin-bottom: 0;
         }
@@ -570,6 +599,12 @@
         line-height: 2.8rem;
         letter-spacing: 0.02em;
         text-align: center;
+
+        @include below($hd) {
+          font-size: 1.6rem;
+          line-height: 2rem;
+          letter-spacing: 0.04rem;
+        }
       }
     }
 
@@ -609,6 +644,8 @@
         transform-origin: 0 100%;
       }
 
+      //.development__chart-labels-x-item-inner:hover &,
+      //.development__chart-caption-inner:hover &,
       &.is-open {
         border-radius: 0;
         transform: scale(1);
@@ -633,6 +670,11 @@
         letter-spacing: 0.006rem;
         text-transform: uppercase;
 
+        @include below($hd) {
+          font-size: 2rem;
+          line-height: 2.4rem;
+        }
+
         &:last-child {
           margin-bottom: 0;
         }
@@ -644,6 +686,11 @@
         color: $text-color-grey;
         font: 2rem/2.8rem $font;
         letter-spacing: 0.02em;
+
+        @include below($hd) {
+          font-size: 1.6rem;
+          line-height: 2rem;
+        }
 
         &:last-child {
           margin-bottom: 0;

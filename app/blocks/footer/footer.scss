@@ -92,6 +92,12 @@
       &-link {
         margin-bottom: 1.6rem;
         font: 300 2.4rem/2.8rem $font-button;
+        letter-spacing: 0.06rem;
+
+        @include below($hd) {
+          font-size: 2rem;
+          line-height: 2.4rem;
+        }
 
         &:last-child {
           margin-bottom: 0;

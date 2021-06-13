@@ -15,6 +15,10 @@
   pointer-events: none;
   will-change: opacity, transform;
 
+  @include below($hd) {
+    width: 9.2rem;
+  }
+
   &.is-open {
     transform: translateX(0);
     opacity: 1;
@@ -58,6 +62,31 @@
 
       &.active {
         cursor: default;
+      }
+
+      &-img {
+        position: relative;
+        display: block;
+        width: 4rem;
+        height: auto;
+
+        @include below($hd) {
+          width: 2.4rem;
+        }
+
+        &_lg {
+          @include below($hd) {
+            display: none;
+          }
+        }
+
+        &_sm {
+          display: none;
+
+          @include below($hd) {
+            display: block;
+          }
+        }
       }
     }
   }

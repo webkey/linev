@@ -188,9 +188,13 @@
 
         &-photo {
           position: relative;
-          height: calc((100vh - #{6rem + $layout-page-space-v * 2 + 2.8rem}) / 2 - 1rem - 3.4rem);
+          height: calc((100vh - #{6rem + $layout-page-space-v * 2 + 2.8rem}) / 2 - #{1rem + 3.4rem});
           margin-bottom: 1rem;
           overflow: hidden;
+
+          @include below($hd) {
+            height: calc((100vh - #{6rem + $layout-page-space-v_lg * 2 + 2.8rem}) / 2 - #{1rem + 3.4rem});
+          }
 
           &-img {
             width: 100%;
@@ -209,12 +213,19 @@
         &-title {
           position: relative;
           display: inline-block;
+          max-width: 100%;
           padding: 0.6rem 0;
           color: $text-color-white;
           font: bold 2rem/2.4rem $font-button;
           letter-spacing: 0.03rem;
           text-transform: uppercase;
           vertical-align: top;
+
+          @include below($hd) {
+            font-size: 1.6rem;
+            line-height: 2rem;
+            letter-spacing: 0.06rem;
+          }
 
           #{$item}:nth-child(1) & {
             box-shadow: inset 0 -2px 0 $brand-color-security;
@@ -233,7 +244,11 @@
           }
 
           & > span {
+            position: relative;
             display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
             transform-origin: bottom left;
             transition: transform $animation-speed-out;
 

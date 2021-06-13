@@ -28,6 +28,10 @@
     will-change: transform;
   }
 
+  @include below($hd) {
+    width: 4.8rem;
+  }
+
   &:hover {
     &::before {
       transform: scaleY(1);

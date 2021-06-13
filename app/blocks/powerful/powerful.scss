@@ -187,6 +187,14 @@
         will-change: transform;
       }
 
+      @include below($hd) {
+        $line-height: 2rem;
+
+        height: $line-height * 2 + 1.2;
+        font-size: 1.6rem;
+        line-height: $line-height;
+      }
+
       &:nth-child(1) {
         &::before {
           background-color: $color-dark-blue;
@@ -286,6 +294,13 @@
       color: inherit;
       text-decoration: none;
 
+      @include below($hd) {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: stretch;
+        height: calc(100vh - (10.8rem + 6rem));
+      }
+
       // Photo
       &-photo {
         position: relative;
@@ -294,6 +309,15 @@
         height: calc(100vh - 56.2rem);
         padding: 0 #{$layout-page-space-h};
         overflow: hidden;
+
+        @include below($hd) {
+          $width: 50%;
+
+          flex: 1 0 $width;
+          max-width: $width;
+          height: auto;
+          padding: 0 #{$layout-page-space-h} #{$layout-page-space-v_lg} 1.4rem;
+        }
 
         @include below($lg) {
           padding: 0 #{$layout-page-space-h_md};
@@ -330,11 +354,11 @@
           height: 100%;
           object-fit: cover;
           backface-visibility: hidden;
-          transition: $animation-speed;
+          transition: $animation-speed-out;
 
           #{$panel-element}:hover & {
             transform: scale(0.9);
-            transition-duration: $animation-speed-out;
+            transition-duration: $animation-speed;
           }
         }
       }
@@ -347,7 +371,14 @@
         padding: #{$layout-page-space-v} #{$layout-page-space-h};
 
         @include below($hd) {
-          @include padding-y($layout-page-space-v_lg);
+          $width: 50%;
+
+          display: flex;
+          flex: 1 0 $width;
+          flex-direction: column;
+          max-width: $width;
+          height: auto;
+          padding: 0 1.4rem #{$layout-page-space-v_lg} #{$layout-page-space-h};
         }
 
         @include below($lg) {
@@ -361,6 +392,7 @@
         &-meta {
           @include clearfix;
 
+          width: 100%;
           margin-bottom: 1.6rem;
         }
 
@@ -388,8 +420,29 @@
           font: bold 2.4rem/3.2rem $font-title;
           letter-spacing: 0.006rem;
           text-transform: uppercase;
+          transition: $animation-speed-out;
 
           @include truncate(100%);
+
+          #{$panel-element}:hover & {
+            transition-duration: $animation-speed;
+
+            #{$panel}:nth-child(1) & {
+              color: $color-dark-blue;
+            }
+
+            #{$panel}:nth-child(2) & {
+              color: $color-blue;
+            }
+
+            #{$panel}:nth-child(3) & {
+              color: $color-orange;
+            }
+
+            #{$panel}:nth-child(4) & {
+              color: $color-green;
+            }
+          }
         }
 
         &-post {
@@ -406,16 +459,27 @@
           $line-count: 3;
 
           display: -webkit-box;
+          width: 100%;
           max-height: $line-height * $line-count;
           overflow: hidden;
           font: 2.4rem/#{$line-height} $font;
           letter-spacing: 0.02em;
           -webkit-line-clamp: $line-count;
           -webkit-box-orient: vertical;
-          transition: $animation-speed;
+          transition: $animation-speed-out;
+
+          @include below($hd) {
+            $line-height: 2.8rem;
+            $line-count: 6;
+
+            max-height: $line-height * $line-count;
+            font-size: 2rem;
+            line-height: $line-height;
+            -webkit-line-clamp: $line-count;
+          }
 
           #{$panel-element}:hover & {
-            transition-duration: $animation-speed-out;
+            transition-duration: $animation-speed;
 
             #{$panel}:nth-child(1) & {
               color: $color-dark-blue;
@@ -436,18 +500,19 @@
         }
 
         &-footer {
+          width: 100%;
           margin-top: 4.2rem;
 
           @include below($hd) {
-            margin-top: 2.8rem;
+            margin-top: auto;
           }
 
           @include below($lg) {
-            margin-top: 3.6rem;
+            margin-top: $layout-page-space-v_md;
           }
 
           @include below($md) {
-            margin-top: 2.4rem;
+            margin-top: $layout-page-space-v_sm;
           }
         }
       }
