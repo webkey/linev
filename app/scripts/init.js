@@ -11,6 +11,7 @@ app.headerSearch.init();
 app.mobMenu.init();
 app.innovative.init();
 app.powerful.init();
+app.development.init();
 app.insights.init();
 app.global.init();
 app.navSlider.init();

@@ -97,12 +97,13 @@
     "stylelint-scss": "^3.19.0"
   },
   "dependencies": {
+    "aos": "^3.0.0-beta.6",
     "fullpage.js": "^3.1.1",
     "jquery": "^3.6.0",
     "svg4everybody": "^2.1.9",
-    "typeit": "^7.0.4",
     "swiper": "^4.5.1",
-    "vanilla-lazyload": "^17.1.0",
-    "aos": "^3.0.0-beta.6"
+    "tippy.js": "^6.3.1",
+    "typeit": "^7.0.4",
+    "vanilla-lazyload": "^17.1.0"
   }
 }
