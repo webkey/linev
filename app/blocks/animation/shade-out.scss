@@ -9,14 +9,16 @@
 }
 
 .shade-out {
-  animation: {
-    duration: $fp-animation-speed;
-    timing-function: linear;
-    fill-mode: both;
-  };
-  will-change: opacity, transform;
+  @include above($xl) {
+    animation: {
+      duration: $fp-animation-speed;
+      timing-function: linear;
+      fill-mode: both;
+    };
+    will-change: opacity, transform;
 
-  .hide-shade & {
-    animation-name: shadeOut;
+    .hide-shade & {
+      animation-name: shadeOut;
+    }
   }
 }

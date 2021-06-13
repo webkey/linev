@@ -24,17 +24,19 @@ app.home = {
       verticalCentered: false,
       scrollingSpeed: self.duration,
       licenseKey: '11111111-11111111-11111111-11111111',
-      navigation: true,
+      navigation: false,
       navigationPosition: 'right',
       navigationTooltips: self.historyAnchors(),
+      responsiveWidth: 1200,
+      responsiveHeight: 500,
       afterLoad(origin, destination) {
         $(self.sectionEl).removeClass('animation-end');
 
         // Step scroll
-        clearTimeout(scrollStep);
-        scrollStep = setTimeout(() => {
-          fullpage_api.setAllowScrolling(true);
-        }, self.duration);
+        // clearTimeout(scrollStep);
+        // scrollStep = setTimeout(() => {
+        //   fullpage_api.setAllowScrolling(true);
+        // }, self.duration);
 
         const $destinationEl = $(destination.item);
         const $originEl = $(origin.item);
@@ -60,7 +62,7 @@ app.home = {
         }
       },
       onLeave(origin, destination) {
-        fullpage_api.setAllowScrolling(false);
+        // fullpage_api.setAllowScrolling(false);
 
         $(self.sectionEl).removeClass('animation-start');
 

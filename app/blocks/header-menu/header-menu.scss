@@ -2,7 +2,7 @@
   position: fixed;
   top: $header-height-top;
   left: 0;
-  z-index: 15;
+  z-index: 110;
   width: 100%;
   max-width: 100%;
   padding: 0 #{$layout-page-space-h};
@@ -12,22 +12,35 @@
     duration: 0.5s;
   };
 
-  @include below($lg) {
-    padding: 0 #{$layout-page-space-h_md};
+  // На главной для $xl и выше
+  &.is-collapsed {
+    @include above($xl) {
+      max-width: calc(100vw - 13rem - 8.2rem);
+      transform: translateX(8.2rem) translateY(-100%);
+    }
+
+    @include above($hd) {
+      max-width: calc(100vw - 16rem - 8.2rem);
+    }
   }
 
-  &.is-collapsed {
+  // Для всех страниц с дефолтным скроллом
+  .scrolled & {
     max-width: calc(100vw - 16rem - 8.2rem);
     transform: translateX(8.2rem) translateY(-100%);
 
     @include below($hd) {
-      max-width: calc(100vw - 11.8rem - 8.2rem);
+      max-width: calc(100vw - 13rem - 8.2rem);
     }
 
-    @include below($lg) {
-      max-width: 100%;
-      transform: translateX(-100%);
+    @include below($xl) {
+      max-width: calc(100vw - #{$layout-page-space-h_md * 2 + 3.6rem + 9.6rem - 1.2rem});
+      transform: translateX(#{$layout-page-space-h_md + 3.6rem}) translateY(-100%);
     }
+  }
+
+  @include below($xl) {
+    padding: 0 #{$layout-page-space-h_md};
   }
 
   @include below($lg) {
@@ -39,7 +52,7 @@
     width: 28rem;
     max-width: 100%;
     height: 100%;
-    padding: 4rem 0 0;
+    padding: 4rem #{$layout-page-space-h_md} 0;
     overflow-x: hidden;
     overflow-y: auto;
     background-color: rgba($bg-color-blue, 0.85);

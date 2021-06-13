@@ -13,7 +13,7 @@
     background-color: $bg-color-white;
   }
 
-  @include below($lg) {
+  @include below($xl) {
     padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
   }
 

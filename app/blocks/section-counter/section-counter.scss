@@ -31,7 +31,7 @@
     padding: #{$layout-page-space-v} 4.4rem #{$layout-page-space-v} #{$layout-page-space-h};
     overflow: hidden;
 
-    @include below($lg) {
+    @include below($xl) {
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
@@ -81,7 +81,7 @@
     overflow: hidden;
     background-color: $bg-color-white;
 
-    @include below($lg) {
+    @include below($xl) {
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 

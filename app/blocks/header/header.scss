@@ -2,7 +2,7 @@
   $header: &;
 
   position: relative;
-  z-index: 5;
+  z-index: 100;
   height: $header-height-top;
   background-color: $bg-color-white;
 
@@ -41,13 +41,43 @@
     }
   }
 
+  // На главной для $xl и выше
   &.is-expanded {
+    @include above($xl) {
+      &::before {
+        animation-name: move-scale-back;
+      }
+    }
+  }
+
+  // Для всех страниц с дефолтным скроллом
+  .unscrolled & {
     &::before {
       animation-name: move-scale-back;
     }
   }
 
+  @keyframes move-scale-back {
+    from {
+      transform: translateY(-100%) scaleY(2);
+    }
+
+    to {
+      transform: translateY(0) scaleY(1);
+    }
+  }
+
+  // На главной для $xl и выше
   &.is-collapsed {
+    @include above($xl) {
+      &::before {
+        animation-name: move-scale;
+      }
+    }
+  }
+
+  // Для всех страниц с дефолтным скроллом
+  .scrolled & {
     &::before {
       animation-name: move-scale;
     }
@@ -60,16 +90,6 @@
 
     to {
       transform: translateY(-100%) scaleY(2);
-    }
-  }
-
-  @keyframes move-scale-back {
-    from {
-      transform: translateY(-100%) scaleY(2);
-    }
-
-    to {
-      transform: translateY(0) scaleY(1);
     }
   }
 
@@ -86,18 +106,20 @@
       duration: $animation-speed;
     };
 
-    @include below($lg) {
+    @include below($xl) {
       padding: 0 #{$layout-page-space-h_md};
     }
 
-    @at-root {
-      #{$header}.is-collapsed & {
+    // На главной для $xl и выше
+    #{$header}.is-collapsed & {
+      @include above($xl) {
         color: $text-color-white;
-
-        @include below($lg) {
-          color: $text-color-black;
-        }
       }
+    }
+
+    // Для всех страниц с дефолтным скроллом
+    .scrolled & {
+      color: $text-color-white;
     }
   }
 
@@ -110,15 +132,18 @@
     overflow: hidden;
     transition: $animation-speed;
 
-    @at-root {
-      #{$header}.is-collapsed & {
+    // На главной для $xl и выше
+    #{$header}.is-collapsed & {
+      @include above($xl) {
         width: 3.6rem;
         transition: 1s;
-
-        @include below($lg) {
-          width: 18.4rem;
-        }
       }
+    }
+
+    // Для всех страниц с дефолтным скроллом
+    .scrolled & {
+      width: 3.6rem;
+      transition: 1s;
     }
 
     &::after {
@@ -136,18 +161,18 @@
         duration: $animation-speed;
       };
       content: "";
-    }
 
-    @at-root {
+      // Для всех страниц с дефолтным скроллом
+      .scrolled & {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      // На главной для $xl и выше
       #{$header}.is-collapsed & {
-        &::after {
+        @include above($xl) {
           visibility: visible;
           opacity: 1;
-
-          @include below($lg) {
-            visibility: hidden;
-            opacity: 0;
-          }
         }
       }
     }
@@ -162,14 +187,16 @@
       transition: opacity $animation-speed;
       will-change: opacity;
 
-      @at-root {
+      // На главной для $xl и выше
+      @include above($xl) {
         #{$header}.is-collapsed & {
           opacity: 0;
-
-          @include below($lg) {
-            opacity: 1;
-          }
         }
+      }
+
+      // Для всех страниц с дефолтным скроллом
+      .scrolled & {
+        opacity: 0;
       }
     }
   }

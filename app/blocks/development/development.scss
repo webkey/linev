@@ -6,6 +6,11 @@
   position: relative;
   height: 100%;
 
+  @include below($xl) {
+    height: auto;
+    background-color: $bg-color-blue;
+  }
+
   &__bg {
     position: absolute;
     top: 0;
@@ -14,18 +19,10 @@
     height: 100%;
     background-color: $bg-color-blue;
     animation-delay: $svg-start-delay + $svg-animation-speed-bottom-curve + 3.2s;
-    //transform: translateY(100%);
-    //opacity: 0;
-    //transition: {
-    //  property: transform, opacity;
-    //  delay: $svg-start-delay + $svg-animation-speed-bottom-curve + 1.5s;
-    //  duration: 2s;
-    //};
 
-    //.after-ready & {
-    //  transform: translateY(0);
-    //  opacity: 1;
-    //}
+    @include below($xl) {
+      display: none;
+    }
 
     &-inner {
       height: 100%;
@@ -34,7 +31,6 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
-      transform: scale(1.4);
     }
   }
 
@@ -44,6 +40,10 @@
     width: 35%;
     height: 100%;
     background-color: $bg-color-blue;
+
+    @include below($xl) {
+      display: none;
+    }
 
     &_left {
       left: 0;
@@ -66,12 +66,33 @@
       @include padding-y($layout-page-space-v_lg);
     }
 
-    @include below($lg) {
+    @include below($xl) {
+      position: relative;
+      top: auto;
+      max-width: none;
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
     @include below($md) {
       padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+    }
+
+    &-figure {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      width: 100%;
+      height: 100%;
+      font-size: 0;
+      line-height: 0;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: cover;
+
+      @include below($xl) {
+        display: block;
+      }
     }
 
     &-title {
@@ -90,6 +111,7 @@
     }
 
     &-text {
+      position: relative;
       max-width: 60rem;
       color: $text-color-white;
       font: 500 3.2rem/4rem $font-title;
@@ -99,6 +121,24 @@
         max-width: 45rem;
         font-size: 2.4rem;
         line-height: 3.2rem;
+      }
+
+      @include below($xl) {
+        max-width: none;
+      }
+
+      &_script {
+        @include below($xl) {
+          display: none;
+        }
+      }
+
+      &_no-script {
+        display: none;
+
+        @include below($xl) {
+          display: block;
+        }
       }
     }
   }
@@ -112,6 +152,25 @@
     justify-content: center;
     width: 100%;
     height: 100%;
+
+    @include below($xl) {
+      position: relative;
+      top: auto;
+      left: auto;
+      display: block;
+      height: auto;
+    }
+
+    &::before {
+      display: none;
+      content: "";
+
+      @include ratio(192, 102);
+
+      @include below($xl) {
+        display: block;
+      }
+    }
   }
 
   &__chart {
@@ -122,12 +181,13 @@
     height: 100%;
     line-height: 1;
 
-    //&::before {
-    //  display: block;
-    //  content: "";
-    //
-    //  @include ratio(1020, 1920);
-    //}
+    @include below($xl) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
 
     &-svg {
       position: absolute;
@@ -145,269 +205,301 @@
       //}
 
       .top-curve {
-        stroke-dasharray: 1704;
-        stroke-dashoffset: 1704;
+        @include above($xl) {
+          stroke-dasharray: 1704;
+          stroke-dashoffset: 1704;
 
-        .after-ready & {
-          animation: top-curve #{$svg-animation-speed} linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 2.3s} alternate forwards;
-        }
-
-        @keyframes top-curve {
-          from {
-            stroke-dashoffset: 1704;
+          .after-ready & {
+            animation: top-curve #{$svg-animation-speed} linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 2.3s} alternate forwards;
           }
 
-          to {
-            stroke-dashoffset: 0;
+          @keyframes top-curve {
+            from {
+              stroke-dashoffset: 1704;
+            }
+
+            to {
+              stroke-dashoffset: 0;
+            }
           }
         }
       }
 
       .agile {
-        opacity: 0;
+        @include above($xl) {
+          opacity: 0;
 
-        .after-ready & {
-          animation: agile 0.25s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 1.5s} alternate forwards;
-        }
-
-        @keyframes agile {
-          from {
-            opacity: 0;
+          .after-ready & {
+            animation: agile 0.25s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 1.5s} alternate forwards;
           }
 
-          to {
-            opacity: 1;
+          @keyframes agile {
+            from {
+              opacity: 0;
+            }
+
+            to {
+              opacity: 1;
+            }
           }
         }
       }
 
       .arrow-left {
-        transform: translateX(4rem);
-        opacity: 0;
+        @include above($xl) {
+          transform: translateX(4rem);
+          opacity: 0;
 
-        .after-ready & {
-          animation: arrow-left 0.3s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 1.8s} alternate forwards;
-        }
-
-        @keyframes arrow-left {
-          from {
-            transform: translateX(4rem);
-            opacity: 0;
+          .after-ready & {
+            animation: arrow-left 0.3s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 1.8s} alternate forwards;
           }
 
-          to {
-            transform: translateX(0);
-            opacity: 1;
+          @keyframes arrow-left {
+            from {
+              transform: translateX(4rem);
+              opacity: 0;
+            }
+
+            to {
+              transform: translateX(0);
+              opacity: 1;
+            }
           }
         }
       }
 
       .arrow-right {
-        transform: translateX(-4rem);
-        opacity: 0;
+        @include above($xl) {
+          transform: translateX(-4rem);
+          opacity: 0;
 
-        .after-ready & {
-          animation: arrow-right 0.3s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 1.8s} alternate forwards;
-        }
-
-        @keyframes arrow-right {
-          from {
-            transform: translateX(-4rem);
-            opacity: 0;
+          .after-ready & {
+            animation: arrow-right 0.3s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 1.8s} alternate forwards;
           }
 
-          to {
-            transform: translateX(0);
-            opacity: 1;
+          @keyframes arrow-right {
+            from {
+              transform: translateX(-4rem);
+              opacity: 0;
+            }
+
+            to {
+              transform: translateX(0);
+              opacity: 1;
+            }
           }
         }
       }
 
       .x-axes {
-        stroke-dasharray: 1920;
-        stroke-dashoffset: 1920;
+        @include above($xl) {
+          stroke-dasharray: 1920;
+          stroke-dashoffset: 1920;
 
-        .after-ready & {
-          animation: x-axes $svg-animation-speed linear #{$svg-start-delay} alternate forwards;
-        }
-
-        @keyframes x-axes {
-          from {
-            stroke-dashoffset: 1920;
+          .after-ready & {
+            animation: x-axes $svg-animation-speed linear #{$svg-start-delay} alternate forwards;
           }
 
-          to {
-            stroke-dashoffset: 0;
+          @keyframes x-axes {
+            from {
+              stroke-dashoffset: 1920;
+            }
+
+            to {
+              stroke-dashoffset: 0;
+            }
           }
         }
       }
 
       .x-axes-2 {
-        stroke-dasharray: 1825;
-        stroke-dashoffset: 1825;
+        @include above($xl) {
+          stroke-dasharray: 1825;
+          stroke-dashoffset: 1825;
 
-        .after-ready & {
-          animation: x-axes-2 $svg-animation-speed linear #{$svg-start-delay} alternate forwards;
-        }
-
-        @keyframes x-axes-2 {
-          from {
-            stroke-dashoffset: 1825;
+          .after-ready & {
+            animation: x-axes-2 $svg-animation-speed linear #{$svg-start-delay} alternate forwards;
           }
 
-          to {
-            stroke-dashoffset: 0;
+          @keyframes x-axes-2 {
+            from {
+              stroke-dashoffset: 1825;
+            }
+
+            to {
+              stroke-dashoffset: 0;
+            }
           }
         }
       }
 
       .x-axes-3 {
-        stroke-dasharray: 580;
-        stroke-dashoffset: 580;
+        @include above($xl) {
+          stroke-dasharray: 580;
+          stroke-dashoffset: 580;
 
-        .after-ready & {
-          animation: x-axes-3 0.5s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 0.8s} alternate forwards;
-        }
-
-        @keyframes x-axes-3 {
-          from {
-            stroke-dashoffset: 580;
+          .after-ready & {
+            animation: x-axes-3 0.5s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 0.8s} alternate forwards;
           }
 
-          to {
-            stroke-dashoffset: 0;
+          @keyframes x-axes-3 {
+            from {
+              stroke-dashoffset: 580;
+            }
+
+            to {
+              stroke-dashoffset: 0;
+            }
           }
         }
       }
 
       .y-axes {
-        stroke-dasharray: 1020;
-        stroke-dashoffset: 1020;
+        @include below($xl) {
+          stroke-dasharray: 1020;
+          stroke-dashoffset: 1020;
 
-        .after-ready & {
-          animation: y-axes $svg-animation-speed linear #{$svg-start-delay} alternate forwards;
-        }
-
-        @keyframes y-axes {
-          from {
-            stroke-dashoffset: 1020;
+          .after-ready & {
+            animation: y-axes $svg-animation-speed linear #{$svg-start-delay} alternate forwards;
           }
 
-          to {
-            stroke-dashoffset: 0;
+          @keyframes y-axes {
+            from {
+              stroke-dashoffset: 1020;
+            }
+
+            to {
+              stroke-dashoffset: 0;
+            }
           }
         }
       }
 
       .y-axes-2 {
-        stroke-dasharray: 176;
-        stroke-dashoffset: 176;
+        @include above($xl) {
+          stroke-dasharray: 176;
+          stroke-dashoffset: 176;
 
-        .after-ready & {
-          animation: y-axes-2 0.2s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve} alternate forwards;
-        }
-
-        @keyframes y-axes-2 {
-          from {
-            stroke-dashoffset: 176;
+          .after-ready & {
+            animation: y-axes-2 0.2s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve} alternate forwards;
           }
 
-          to {
-            stroke-dashoffset: 0;
+          @keyframes y-axes-2 {
+            from {
+              stroke-dashoffset: 176;
+            }
+
+            to {
+              stroke-dashoffset: 0;
+            }
           }
         }
       }
 
       .grids {
-        stroke-dasharray: 948;
-        stroke-dashoffset: 948;
+        @include above($xl) {
+          stroke-dasharray: 948;
+          stroke-dashoffset: 948;
 
-        .after-ready & {
-          animation: grids $svg-animation-speed * 2 linear #{$svg-start-delay + $svg-animation-speed-bottom-curve} alternate forwards;
-        }
-
-        @keyframes grids {
-          from {
-            stroke-dashoffset: 948;
+          .after-ready & {
+            animation: grids $svg-animation-speed * 2 linear #{$svg-start-delay + $svg-animation-speed-bottom-curve} alternate forwards;
           }
 
-          to {
-            stroke-dashoffset: 0;
+          @keyframes grids {
+            from {
+              stroke-dashoffset: 948;
+            }
+
+            to {
+              stroke-dashoffset: 0;
+            }
           }
         }
       }
 
       .edges {
-        stroke-dasharray: 902;
-        stroke-dashoffset: 902;
+        @include above($xl) {
+          stroke-dasharray: 902;
+          stroke-dashoffset: 902;
 
-        .after-ready & {
-          animation: edges 0.5s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 1s} alternate forwards;
-        }
-
-        @keyframes edges {
-          from {
-            stroke-dashoffset: 902;
+          .after-ready & {
+            animation: edges 0.5s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 1s} alternate forwards;
           }
 
-          to {
-            stroke-dashoffset: 0;
+          @keyframes edges {
+            from {
+              stroke-dashoffset: 902;
+            }
+
+            to {
+              stroke-dashoffset: 0;
+            }
           }
         }
       }
 
       .bottom-curve {
-        stroke-dasharray: 1944;
-        stroke-dashoffset: 1944;
+        @include above($xl) {
+          stroke-dasharray: 1944;
+          stroke-dashoffset: 1944;
 
-        .after-ready & {
-          animation: bottom-curve #{$svg-animation-speed-bottom-curve} linear #{$svg-start-delay + 0.5} alternate forwards;
-        }
-
-        @keyframes bottom-curve {
-          from {
-            stroke-dashoffset: 1944;
+          .after-ready & {
+            animation: bottom-curve #{$svg-animation-speed-bottom-curve} linear #{$svg-start-delay + 0.5} alternate forwards;
           }
 
-          to {
-            stroke-dashoffset: 0;
+          @keyframes bottom-curve {
+            from {
+              stroke-dashoffset: 1944;
+            }
+
+            to {
+              stroke-dashoffset: 0;
+            }
           }
         }
       }
 
       .dot-top-l {
-        transform: scale(0);
-        transform-origin: (670 / 1920 * 100%) (334 / 1020 * 100%);
+        @include above($xl) {
+          transform: scale(0);
+          transform-origin: (670 / 1920 * 100%) (334 / 1020 * 100%);
 
-        .after-ready & {
-          animation: dot 0.3s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 2.5s} alternate forwards;
+          .after-ready & {
+            animation: dot 0.3s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 2.5s} alternate forwards;
+          }
         }
       }
 
       .dot-top-r {
-        transform: scale(0);
-        transform-origin: (1252 / 1920 * 100%) (334 / 1020 * 100%);
+        @include above($xl) {
+          transform: scale(0);
+          transform-origin: (1252 / 1920 * 100%) (334 / 1020 * 100%);
 
-        .after-ready & {
-          animation: dot 0.3s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 2.8s} alternate forwards;
+          .after-ready & {
+            animation: dot 0.3s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 2.8s} alternate forwards;
+          }
         }
       }
 
       .dot-bottom-l {
-        transform: scale(0);
-        transform-origin: (48 / 1920 * 100%) (763 / 1020 * 100%);
+        @include above($xl) {
+          transform: scale(0);
+          transform-origin: (48 / 1920 * 100%) (763 / 1020 * 100%);
 
-        .after-ready & {
-          animation: dot 0.3s linear #{$svg-start-delay + 0.5} alternate forwards;
+          .after-ready & {
+            animation: dot 0.3s linear #{$svg-start-delay + 0.5} alternate forwards;
+          }
         }
       }
 
       .dot-bottom-r {
-        transform: scale(0);
-        transform-origin: (1874 / 1920 * 100%) (763 / 1020 * 100%);
+        @include above($xl) {
+          transform: scale(0);
+          transform-origin: (1874 / 1920 * 100%) (763 / 1020 * 100%);
 
-        .after-ready & {
-          animation: dot 0.3s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 0.3} alternate forwards;
+          .after-ready & {
+            animation: dot 0.3s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 0.3} alternate forwards;
+          }
         }
       }
 
@@ -444,6 +536,10 @@
         font-size: 1.6rem;
         line-height: 2rem;
         letter-spacing: 0.06rem;
+      }
+
+      @include below($xl) {
+        bottom: 50%;
       }
 
       &-inner {
@@ -614,9 +710,11 @@
       position: absolute;
       top: 0.2rem;
       left: 100%;
+      margin: 0 1rem;
       overflow: hidden;
       text-align: left;
       border-radius: 0 0 20rem 0;
+      box-shadow: 0 0.4rem 2.4rem rgba(0, 0, 0, 0.2);
       transform: scale(0);
       transform-origin: 0 0;
       visibility: hidden;
@@ -657,10 +755,8 @@
 
       &-inner {
         width: 28rem;
-        margin: 0 1rem;
         padding: 1.6rem;
         background-color: $bg-color-white;
-        box-shadow: 0 0.4rem 2.4rem rgba(0, 0, 0, 0.2);
       }
 
       &-title {

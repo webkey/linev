@@ -3,6 +3,10 @@
   flex-wrap: wrap;
   height: 100%;
 
+  @include below($xl) {
+    height: auto;
+  }
+
   &__bg {
     position: absolute;
     top: 0;
@@ -17,7 +21,6 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
-      transform: scale(1.4);
     }
   }
 
@@ -46,7 +49,8 @@
       @include padding-y($layout-page-space-v_lg);
     }
 
-    @include below($lg) {
+    @include below($xl) {
+      height: auto;
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
@@ -80,6 +84,20 @@
         font-size: 2.4rem;
         line-height: 3.2rem;
       }
+
+      &_script {
+        @include below($xl) {
+          display: none;
+        }
+      }
+
+      &_no-script {
+        display: none;
+
+        @include below($xl) {
+          display: block;
+        }
+      }
     }
   }
 
@@ -109,7 +127,8 @@
       @include padding-y($layout-page-space-v_lg);
     }
 
-    @include below($lg) {
+    @include below($xl) {
+      height: auto;
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
@@ -196,12 +215,35 @@
             height: calc((100vh - #{6rem + $layout-page-space-v_lg * 2 + 2.8rem}) / 2 - #{1rem + 3.4rem});
           }
 
+          @include below($xl) {
+            height: auto;
+          }
+
+          &::before {
+            display: none;
+            content: "";
+
+            @include ratio(573, 378);
+
+            @include below($xl) {
+              display: block;
+            }
+          }
+
           &-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             backface-visibility: hidden;
             transition: $animation-speed-out;
+
+            @include below($xl) {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            }
 
             #{$el}:hover & {
               transform: scale(0.88);

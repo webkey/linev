@@ -11,14 +11,14 @@
 }
 
 .fade-in-down {
-  $initDelay: 0.5s;
+  @include above($xl) {
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+    will-change: opacity, transform;
 
-  animation-duration: 0.8s;
-  animation-fill-mode: both;
-  will-change: opacity, transform;
-
-  .no-js &,
-  .after-ready & {
-    animation-name: fadeInDown;
+    .no-js &,
+    .after-ready & {
+      animation-name: fadeInDown;
+    }
   }
 }

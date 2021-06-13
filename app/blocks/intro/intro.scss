@@ -18,7 +18,6 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
-      transform: scale(1.4);
     }
   }
 
@@ -33,14 +32,14 @@
     height: 50%;
     padding: #{$layout-page-space-v} #{$layout-page-space-h};
     overflow: hidden;
-    //background-color: $bg-color-blue;
 
     @include below($hd) {
       padding-top: #{$layout-page-space-v_lg};
       padding-bottom: #{$layout-page-space-v_lg};
     }
 
-    @include below($lg) {
+    @include below($xl) {
+      height: auto;
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
@@ -52,6 +51,7 @@
     //  position: absolute;
     //  top: 0;
     //  left: 0;
+    //  display: none;
     //  width: 100%;
     //  height: 100%;
     //  font-size: 0;
@@ -60,6 +60,10 @@
     //  background-position: center;
     //  background-size: cover;
     //  opacity: 0.15;
+    //
+    //  @include below($xl) {
+    //    display: block;
+    //  }
     //}
 
     &-title {
@@ -100,7 +104,7 @@
       padding-bottom: #{$layout-page-space-v_lg};
     }
 
-    @include below($lg) {
+    @include below($xl) {
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
@@ -148,7 +152,7 @@
         padding-bottom: 2.8rem;
       }
 
-      @include below($lg) {
+      @include below($xl) {
         margin: 0 -#{$layout-page-space-h_md} -3.6rem;
         padding: 2.4rem #{$layout-page-space-h_md} 3.6rem;
       }
@@ -237,6 +241,10 @@
     overflow: hidden;
     //background-color: #a2adb3;
 
+    @include below($xl) {
+      height: 32.4rem;
+    }
+
     &-figure {
       position: absolute;
       top: 0;
@@ -263,7 +271,7 @@
         padding-bottom: #{$layout-page-space-v_lg};
       }
 
-      @include below($lg) {
+      @include below($xl) {
         padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
       }
 
@@ -287,6 +295,7 @@
 
     &-info {
       display: flex;
+      flex-wrap: wrap;
       align-items: flex-start;
       justify-content: flex-end;
       color: #fefffb;
@@ -298,10 +307,19 @@
         line-height: 2rem;
       }
 
+      @include below($xl) {
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+      }
+
       li {
         position: relative;
         margin-left: 1.6rem;
         padding-left: 3rem;
+
+        @include below($xl) {
+          margin-left: 0;
+        }
 
         & > i {
           position: absolute;

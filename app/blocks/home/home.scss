@@ -1,4 +1,8 @@
 .home {
+  @include below($xl) {
+    padding-top: $header-height-top + $header-height-bottom;
+  }
+
   &-section {
     $section: &;
 
@@ -7,12 +11,21 @@
     padding-top: $header-height-top;
     overflow: hidden;
 
+    @include below($xl) {
+      height: auto !important;
+      padding-top: 0;
+    }
+
     &.fp-auto-height {
       padding-top: 0;
     }
 
     &:first-child {
       padding-top: $header-height-top + $header-height-bottom;
+
+      @include below($xl) {
+        padding-top: 0;
+      }
     }
 
     &:nth-child(2) {

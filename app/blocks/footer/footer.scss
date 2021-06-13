@@ -10,17 +10,18 @@
     overflow: hidden;
     border-top: 1px solid $line-color-black;
 
-    @include below($lg) {
-      padding: 1.4rem #{$layout-page-space-h_md};
+    @include below($xl) {
+      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
     @include below($md) {
-      padding: 1.4rem #{$layout-page-space-h_sm};
+      padding: #{$layout-page-space-h_sm} #{$layout-page-space-h_sm};
     }
   }
 
   &__grid {
     display: flex;
+    flex-wrap: wrap;
     align-items: stretch;
     margin: 0 -1.2rem;
 
@@ -33,6 +34,22 @@
       max-width: $width;
       padding: 0 1.2rem;
       color: rgba($text-color-white, 0.5);
+
+      @include below($xl) {
+        $width: 50%;
+
+        flex: 1 0 $width;
+        max-width: $width;
+        margin-top: 4.4rem;
+
+        &:nth-child(1) {
+          margin-top: 0;
+        }
+
+        &:nth-child(2) {
+          margin-top: 0;
+        }
+      }
 
       &-title {
         width: 100%;
@@ -125,7 +142,7 @@
     overflow: hidden;
     border-top: 1px solid $line-color-black;
 
-    @include below($lg) {
+    @include below($xl) {
       padding: 1.4rem #{$layout-page-space-h_md};
     }
 

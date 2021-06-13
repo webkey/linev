@@ -90,7 +90,20 @@
       }
     }
 
+    // На главной для $xl и выше
     .is-collapsed & {
+      @include above($xl) {
+        &::before {
+          opacity: 0;
+        }
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    .scrolled & {
       &::before {
         opacity: 0;
       }

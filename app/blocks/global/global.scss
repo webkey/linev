@@ -1,6 +1,11 @@
 .global {
   position: relative;
   height: 100%;
+  background-color: $bg-color-black;
+
+  @include below($xl) {
+    height: auto;
+  }
 
   &__heading {
     $width: 65%;
@@ -13,17 +18,13 @@
     pointer-events: none;
 
     @include below($hd) {
-      $width: 50%;
-
-      flex-basis: $width;
-      width: $width;
-      max-width: $width;
-      height: 100%;
-
       @include padding-y($layout-page-space-v_lg);
     }
 
-    @include below($lg) {
+    @include below($xl) {
+      position: relative;
+      width: auto;
+      max-width: none;
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
@@ -57,6 +58,24 @@
         font-size: 2.4rem;
         line-height: 3.2rem;
       }
+
+      @include below($xl) {
+        max-width: none;
+      }
+
+      &_script {
+        @include below($xl) {
+          display: none;
+        }
+      }
+
+      &_no-script {
+        display: none;
+
+        @include below($xl) {
+          display: block;
+        }
+      }
     }
   }
 
@@ -69,6 +88,13 @@
     justify-content: center;
     width: 100%;
     height: 100%;
+
+    @include below($xl) {
+      position: relative;
+      display: block;
+      height: auto;
+      padding: 0 #{$layout-page-space-h_md} #{$layout-page-space-v_md};
+    }
   }
 
   &__map {
@@ -80,6 +106,10 @@
 
     @include below($hd) {
       width: calc((100vh - #{$header-height-top} - 4rem) / (698 / 1286)); // Изменение ширины слайда через относительную высоту
+    }
+
+    @include below($xl) {
+      width: auto;
     }
 
     &::before {
@@ -199,9 +229,9 @@
         position: absolute;
         top: 100%;
         left: 0;
-        padding: 0.4rem 0;
+        margin: 0.4rem 0;
         overflow: hidden;
-        border-radius: 0 0 20rem 0;
+        box-shadow: 0 0.4rem 2.4rem rgba(0, 0, 0, 0.2);
         transform: scale(0);
         transform-origin: 0 0;
         visibility: hidden;
@@ -219,11 +249,9 @@
         #{$balloon}_conroe & {
           @include below($hd) {
             top: 0;
-            right: 100%;
-            left: auto;
-            margin: -4rem 1rem;
-            border-radius: 20rem 0 0 20rem;
-            transform-origin: 100% 4rem;
+            left: 100%;
+            margin: -6rem 1rem;
+            transform-origin: 0 4rem;
           }
         }
 
@@ -233,7 +261,16 @@
             right: 100%;
             left: auto;
             margin: -8rem 1rem;
-            border-radius: 20rem 0 0 20rem;
+            transform-origin: 100% 8rem;
+          }
+        }
+
+        #{$balloon}_kent & {
+          @include below($hd) {
+            top: 0;
+            right: 100%;
+            left: auto;
+            margin: -8rem 1rem;
             transform-origin: 100% 8rem;
           }
         }
@@ -251,7 +288,6 @@
           width: 27.9rem;
           padding: 1.6rem;
           background-color: $bg-color-white;
-          box-shadow: 0 0.4rem 2.4rem rgba(0, 0, 0, 0.2);
 
           @include below($hd) {
             width: 24rem;

@@ -82,7 +82,7 @@ body {
   &_has-spaces {
     max-width: calc(#{$layout-content-max-width} + #{$layout-page-space-h} * 2);
 
-    @include below($lg) {
+    @include below($xl) {
       max-width: calc(#{$layout-content-max-width} + #{$layout-page-space-h_md} * 2);
     }
 
