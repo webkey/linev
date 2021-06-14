@@ -226,7 +226,7 @@
       overflow: hidden;
       white-space: nowrap;
 
-      @include below($xl) {
+      @include below($hd) {
         height: $line-height_md * 1 + 1.2;
       }
 

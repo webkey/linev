@@ -24,7 +24,12 @@
     }
 
     @include below($md) {
+      display: block;
       margin-bottom: #{$layout-page-space-v_sm};
+    }
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 
@@ -37,6 +42,22 @@
     color: $text-color-black;
     font: bold 3.2rem/4rem $font-title;
     text-transform: uppercase;
+
+    @include below($xxl) {
+      font-size: 2.8rem;
+      line-height: 3.6rem;
+    }
+
+    @include below($xl) {
+      font-size: 2.4rem;
+      line-height: 3.2rem;
+    }
+
+    @include below($md) {
+      max-width: none;
+      margin-bottom: #{$layout-page-space-v_sm};
+      padding: 0;
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -54,11 +75,21 @@
     max-width: $width;
     color: $text-color-black;
     font-size: 2rem;
-    line-height: 2.4rem;
+    line-height: 2.8rem;
     letter-spacing: 0.02em;
+
+    @include below($md) {
+      max-width: none;
+      font-size: 1.6rem;
+      line-height: 2rem;
+    }
 
     p {
       margin-bottom: 2.8rem;
+
+      @include below($md) {
+        margin-bottom: #{$layout-page-space-v_sm};
+      }
 
       &:last-child {
         margin-bottom: 0;
@@ -76,8 +107,7 @@
 
     &-img {
       display: block;
-      width: 100%;
-      height: auto;
+      max-width: 100%;
       margin-bottom: 0.8rem;
     }
 
@@ -88,6 +118,11 @@
       line-height: 2rem;
       letter-spacing: 0.025em;
       opacity: 0.5;
+
+      @include below($md) {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+      }
     }
   }
 }

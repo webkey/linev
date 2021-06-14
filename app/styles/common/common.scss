@@ -33,6 +33,10 @@ body {
   position: relative;
   flex: 1 0 auto; // Footer at bottom
   padding: #{$header-height-top + $header-height-bottom} 0 0;
+
+  @include below($lg) {
+    padding-top: $header-height-top;
+  }
 }
 
 .footer {
@@ -54,7 +58,7 @@ body {
     padding-right: $layout-page-space_h;
     padding-left: $layout-page-space_h;
 
-    @include below($lg) {
+    @include below($xl) {
       padding-right: $layout-page-space_h_md;
       padding-left: $layout-page-space_h_md;
     }

@@ -9,7 +9,7 @@
   right: 0;
   z-index: 115;
   width: $search-form-width;
-  padding: 3.6rem 4.8rem;
+  padding: #{$layout-page-space-v_md} #{$layout-page-space-h};
   background-color: rgba($bg-color-blue, 0.98);
   border: solid $line-color-blue;
   border-width: 0 0 1px 1px;
@@ -19,10 +19,22 @@
   pointer-events: none;
   will-change: opacity, transform;
 
+  @include below($xl) {
+    @include padding-x($layout-page-space-h_md);
+  }
+
+  @include below($md) {
+    @include padding-x($layout-page-space-h_sm);
+  }
+
+  @include below($md) {
+    width: 100%;
+  }
+
   &::after {
     position: absolute;
     right: 0;
-    bottom: 3.6rem;
+    bottom: #{$layout-page-space-v_md};
     left: 0;
     display: block;
     border-top: 1px solid $line-color-blue;
@@ -63,7 +75,7 @@
 
     @include below($lg) {
       height: $search-form-height_lg;
-      padding: #{$ident-v_lg} 3.8rem #{$ident-v_lg} 2.2rem;
+      padding: #{$ident-v_lg} 3.8rem #{$ident-v_lg} 0;
       font-size: $font-size_lg;
       line-height: $line-height_lg;
     }
@@ -126,6 +138,14 @@
         background-position: center;
         background-size: contain;
         content: "";
+
+        @include below($sm) {
+          $size: 2.4rem;
+
+          width: $size;
+          height: $size;
+          margin: -#{floor-float($size / 2, 1)};
+        }
       }
     }
 

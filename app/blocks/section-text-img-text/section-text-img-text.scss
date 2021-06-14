@@ -4,6 +4,10 @@
   overflow: hidden;
   background-color: $bg-color-white;
 
+  @include below($lg) {
+    display: block;
+  }
+
   &__intro {
     $width: 33.2%;
 
@@ -16,6 +20,10 @@
 
     @include below($xl) {
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+    }
+
+    @include below($lg) {
+      max-width: none;
     }
 
     @include below($md) {
@@ -34,14 +42,28 @@
       font: 500 3.2rem/4rem $font-title;
       letter-spacing: 0.005em;
       background-color: $bg-color-blue;
+
+      @include below($md) {
+        margin-bottom: #{$layout-page-space-v_sm};
+      }
     }
 
     &-title {
       width: 100%;
       margin: 0 0 6.4rem;
       color: $text-color-black;
-      font: 700 3.4rem/4rem $font-title;
+      font: bold 3.4rem/4rem $font-title;
       text-transform: uppercase;
+
+      @include below($xl) {
+        margin-bottom: #{$layout-page-space-v_md};
+      }
+
+      @include below($md) {
+        margin-bottom: #{$layout-page-space-v_sm};
+        font-size: 3.2rem;
+        line-height: 4rem;
+      }
 
       &:last-child {
         margin-bottom: 0;
@@ -55,6 +77,12 @@
       font-size: 2rem;
       line-height: 2.8rem;
       letter-spacing: 0.02em;
+
+      @include below($md) {
+        font-size: 1.6rem;
+        line-height: 2rem;
+        letter-spacing: 0.025em;
+      }
     }
   }
 
@@ -66,6 +94,11 @@
     flex: 1 0 $width;
     flex-direction: column;
     max-width: $width;
+
+    @include below($lg) {
+      max-width: none;
+      height: 36rem;
+    }
 
     &-img {
       position: absolute;
@@ -91,6 +124,10 @@
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
+    @include below($lg) {
+      max-width: none;
+    }
+
     @include below($md) {
       padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
@@ -102,6 +139,14 @@
       margin-bottom: 6.4rem;
 
       @include clearfix;
+
+      @include below($xl) {
+        margin-bottom: $layout-page-space-v_md;
+      }
+
+      @include below($md) {
+        margin-bottom: $layout-page-space-v_sm;
+      }
 
       &:last-child {
         margin-bottom: 0;
@@ -131,8 +176,6 @@
         font: bold 2.4rem/3.2rem $font-title;
         letter-spacing: 0.006rem;
         text-transform: uppercase;
-
-        @include truncate(100%);
       }
 
       &-post {
@@ -140,8 +183,6 @@
         color: $text-color-black;
         font: 2rem/2.8rem $font;
         letter-spacing: 0.02em;
-
-        @include truncate(100%);
       }
     }
 
@@ -151,6 +192,11 @@
       color: $text-color-blue;
       font: 500 2.4rem/3.2rem $font-title;
       letter-spacing: 0.008em;
+
+      @include below($xl) {
+        font-size: 2rem;
+        line-height: 2.8rem;
+      }
     }
   }
 }

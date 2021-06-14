@@ -3,10 +3,17 @@
 
   position: relative;
   display: flex;
-  //min-height: 100vw * 596/1366;
   min-height: 59.6rem;
   overflow: hidden;
   background-color: $bg-color-white;
+
+  @include below($lg) {
+    min-height: 100vw * 596/1366;
+  }
+
+  @include below($md) {
+    display: block;
+  }
 
   &__bg {
     position: absolute;
@@ -18,6 +25,10 @@
     background-position: center;
     background-size: cover;
     opacity: 0.45;
+
+    @include below($md) {
+      display: none;
+    }
   }
 
   &__caption {
@@ -36,7 +47,26 @@
     }
 
     @include below($md) {
+      max-width: none;
+      min-height: 36rem;
       padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+    }
+
+    &-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      opacity: 0.45;
+
+      @include below($md) {
+        display: block;
+      }
     }
   }
 
@@ -50,7 +80,7 @@
     margin-bottom: 1.6rem;
     padding: 0.5rem;
     color: $text-color-white;
-    font: 500 3.2rem/4rem $font-title;
+    font: bold 3.2rem/4rem $font-title;
     letter-spacing: 0.005em;
     background-color: $bg-color-blue;
   }
@@ -61,8 +91,23 @@
     max-width: 100%;
     margin-top: auto;
     color: $text-color-blue;
-    font: 500 6.8rem/7.2rem $font-title;
+    font: bold 6.8rem/7.2rem $font-title;
     text-transform: uppercase;
+
+    @include below($xl) {
+      font-size: 5.6rem;
+      line-height: 6.4rem;
+    }
+
+    @include below($lg) {
+      font-size: 4.4rem;
+      line-height: 5.2rem;
+    }
+
+    @include below($md) {
+      font-size: 3.2rem;
+      line-height: 4rem;
+    }
 
     & > span {
       display: block;
@@ -77,16 +122,11 @@
     flex: 1 0 $width;
     flex-direction: column;
     max-width: $width;
-    padding: #{$layout-page-space-v} #{$layout-page-space-h} #{$layout-page-space-v} 4.4rem;
     overflow: hidden;
     background-color: $bg-color-white;
 
-    @include below($xl) {
-      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
-    }
-
     @include below($md) {
-      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+      max-width: none;
     }
   }
 }
@@ -96,15 +136,102 @@
 
   // Thumbs
   &__thumbs {
-    margin-bottom: #{$layout-page-space-v};
+    $thumb: &;
+    $shade-color: $bg-color-white;
+    $line-height: 2.4rem;
+    $line-height_md: 2rem;
+
+    position: relative;
+    padding: #{$layout-page-space-v} 0;
     cursor: default;
+
+    @include below($hd) {
+      @include padding-y($layout-page-space-v_lg);
+    }
+
+    @include below($xl) {
+      @include padding-y($layout-page-space-v_md);
+    }
+
+    @include below($md) {
+      @include padding-y($layout-page-space-v_sm);
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+      display: block;
+      width: #{$layout-page-space-h};
+      content: '';
+      pointer-events: none;
+
+      @include below($xl) {
+        width: #{$layout-page-space-h_md};
+      }
+
+      @include below($md) {
+        width: #{$layout-page-space-h_sm};
+      }
+    }
+
+    &::before {
+      left: 0;
+      background-image: linear-gradient(to left, rgba($shade-color, 0) 0, $shade-color 50%, $shade-color 100%);
+    }
+
+    &::after {
+      right: 0;
+      background-image: linear-gradient(to right, rgba($shade-color, 0) 0, $shade-color 50%, $shade-color 100%);
+    }
+
+    &-frame {
+      position: relative;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      height: $line-height * 1 + 1.2;
+      overflow: hidden;
+      white-space: nowrap;
+
+      @include below($hd) {
+        height: $line-height_md * 1 + 1.2;
+      }
+
+      .touchevents & {
+        overflow-x: auto;
+      }
+
+      .no-touchevents #{$thumb}:hover & {
+        overflow-x: auto;
+      }
+    }
+
+    &-holder {
+      flex-grow: 1;
+      flex-shrink: 0;
+      height: 100%;
+      padding: 0 #{$layout-page-space-h};
+
+      @include below($xl) {
+        padding: 0 #{$layout-page-space-h_md};
+      }
+
+      @include below($md) {
+        padding: 0 #{$layout-page-space-h_sm};
+      }
+    }
 
     &-nav {
       display: flex;
       flex-wrap: nowrap;
       align-items: flex-start;
       justify-content: space-between;
-      box-shadow: inset 0 -2px 0 rgba($line-color-blue, 0.5);
+      height: 100%;
+      box-shadow: inset 0 -2px 0 rgba($text-color-blue, 0.1);
     }
 
     &-item {
@@ -113,22 +240,25 @@
       position: relative;
       z-index: 1;
       display: block;
-      height: $line-height * 1 + 1.2;
-      margin-right: 1.8rem;
+      height: 100%;
+      margin-right: 4rem;
       padding: 0.6rem 0;
       overflow: hidden;
-      color: $text-color-blue;
+      color: rgba($text-color-blue, 0.5);
       font: bold 2rem/#{$line-height} $font-button;
       text-transform: uppercase;
       text-decoration: none;
       box-shadow: inset 0 -2px 0 transparent;
       transform-origin: center bottom;
-      opacity: 0.5;
       transition: $animation-speed-out;
       user-select: none;
       -webkit-tap-highlight-color: transparent;
 
       @include antialiased;
+
+      @include below($lg) {
+        margin-right: 3.6rem;
+      }
 
       &::before {
         position: absolute;
@@ -144,6 +274,12 @@
         transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
         content: "";
         will-change: transform;
+      }
+
+      @include below($hd) {
+        font-size: 1.6rem;
+        line-height: $line-height_md;
+        letter-spacing: 0.06rem;
       }
 
       & > div {
@@ -176,9 +312,9 @@
       }
 
       &.is-active {
+        color: $text-color-blue;
         box-shadow: inset 0 -2px 0 $text-color-blue;
         cursor: default;
-        opacity: 1;
       }
     }
   }
@@ -203,7 +339,20 @@
 
   // Counter
   &__counter {
+    padding: 0 #{$layout-page-space-h} #{$layout-page-space-v};
     overflow: hidden;
+
+    @include below($hd) {
+      padding-bottom: #{$layout-page-space-v_lg};
+    }
+
+    @include below($xl) {
+      padding: 0 #{$layout-page-space-h_md} #{$layout-page-space-v_md};
+    }
+
+    @include below($md) {
+      padding: 0 #{$layout-page-space-h_sm} #{$layout-page-space-v_sm};
+    }
 
     &-list {
       display: flex;
@@ -211,6 +360,10 @@
       align-items: flex-start;
       justify-content: space-between;
       margin: 0 -2.2rem -3.1rem;
+
+      @include below($md) {
+        margin: 0 -#{$layout-page-space-v_sm / 2} -#{$layout-page-space-v_sm};
+      }
     }
 
     &-item {
@@ -220,6 +373,11 @@
       max-width: $width;
       margin-bottom: 3.1rem;
       padding: 0 2.2rem;
+
+      @include below($md) {
+        margin-bottom: #{$layout-page-space-v_sm};
+        padding: 0 #{$layout-page-space-v_sm / 2};
+      }
     }
 
     &-value {
@@ -227,6 +385,17 @@
       color: $text-color-blue;
       font: 500 8rem/8.8rem $font-title;
       letter-spacing: -0.019em;
+
+      @include below($xl) {
+        font-size: 5.6rem;
+        line-height: 6.4rem;
+      }
+
+      @include below($md) {
+        font-weight: bold;
+        font-size: 4.4rem;
+        line-height: 5.2rem;
+      }
     }
 
     &-text {
@@ -235,6 +404,11 @@
       font: 500 2.4rem/3.6rem $font-title;
       letter-spacing: 0.02em;
       opacity: 0.5;
+
+      @include below($md) {
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+      }
     }
   }
 }

@@ -23,6 +23,10 @@
     width: 11.7rem;
   }
 
+  @include below($md) {
+    width: 11rem;
+  }
+
   &.is-open {
     transform: translateX(0);
     opacity: 1;
@@ -41,6 +45,10 @@
 
     @include below($lg) {
       right: 5rem;
+    }
+
+    @include below($md) {
+      right: 4.2rem;
     }
   }
 

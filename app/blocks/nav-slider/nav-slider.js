@@ -47,6 +47,23 @@ app.navSlider = {
             },
           },
 
+          breakpoints: {
+            1365: {
+              slidesPerView: 4,
+              slidesPerGroup: 4,
+              spaceBetween: 24,
+            },
+            991: {
+              slidesPerView: 3,
+              slidesPerGroup: 3,
+            },
+            767: {
+              slidesPerView: 'auto',
+              slidesPerGroup: 1,
+              spaceBetween: 8,
+            },
+          },
+
           on: {
             slideChangeTransitionEnd() {
               const $img = $(sliderInstance.visibleSlides).find('.js-lazy-load');

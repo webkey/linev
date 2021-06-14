@@ -15,11 +15,15 @@ app.mobMenu = {
         },
         afterAdd() {
           $html.addClass('open-only-mob');
-          fullpage_api.setAllowScrolling(false);
+          if ($('#js-fp').length) {
+            fullpage_api.setAllowScrolling(false);
+          }
         },
         afterRemove() {
           $html.removeClass('open-only-mob');
-          fullpage_api.setAllowScrolling(true);
+          if ($('#js-fp').length) {
+            fullpage_api.setAllowScrolling(true);
+          }
         },
       });
     }

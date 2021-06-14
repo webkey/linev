@@ -21,6 +21,14 @@
     text-decoration: none;
     transition: 0.1s;
 
+    @include below($md) {
+      width: 32rem;
+    }
+
+    @include below($sm) {
+      width: 24.2rem;
+    }
+
     &:active {
       transform: scale(0.98);
     }
@@ -48,7 +56,7 @@
         object-fit: cover;
         transition: $animation-speed;
 
-        #{$slide}:hover & {
+        html:not(.touchevents) #{$slide}:hover & {
           opacity: 0.3;
           transition-duration: $animation-speed-out;
         }
@@ -66,15 +74,17 @@
       width: 4rem;
       height: 4rem;
       padding: 0.3rem;
-      color: $text-color-blue;
+      color: $text-color-white;
       font-size: 2rem;
       line-height: 2.8rem;
       letter-spacing: 0.02em;
-      background-color: $bg-color-white;
+      background-color: rgba(#0d1623, 0.5);
       transition: $animation-speed-out;
 
-      #{$slide}:hover & {
-        transform: translateX(1.2rem) translateY(-1.2rem);
+      html:not(.touchevents) #{$slide}:hover & {
+        //transform: translateX(1.2rem) translateY(-1.2rem);
+        width: 6rem;
+        height: 6rem;
         transition-duration: $animation-speed-out;
       }
     }
@@ -88,8 +98,14 @@
       color: $text-color-white;
       font: 2rem/#{$line-height} $font;
       letter-spacing: 0.02em;
+      transition: $animation-speed-out;
       //-webkit-line-clamp: $line-count;
       //-webkit-box-orient: vertical;
+
+      //html:not(.touchevents) #{$slide}:hover & {
+      //  color: $text-color-blue;
+      //  transition: $animation-speed;
+      //}
     }
   }
 
@@ -173,11 +189,23 @@
 
   &__controls {
     position: absolute;
-    top: 36%;
+    top: calc(5vw - 1.8rem);
     right: 0;
     left: 0;
     z-index: 5;
     height: 0;
+
+    @include below($xxl) {
+      top: calc(7vw - 1.8rem);
+    }
+
+    @include below($lg) {
+      top: calc(10.6vw - 1.8rem);
+    }
+
+    @include below($md) {
+      top: 8.6rem;
+    }
   }
 
   &__button {
@@ -238,6 +266,14 @@
       float: left;
       margin-left: -4rem;
 
+      @include below($xl) {
+        margin-left: -#{$layout-page-space-h_md};
+      }
+
+      @include below($md) {
+        margin-left: -#{$layout-page-space-h_sm};
+      }
+
       &::after {
         background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.6835 27.6333L18.0502 20L25.6835 12.35L23.3335 10L13.3335 20L23.3335 30L25.6835 27.6333Z' fill='white'/%3E%3C/svg%3E%0A");
       }
@@ -246,6 +282,14 @@
     &_next {
       float: right;
       margin-right: -4rem;
+
+      @include below($xl) {
+        margin-right: -#{$layout-page-space-h_md};
+      }
+
+      @include below($md) {
+        margin-right: -#{$layout-page-space-h_sm};
+      }
 
       &::after {
         background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.3165 27.6333L21.9499 20L14.3165 12.35L16.6665 10L26.6665 20L16.6665 30L14.3165 27.6333Z' fill='white'/%3E%3C/svg%3E%0A");

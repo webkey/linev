@@ -18,16 +18,16 @@
 
   &__field {
     position: relative;
-    display: flex;
-    align-items: center;
+    max-width: #{19.7rem + 4.1rem};
+    padding-right: 4.1rem;
+
+    @include below($sm) {
+      max-width: none;
+    }
   }
 
   &__entry {
-    $width: 19.7rem;
-
-    flex: 1 0 $width;
-    max-width: $width;
-    margin-right: 1px;
+    width: 100%;
   }
 
   &__input {
@@ -75,7 +75,9 @@
     $submit: &;
     $width: 4rem;
 
-    position: relative;
+    position: absolute;
+    top: 0;
+    right: 0;
     display: block;
     flex: 1 0 $width;
     width: $width;
@@ -167,8 +169,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    width: 23.8rem;
-    max-width: 100%;
+    width: 100%;
     padding: 0.4rem 0;
     color: $text-color-white;
     font-size: 1.2rem;

@@ -1,7 +1,7 @@
-<section class="section-heading@@if(context.mods){@@for (var i = 0; i < mods.length; i++){ section-heading_`+mods[i]+`}} layout-content" data-aos="fade" id="@@id">
+<section class="section-heading@@if(context.mods){@@for (var i = 0; i < mods.length; i++){ section-heading_`+mods[i]+`}} layout-content"@@if(context.id){ id="@@id"}>
   <div class="section-heading__bg js-lazy-load" data-bg="@@image"></div>
-  <div class="section-heading__number" data-aos="fade-up">@@number</div>
-  <h2 class="section-heading__title">
+  <div class="section-heading__number" data-aos="fade">@@number</div>
+  <h2 class="section-heading__title" data-aos="fade">
     @@title
   </h2>
 </section>

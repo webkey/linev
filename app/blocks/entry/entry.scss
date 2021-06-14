@@ -18,17 +18,14 @@
 
   &__container {
     position: relative;
-    padding-top: #{$layout-page-space-v};
-    padding-bottom: #{$layout-page-space-v};
+    padding: #{$layout-page-space-v} #{$layout-page-space-h};
 
-    @include below($hd) {
-      padding-top: #{$layout-page-space-v_lg};
-      padding-bottom: #{$layout-page-space-v_lg};
+    @include below($xl) {
+      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
-    @include below($lg) {
-      padding-top: #{$layout-page-space-v_md};
-      padding-bottom: #{$layout-page-space-v_md};
+    @include below($md) {
+      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
 
     @include below($md) {
@@ -46,12 +43,35 @@
     position: relative;
     z-index: 1;
     color: $text-color-white;
-    font: bold 11.6rem/11.6rem $font-title;
+    font: bold 11.6rem/1 $font-title;
     letter-spacing: -0.016em;
     text-transform: uppercase;
+
+    @include below($xxl) {
+      font-size: 8.2rem;
+      line-height: 9rem;
+    }
+
+    @include below($lg) {
+      font-size: 5.6rem;
+      line-height: 6.4rem;
+    }
+
+    @include below($md) {
+      font-size: 4.4rem;
+      line-height: 5.2rem;
+    }
   }
 
   &__nav {
     margin-top: 12.6rem;
+
+    @include below($lg) {
+      margin-top: 6rem;
+    }
+
+    @include below($md) {
+      margin-top: #{$layout-page-space-v_sm};
+    }
   }
 }

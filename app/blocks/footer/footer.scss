@@ -40,15 +40,25 @@
 
         flex: 1 0 $width;
         max-width: $width;
-        margin-top: 4.4rem;
+        margin-top: #{$layout-page-space-v_md};
 
         &:nth-child(1) {
           margin-top: 0;
         }
 
         &:nth-child(2) {
-          margin-top: 0;
+          @include above($sm) {
+            margin-top: 0;
+          }
         }
+      }
+
+      @include below($sm) {
+        $width: 100%;
+
+        flex: 1 0 $width;
+        max-width: $width;
+        margin-top: #{$layout-page-space-v_sm};
       }
 
       &-title {
@@ -124,10 +134,20 @@
           color: $text-color-white;
           text-decoration: none;
           opacity: 0.5;
-          transition: opacity $animation-speed;
+          transition: $animation-speed;
 
           &:hover {
             opacity: 1;
+          }
+
+          &.footer__blue-link {
+            color: $line-color-blue;
+            box-shadow: 0 1px 0 transparent;
+            opacity: 1;
+
+            &:hover {
+              box-shadow: 0 1px 0 currentColor;
+            }
           }
         }
       }
@@ -143,7 +163,13 @@
     border-top: 1px solid $line-color-black;
 
     @include below($xl) {
-      padding: 1.4rem #{$layout-page-space-h_md};
+      @include padding-x(#{$layout-page-space-h_md});
+    }
+
+    @include below($lg) {
+      display: block;
+
+      @include padding-y(1.6rem);
     }
 
     @include below($md) {
@@ -206,6 +232,11 @@
 
     &-l {
       max-width: 49rem;
+
+      @include below($lg) {
+        max-width: none;
+        margin-bottom: 1.6rem;
+      }
     }
 
     &-r {

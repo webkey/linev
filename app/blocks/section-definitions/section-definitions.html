@@ -1,10 +1,10 @@
-<section class="section-definitions@@if(context.mods){@@for (var i = 0; i < mods.length; i++){ section-definitions_`+mods[i]+`}} layout-content" data-aos="fade" id="@@id">
+<section class="section-definitions@@if(context.mods){@@for (var i = 0; i < mods.length; i++){ section-definitions_`+mods[i]+`}} layout-content"@@if(context.id){ id="@@id"}>
   @@for (var i = 0; i < items.length; i++) {
   <div class="section-definitions__row">
-    <h3 class="section-definitions__title" data-aos="fade-up">
+    <h3 class="section-definitions__title" data-aos="fade">
       `+items[i].title+`
     </h3>
-    <div class="section-definitions__description" data-aos="fade-up" data-aos-delay="50">
+    <div class="section-definitions__description" data-aos="fade">
       `+items[i].description+`
       @@if(context.image) {
       <figure class="section-definitions__figure">

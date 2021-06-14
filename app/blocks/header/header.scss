@@ -145,6 +145,11 @@
     overflow: hidden;
     transition: $animation-speed;
 
+    @include below($sm) {
+      width: 15rem;
+      height: 3rem;
+    }
+
     // На главной для $xl и выше
     #{$header}.is-collapsed & {
       @include above($xl) {

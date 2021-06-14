@@ -18,6 +18,7 @@
   }
 
   @include below($md) {
+    min-height: 36rem;
     padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
   }
 
@@ -43,9 +44,13 @@
     margin-bottom: 1.6rem;
     padding: 0.5rem;
     color: $text-color-blue;
-    font: 500 3.2rem/4rem $font-title;
+    font: bold 3.2rem/4rem $font-title;
     letter-spacing: 0.005em;
     background-color: $bg-color-white;
+
+    @include below($md) {
+      margin-bottom: #{$layout-page-space-h_sm};
+    }
 
     #{$el}_blue & {
       color: $text-color-white;
@@ -59,8 +64,24 @@
     max-width: 100%;
     margin-top: auto;
     color: $text-color-white;
-    font: 500 6.8rem/7.2rem $font-title;
+    font: bold 6.8rem/7.2rem $font-title;
+    letter-spacing: -0.06rem;
     text-transform: uppercase;
+
+    @include below($xl) {
+      font-size: 5.6rem;
+      line-height: 6.4rem;
+    }
+
+    @include below($lg) {
+      font-size: 4.4rem;
+      line-height: 5.2rem;
+    }
+
+    @include below($md) {
+      font-size: 3.2rem;
+      line-height: 4rem;
+    }
 
     #{$el}_blue & {
       color: $text-color-blue;
