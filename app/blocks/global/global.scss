@@ -25,6 +25,7 @@
       position: relative;
       width: auto;
       max-width: none;
+      min-height: 36rem;
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
@@ -57,10 +58,6 @@
         max-width: 45rem;
         font-size: 2.4rem;
         line-height: 3.2rem;
-      }
-
-      @include below($xl) {
-        max-width: none;
       }
 
       &_script {

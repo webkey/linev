@@ -55,6 +55,7 @@
       width: auto;
       max-width: none;
       height: auto;
+      min-height: 36rem;
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
@@ -93,6 +94,11 @@
         line-height: 5.2rem;
         letter-spacing: normal;
       }
+
+      @include below($lg) {
+        font-size: 3.2rem;
+        line-height: 4rem;
+      }
     }
 
     &-text {
@@ -106,10 +112,6 @@
         max-width: 45rem;
         font-size: 2.4rem;
         line-height: 3.2rem;
-      }
-
-      @include below($xl) {
-        max-width: none;
       }
 
       &_script {
@@ -165,7 +167,13 @@
 
   // Thumbs
   &__thumbs {
-    padding: #{$layout-page-space-v} #{$layout-page-space-h};
+    $thumb: &;
+    $shade-color: $bg-color-white;
+    $line-height: 2.4rem;
+    $line-height_md: 2rem;
+
+    position: relative;
+    padding: #{$layout-page-space-v} 0;
     cursor: default;
 
     @include below($hd) {
@@ -173,11 +181,79 @@
     }
 
     @include below($xl) {
-      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+      @include padding-y($layout-page-space-v_md);
     }
 
     @include below($md) {
-      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+      @include padding-y($layout-page-space-v_sm);
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 1;
+      display: block;
+      width: #{$layout-page-space-h};
+      content: '';
+      pointer-events: none;
+
+      @include below($xl) {
+        width: #{$layout-page-space-h_md};
+      }
+
+      @include below($md) {
+        width: #{$layout-page-space-h_sm};
+      }
+    }
+
+    &::before {
+      left: 0;
+      background-image: linear-gradient(to left, rgba($shade-color, 0) 0, $shade-color 50%, $shade-color 100%);
+    }
+
+    &::after {
+      right: 0;
+      background-image: linear-gradient(to right, rgba($shade-color, 0) 0, $shade-color 50%, $shade-color 100%);
+    }
+
+    &-frame {
+      position: relative;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      height: $line-height * 2 + 1.2;
+      overflow: hidden;
+      white-space: nowrap;
+
+      @include below($xl) {
+        height: $line-height_md * 2 + 1.2;
+      }
+
+      .touchevents & {
+        overflow-x: auto;
+      }
+
+      .no-touchevents #{$thumb}:hover & {
+        overflow-x: auto;
+      }
+    }
+
+    &-holder {
+      flex-grow: 1;
+      flex-shrink: 0;
+      height: 100%;
+      padding: 0 #{$layout-page-space-h};
+
+      @include below($xl) {
+        padding: 0 #{$layout-page-space-h_md};
+      }
+
+      @include below($md) {
+        padding: 0 #{$layout-page-space-h_sm};
+      }
     }
 
     &-nav {
@@ -185,16 +261,15 @@
       flex-wrap: nowrap;
       align-items: flex-start;
       justify-content: space-between;
+      height: 100%;
       box-shadow: inset 0 -2px 0 $line-color-grey-slider;
     }
 
     &-item {
-      $line-height: 2.4rem;
-
       position: relative;
       z-index: 1;
       display: block;
-      height: $line-height * 2 + 1.2;
+      height: 100%;
       margin-right: 1.8rem;
       padding: 0.6rem 0;
       overflow: hidden;
@@ -209,6 +284,10 @@
       -webkit-tap-highlight-color: transparent;
 
       @include antialiased;
+
+      @include below($lg) {
+        margin-right: 3.6rem;
+      }
 
       &::before {
         position: absolute;
@@ -227,11 +306,8 @@
       }
 
       @include below($hd) {
-        $line-height: 2rem;
-
-        height: $line-height * 2 + 1.2;
         font-size: 1.6rem;
-        line-height: $line-height;
+        line-height: $line-height_md;
       }
 
       &:nth-child(1) {
@@ -556,6 +632,11 @@
             font-size: 2rem;
             line-height: $line-height;
             -webkit-line-clamp: $line-count;
+          }
+
+          @include below($xl) {
+            max-height: none;
+            -webkit-line-clamp: initial;
           }
 
           #{$panel-element}:hover & {

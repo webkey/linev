@@ -40,11 +40,16 @@
 
     @include below($xl) {
       height: auto;
+      min-height: 36rem;
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
     @include below($md) {
       padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+    }
+
+    &-figure {
+      display: none;
     }
 
     //&-figure {
@@ -84,6 +89,15 @@
         font-size: 6.8rem;
         line-height: $line-height;
       }
+
+      @include below($xl) {
+        height: auto;
+      }
+
+      @include below($lg) {
+        font-size: 4.4rem;
+        line-height: 5.2rem;
+      }
     }
   }
 
@@ -105,6 +119,7 @@
     }
 
     @include below($xl) {
+      height: auto;
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
@@ -125,16 +140,25 @@
         line-height: 2.8rem;
         letter-spacing: 0.008em;
       }
+
+      @include below($xl) {
+        height: auto;
+      }
     }
 
     &-footer {
       position: relative;
+
+      @include below($xl) {
+        margin-top: auto;
+      }
     }
 
     &-link {
       $link: &;
 
       position: relative;
+      z-index: 1;
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -154,7 +178,7 @@
 
       @include below($xl) {
         margin: 0 -#{$layout-page-space-h_md} -3.6rem;
-        padding: 2.4rem #{$layout-page-space-h_md} 3.6rem;
+        padding: 3.6rem #{$layout-page-space-h_md} 3.6rem;
       }
 
       @include below($md) {
@@ -242,7 +266,7 @@
     //background-color: #a2adb3;
 
     @include below($xl) {
-      height: 32.4rem;
+      height: 36rem;
     }
 
     &-figure {

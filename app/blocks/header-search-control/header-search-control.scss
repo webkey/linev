@@ -106,10 +106,17 @@
     .scrolled & {
       &::before {
         opacity: 0;
+
+        @include below($lg) {
+          opacity: 1;
+        }
       }
 
       &::after {
-        opacity: 1;
+        // Только >= $lg
+        @include above($lg) {
+          opacity: 1;
+        }
       }
     }
   }

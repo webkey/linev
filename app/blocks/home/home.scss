@@ -3,6 +3,10 @@
     padding-top: $header-height-top + $header-height-bottom;
   }
 
+  @include below($lg) {
+    padding-top: $header-height-top;
+  }
+
   &-section {
     $section: &;
 

@@ -61,7 +61,7 @@
 
       @include below($lg) {
         height: auto;
-        padding: 1.2rem 2rem;
+        padding: 1.2rem 0;
       }
 
       &::before {
@@ -78,6 +78,11 @@
         transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
         content: "";
         will-change: transform;
+
+        @include below($lg) {
+          display: none;
+          content: none;
+        }
       }
 
       @at-root {
@@ -86,6 +91,10 @@
 
           @include below($hd) {
             padding-right: #{2.4rem + 4rem - 0.6rem - 1.2rem};
+          }
+
+          @include below($lg) {
+            padding-right: #{4rem - 1.4rem};
           }
         }
 
@@ -119,6 +128,7 @@
       margin-top: -#{$size / 2 - 0.3};
       font-size: 0;
       line-height: 0;
+      //background-color: rgba(peru, 0.5);
       transition: {
         property: transform;
         duration: $animation-speed;
@@ -131,9 +141,9 @@
       }
 
       @include below($lg) {
-        top: 0;
-        right: 0;
-        margin: 0.4rem 0 0;
+        top: 0.4rem;
+        right: -1.4rem;
+        margin-top: 0;
       }
 
       &::before,
@@ -195,7 +205,6 @@
         // for mobile
         #{$li}.is-open & {
           @include below($lg) {
-            margin-top: 0.6rem;
             transform: rotate(0.5turn);
           }
         }
@@ -235,7 +244,7 @@
         left: auto;
         display: none;
         min-width: 0;
-        margin: 0 -3.2rem 0 0; // Компенсация отступа под стрелку у родителя
+        margin: 0;
         padding: 0;
         transform: none;
         visibility: visible;
@@ -290,13 +299,8 @@
     padding: 0 2.4rem;
 
     @include below($lg) {
+      padding: 0;
       box-shadow: 0 1px 0 $line-color-blue;
-    }
-
-    &.has-drop {
-      @include below($lg) {
-        padding-right: 3.2rem;
-      }
     }
 
     &-el {
@@ -318,10 +322,14 @@
         height: 0;
         border-top: 1px solid $line-color-grey-divider;
         content: "";
+
+        @include below($lg) {
+          content: none;
+        }
       }
 
       @include below($lg) {
-        padding: 0.8rem 2rem 0.8rem 3.6rem;
+        padding: 0.8rem 0 0.8rem 2.4rem;
         color: rgba($text-color-white, 0.85);
       }
 
@@ -333,7 +341,7 @@
         }
 
         #{$li}.has-drop & {
-          padding-right: 1rem;
+          padding-right: #{4rem - 1.4rem};
         }
 
         // if link
@@ -360,7 +368,9 @@
       height: $size;
       font-size: 0;
       line-height: 0;
+      //background-color: rgba(peru, 0.5);
       transform: rotate(-0.25turn);
+      transition: $animation-speed;
       user-select: none;
       -webkit-tap-highlight-color: transparent;
 
@@ -368,7 +378,7 @@
         $size: 4rem;
 
         top: 0;
-        right: 0;
+        right: -1.4rem;
         width: $size;
         height: $size;
         transform: rotate(0);
@@ -383,7 +393,6 @@
         // for mobile
         #{$li}.is-open & {
           @include below($lg) {
-            margin-top: 0.2rem;
             transform: rotate(0.5turn);
           }
         }
@@ -436,7 +445,6 @@
         left: auto;
         display: none;
         min-width: 0;
-        margin-right: -3.2rem;
         transform: translateX(0);
         opacity: 1;
         pointer-events: auto;
@@ -487,6 +495,7 @@
     padding: 0 2.4rem;
 
     @include below($lg) {
+      padding: 0;
       box-shadow: 0 1px 0 $line-color-blue;
     }
 
@@ -515,10 +524,14 @@
         height: 0;
         border-top: 1px solid $line-color-grey-divider;
         content: "";
+
+        @include below($lg) {
+          content: none;
+        }
       }
 
       @include below($lg) {
-        padding: 0.8rem 2rem 0.8rem 3.6rem;
+        padding: 0.8rem 0 0.8rem #{2.4rem * 2};
         color: rgba($text-color-white, 0.85);
       }
 
@@ -530,7 +543,7 @@
         }
 
         #{$li}.has-drop & {
-          padding-right: 1rem;
+          padding-right: #{4rem - 1.4rem};
         }
 
         // if link
@@ -558,6 +571,7 @@
       font-size: 0;
       line-height: 0;
       transform: rotate(-0.25turn);
+      transition: $animation-speed;
       user-select: none;
       -webkit-tap-highlight-color: transparent;
 
@@ -565,7 +579,7 @@
         $size: 4rem;
 
         top: 0;
-        right: 0;
+        right: -1.4rem;
         width: $size;
         height: $size;
         transform: rotate(0);

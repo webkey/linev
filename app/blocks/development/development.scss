@@ -73,6 +73,10 @@
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
+    @include below($lg) {
+      min-height: 36rem;
+    }
+
     @include below($md) {
       padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
@@ -108,6 +112,11 @@
         line-height: 5.2rem;
         letter-spacing: normal;
       }
+
+      @include below($lg) {
+        font-size: 3.2rem;
+        line-height: 4rem;
+      }
     }
 
     &-text {
@@ -121,10 +130,6 @@
         max-width: 45rem;
         font-size: 2.4rem;
         line-height: 3.2rem;
-      }
-
-      @include below($xl) {
-        max-width: none;
       }
 
       &_script {

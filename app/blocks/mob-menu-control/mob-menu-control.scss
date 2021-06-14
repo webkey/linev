@@ -3,8 +3,8 @@
   z-index: 30;
   display: block;
   //display: none; // Скрывается на десктопе через родителя
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 4.8rem;
+  height: $header-height-top;
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;

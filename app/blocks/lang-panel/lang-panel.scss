@@ -19,6 +19,10 @@
     width: 9.2rem;
   }
 
+  @include below($lg) {
+    width: 11.7rem;
+  }
+
   &.is-open {
     transform: translateX(0);
     opacity: 1;
@@ -34,6 +38,10 @@
     border-left: 1px solid $line-color-blue;
     content: "";
     pointer-events: none;
+
+    @include below($lg) {
+      right: 5rem;
+    }
   }
 
   &__list {

@@ -63,6 +63,7 @@
       width: auto;
       max-width: none;
       height: auto;
+      min-height: 36rem;
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
@@ -101,6 +102,11 @@
         line-height: 5.2rem;
         letter-spacing: normal;
       }
+
+      @include below($lg) {
+        font-size: 3.2rem;
+        line-height: 4rem;
+      }
     }
 
     &-text {
@@ -114,10 +120,6 @@
         max-width: 45rem;
         font-size: 2.4rem;
         line-height: 3.2rem;
-      }
-
-      @include below($xl) {
-        max-width: none;
       }
 
       &_script {
@@ -171,14 +173,6 @@
       position: relative;
       z-index: 1;
 
-      @include below($lg) {
-        padding: 3.6rem 0;
-      }
-
-      @include below($md) {
-        padding: 2.4rem 0;
-      }
-
       &:last-child {
         border-bottom: none;
       }
@@ -206,22 +200,20 @@
 
       &-header {
         $header: &;
+        $space-v: calc(10vh - #{$header-height-top / (5 * 2)} - #{(4rem / 2)} - #{$panel-height / (5 * 2)});
 
         position: relative;
         z-index: 1;
-        padding: calc(10vh - #{$header-height-top / (5 * 2)} - #{(4rem / 2)} - #{$panel-height / (5 * 2)}) #{$layout-page-space-h};
+        padding: $space-v #{$layout-page-space-h + 4rem - 1rem} $space-v #{$layout-page-space-h};
         // Для компенсации статических элементов,
         // из относительной высоты внутренних отступов вычитается:
         // 1) высота шапки сайта разделенная на количество элементов ...-item * 2, т.к. отступы нижний и верхний
         // 2) высота шапки пунктов разделенная на 2, т.к. отступы нижний и верхний
         // 3) высота (тоже относительная) контента развернутого элемента разделенная на количество элементов ...-item * 2, т.к. отступы нижний и верхний
-        overflow: hidden;
         color: $text-color-white;
         font: bold 2.4rem/3.2rem $font-title;
         letter-spacing: 0.006em;
-        white-space: nowrap;
         text-transform: uppercase;
-        text-overflow: ellipsis;
         cursor: pointer;
         transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
         user-select: none;
@@ -232,7 +224,12 @@
 
         @include below($xl) {
           //padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
-          padding: 2.4rem #{$layout-page-space-h_md};
+          padding: 2.4rem #{$layout-page-space-h_md + 4rem - 1rem} 2.4rem #{$layout-page-space-h_md};
+        }
+
+        @include below($lg) {
+          font-size: 2rem;
+          line-height: 2.4rem;
         }
 
         @include below($md) {
@@ -253,11 +250,19 @@
           transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
           content: "";
           will-change: transform;
+
+          @include below($lg) {
+            content: none;
+          }
         }
 
         &:hover {
           color: $text-color-blue;
           transition: $animation-speed;
+
+          @include below($xl) {
+            color: $text-color-white;
+          }
 
           &::before {
             transform: scaleY(1);
@@ -266,14 +271,24 @@
         }
 
         &-inner {
+          position: relative;
           display: block;
-          padding: 0.4rem 5.4rem 0.4rem 0;
+          max-width: 100%;
+          padding: 0.4rem 0;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+
+          @include below($xl) {
+            padding: 0;
+            white-space: normal;
+          }
         }
 
         &-angle {
           position: absolute;
           top: 50%;
-          right: $layout-page-space-h;
+          right: #{$layout-page-space-h - 1rem};
           display: block;
           width: 4rem;
           height: 4rem;
@@ -338,10 +353,18 @@
 
               &::before {
                 opacity: 0;
+
+                @include below($xl) {
+                  opacity: 1;
+                }
               }
 
               &::after {
                 opacity: 1;
+
+                @include below($xl) {
+                  opacity: 0;
+                }
               }
             }
           }
@@ -360,7 +383,7 @@
 
         @include below($xl) {
           height: auto;
-          padding: 1rem #{$layout-page-space-h_md} 2.4rem;
+          padding: 0 #{$layout-page-space-h_md} 2.4rem;
         }
 
         @include below($md) {
