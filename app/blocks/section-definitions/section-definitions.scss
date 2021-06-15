@@ -109,6 +109,11 @@
       display: block;
       max-width: 100%;
       margin-bottom: 0.8rem;
+
+      &.loaded {
+        width: 100%;
+        height: auto;
+      }
     }
 
     &-caption {

@@ -1,0 +1,19 @@
+@@include("blocks/head/head.html", {"title": "About the company"})
+@@include("blocks/header/header.html", {"currentItem": "Company", "mods": ["float"]})
+@@include("blocks/page-preloader/page-preloader.html")
+<main class="main">
+  @@include("blocks/entry-alt/entry-alt.html", {
+    "title": "About<br> the company",
+    "breadcrumbs": {
+      "items": [
+        {"href": "index.html", "text": "Home"},
+        {"href": "company.html", "text": "Company"}
+      ],
+      "current": false
+    }
+  })
+
+  @@include("blocks/article/article_about-the-company.html")
+</main>
+@@include("blocks/footer/footer.html")
+@@include("blocks/link/link.html")

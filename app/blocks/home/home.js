@@ -12,7 +12,7 @@ app.home = {
   },
   run() {
     const self = this;
-    let scrollStep;
+    // let scrollStep;
     // let timeoutVisualSet;
     $(this.initEl).fullpage({
       sectionSelector: self.sectionEl,
