@@ -44,8 +44,14 @@
     z-index: 1;
     color: $text-color-white;
     font: bold 11.6rem/1 $font-title;
-    letter-spacing: -0.016em;
+    letter-spacing: -0.02em;
     text-transform: uppercase;
+
+    @include below($hd) {
+      font-size: 6.8rem;
+      line-height: round-float(72 / 68, 1);
+      letter-spacing: round-float(-0.06 / 6.8 * 1em, 3);
+    }
 
     @include below($xxl) {
       font-size: 8.2rem;
@@ -64,10 +70,10 @@
   }
 
   &__nav {
-    margin-top: 12.6rem;
+    margin-top: 4.4rem;
 
     @include below($lg) {
-      margin-top: 6rem;
+      margin-top: #{$layout-page-space-v_md};
     }
 
     @include below($md) {

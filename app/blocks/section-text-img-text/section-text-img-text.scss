@@ -74,9 +74,14 @@
       width: 100%;
       margin-top: auto;
       color: $text-color-black;
-      font-size: 2rem;
-      line-height: 2.8rem;
+      font-size: 2.6rem;
+      line-height: 3.4rem;
       letter-spacing: 0.02em;
+
+      @include below($hd) {
+        font-size: 2rem;
+        line-height: 2.8rem;
+      }
 
       @include below($md) {
         font-size: 1.6rem;
@@ -190,8 +195,13 @@
       width: 100%;
       margin-top: auto;
       color: $text-color-blue;
-      font: 500 2.4rem/3.2rem $font-title;
+      font: 500 2.6rem/3.4rem $font-title;
       letter-spacing: 0.008em;
+
+      @include below($hd) {
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+      }
 
       @include below($xl) {
         font-size: 2rem;

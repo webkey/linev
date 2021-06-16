@@ -4,11 +4,19 @@
   </div>
   <div class="development__side development__side_left">&nbsp;</div>
   <div class="development__side development__side_right">&nbsp;</div>
-  <div class="development__heading">
+  <div class="development__heading js-chart-balloon">
     <div class="powerful__heading-figure js-lazy-load" data-bg="./assets/images/img-development-bg.jpg">&nbsp;</div>
-    <div class="development__heading-title">
-      <div class="ts"><span class="ts__i delay-1">Ultra-fast</span></div>
-      <div class="ts"><span class="ts__i delay-2">Development</span></div>
+    <div class="development__heading-title js-chart-balloon-open">
+      <div class="development__heading-title-row">
+        <div class="ts"><span class="ts__i delay-1">Ultra-fast</span></div>
+      </div>
+      <div class="development__heading-title-row has-note">
+        <div class="ts"><span class="ts__i delay-2">Development</span></div>
+        @@include("blocks/development__chart-balloon/development__chart-balloon.html", {
+        "title": "Regular development processes",
+        "text": "This is the normal way the idea passes on its way to a product and customer satisfaction."
+        })
+      </div>
     </div>
     <div class="development__heading-text development__heading-text_script js-type-text-animation">of complex and innovative products tailored to customer needs</div>
     <div class="development__heading-text development__heading-text_no-script">of complex and innovative products tailored to customer needs</div>
@@ -34,52 +42,46 @@
         <path class="arrow-left" d="M940.586 274.586C939.805 275.367 939.805 276.633 940.586 277.414L953.314 290.142C954.095 290.923 955.361 290.923 956.142 290.142C956.923 289.361 956.923 288.095 956.142 287.314L944.828 276L956.142 264.686C956.923 263.905 956.923 262.639 956.142 261.858C955.361 261.077 954.095 261.077 953.314 261.858L940.586 274.586ZM942.5 274H942V278H942.5V274Z" fill="white"/>
       </svg>
       <div class="development__chart-caption development__chart-caption_up slide-fade-up-in-short js-chart-balloon">
-        <div class="development__chart-caption-inner js-chart-balloon-prevent-hide">
-          <a href="#" class="js-chart-balloon-open">
-            <div class="development__chart-caption-title">Agile</div>
-          </a>
-          @@include("blocks/development__chart-balloon/development__chart-balloon.html", {
-          "title": "Agile & iterative process",
-          "text": "From the initial beginning to its very end every process within the new product development is agile and iterative to add maximum input of the customer and get tailored-fit innovative result."
-          })
+        <div class="development__chart-caption-inner">
+          <div class="development__chart-caption-title">
+            <a href="#" class="development__chart-caption-link has-note js-chart-balloon-open">Agile</a>
+            @@include("blocks/development__chart-balloon/development__chart-balloon.html", {
+            "title": "Agile & iterative process",
+            "text": "From the initial beginning to its very end every process within the new product development is agile and iterative to add maximum input of the customer and get tailored-fit innovative result."
+            })
+          </div>
         </div>
       </div>
       <div class="development__chart-caption development__chart-caption_middle slide-fade-up-in-short js-chart-balloon">
-        <div class="development__chart-caption-inner js-chart-balloon-prevent-hide">
-          <a href="#" class="js-chart-balloon-open">
-            <div class="development__chart-caption-title">Disruptive innovation</div>
-            <div class="development__chart-caption-text">MVP: 4—6 months</div>
-          </a>
-          @@include("blocks/development__chart-balloon/development__chart-balloon.html", {
-          "title": "New-to-market innovation",
-          "text": "Disruptive innovation is the only way to win the modern market and reply to customers needs as fast as it is possibe staying two steps ahead of the competition. Actually it dramatically shrinks regular development time."
-          })
+        <div class="development__chart-caption-inner">
+          <div class="development__chart-caption-title">
+            <a href="#" class="development__chart-caption-link has-note js-chart-balloon-open">Disruptive innovation</a>
+            @@include("blocks/development__chart-balloon/development__chart-balloon.html", {
+            "title": "New-to-market innovation",
+            "text": "Disruptive innovation is the only way to win the modern market and reply to customers needs as fast as it is possibe staying two steps ahead of the competition. Actually it dramatically shrinks regular development time."
+            })
+          </div>
+          <div class="development__chart-caption-text">MVP: 4—6 months</div>
         </div>
       </div>
       <div class="development__chart-caption development__chart-caption_low slide-fade-up-in-short js-chart-balloon">
-        <div class="development__chart-caption-inner js-chart-balloon-prevent-hide">
-          <a href="#" class="js-chart-balloon-open">
-            <div class="development__chart-caption-title">Step-by-step innovation</div>
-            <div class="development__chart-caption-text">Basic product development: 4—6 months</div>
-          </a>
-          @@include("blocks/development__chart-balloon/development__chart-balloon.html", {
-          "title": "Incremental innovations.",
-          "text": "Step-by-Step innovations which are most common to the market and not suitable to the new Era of Innovations."
-          })
+        <div class="development__chart-caption-inner">
+          <div class="development__chart-caption-title">
+            <a class="development__chart-caption-link has-note js-chart-balloon-open" href="#">Step-by-step innovation</a>
+            @@include("blocks/development__chart-balloon/development__chart-balloon.html", {
+            "title": "Incremental innovations.",
+            "text": "Step-by-Step innovations which are most common to the market and not suitable to the new Era of Innovations."
+            })
+          </div>
+          <div class="development__chart-caption-text">Basic product development: 2—3 years</div>
         </div>
       </div>
       <div class="development__chart-labels-y slide-fade-up-in-short delay-2">
         <div class="development__chart-labels-y-inner">Value</div>
       </div>
       <div class="development__chart-labels-x">
-        <div class="development__chart-labels-x-item slide-fade-up-in-short js-chart-balloon">
-          <div class="development__chart-labels-x-item-inner js-chart-balloon-prevent-hide">
-            <a href="#" class="js-chart-balloon-open">Idea</a>
-            @@include("blocks/development__chart-balloon/development__chart-balloon.html", {
-            "title": "Regular development processes",
-            "text": "This is the normal way the idea passes on its way to a product and customer satisfaction."
-            })
-          </div>
+        <div class="development__chart-labels-x-item slide-fade-up-in-short">
+          <div class="development__chart-labels-x-item-inner">Idea</div>
         </div>
         <div class="development__chart-labels-x-item slide-fade-up-in-short">Research</div>
         <div class="development__chart-labels-x-item slide-fade-up-in-short">Development</div>

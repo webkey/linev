@@ -74,9 +74,14 @@
     flex: 1 0 $width;
     max-width: $width;
     color: $text-color-black;
-    font-size: 2rem;
-    line-height: 2.8rem;
+    font-size: 2.6rem;
+    line-height: 3.4rem;
     letter-spacing: 0.02em;
+
+    @include below($hd) {
+      font-size: 2rem;
+      line-height: 2.8rem;
+    }
 
     @include below($md) {
       max-width: none;
@@ -85,7 +90,11 @@
     }
 
     p {
-      margin-bottom: 2.8rem;
+      margin-bottom: 3.4rem;
+
+      @include below($hd) {
+        margin-bottom: 2.8rem;
+      }
 
       @include below($md) {
         margin-bottom: #{$layout-page-space-v_sm};
@@ -99,7 +108,11 @@
 
   &__figure {
     display: block;
-    margin-bottom: 2.8rem;
+    margin-bottom: 3.4rem;
+
+    @include below($hd) {
+      margin-bottom: 2.8rem;
+    }
 
     &:last-child {
       margin-bottom: 0;

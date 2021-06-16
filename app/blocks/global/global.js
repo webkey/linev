@@ -18,7 +18,7 @@ app.global = {
       //   return window.innerWidth >= 992;
       // },
       removeExisting: true,
-      preventRemoveClass: 'js-balloon-prevent-hide',
+      preventRemoveClass: 'js-global-balloon-prevent-hide',
       switchClassTo: $(self.panel, $container).add($container).add($container.parent()),
       modifiers: {
         activeClass: 'is-open',

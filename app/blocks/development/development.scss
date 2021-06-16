@@ -117,6 +117,31 @@
         font-size: 3.2rem;
         line-height: 4rem;
       }
+
+      &-row {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+
+        &.has-note {
+          &::after {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            display: block;
+            width: 2.4rem;
+            height: 2.4rem;
+            margin: -0.5rem 0.2rem;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M6.18364 3.59017C6.75535 1.83062 9.24465 1.83062 9.81636 3.59017C10.072 4.37706 10.8053 4.90983 11.6327 4.90983C13.4828 4.90983 14.252 7.27729 12.7553 8.36475C12.0859 8.85107 11.8058 9.71311 12.0615 10.5C12.6332 12.2595 10.6193 13.7227 9.12257 12.6353C8.4532 12.1489 7.5468 12.1489 6.87743 12.6353C5.38067 13.7227 3.36679 12.2595 3.9385 10.5C4.19418 9.71311 3.91409 8.85107 3.24472 8.36475C1.74796 7.27729 2.51719 4.90983 4.36729 4.90983C5.19468 4.90983 5.92797 4.37706 6.18364 3.59017Z' fill='%23fff'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            animation: pulseRotate 4s both infinite linear;
+            content: "";
+            will-change: transform;
+          }
+        }
+      }
     }
 
     &-text {
@@ -625,29 +650,47 @@
       justify-content: center;
       width: 100%;
       color: $text-color-white;
+      pointer-events: none;
 
       &.is-open {
         z-index: 15;
       }
 
-      //&:not(.is-open):hover {
-      //  z-index: 15;
-      //}
-
       &-inner {
         position: relative;
         max-width: 42rem;
+        pointer-events: auto;
+      }
 
-        a {
-          display: inline-block;
-          color: inherit;
-          text-decoration: none;
-          vertical-align: top;
-          transition: opacity $animation-speed;
+      &-link {
+        position: relative;
+        display: inline-block;
+        color: inherit;
+        text-decoration: none;
+        vertical-align: top;
+        transition: opacity $animation-speed;
 
-          &:hover {
-            opacity: 0.6;
+        &.has-note {
+          &::after {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            display: block;
+            width: 1.6rem;
+            height: 1.6rem;
+            margin: -0.5rem 0.2rem;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M6.18364 3.59017C6.75535 1.83062 9.24465 1.83062 9.81636 3.59017C10.072 4.37706 10.8053 4.90983 11.6327 4.90983C13.4828 4.90983 14.252 7.27729 12.7553 8.36475C12.0859 8.85107 11.8058 9.71311 12.0615 10.5C12.6332 12.2595 10.6193 13.7227 9.12257 12.6353C8.4532 12.1489 7.5468 12.1489 6.87743 12.6353C5.38067 13.7227 3.36679 12.2595 3.9385 10.5C4.19418 9.71311 3.91409 8.85107 3.24472 8.36475C1.74796 7.27729 2.51719 4.90983 4.36729 4.90983C5.19468 4.90983 5.92797 4.37706 6.18364 3.59017Z' fill='%23fff'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            animation: pulseRotate 4s both infinite linear;
+            content: "";
+            will-change: transform;
           }
+        }
+
+        &:hover {
+          opacity: 0.6;
         }
       }
 
@@ -674,7 +717,8 @@
       }
 
       &-title {
-        display: flex;
+        position: relative;
+        display: inline-flex;
         justify-content: center;
         margin: 0 auto 0.8rem;
         font: bold 2.4rem/3.2rem $font-title;
@@ -733,7 +777,7 @@
       .development__chart-caption_low &,
       .development__chart-labels-x & {
         top: auto;
-        bottom: 0;
+        bottom: 100%;
         left: 100%;
         border-radius: 0 20rem 0 0;
         transform-origin: 0 100%;
@@ -787,6 +831,7 @@
         color: $text-color-grey;
         font: 2rem/2.8rem $font;
         letter-spacing: 0.02em;
+        text-transform: none;
 
         @include below($hd) {
           font-size: 1.6rem;
