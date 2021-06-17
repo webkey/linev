@@ -16,3 +16,4 @@ app.insights.init();
 app.global.init();
 app.navSlider.init();
 app.sectionCounter.init();
+app.offices.init();

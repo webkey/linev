@@ -21,8 +21,13 @@ body {
   min-width: $layout-page-min-width;
   height: 100%; // Footer at bottom
   color: #000;
-  font: 2.6rem/#{round-float(3.4rem / 2.6rem, 2)} $font;
+  font: 2.6rem/3.4rem $font;
   background: $bg-color-white;
+
+  @include below($hd) {
+    font-size: 2.2rem;
+    line-height: 2.8rem;
+  }
 }
 
 .header {

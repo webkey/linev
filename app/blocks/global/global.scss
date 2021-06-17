@@ -97,12 +97,12 @@
   &__map {
     position: relative;
     // 1920 1020
-    width: calc((100vh - #{$header-height-top} - 17.9rem) / (698 / 1286)); // Изменение ширины слайда через относительную высоту
+    width: calc((100vh - #{$header-height-top} - 17.9rem) / (698 / 1286)); // Изменение ширины через относительную высоту
     //width: 100%;
     //height: 100%;
 
     @include below($hd) {
-      width: calc((100vh - #{$header-height-top} - 4rem) / (698 / 1286)); // Изменение ширины слайда через относительную высоту
+      width: calc((100vh - #{$header-height-top} - 4rem) / (698 / 1286)); // Изменение ширины через относительную высоту
     }
 
     @include below($xl) {

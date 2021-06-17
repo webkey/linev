@@ -1,0 +1,319 @@
+.offices {
+  $block: &;
+
+  position: relative;
+  background-color: $bg-color-black;
+
+  &__local {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14rem #{$layout-page-space-h} 0;
+
+    @include below($hd) {
+      padding-top: 4.4rem;
+    }
+
+    @include below($xl) {
+      @include padding-x(#{$layout-page-space-h_md});
+    }
+
+    @include below($md) {
+      @include padding-x(#{$layout-page-space-h_sm});
+    }
+  }
+
+  &__map {
+    position: relative;
+    width: 128.6rem;
+    max-width: 100%;
+
+    &::before {
+      display: block;
+      content: "";
+
+      @include ratio(1286, 698);
+    }
+
+    &-svg {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-balloon {
+      $balloon: &;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      &.is-active {
+        z-index: 5;
+      }
+
+      &_minsk {
+        top: 30.4%;
+        left: 55.9%;
+      }
+
+      &_conroe {
+        top: 43.3%;
+        left: 18.6%;
+      }
+
+      &_shenzhen {
+        top: 48.8%;
+        left: 81.2%;
+      }
+
+      &_kent {
+        top: 34%;
+        left: 46.3%;
+      }
+
+      &_petersburg {
+        top: 24%;
+        left: 56.2%;
+      }
+
+      &-el {
+        $hand: &;
+
+        position: relative;
+        display: block;
+        padding-left: 3.2rem;
+        color: $text-color-grey;
+        white-space: nowrap;
+        text-decoration: none;
+        transform-origin: left center;
+        transition: color $animation-speed-out;
+
+        @include below($hd) {
+          padding-left: 2.4rem;
+        }
+
+        &.is-active,
+        &:hover {
+          color: $text-color-white;
+          transition-duration: $animation-speed;
+        }
+
+        &-dot {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          width: 1.6rem;
+          height: 1.6rem;
+          margin-top: -0.8rem;
+          border-radius: 50%;
+          box-shadow: 0 0 0 0.4rem currentColor;
+          transition: background-color $animation-speed-out;
+
+          @include below($hd) {
+            width: 1.2rem;
+            height: 1.2rem;
+            margin-top: -0.6rem;
+          }
+
+          #{$hand}.is-active & {
+            background-color: $bg-color-blue;
+          }
+        }
+
+        &-text {
+          font: bold 2rem/3.2rem $font-title;
+          letter-spacing: 0.006em;
+          text-transform: uppercase;
+
+          @include below($hd) {
+            font-size: 1.6rem;
+            line-height: 2rem;
+            letter-spacing: 0.015rem;
+          }
+        }
+      }
+    }
+  }
+
+  &__info {
+    $item-space-h: 4.4rem;
+
+    position: relative;
+    padding: 0 #{$layout-page-space-h} #{$layout-page-space-v};
+    overflow: hidden;
+
+    @include below($xl) {
+      padding: 0 #{$layout-page-space-h_md} #{$layout-page-space-v_md};
+    }
+
+    @include below($md) {
+      padding: 0 #{$layout-page-space-h_sm} #{$layout-page-space-v_sm};
+    }
+
+    #{$block}__local + & {
+      margin-top: -24rem;
+    }
+
+    &-list {
+      display: flex;
+      align-items: stretch;
+      margin: 0 -#{$item-space-h / 2};
+    }
+
+    &-item {
+      $width: 20%;
+
+      display: flex;
+      flex: 1 0 $width;
+      flex-direction: column;
+      max-width: $width;
+      padding: 0 #{$item-space-h / 2};
+
+      &-el {
+        $el: &;
+
+        display: flex;
+        flex: 1 1;
+        flex-direction: column;
+        width: 100%;
+        color: $text-color-white;
+        transition: $animation-speed-out;
+
+        &.is-active {
+          padding: 1.6rem;
+          background-color: $bg-color-blue;
+          transition: $animation-speed;
+        }
+
+        &-content {
+          width: 100%;
+          margin-bottom: 1.6rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        &-photo {
+          position: relative;
+          margin-bottom: 1.6rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          &-img {
+            display: block;
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        &-logo {
+          display: block;
+          max-width: 100%;
+          height: auto;
+          margin-bottom: 1.2rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        &-title {
+          margin-bottom: 1.2rem;
+          color: inherit;
+          font-size: 2rem;
+          line-height: 2.8rem;
+          letter-spacing: 0.02em;
+
+          @include below($hd) {
+            font-size: 1.6rem;
+            line-height: 2rem;
+            letter-spacing: 0.04rem;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        &-address {
+          margin-bottom: 1.2rem;
+          color: inherit;
+          font-size: 2rem;
+          line-height: 2.8rem;
+          letter-spacing: 0.02em;
+
+          @include below($hd) {
+            font-size: 1.6rem;
+            line-height: 2rem;
+            letter-spacing: 0.04rem;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        &-phones {
+          margin-bottom: 1.2rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        &-phone,
+        &-free {
+          color: inherit;
+          font-size: 2rem;
+          line-height: 2.8rem;
+          letter-spacing: 0.02em;
+
+          @include below($hd) {
+            font-size: 1.6rem;
+            line-height: 2rem;
+            letter-spacing: 0.04rem;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          a {
+            color: inherit;
+            text-decoration: none;
+            transition: $animation-speed;
+
+            &:hover {
+              color: $link-color;
+            }
+          }
+        }
+
+        &-button {
+          display: block;
+          width: 100%;
+          margin-top: auto;
+          visibility: hidden;
+          opacity: 0;
+
+          #{$el}.is-active & {
+            visibility: visible;
+            opacity: 1;
+          }
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}
