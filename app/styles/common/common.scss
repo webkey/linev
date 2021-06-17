@@ -21,7 +21,7 @@ body {
   min-width: $layout-page-min-width;
   height: 100%; // Footer at bottom
   color: #000;
-  font: 2.4rem/#{round-float(3.2rem / 2.4rem, 2)} $font;
+  font: 2.6rem/#{round-float(3.4rem / 2.6rem, 2)} $font;
   background: $bg-color-white;
 }
 
@@ -81,7 +81,19 @@ body {
 }
 
 .layout-content {
+  width: 100%;
   max-width: $layout-content-max-width;
+  margin-right: auto;
+  margin-left: auto;
+
+  &_align-left {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  &_align-right {
+    margin-right: 0;
+  }
 
   &_has-spaces {
     max-width: calc(#{$layout-content-max-width} + #{$layout-page-space-h} * 2);
@@ -96,44 +108,24 @@ body {
   }
 }
 
-.layout-narrow {
-  max-width: $layout-narrow-max-width;
-
-  &_has-spaces {
-    max-width: calc(#{$layout-narrow-max-width} + #{$layout-page-space_h} * 2);
-
-    @include below($lg) {
-      max-width: calc(#{$layout-narrow-max-width} + #{$layout-page-space_h_md} * 2);
-    }
-
-    @include below($md) {
-      max-width: calc(#{$layout-narrow-max-width} + #{$layout-page-space_h_sm} * 2);
-    }
-  }
-}
-
-.layout-content,
-.layout-narrow {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-
-  &_align-left {
-    margin-right: 0;
-    margin-left: 0;
-  }
-
-  &_align-right {
-    margin-right: 0;
-  }
-}
-
 img {
   vertical-align: top;
   border: none;
 
   table & {
     max-width: none;
+  }
+}
+
+p {
+  margin-bottom: 3.4rem;
+
+  @include below($hd) {
+    margin-bottom: 2.4rem;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 

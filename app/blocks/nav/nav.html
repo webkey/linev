@@ -1,18 +1,18 @@
 <nav class="nav">
   <ul class="nav__list js-nav">
     <li class="nav__li js-nav-li has-drop@@if(context.currentItem == 'Company'){ current is-open} slide-fade-up-in-short delay-1">
-      @@if(context.currentItem == 'Company'){
-      <span class="nav__li-el">span</span>
-      }
-      @@if(context.currentItem != 'Company'){
       <a class="nav__li-el" href="company.html">Company</a>
-      }
       <em class="nav__li-arrow js-nav-arrow">&#9660;</em>
       <div class="nav__li-drop js-nav-drop">
         <div class="sub-nav">
           <ul class="sub-nav__list">
-            <li class="sub-nav__li js-nav-li">
+            <li class="sub-nav__li js-nav-li@@if(context.currentItem == 'Businesses'){ current}">
+              @@if(context.currentItem == 'Businesses'){
+              <span class="sub-nav__li-el">Businesses</span>
+              }
+              @@if(context.currentItem != 'Businesses'){
               <a class="sub-nav__li-el" href="businesses.html">Businesses</a>
+              }
             </li>
           </ul>
         </div>

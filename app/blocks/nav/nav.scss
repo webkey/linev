@@ -59,6 +59,10 @@
       color: $text-color-white;
       user-select: none;
 
+      #{$li}.current & {
+        color: $text-color-light-blue;
+      }
+
       @include below($lg) {
         height: auto;
         padding: 1.2rem 0;
@@ -301,6 +305,10 @@
     @include below($lg) {
       padding: 0;
       box-shadow: 0 1px 0 $line-color-blue;
+    }
+
+    &.current {
+      background-color: #f1f8ff;
     }
 
     &-el {
