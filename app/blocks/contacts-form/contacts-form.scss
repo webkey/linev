@@ -9,7 +9,8 @@
       z-index: 1;
       padding-bottom: 1px;
 
-      &_has-input {
+      &_has-input,
+      &_logo {
         padding: #{$layout-page-space-v} #{$layout-page-space-h};
 
         @include below($md) {

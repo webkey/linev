@@ -1,5 +1,6 @@
 <form method="post" action="#" class="contacts-form" onsubmit="alert('Send...'); return false;">
   <div class="contacts-form__main">
+    @@if(!context.main){
     <div class="contacts-form__main-item">
       <div class="contacts-form__main-item-divider">&nbsp;</div>
       @@include("blocks/form-select-blue/form-select-blue.html", {
@@ -21,7 +22,12 @@
       {"val": "shenzhen", "text": "St. Shenzhen, China"}
       ]
       })
-    </div>
+    </div>}
+    @@if(context.main){
+    <div class="contacts-form__main-item contacts-form__main-item_logo">
+      <div class="contacts-form__main-item-divider">&nbsp;</div>
+      <img class="contacts-form__main-item-logo" src="assets/images/logo-white.svg" alt="Linev Group">
+    </div>}
     <div class="contacts-form__main-item">
       <div class="contacts-form__main-item-divider">&nbsp;</div>
       @@include("blocks/form-select-blue/form-select-blue.html", {
