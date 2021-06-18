@@ -13,8 +13,9 @@ app.contactsForm = {
     if ($slider.length) {
       $.each($slider, function () {
         const $curSlider = $(this);
-        const $nextEl = $curSlider.find('.js-contacts-steps-button-next');
         const $prevEl = $curSlider.find('.js-contacts-steps-button-prev');
+        const $nextEl = $curSlider.find('.js-contacts-steps-button-next');
+        const $submitEl = $curSlider.find('.js-contacts-steps-button-submit');
         const $currentSlide = $curSlider.find('.js-contacts-steps-current');
         const $totalSlides = $curSlider.find('.js-contacts-steps-total');
 
@@ -31,12 +32,15 @@ app.contactsForm = {
           on: {
             beforeTransitionStart() {
               $prevEl.add($nextEl).removeClass('disabled');
+              $nextEl.parent().show();
+              $submitEl.parent().hide();
               $currentSlide.text(sliderInstance.realIndex + 1);
               if (sliderInstance.realIndex === 0) {
                 $prevEl.addClass('disabled');
               }
               if (sliderInstance.realIndex === sliderInstance.slides.length - 1) {
-                $nextEl.addClass('disabled');
+                $nextEl.addClass('disabled').parent().hide();
+                $submitEl.parent().show();
               }
             },
           },
@@ -49,7 +53,8 @@ app.contactsForm = {
             $prevEl.addClass('disabled');
           }
           if (sliderInstance.realIndex === sliderInstance.slides.length - 1) {
-            $nextEl.addClass('disabled');
+            $nextEl.addClass('disabled').parent().hide();
+            $submitEl.parent().show();
           }
         });
 
