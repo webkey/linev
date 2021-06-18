@@ -1,0 +1,20 @@
+<select class="form-select-blue@@if(context.mods){@@for (var i = 0; i < mods.length; i++){ form-select-blue_`+mods[i]+`}}@@if(context.classes){@@for (var i = 0; i < classes.length; i++){ `+classes[i]+`}} js-form-select-blue" id="@@id" name="@@id"@@if(context.placeholder){ data-placeholder="@@placeholder" }@@if(context.attrs){@@for (var i = 0; i < attrs.length; i++){ `+attrs[i].attr+`="`+attrs[i].value+`"}}@@if(context.search){ data-search}@@if(context.multiple){ multiple="multiple"}@@if(context.disabled){ disabled}@@if(context.required){ required}>
+	<!--Important! The first element must have a value of ""-->
+	@@if(context.options){@@for (var i = 0; i < options.length; i++){<option value="`+options[i].val+`">`+options[i].text+`</option>}}
+	@@if(!context.options){
+	<option value="">- Choose option -</option>
+	<option value="1">The Pilgrim’s Progress by John Bunyan (1678)</option>
+	<option value="2"@@if(context.selected){ selected}>Robinson Crusoe by Daniel Defoe (1719)</option>
+	<option value="3"@@if(context.selected && context.multiple){ selected}>Gulliver’s Travels by Jonathan Swift (1726)</option>
+	<option value="4"@@if(context.selected && context.multiple){ selected}>Clarissa by Samuel Richardson (1748)</option>
+	<option value="5">Tom Jones by Henry Fielding (1749)</option>
+	<option value="6">The Life and Opinions of Tristram Shandy, Gentleman by Laurence Sterne (1759)</option>
+	<option value="7">Emma by Jane Austen (1816)</option>
+	<option value="9">Frankenstein by Mary Shelley (1818)</option>
+	<option value="10">Nightmare Abbey by Thomas Love Peacock (1818)</option>
+	<option value="11">The Narrative of Arthur Gordon Pym of Nantucket by Edgar Allan Poe (1838)</option>
+	<option value="12">Sybil by Benjamin Disraeli (1845)</option>
+	<option value="13">Jane Eyre by Charlotte Brontë (1847)</option>
+	<option value="14">Wuthering Heights by Emily Brontë (1847)</option>
+	<option value="15">Vanity Fair by William Thackeray (1848)</option>}
+</select>

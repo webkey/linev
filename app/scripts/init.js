@@ -17,3 +17,5 @@ app.global.init();
 app.navSlider.init();
 app.sectionCounter.init();
 app.offices.init();
+app.formSelectBlue.init();
+app.contactsForm.init();

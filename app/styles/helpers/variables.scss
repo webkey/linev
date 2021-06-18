@@ -102,6 +102,28 @@ $header-height-top: 6rem !default;
 $header-height-bottom: 6rem !default;
 $header-height_sm: 4rem !default;
 
+// Form elements  blue colors scheme
+// ====================================================
+$form-blue-height: 12.8rem !default;
+$form-blue-text-color: $text-color-white !default;
+$form-blue-placeholder-color: rgba($text-color-white, 0.5) !default;
+$form-blue-bg-color: $bg-color-blue !default;
+$form-blue-border-color: $bg-color-blue !default;
+$form-blue-border-color--focus: $bg-color-blue !default;
+$form-blue-text-color--disabled: #ced4da !default;
+$form-blue-bg-color--disabled: #e9ecef !default;
+$form-blue-border-color--disabled: #ced4da !default;
+
+// Form elements disabled
+// ====================================================
+@mixin forms-disabled {
+  color: $form-blue-text-color--disabled;
+  background-color: $form-blue-bg-color--disabled;
+  border-color: $form-blue-border-color--disabled;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
 // Animation
 // ====================================================
 $animation-speed: 0.2s !default;

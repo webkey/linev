@@ -1,0 +1,62 @@
+<form method="post" action="#" class="contacts-form" onsubmit="alert('Send...'); return false;">
+  <div class="contacts-form__main">
+    <div class="contacts-form__main-item">
+      <div class="contacts-form__main-item-divider">&nbsp;</div>
+      @@include("blocks/form-select-blue/form-select-blue.html", {
+      "name": "contacts-office",
+      "id": "contacts-office",
+      "mods": false,
+      "classes": false,
+      "attrs": false,
+      "search": false,
+      "placeholder": "Выбрать",
+      "multiple": false,
+      "required": true,
+      "disabled": false,
+      "options": [
+      {"val": "minsk", "text": "MInsk, Belarus"},
+      {"val": "conroe", "text": "Conroe, USA"},
+      {"val": "kent", "text": "Kent, United Kingdom"},
+      {"val": "perersburg", "text": "St. Perersburg, Russian Federation"},
+      {"val": "shenzhen", "text": "St. Shenzhen, China"}
+      ]
+      })
+    </div>
+    <div class="contacts-form__main-item">
+      <div class="contacts-form__main-item-divider">&nbsp;</div>
+      @@include("blocks/form-select-blue/form-select-blue.html", {
+      "name": "contacts-section",
+      "id": "contacts-section",
+      "mods": false,
+      "classes": false,
+      "attrs": false,
+      "search": false,
+      "placeholder": "Выбрать",
+      "multiple": false,
+      "required": true,
+      "disabled": false,
+      "options": [
+      {"val": "agile-manufacturing", "text": "Agile manufacturing"},
+      {"val": "research-and-development", "text": "Research and development center"},
+      {"val": "shared-service", "text": "Shared service center"},
+      {"val": "sales-offices", "text": "International sales offices"},
+      {"val": "products-manufacturing", "text": "Innovative products manufacturing"}
+      ]
+      })
+    </div>
+    <div class="contacts-form__main-item contacts-form__main-item_has-input">
+      <div class="contacts-form__main-item-divider">&nbsp;</div>
+      <div class="contacts-form__main-input">
+        <div class="contacts-form__main-input-label">
+          <label for="theme">Theme</label>
+        </div>
+        <div class="contacts-form__main-input-field">
+          <input type="text" id="theme" placeholder="Briefly specify the subject of the message">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contacts-form__common">
+    @@include("blocks/contacts-steps/contacts-steps.html")
+  </div>
+</form>

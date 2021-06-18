@@ -173,10 +173,6 @@
       position: relative;
       z-index: 1;
 
-      &:last-child {
-        border-bottom: none;
-      }
-
       &-divider {
         position: absolute;
         right: $layout-page-space-h;

@@ -1,0 +1,496 @@
+.form-select-blue {
+  $select-arrow-width: 4rem;
+
+  // Селект, который будет кастомизироваться, необходимо скрыть, пока на нем не отработает скрипт
+  html:not(.no-js) & {
+    width: 0;
+    height: $form-blue-height;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    opacity: 0;
+    clip: rect(0 0 0 0);
+    pointer-events: none;
+
+    &.select2-hidden-accessible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  // Select selection
+  // ====================================================
+  &__selection {
+    // SINGLE & MULTIPLE
+    // ====================================================
+    // .select2-selection - это "поле выбора" селекта
+    &.select2-selection {
+      position: relative;
+      z-index: 1;
+      display: block;
+      //height: $form-blue-height;
+      width: 100%;
+      height: auto !important; // Fixed for ie11
+      margin: 0;
+      padding: #{$layout-page-space-v} #{$select-arrow-width} #{$layout-page-space-v} #{$layout-page-space-h};
+      color: $form-blue-text-color;
+      font: bold 2.4rem/3.2rem $font-title;
+      letter-spacing: 0.006em;
+      text-transform: uppercase;
+      background-color: $form-blue-bg-color;
+      //border: 1px solid $form-blue-border-color;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      transition: color $animation-speed, border $animation-speed;
+      // Set style for mobile if need
+
+      @include below($hd) {
+        padding: #{$layout-page-space-v_lg} #{$select-arrow-width} #{$layout-page-space-v_lg} #{$layout-page-space-h};
+        font-size: 2rem;
+        line-height: 2.8rem;
+      }
+
+      &::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        display: block;
+        background-color: $bg-color-white;
+        transform: scaleY(0);
+        transform-origin: right bottom;
+        transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
+        content: "";
+        will-change: transform;
+
+        @include below($lg) {
+          content: none;
+        }
+      }
+
+      &:hover {
+        color: $text-color-blue;
+        transition: $animation-speed;
+
+        @include below($xl) {
+          color: $text-color-white;
+        }
+
+        &::before {
+          transform: scaleY(1);
+          transition-duration: $animation-speed;
+        }
+      }
+
+      // .select2-selection__rendered лежит внутри .select2-selection
+      // Служит для обрезания текста и добавления троеточия
+      // Непосредственно в этом элементе лежит текст текущего опшина
+      .select2-selection__rendered {
+        display: block;
+        padding: 0;
+        overflow: hidden;
+        font-size: inherit;
+        line-height: inherit;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      // Placeholder
+      .select2-selection__placeholder {
+        color: $form-blue-placeholder-color;
+      }
+
+      // Clear button
+      .select2-selection__clear {
+        float: right;
+        font-weight: normal;
+        cursor: pointer;
+      }
+    }
+
+    // Arrow
+    // ----------------------------------------------------
+    .select2-selection__arrow {
+      position: absolute;
+      top: 0;
+      right: #{$layout-page-space-h - 1rem};
+      bottom: 0;
+      z-index: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: $select-arrow-width;
+      height: auto;
+      background: none;
+
+      // Set style for mobile if need
+
+      b {
+        position: relative;
+        top: auto;
+        right: auto;
+        display: block;
+        width: 4rem;
+        height: 4rem;
+        margin: 0;
+        background: none;
+        border: none;
+
+        .select2-container--open & {
+          transform: rotate(0.5turn);
+        }
+
+        &::before,
+        &::after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+          transition: opacity $animation-speed-out;
+          content: "";
+        }
+
+        &::before {
+          background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.35 14.3002L20 21.9502L27.65 14.3002L30 16.6668L20 26.6668L10 16.6668L12.35 14.3002Z' fill='white'/%3E%3C/svg%3E%0A");
+        }
+
+        &::after {
+          background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.35 14.3002L20 21.9502L27.65 14.3002L30 16.6668L20 26.6668L10 16.6668L12.35 14.3002Z' fill='%230870d8'/%3E%3C/svg%3E%0A");
+          opacity: 0;
+        }
+      }
+    }
+
+    // MULTIPLE
+    // ====================================================
+    &.select2-selection--multiple {
+      height: auto;
+      min-height: $form-blue-height;
+      // Внутренние отступы поля выбора отличаются от single-селекта
+      // По вертикали отступы должны быть меньше на расстояние между
+      // активными опшинами мультиселекта + размер их бордера
+      padding: 1rem 1.5rem;
+      cursor: text;
+      // Set style for mobile if need
+
+      .select2-selection__rendered {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 1.2rem;
+        line-height: 1.9rem;
+        list-style: none;
+
+        li {
+          padding: 0.2rem 0.6rem;
+          list-style: none;
+
+          &::before {
+            content: none;
+          }
+        }
+      }
+
+      .select2-selection__placeholder {
+        float: left;
+        margin: 0.3rem 0;
+      }
+
+      // Clear button
+      .select2-selection__clear {
+        float: right;
+        margin-top: 0.3rem;
+        font-weight: normal;
+        cursor: pointer;
+      }
+
+      // Активные опшины
+      .select2-selection__choice {
+        float: left;
+        max-width: calc(50% - 1rem);
+        padding: 0.2rem 0.5rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        background-color: $bg-color-blue;
+        border: none;
+        border-radius: 2rem;
+        cursor: default;
+        // Set style for mobile if need
+      }
+
+      .select2-selection__choice,
+      .select2-search--inline {
+        margin: 0.3rem 0.4rem 0.3rem 0;
+      }
+
+      // SEARCH for MULTIPLE
+      // ====================================================
+      .select2-search--inline {
+        float: left;
+        border: none;
+
+        // input .select2-search__field лежащий внутри поля выбора multiple-селекта.
+        // При фокусе на поле выбора, курсор попадает в этот input,
+        // и служит полем ввода для автокомплита.
+        // В single-селекте аналогичное поле автокомплита
+        // находится вверху выпадающего меню опшинов.
+        input {
+          display: block;
+          margin-top: 0;
+          padding: 0;
+          font-size: inherit;
+          font-family: inherit;
+          line-height: inherit;
+          background: transparent;
+          border: none;
+          outline: 0;
+          box-shadow: none;
+          transition: border $animation-speed;
+          -webkit-appearance: textfield;
+
+          @include input-placeholder {
+            color: $form-blue-placeholder-color;
+            transition: $animation-speed opacity;
+          }
+        }
+      }
+
+      // Крестик для удаления активного опшина
+      .select2-selection__choice__remove {
+        display: inline-block;
+        margin-right: 2px;
+        color: #999;
+        font-weight: normal; // Перебить стили
+        cursor: pointer;
+
+        &:hover {
+          color: #333;
+        }
+      }
+
+      // Disabled
+      &.select2-container--disabled {
+        .select2-selection__choice__remove,
+        .select2-selection__clear {
+          display: none;
+        }
+      }
+    }
+
+    // STATES
+    // ====================================================
+    // Hover
+    &:hover {
+      .select2-selection__arrow {
+        b {
+          &::before,
+          &::after {
+            transition-duration: $animation-speed;
+          }
+
+          &::before {
+            opacity: 0;
+
+            @include below($xl) {
+              opacity: 1;
+            }
+          }
+
+          &::after {
+            opacity: 1;
+
+            @include below($xl) {
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
+
+    // Focus
+    .select2-container--focus &,
+    .select2-container--open & {
+      border-color: $form-blue-border-color--focus;
+    }
+
+    // Disabled
+    .select2-container--disabled & {
+      @include forms-disabled;
+
+      .select2-selection__choice {
+        pointer-events: none;
+
+        @include forms-disabled;
+      }
+
+      // Arrow disabled
+      .select2-selection__arrow {
+        b {
+          opacity: 0.3;
+        }
+      }
+    }
+  }
+
+  // Select dropdown
+  // ====================================================
+  &__dropdown {
+    // Общие стили для выпадающего списка селекта
+    &.select2-dropdown {
+      z-index: 9999; // Поднять выше всех элементов
+      overflow: hidden; // Если есть закругления, то нужно обрезать внутренние элементы
+      background-color: #fff;
+      border: none;
+      border-radius: 0;
+      box-shadow: 0 4px 17px rgba(0, 0, 0, 0.25);
+      //z-index: 5; // Поднять выше стрелок соседних селектов
+      // Set style for mobile if need
+    }
+
+    .select2-container--open & {
+      // Специальные стили для выпадающего меню
+      // при открытии ВЫШЕ поля выбора
+      &.select2-container--above {
+        .select2-selection {
+          //border-top-left-radius: 0;
+          //border-top-right-radius: 0;
+        }
+      }
+
+      // Специальные стили для выпадающего меню
+      // при открытии НИЖЕ поля выбора
+      &.select2-container--below {
+        .select2-selection {
+          //border-bottom-left-radius: 0;
+          //border-bottom-right-radius: 0;
+        }
+      }
+
+      // Arrow active
+      &.select2-selection__arrow {
+        b {
+          &::before {
+            transform: rotate(-45deg);
+          }
+
+          &::after {
+            transform: rotate(45deg);
+          }
+        }
+      }
+
+      // Специальные стили для выпадающего меню
+      // при открытии ВЫШЕ поля выбора
+      &.select2-dropdown--above {
+        margin-bottom: 0.9rem;
+        //border-top: 0.1rem solid $form-blue-border-color;
+        //border-bottom-left-radius: 0;
+        //border-bottom-right-radius: 0;
+      }
+
+      // Специальные стили для выпадающего меню
+      // при открытии НИЖЕ поля выбора
+      &.select2-dropdown--below {
+        //margin-top: 0.9rem;
+        //border-bottom: 0.1rem solid $form-blue-border-color;
+        //border-top-left-radius: 0;
+        //border-top-right-radius: 0;
+      }
+    }
+
+    // SEARCH
+    // ====================================================
+    // Контейнер поля ввода автокомплита
+    .select2-search--dropdown {
+      padding: 0.5rem;
+
+      // Поле ввода <input>
+      .select2-search__field {
+        padding: 1rem 0.5rem;
+        border: 0.1rem solid $form-blue-border-color;
+        border-radius: 4px;
+
+        &:focus {
+          border-color: $form-blue-border-color;
+        }
+      }
+    }
+
+    // RESULTS
+    // ====================================================
+    // Контейнер опшинов в выпадающем меню,
+    // или результатов автокоплита
+    .select2-results {
+      // Непосредственно список <ul> опшинов
+      & > .select2-results__options {
+        max-height: 42rem;
+        padding: 0;
+        overflow-y: auto;
+        color: $text-color-blue;
+        font-size: 2.4rem;
+        font-family: inherit;
+        line-height: 3.2rem;
+        // Set style for mobile if need
+      }
+    }
+
+    // Опшин
+    .select2-results__option {
+      position: relative;
+      margin: 0;
+      padding: 2.4rem #{$layout-page-space-h};
+      border-top: 1px solid rgba(black, 0.1);
+      transition: $animation-speed;
+      // Set style for mobile if need
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &[role=group] {
+        padding: 0;
+      }
+
+      // Disabled
+      &[aria-disabled=true] {
+        color: $form-blue-text-color--disabled;
+        background-color: $form-blue-bg-color--disabled;
+      }
+
+      // Active
+      &[aria-selected=true] {
+        background-color: rgba(black, 0.15);
+      }
+
+      &[aria-selected="false"]:hover {
+        opacity: 0.6;
+      }
+
+      .select2-results__option {
+        // Группы опшинов
+        // См. src/libs/select2/src/scss/theme/default/layout.scss
+      }
+    }
+
+    // Hover
+    //.select2-results__option--highlighted[aria-selected] {
+    //	opacity: 0.6;
+    //}
+
+    // Group options
+    .select2-results__group {
+      display: block;
+      padding: 0.5rem;
+      cursor: default;
+    }
+  }
+}
