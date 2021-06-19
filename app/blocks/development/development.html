@@ -10,12 +10,8 @@
       <div class="development__heading-title-row">
         <div class="ts"><span class="ts__i delay-1">Ultra-fast</span></div>
       </div>
-      <div class="development__heading-title-row has-note">
+      <div class="development__heading-title-row">
         <div class="ts"><span class="ts__i delay-2">Development</span></div>
-        @@include("blocks/development__chart-balloon/development__chart-balloon.html", {
-        "title": "Regular development processes",
-        "text": "This is the normal way the idea passes on its way to a product and customer satisfaction."
-        })
       </div>
     </div>
     <div class="development__heading-text development__heading-text_script js-type-text-animation">of complex and innovative products tailored to customer needs</div>
@@ -89,6 +85,13 @@
         <div class="development__chart-labels-x-item slide-fade-up-in-short">Assembly</div>
         <div class="development__chart-labels-x-item slide-fade-up-in-short">Marketing</div>
         <div class="development__chart-labels-x-item slide-fade-up-in-short">Service</div>
+      </div>
+      <div class="development__chart-note development__chart-note_development-processes js-chart-balloon scale-fade-down-in delay-4">
+        <div class="development__chart-note-inner has-note js-chart-balloon-open"></div>
+        @@include("blocks/development__chart-balloon/development__chart-balloon.html", {
+        "title": "Regular development processes",
+        "text": "This is the normal way the idea passes on its way to a product and customer satisfaction."
+        })
       </div>
     </div>
   </div>

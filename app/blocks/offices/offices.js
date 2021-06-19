@@ -43,5 +43,9 @@ app.offices = {
     const self = this;
     $(self.balloon).removeClass('is-active').filter(`[href="${self.currentId}"]`).addClass('is-active');
     $(self.panel).removeClass('is-active').filter(self.currentId).addClass('is-active');
+    self.changeSelect();
+  },
+  changeSelect() {
+    app.contactsForm.chooseOption($('#contacts-office'), this.currentId.substr(1));
   },
 };

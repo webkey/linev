@@ -282,7 +282,7 @@
         }
 
         &-inner {
-          width: 27.9rem;
+          width: 32rem;
           padding: 1.6rem;
           background-color: $bg-color-white;
 
@@ -293,6 +293,7 @@
 
         &-photo {
           position: relative;
+          max-width: 24.7rem;
           margin-bottom: 1.6rem;
 
           &:last-child {
@@ -334,8 +335,8 @@
         &-address {
           margin-bottom: 0.4rem;
           color: #696969;
-          font-size: 2rem;
-          line-height: 2.8rem;
+          font-size: 1.6rem;
+          line-height: 2.4rem;
           letter-spacing: 0.02em;
 
           @include below($hd) {
@@ -360,8 +361,8 @@
         &-phone {
           margin-bottom: 0.4rem;
           color: #696969;
-          font-size: 2rem;
-          line-height: 2.8rem;
+          font-size: 1.6rem;
+          line-height: 2.4rem;
           letter-spacing: 0.02em;
 
           @include below($hd) {

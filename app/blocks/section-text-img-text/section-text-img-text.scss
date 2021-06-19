@@ -34,14 +34,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 6.4rem;
-      height: 6.4rem;
+      width: 8rem;
+      height: 8rem;
       margin-bottom: 1.6rem;
       padding: 0.5rem;
       color: $text-color-white;
-      font: 500 3.2rem/4rem $font-title;
-      letter-spacing: 0.005em;
+      font: bold 5.2rem/5.6rem $font-title;
       background-color: $bg-color-blue;
+
+      @include below($hd) {
+        width: 6.4rem;
+        height: 6.4rem;
+        font-size: 3.2rem;
+        line-height: 4rem;
+      }
 
       @include below($md) {
         margin-bottom: #{$layout-page-space-v_sm};
@@ -52,8 +58,13 @@
       width: 100%;
       margin: 0 0 6.4rem;
       color: $text-color-black;
-      font: bold 3.4rem/4rem $font-title;
+      font: bold 5.2rem/5.6rem $font-title;
       text-transform: uppercase;
+
+      @include below($hd) {
+        font-size: 3.4rem;
+        line-height: 4rem;
+      }
 
       @include below($xl) {
         margin-bottom: #{$layout-page-space-v_md};

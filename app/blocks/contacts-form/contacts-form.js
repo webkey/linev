@@ -4,6 +4,7 @@ app.contactsForm = {
   init() {
     if ($(this.sliderEl).length) {
       this.slider();
+      this.selectOffice();
     }
   },
   slider() {
@@ -71,5 +72,14 @@ app.contactsForm = {
         });
       });
     }
+  },
+  chooseOption(select, value) {
+    $(select).val(value).trigger('change.select2');
+  },
+  selectOffice() {
+    $('#contacts-office').on('change', function () {
+      app.offices.currentId = `#${$(this).val()}`;
+      app.offices.changeActive();
+    });
   },
 };

@@ -221,6 +221,7 @@
       left: 0;
       min-width: 100%; // Компенсация отступа белой плашки под стрелкой
       padding: 0;
+      box-shadow: 0 0 0 1px rgba(#000, 0.1);
       transform: scaleY(0.92);
       transform-origin: top center;
       backface-visibility: hidden;
@@ -438,10 +439,16 @@
       top: 0;
       left: 100%;
       min-width: 20rem;
+      box-shadow: 0 0 0 1px rgba(#000, 0.1);
       transform: translateX(-0.2rem);
       opacity: 0;
       transition: opacity $animation-speed, transform $animation-speed;
       pointer-events: none;
+
+      .nav__li:last-child & {
+        right: 100%;
+        left: auto;
+      }
 
       @include above($lg) {
         display: block !important; // На десктопе перебивать установленный скриптом display: none;

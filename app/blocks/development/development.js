@@ -10,6 +10,7 @@ app.development = {
         self.run($(this), $(this).closest(self.container));
       });
     }
+    self.addOnHover();
   },
   run($el, $container) {
     const self = this;
@@ -23,6 +24,13 @@ app.development = {
       modifiers: {
         activeClass: 'is-open',
       },
+    });
+  },
+  addOnHover() {
+    const self = this;
+
+    $(self.control).on('mouseenter', function () {
+      $(this).switchClass('add');
     });
   },
 };

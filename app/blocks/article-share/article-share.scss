@@ -11,7 +11,7 @@
     $size: 4rem;
 
     position: relative;
-    display: inline-block;
+    display: block;
     width: $size;
     height: $size;
     margin: 0 #{$space / 2} #{$space};
@@ -20,7 +20,6 @@
     line-height: 1.8rem;
     text-align: left;
     text-decoration: none;
-    vertical-align: top;
     transition: color $animation-speed;
 
     @include below($hd) {
@@ -45,11 +44,9 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      display: inline-block;
       width: $size;
       height: $size;
       margin: -#{$int} 0 0 -#{$int};
-      vertical-align: top;
 
       @include below($hd) {
         $size: 2.4rem;

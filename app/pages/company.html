@@ -13,7 +13,23 @@
     }
   })
 
-  @@include("blocks/article/article_about-the-company.html")
+  @@include("blocks/section-author/section-author-example.html", {
+    "mods": ["has-top-space"]
+  })
+
+  @@include("blocks/section-heading/section-heading.html", {
+    "id": false,
+    "number": false,
+    "image": "assets/images/img-section-2.jpg",
+    "title": "<span>From idea</span><span>to prototype</span>",
+    "mods": false
+  })
+
+  @@include("blocks/section-definitions/section-definitions-example.html", {"hasImage": true })
+
+  @@include("blocks/section-definitions/section-definitions-example-doc.html")
+
+  @@include("blocks/section-definitions/section-definitions-example-share.html")
 </main>
 @@include("blocks/footer/footer.html")
 @@include("blocks/link/link.html")
