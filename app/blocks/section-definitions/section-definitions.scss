@@ -124,11 +124,18 @@
   }
 
   &__figure {
+    $figure: &;
+
     display: block;
     margin-bottom: 3.4rem;
 
     @include below($hd) {
       margin-bottom: 2.8rem;
+    }
+
+    &_image-left,
+    &_image-left-small {
+      display: flex;
     }
 
     &:last-child {
@@ -144,6 +151,24 @@
         width: 100%;
         height: auto;
       }
+
+      #{$figure}_image-left & {
+        $width: 50%;
+
+        flex: 1 0 $width;
+        width: $width;
+        margin: 0;
+        object-fit: cover;
+      }
+
+      #{$figure}_image-left-small & {
+        $width: 34%;
+
+        flex: 1 0 $width;
+        width: $width;
+        margin: 0;
+        object-fit: cover;
+      }
     }
 
     &-caption {
@@ -157,6 +182,87 @@
       @include below($md) {
         font-size: 1.2rem;
         line-height: 1.6rem;
+      }
+
+      #{$figure}_image-left & {
+        $width: 50%;
+
+        display: flex;
+        flex: 1 0 $width;
+        align-items: center;
+        justify-content: center;
+        width: $width;
+        padding: #{$layout-page-space-v} #{$layout-page-space-h};
+        overflow: hidden;
+        color: $text-color-white;
+        font: 500 3.2rem/4rem $font-title;
+        letter-spacing: #{floor-float(0.2 / 32, 1) * 1em};
+        text-align: center;
+        text-transform: uppercase;
+        background-color: $bg-color-blue;
+        opacity: 1;
+
+        @include below($hd) {
+          font-size: 3.2rem;
+          line-height: 4rem;
+        }
+
+        @include below($xxl) {
+          font-size: 2.8rem;
+          line-height: 3.6rem;
+        }
+
+        @include below($xl) {
+          padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+          font-size: 2.4rem;
+          line-height: 3.2rem;
+        }
+
+        @include below($md) {
+          padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+          font-size: 1.8rem;
+          line-height: 2.6rem;
+        }
+      }
+
+      #{$figure}_image-left-small & {
+        $width: 66%;
+
+        display: flex;
+        flex: 1 0 $width;
+        align-items: center;
+        justify-content: center;
+        width: $width;
+        padding: #{$layout-page-space-v} #{$layout-page-space-h};
+        overflow: hidden;
+        color: $text-color-white;
+        font: 500 3.2rem/4rem $font-title;
+        letter-spacing: #{floor-float(0.2 / 32, 1) * 1em};
+        text-align: center;
+        background-color: $bg-color-blue;
+        opacity: 1;
+
+        @include below($hd) {
+          font-size: 3.2rem;
+          line-height: 4rem;
+        }
+
+        @include below($xxl) {
+          font-size: 2.8rem;
+          line-height: 3.6rem;
+        }
+
+        @include below($xl) {
+          padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+          font-size: 2.4rem;
+          line-height: 3.2rem;
+        }
+
+        @include below($md) {
+          padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+          font-size: 1.8rem;
+          line-height: 2.6rem;
+        }
       }
     }
   }

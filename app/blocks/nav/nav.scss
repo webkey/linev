@@ -251,6 +251,7 @@
         min-width: 0;
         margin: 0;
         padding: 0;
+        box-shadow: none;
         transform: none;
         visibility: visible;
         opacity: 1;
@@ -448,6 +449,10 @@
       .nav__li:last-child & {
         right: 100%;
         left: auto;
+
+        @include below($lg) {
+          right: auto;
+        }
       }
 
       @include above($lg) {
@@ -457,9 +462,12 @@
       @include below($lg) {
         position: relative;
         top: auto;
+        right: auto;
+        bottom: auto;
         left: auto;
         display: none;
         min-width: 0;
+        box-shadow: none;
         transform: translateX(0);
         opacity: 1;
         pointer-events: auto;
