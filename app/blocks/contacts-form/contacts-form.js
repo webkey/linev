@@ -18,6 +18,7 @@ app.contactsForm = {
         const $nextEl = $curSlider.find('.js-contacts-steps-button-next');
         const $submitEl = $curSlider.find('.js-contacts-steps-button-submit');
         const $currentSlide = $curSlider.find('.js-contacts-steps-current');
+        const $currentText = $curSlider.find('.js-contacts-steps-current-text');
         const $totalSlides = $curSlider.find('.js-contacts-steps-total');
 
         const sliderInstance = new Swiper($curSlider.find('.swiper-container'), {
@@ -32,15 +33,17 @@ app.contactsForm = {
 
           on: {
             beforeTransitionStart() {
-              $prevEl.add($nextEl).removeClass('disabled');
+              $prevEl.add($prevEl.parent()).add($nextEl).add($nextEl.parent()).removeClass('disabled');
               $nextEl.parent().show();
               $submitEl.parent().hide();
               $currentSlide.text(sliderInstance.realIndex + 1);
+              $currentText.find('div').hide().eq(sliderInstance.realIndex).show();
               if (sliderInstance.realIndex === 0) {
-                $prevEl.addClass('disabled');
+                $prevEl.add($prevEl.parent()).addClass('disabled');
               }
               if (sliderInstance.realIndex === sliderInstance.slides.length - 1) {
-                $nextEl.addClass('disabled').parent().hide();
+                $nextEl.add($nextEl.parent()).addClass('disabled');
+                $nextEl.parent().hide();
                 $submitEl.parent().show();
               }
             },
@@ -49,12 +52,15 @@ app.contactsForm = {
 
         sliderInstance.on('init', () => {
           $curSlider.addClass('is-loaded');
+          $currentSlide.text(sliderInstance.realIndex + 1);
           $totalSlides.text(sliderInstance.slides.length);
+          $currentText.find('div').hide().eq(sliderInstance.realIndex).show();
           if (sliderInstance.realIndex === 0) {
-            $prevEl.addClass('disabled');
+            $prevEl.add($prevEl.parent()).addClass('disabled');
           }
           if (sliderInstance.realIndex === sliderInstance.slides.length - 1) {
-            $nextEl.addClass('disabled').parent().hide();
+            $nextEl.add($nextEl.parent()).addClass('disabled');
+            $nextEl.parent().hide();
             $submitEl.parent().show();
           }
         });

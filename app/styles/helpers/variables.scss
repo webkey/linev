@@ -31,7 +31,7 @@ $link-color: #0870d8 !default;
 $visited-color: #6908d8 !default;
 $focus-color: #1279c5 !default;
 $success-color: #28a745 !default;
-$error-color: #dc3545 !default;
+$error-color: #f34040 !default;
 $info-color: #17a2b8 !default;
 $warning-color: #ffc107 !default;
 // ----------------------------------------------------
@@ -102,7 +102,7 @@ $header-height-top: 6rem !default;
 $header-height-bottom: 6rem !default;
 $header-height_sm: 4rem !default;
 
-// Form elements  blue colors scheme
+// Select blue colors scheme
 // ====================================================
 $form-blue-height: 12.8rem !default;
 $form-blue-text-color: $text-color-white !default;
@@ -114,12 +114,34 @@ $form-blue-text-color--disabled: #ced4da !default;
 $form-blue-bg-color--disabled: #e9ecef !default;
 $form-blue-border-color--disabled: #ced4da !default;
 
-// Form elements disabled
+// Select blue disabled
 // ====================================================
-@mixin forms-disabled {
+@mixin select-blue-disabled {
   color: $form-blue-text-color--disabled;
   background-color: $form-blue-bg-color--disabled;
   border-color: $form-blue-border-color--disabled;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+// Select white colors scheme
+// ====================================================
+$form-white-height: 12.8rem !default;
+$form-white-text-color: $text-color-blue !default;
+$form-white-placeholder-color: rgba($text-color-blue, 0.5) !default;
+$form-white-bg-color: $bg-color-white !default;
+$form-white-border-color: $bg-color-white !default;
+$form-white-border-color--focus: $bg-color-white !default;
+$form-white-text-color--disabled: #ced4da !default;
+$form-white-bg-color--disabled: #e9ecef !default;
+$form-white-border-color--disabled: #ced4da !default;
+
+// Select white disabled
+// ====================================================
+@mixin select-white-disabled {
+  color: $form-white-text-color--disabled;
+  background-color: $form-white-bg-color--disabled;
+  border-color: $form-white-border-color--disabled;
   box-shadow: none;
   cursor: not-allowed;
 }

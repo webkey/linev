@@ -1,0 +1,4 @@
+<label class="form-checkbox">
+  <input class="form-checkbox__input@@if(context.classes){@@for(var i = 0; i < classes.length; i++){ `+classes[i]+`}}" type="checkbox" name="@@name"@@if(context.checked){ checked}@@if(context.disabled){ disabled}@@if(context.attrs){@@for(var i = 0; i < attrs.length; i++){ `+attrs[i].attr+`="`+attrs[i].value+`"}}>
+  <span class="form-checkbox__label">@@label</span>
+</label>

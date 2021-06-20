@@ -1,10 +1,10 @@
-.form-select-blue {
+.form-select-white {
   $select-arrow-width: 4rem;
 
   // Селект, который будет кастомизироваться, необходимо скрыть, пока на нем не отработает скрипт
   html:not(.no-js) & {
     width: 0;
-    height: $form-blue-height;
+    height: $form-white-height;
     padding: 0;
     overflow: hidden;
     border: 0;
@@ -28,17 +28,17 @@
       position: relative;
       z-index: 1;
       display: block;
-      //height: $form-blue-height;
+      //height: $form-white-height;
       width: 100%;
       height: auto !important; // Fixed for ie11
       margin: 0;
       padding: #{$layout-page-space-v} #{$select-arrow-width} #{$layout-page-space-v} #{$layout-page-space-h};
-      color: $form-blue-text-color;
+      color: $form-white-text-color;
       font: bold 2.4rem/3.2rem $font-title;
       letter-spacing: 0.006em;
       text-transform: uppercase;
-      background-color: $form-blue-bg-color;
-      //border: 1px solid $form-blue-border-color;
+      background-color: $form-white-bg-color;
+      //border: 1px solid $form-white-border-color;
       border: none;
       border-radius: 0;
       box-shadow: none;
@@ -53,7 +53,7 @@
         z-index: -1;
         font-size: 0;
         line-height: 0;
-        border-top: 1px solid $line-color-blue;
+        border-top: 1px solid $form-blue-border-color;
         transition: $animation-speed-out;
         content: "";
 
@@ -82,7 +82,7 @@
         left: 0;
         z-index: -1;
         display: block;
-        background-color: $bg-color-white;
+        background-color: $bg-color-blue;
         transform: scaleY(0);
         transform-origin: right bottom;
         transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -109,8 +109,8 @@
 
       // Placeholder
       .select2-selection__placeholder {
-        color: $form-blue-placeholder-color;
-        transition-duration: $animation-speed-out;
+        color: $form-white-placeholder-color;
+        transition: $animation-speed-out;
       }
 
       // Clear button
@@ -121,8 +121,8 @@
       }
 
       &:hover {
-        color: $text-color-blue;
-        transition: $animation-speed;
+        color: $text-color-white;
+        transition-duration: $animation-speed;
 
         @include below($xl) {
           color: $text-color-white;
@@ -140,8 +140,8 @@
 
         // Placeholder
         .select2-selection__placeholder {
-          color: rgba($text-color-blue, 0.5);
-          transition-duration: $animation-speed;
+          color: rgba($text-color-white, 0.5);
+          transition: $animation-speed;
         }
       }
     }
@@ -194,11 +194,11 @@
         }
 
         &::before {
-          background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.35 14.3002L20 21.9502L27.65 14.3002L30 16.6668L20 26.6668L10 16.6668L12.35 14.3002Z' fill='white'/%3E%3C/svg%3E%0A");
+          background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.35 14.3002L20 21.9502L27.65 14.3002L30 16.6668L20 26.6668L10 16.6668L12.35 14.3002Z' fill='%230870d8'/%3E%3C/svg%3E%0A");
         }
 
         &::after {
-          background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.35 14.3002L20 21.9502L27.65 14.3002L30 16.6668L20 26.6668L10 16.6668L12.35 14.3002Z' fill='%230870d8'/%3E%3C/svg%3E%0A");
+          background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.35 14.3002L20 21.9502L27.65 14.3002L30 16.6668L20 26.6668L10 16.6668L12.35 14.3002Z' fill='white'/%3E%3C/svg%3E%0A");
           opacity: 0;
         }
       }
@@ -208,7 +208,7 @@
     // ====================================================
     &.select2-selection--multiple {
       height: auto;
-      min-height: $form-blue-height;
+      min-height: $form-white-height;
       // Внутренние отступы поля выбора отличаются от single-селекта
       // По вертикали отступы должны быть меньше на расстояние между
       // активными опшинами мультиселекта + размер их бордера
@@ -255,7 +255,7 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        background-color: $bg-color-blue;
+        background-color: $bg-color-white;
         border: none;
         border-radius: 2rem;
         cursor: default;
@@ -293,7 +293,7 @@
           -webkit-appearance: textfield;
 
           @include input-placeholder {
-            color: $form-blue-placeholder-color;
+            color: $form-white-placeholder-color;
             transition: $animation-speed opacity;
           }
         }
@@ -354,17 +354,17 @@
     // Focus
     .select2-container--focus &,
     .select2-container--open & {
-      border-color: $form-blue-border-color--focus;
+      border-color: $form-white-border-color--focus;
     }
 
     // Disabled
     .select2-container--disabled & {
-      @include select-blue-disabled;
+      @include select-white-disabled;
 
       .select2-selection__choice {
         pointer-events: none;
 
-        @include select-blue-disabled;
+        @include select-white-disabled;
       }
 
       // Arrow disabled
@@ -383,7 +383,7 @@
     &.select2-dropdown {
       z-index: 9999; // Поднять выше всех элементов
       overflow: hidden; // Если есть закругления, то нужно обрезать внутренние элементы
-      background-color: #fff;
+      background-color: $bg-color-blue;
       border: none;
       border-radius: 0;
       box-shadow: 0 4px 17px rgba(0, 0, 0, 0.25);
@@ -427,7 +427,7 @@
       // при открытии ВЫШЕ поля выбора
       &.select2-dropdown--above {
         margin-bottom: 0.9rem;
-        //border-top: 0.1rem solid $form-blue-border-color;
+        //border-top: 0.1rem solid $form-white-border-color;
         //border-bottom-left-radius: 0;
         //border-bottom-right-radius: 0;
       }
@@ -436,7 +436,7 @@
       // при открытии НИЖЕ поля выбора
       &.select2-dropdown--below {
         //margin-top: 0.9rem;
-        //border-bottom: 0.1rem solid $form-blue-border-color;
+        //border-bottom: 0.1rem solid $form-white-border-color;
         //border-top-left-radius: 0;
         //border-top-right-radius: 0;
       }
@@ -451,11 +451,11 @@
       // Поле ввода <input>
       .select2-search__field {
         padding: 1rem 0.5rem;
-        border: 0.1rem solid $form-blue-border-color;
+        border: 0.1rem solid $form-white-border-color;
         border-radius: 4px;
 
         &:focus {
-          border-color: $form-blue-border-color;
+          border-color: $form-white-border-color;
         }
       }
     }
@@ -470,7 +470,7 @@
         max-height: 42rem;
         padding: 0;
         overflow-y: auto;
-        color: $text-color-blue;
+        color: $text-color-white;
         font-size: 2.4rem;
         font-family: inherit;
         line-height: 3.2rem;
@@ -497,8 +497,8 @@
 
       // Disabled
       &[aria-disabled=true] {
-        color: $form-blue-text-color--disabled;
-        background-color: $form-blue-bg-color--disabled;
+        color: $form-white-text-color--disabled;
+        background-color: $form-white-bg-color--disabled;
       }
 
       // Active

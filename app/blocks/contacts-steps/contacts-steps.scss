@@ -33,6 +33,8 @@
   }
 
   &__input {
+    $input: &;
+
     display: flex;
     align-items: center;
     margin-bottom: $layout-page-space-v;
@@ -74,6 +76,7 @@
     &-field {
       $width: calc(100% - 11.4rem);
 
+      position: relative;
       flex: 1 0 $width;
       max-width: $width;
 
@@ -96,6 +99,7 @@
         border: none;
         border-bottom: 1px solid $line-color-grey-divider;
         border-radius: 0;
+        transition: $animation-speed;
 
         @include below($hd) {
           padding-bottom: 0.2rem;
@@ -107,11 +111,116 @@
           color: #858585;
         }
 
-        &:focus {
+        &:focus,
+        &.is-focused,
+        &.is-filled {
+          border-bottom-color: $button-color-blue;
+
           &::placeholder {
             opacity: 0;
           }
         }
+
+        #{$input}.error &,
+        &.error {
+          border-bottom-color: $error-color;
+        }
+      }
+
+      &-error {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        margin: 0.2rem 0;
+        color: $error-color;
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+        letter-spacing: #{round-float(0.4 / 12, 3) * 1em};
+
+        @include below($hd) {
+          font-size: 1.2rem;
+          line-height: 1.6rem;
+        }
+      }
+    }
+  }
+
+  &__message {
+    $message: &;
+
+    margin-bottom: $layout-page-space-v;
+
+    @include below($hd) {
+      margin-bottom: $layout-page-space-v_lg;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    textarea {
+      width: 100%;
+      height: 10.2rem;
+      max-height: 10.2rem;
+      padding: 0.3rem 0.8rem;
+      color: $text-color-black;
+      font-size: 2.4rem;
+      font-family: inherit;
+      line-height: 3.2rem;
+      letter-spacing: round-float(0.4 / 24 * 1em, 3);
+      background: none;
+      border: 1px solid $line-color-grey-divider;
+      border-radius: 0;
+      transition: $animation-speed;
+      resize: none;
+
+      @include below($hd) {
+        padding-bottom: 0.2rem;
+        font-size: 2rem;
+        line-height: 2.8rem;
+      }
+
+      &::placeholder {
+        color: #858585;
+      }
+
+      &:focus,
+      &.is-focused,
+      &.is-filled {
+        border-color: $button-color-blue;
+
+        &::placeholder {
+          opacity: 0;
+        }
+      }
+
+      #{$message}.error &,
+      &.error {
+        border-color: $error-color;
+      }
+    }
+  }
+
+  &__select {
+    margin: 0 -#{$layout-page-space-h} $layout-page-space-v;
+
+    @include below($hd) {
+      margin: 0 -#{$layout-page-space-h} $layout-page-space-v_lg;
+    }
+
+    &:first-child {
+      margin-top: -#{$layout-page-space-v};
+
+      @include below($hd) {
+        margin-top: -#{$layout-page-space-v_lg};
+      }
+    }
+
+    &:last-child {
+      margin-bottom: -#{$layout-page-space-v};
+
+      @include below($hd) {
+        margin-bottom: -#{$layout-page-space-v_lg};
       }
     }
   }
@@ -141,9 +250,15 @@
 
   &__button {
     display: inline-flex;
+
+    &.disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 
   &__counter {
+    display: inline-flex;
     padding: 0 2.4rem;
     color: $text-color-blue;
     font: bold 2.4rem/3.2rem $font-title;
@@ -153,6 +268,14 @@
     @include below($hd) {
       font-size: 2rem;
       line-height: 2.4rem;
+    }
+
+    &-text {
+      margin-left: 1.2rem;
+
+      &-item {
+        display: none;
+      }
     }
   }
 }

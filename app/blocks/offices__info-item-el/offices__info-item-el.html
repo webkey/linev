@@ -13,6 +13,6 @@
     @@if (context.freeLine) {<div class="offices__info-item-el-free">@@freeLine.label <a href="tel:@@freeLine.phone">@@freeLine.phone</a></div>}
   </div>
   <div class="offices__info-item-el-button">
-    @@include("blocks/button-default/button-default.html", { "href": "#", "text": "Write the message", "mods": ["white", "full-width"]})
+    @@include("blocks/button-default/button-default.html", { "href": "#contacts-form", "text": "Write the message", "mods": ["white", "full-width"], "class": "js-scroll-to"})
   </div>
 </div>

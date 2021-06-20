@@ -7,7 +7,8 @@
             <label for="company">Company</label>
           </div>
           <div class="contacts-steps__input-field">
-            <input type="text" id="company" placeholder="Please enter the full name of your company">
+            <input class="js-form-states error" type="text" id="company" placeholder="Please enter the full name of your company">
+            <div class="contacts-steps__input-field-error">Error</div>
           </div>
         </div>
         <div class="contacts-steps__input">
@@ -15,7 +16,7 @@
             <label for="web-site">Web-site</label>
           </div>
           <div class="contacts-steps__input-field">
-            <input type="text" id="web-site" placeholder="Company website">
+            <input class="js-form-states" type="text" id="web-site" placeholder="Company website">
           </div>
         </div>
         <div class="contacts-steps__input">
@@ -23,60 +24,50 @@
             <label for="e-mail">E-mail</label>
           </div>
           <div class="contacts-steps__input-field">
-            <input type="text" id="e-mail" placeholder="E-mail contact person">
+            <input class="js-form-states" type="text" id="e-mail" placeholder="E-mail contact person">
           </div>
         </div>
       </div>
       <div class="swiper-slide contacts-steps__slide">
-        <div class="contacts-steps__input">
-          <div class="contacts-steps__input-label">
-            <label for="web-site2">Web-site</label>
-          </div>
-          <div class="contacts-steps__input-field">
-            <input type="text" id="web-site2" placeholder="Company website">
-          </div>
+        <div class="contacts-steps__select">
+          @@include("blocks/form-select-white/form-select-white.html", {
+          "name": "contacts-country",
+          "id": "contacts-country",
+          "mods": false,
+          "classes": false,
+          "attrs": false,
+          "search": false,
+          "placeholder": "Your country",
+          "multiple": false,
+          "required": true,
+          "disabled": false,
+          "options": [
+          {"val": "", "text": "Your country"},
+          {"val": "office-minsk", "text": "Belarus"},
+          {"val": "office-conroe", "text": "USA"},
+          {"val": "office-kent", "text": "United Kingdom"},
+          {"val": "office-petersburg", "text": "Russian Federation"},
+          {"val": "office-shenzhen", "text": "China"}
+          ]
+          })
         </div>
         <div class="contacts-steps__input">
           <div class="contacts-steps__input-label">
-            <label for="company2">Company</label>
+            <label for="company2">State</label>
           </div>
           <div class="contacts-steps__input-field">
-            <input type="text" id="company2" placeholder="Please enter the full name of your company">
-          </div>
-        </div>
-        <div class="contacts-steps__input">
-          <div class="contacts-steps__input-label">
-            <label for="e-mail2">E-mail</label>
-          </div>
-          <div class="contacts-steps__input-field">
-            <input type="text" id="e-mail2" placeholder="E-mail contact person">
+            <input class="js-form-states" type="text" id="company2" placeholder="State you are in">
           </div>
         </div>
       </div>
       <div class="swiper-slide contacts-steps__slide">
-        <div class="contacts-steps__input">
-          <div class="contacts-steps__input-label">
-            <label for="e-mail3">E-mail</label>
-          </div>
-          <div class="contacts-steps__input-field">
-            <input type="text" id="e-mail3" placeholder="E-mail contact person">
+        <div class="contacts-steps__message">
+          <div class="contacts-steps__message-field">
+            <textarea class="js-form-states" id="e-mail3" placeholder="Write your message"></textarea>
           </div>
         </div>
-        <div class="contacts-steps__input">
-          <div class="contacts-steps__input-label">
-            <label for="web-site3">Web-site</label>
-          </div>
-          <div class="contacts-steps__input-field">
-            <input type="text" id="web-site3" placeholder="Company website">
-          </div>
-        </div>
-        <div class="contacts-steps__input">
-          <div class="contacts-steps__input-label">
-            <label for="company3">Company</label>
-          </div>
-          <div class="contacts-steps__input-field">
-            <input type="text" id="company3" placeholder="Please enter the full name of your company">
-          </div>
+        <div class="contacts-steps__check">
+          @@include("blocks/form-checkbox/form-checkbox.html", {"label": "By clicking the «SEND» button, you agree to the processing of the data provided and to the fact that our representative will contact you at the specified contacts. We reserve the right to ignore a request if it is irrelevant.t", "name": "note", "checked": false, "disabled": false})
         </div>
       </div>
     </div>
@@ -84,16 +75,21 @@
   <div class="contacts-steps__controls">
     <div class="contacts-steps__controls-holder">
       <div class="contacts-steps__button contacts-steps__button_prev">
-        @@include("blocks/button-default/button-default.html", { "href": "#", "text": "Previous", "mods": ["blue"], "class": "js-contacts-steps-button-prev" })
+        @@include("blocks/button-default/button-default.html", { "href": "#", "text": "Previous", "mods": ["blue"], "class": "js-contacts-steps-button-prev", "icon": "<i class=\"icon icon-arrow-left-white\"></i>" })
       </div>
       <div class="contacts-steps__counter">
-        <span class="js-contacts-steps-current">1</span>/<span class="js-contacts-steps-total">3</span> tell about yourself
+        <span class="js-contacts-steps-current">1</span>/<span class="js-contacts-steps-total">3</span>
+        <div class="contacts-steps__counter-text js-contacts-steps-current-text">
+          <div class="contacts-steps__counter-text-item">Tell about yourself</div>
+          <div class="contacts-steps__counter-text-item">Your location</div>
+          <div class="contacts-steps__counter-text-item">Your message</div>
+        </div>
       </div>
       <div class="contacts-steps__button contacts-steps__button_next">
-        @@include("blocks/button-default/button-default.html", { "href": "#", "text": "Next", "mods": ["blue"], "class": "js-contacts-steps-button-next" })
+        @@include("blocks/button-default/button-default.html", { "href": "#", "text": "Next", "mods": ["blue", "reverse"], "class": "js-contacts-steps-button-next", "icon": "<i class=\"icon icon-arrow-right-white\"></i>" })
       </div>
       <div class="contacts-steps__button contacts-steps__button_submit" style="display: none;">
-        @@include("blocks/button-default/button-default_button.html", { "href": "#", "text": "Send", "type": "submit", "mods": ["blue"], "class": "js-contacts-steps-button-submit" })
+        @@include("blocks/button-default/button-default_button.html", { "href": "#", "text": "Send", "type": "submit", "mods": ["blue", "reverse"], "class": "js-contacts-steps-button-submit", "icon": "<i class=\"icon icon-send-white\"></i>" })
       </div>
     </div>
   </div>

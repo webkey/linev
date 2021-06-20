@@ -1,8 +1,7 @@
-<form method="post" action="#" class="contacts-form" onsubmit="alert('Send...'); return false;">
+<form method="post" action="#" class="contacts-form" onsubmit="alert('Send...'); return false;" id="contacts-form">
   <div class="contacts-form__main">
     @@if(context.main == 'false'){
     <div class="contacts-form__main-item">
-      <div class="contacts-form__main-item-divider">&nbsp;</div>
       @@include("blocks/form-select-blue/form-select-blue.html", {
       "name": "contacts-office",
       "id": "contacts-office",
@@ -25,11 +24,9 @@
     </div>}
     @@if(context.main == 'true'){
     <div class="contacts-form__main-item contacts-form__main-item_logo">
-      <div class="contacts-form__main-item-divider">&nbsp;</div>
       <img class="contacts-form__main-item-logo" src="assets/images/logo-white.svg" alt="Linev Group">
     </div>}
     <div class="contacts-form__main-item">
-      <div class="contacts-form__main-item-divider">&nbsp;</div>
       @@include("blocks/form-select-blue/form-select-blue.html", {
       "name": "contacts-section",
       "id": "contacts-section",
@@ -51,13 +48,13 @@
       })
     </div>
     <div class="contacts-form__main-item contacts-form__main-item_has-input">
-      <div class="contacts-form__main-item-divider">&nbsp;</div>
       <div class="contacts-form__main-input">
         <div class="contacts-form__main-input-label">
           <label for="theme">Theme</label>
         </div>
         <div class="contacts-form__main-input-field">
-          <input type="text" id="theme" placeholder="Briefly specify the subject of the message">
+          <input class="js-form-states error" type="text" id="theme" placeholder="Briefly specify the subject of the message">
+          <div class="contacts-form__main-input-field-error">Error</div>
         </div>
       </div>
     </div>
