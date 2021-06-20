@@ -172,6 +172,10 @@
       height: auto;
     }
 
+    @include below($md) {
+      height: 42.6rem;
+    }
+
     &::before {
       display: none;
       content: "";
@@ -180,6 +184,10 @@
 
       @include below($xl) {
         display: block;
+      }
+
+      @include below($md) {
+        display: none;
       }
     }
   }
@@ -200,6 +208,14 @@
       height: 100%;
     }
 
+    @include below($md) {
+      background: url(../images/chart-tab.png) no-repeat center / 100% 100%;
+    }
+
+    @include below($sm) {
+      background: url(../images/chart-mob.png) no-repeat center / 100% 100%;
+    }
+
     &-svg {
       position: absolute;
       //top: 0;
@@ -208,6 +224,10 @@
       width: 100%;
       //height: 100%;
       height: auto;
+
+      @include below($md) {
+        display: none;
+      }
 
       //path {
       //  stroke-dasharray: 2000;
@@ -593,6 +613,11 @@
         justify-content: center;
         width: floor-float(100 / 7, 1) * 1%;
 
+        @include below($md) {
+          align-items: flex-start;
+          justify-content: flex-start;
+        }
+
         @for $i from 1 through 7 {
           .after-ready &:nth-child(#{$i}) {
             animation-delay: floor-float($svg-start-delay - 0.2 + $i * ($svg-animation-speed-bottom-curve / 7), 2);
@@ -605,6 +630,12 @@
 
         &-inner {
           position: relative;
+
+          @include below($md) {
+            white-space: nowrap;
+            transform: rotate(-90deg) translateY(50%);
+            transform-origin: left top;
+          }
 
           a {
             display: inline-block;
@@ -626,6 +657,10 @@
       z-index: 10;
       width: 4rem;
       height: 4rem;
+
+      @include below($md) {
+        display: none;
+      }
 
       &_development-processes {
         bottom: 9rem;
@@ -687,6 +722,10 @@
         vertical-align: top;
         transition: opacity $animation-speed;
 
+        @include below($md) {
+          pointer-events: none;
+        }
+
         &.has-note {
           &::after {
             position: absolute;
@@ -703,6 +742,10 @@
             animation: pulseRotate 4s both infinite linear;
             content: "";
             will-change: transform;
+
+            @include below($md) {
+              display: none;
+            }
           }
         }
 
@@ -715,6 +758,10 @@
         //bottom: 67rem;
         bottom: 35vw;
         animation-delay: floor-float($svg-start-delay + $svg-animation-speed-bottom-curve + 1.8s, 2);
+
+        @include below($md) {
+          bottom: 32rem;
+        }
       }
 
       &_middle {
@@ -725,12 +772,20 @@
         @include below($hd) {
           bottom: 25vw;
         }
+
+        @include below($md) {
+          bottom: 24.1rem;
+        }
       }
 
       &_low {
         //bottom: 17.1rem;
         bottom: 9vw;
         animation-delay: floor-float(($svg-start-delay + $svg-animation-speed-bottom-curve) * 0.5, 2);
+
+        @include below($md) {
+          bottom: 15.7rem;
+        }
       }
 
       &-title {

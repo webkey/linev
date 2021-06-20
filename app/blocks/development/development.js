@@ -5,7 +5,7 @@ app.development = {
   init() {
     const self = this;
     const $control = $(self.control);
-    if ($control.length) {
+    if ($control.length && window.innerWidth > 768) {
       $.each($control, function () {
         self.run($(this), $(this).closest(self.container));
       });
@@ -30,7 +30,9 @@ app.development = {
     const self = this;
 
     $(self.control).on('mouseenter', function () {
-      $(this).switchClass('add');
+      if (window.innerWidth > 768) {
+        $(this).switchClass('add');
+      }
     });
   },
 };
