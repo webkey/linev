@@ -23,12 +23,12 @@
       @include padding-y($layout-page-space-v_lg);
     }
 
-    @include below($md) {
-      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
-    }
-
     @include below($xl) {
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+    }
+
+    @include below($md) {
+      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
   }
 
@@ -41,6 +41,15 @@
 
     @include below($hd) {
       margin-bottom: $layout-page-space-v_lg;
+    }
+
+    @include below($xl) {
+      margin-bottom: $layout-page-space-v_md;
+    }
+
+    @include below($md) {
+      display: block;
+      margin-bottom: $layout-page-space-v_sm;
     }
 
     &:last-child {
@@ -141,6 +150,10 @@
           font-size: 1.2rem;
           line-height: 1.6rem;
         }
+
+        @include below($md) {
+          margin: 0;
+        }
       }
     }
   }
@@ -208,11 +221,27 @@
       margin: 0 -#{$layout-page-space-h} $layout-page-space-v_lg;
     }
 
+    @include below($xl) {
+      margin: 0 -#{$layout-page-space-h_md} $layout-page-space-v_md;
+    }
+
+    @include below($md) {
+      margin: 0 -#{$layout-page-space-h_sm} $layout-page-space-v_sm;
+    }
+
     &:first-child {
       margin-top: -#{$layout-page-space-v};
 
       @include below($hd) {
         margin-top: -#{$layout-page-space-v_lg};
+      }
+
+      @include below($xl) {
+        margin-top: -#{$layout-page-space-v_md};
+      }
+
+      @include below($md) {
+        margin-top: -#{$layout-page-space-v_sm};
       }
     }
 
@@ -221,6 +250,14 @@
 
       @include below($hd) {
         margin-bottom: -#{$layout-page-space-v_lg};
+      }
+
+      @include below($xl) {
+        margin-bottom: -#{$layout-page-space-v_md};
+      }
+
+      @include below($md) {
+        margin-bottom: -#{$layout-page-space-v_sm};
       }
     }
   }
@@ -238,18 +275,21 @@
         @include padding-y($layout-page-space-v_lg);
       }
 
-      @include below($md) {
-        padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
-      }
-
       @include below($xl) {
         padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+      }
+
+      @include below($md) {
+        flex-wrap: wrap;
+        padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
       }
     }
   }
 
   &__button {
     display: inline-flex;
+    flex-shrink: 0;
+    order: 2;
 
     &.disabled {
       opacity: 0;
@@ -268,6 +308,13 @@
     @include below($hd) {
       font-size: 2rem;
       line-height: 2.4rem;
+    }
+
+    @include below($md) {
+      order: 1;
+      width: 100%;
+      margin-bottom: $layout-page-space-v_sm;
+      padding: 0;
     }
 
     &-text {

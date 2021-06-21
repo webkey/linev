@@ -121,16 +121,12 @@
       max-width: none;
       height: auto;
       min-height: 36rem;
+      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+      background-color: $bg-color-blue;
     }
 
     @include below($md) {
       padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
-    }
-
-    @include below($xl) {
-      width: auto;
-      max-width: none;
-      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
   }
 }

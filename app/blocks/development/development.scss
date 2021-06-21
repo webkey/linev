@@ -658,7 +658,7 @@
       width: 4rem;
       height: 4rem;
 
-      @include below($md) {
+      @include below($lg) {
         display: none;
       }
 
@@ -687,6 +687,10 @@
             animation: pulseRotate 4s both infinite linear;
             content: "";
             will-change: transform;
+
+            @include below($lg) {
+              display: none;
+            }
           }
         }
       }
@@ -722,7 +726,7 @@
         vertical-align: top;
         transition: opacity $animation-speed;
 
-        @include below($md) {
+        @include below($lg) {
           pointer-events: none;
         }
 
@@ -743,7 +747,7 @@
             content: "";
             will-change: transform;
 
-            @include below($md) {
+            @include below($lg) {
               display: none;
             }
           }

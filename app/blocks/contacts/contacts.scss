@@ -108,29 +108,12 @@
     flex: 1 0 $width;
     width: $width;
     max-width: $width;
-    //padding: #{$layout-page-space-v} #{$layout-page-space-h};
     color: $text-color-black;
     background-color: $bg-color-white;
 
-    //@include below($hd) {
-    //  @include padding-y($layout-page-space-v_lg);
-    //}
-    //
-    //@include below($xl) {
-    //  width: auto;
-    //  max-width: none;
-    //  height: auto;
-    //  min-height: 36rem;
-    //}
-    //
-    //@include below($md) {
-    //  padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
-    //}
-    //
-    //@include below($xl) {
-    //  width: auto;
-    //  max-width: none;
-    //  padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
-    //}
+    @include below($xl) {
+      width: auto;
+      max-width: none;
+    }
   }
 }

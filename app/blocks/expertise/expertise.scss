@@ -184,6 +184,10 @@
       flex-wrap: wrap;
       align-items: flex-start;
       margin: 0 -1.4rem -2.8rem;
+
+      @include below($sm) {
+        display: block;
+      }
     }
 
     &-item {
@@ -193,6 +197,10 @@
       flex: 1 0 $width;
       max-width: $width;
       padding: 0 1.4rem 2.8rem;
+
+      @include below($sm) {
+        max-width: none;
+      }
 
       &-el {
         $el: &;

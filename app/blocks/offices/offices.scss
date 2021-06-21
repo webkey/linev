@@ -16,11 +16,11 @@
     }
 
     @include below($xl) {
-      @include padding-x(#{$layout-page-space-h_md});
+      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
     @include below($md) {
-      @include padding-x(#{$layout-page-space-h_sm});
+      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
   }
 
@@ -59,6 +59,10 @@
       &_minsk {
         top: 30.4%;
         left: 55.9%;
+
+        @include below($md) {
+          top: 34%;
+        }
       }
 
       &_conroe {
@@ -79,6 +83,10 @@
       &_petersburg {
         top: 24%;
         left: 56.2%;
+
+        @include below($md) {
+          top: 20%;
+        }
       }
 
       &-el {
@@ -95,6 +103,12 @@
 
         @include below($hd) {
           padding-left: 2.4rem;
+        }
+
+        @include below($xl) {
+          min-width: 1.2rem;
+          min-height: 2rem;
+          padding-left: 0;
         }
 
         &.is-active,
@@ -135,6 +149,10 @@
             line-height: 2rem;
             letter-spacing: 0.015rem;
           }
+
+          @include below($xl) {
+            display: none;
+          }
         }
       }
     }
@@ -157,12 +175,20 @@
 
     #{$block}__local + & {
       margin-top: -24rem;
+
+      @include below($xl) {
+        margin-top: 0;
+      }
     }
 
     &-list {
       display: flex;
       align-items: stretch;
       margin: 0 -#{$item-space-h / 2};
+
+      @include below($xl) {
+        display: block;
+      }
     }
 
     &-item {
@@ -173,6 +199,19 @@
       flex-direction: column;
       max-width: $width;
       padding: 0 #{$item-space-h / 2};
+
+      @include below($xl) {
+        max-width: none;
+        margin-bottom: #{$layout-page-space-v_md};
+      }
+
+      @include below($md) {
+        margin-bottom: #{$layout-page-space-v_sm};
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
 
       &-el {
         $el: &;
@@ -202,6 +241,10 @@
         &-photo {
           position: relative;
           margin-bottom: 1.6rem;
+
+          @include below($xl) {
+            max-width: 32rem;
+          }
 
           &:last-child {
             margin-bottom: 0;
@@ -303,6 +346,11 @@
           margin-top: auto;
           visibility: hidden;
           opacity: 0;
+
+          @include below($xl) {
+            visibility: visible;
+            opacity: 1;
+          }
 
           #{$el}.is-active & {
             visibility: visible;

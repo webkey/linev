@@ -73,6 +73,14 @@ app.insights = {
             },
           },
 
+          breakpoints: {
+            575: {
+              slidesPerView: 'auto',
+              slidesPerGroup: 1,
+              spaceBetween: 10,
+            },
+          },
+
           on: {
             slideChangeTransitionEnd() {
               const $img = $(sliderInstance.visibleSlides).find('.js-lazy-load');

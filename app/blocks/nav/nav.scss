@@ -311,6 +311,10 @@
 
     &.current {
       background-color: #f1f8ff;
+
+      @include below($lg) {
+        background: none;
+      }
     }
 
     &-el {

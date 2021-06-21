@@ -1,5 +1,6 @@
 .form-select-blue {
   $select-arrow-width: 4rem;
+  $select-arrow-width_sm: 2.4rem;
 
   // Селект, который будет кастомизироваться, необходимо скрыть, пока на нем не отработает скрипт
   html:not(.no-js) & {
@@ -74,6 +75,14 @@
         line-height: 2.8rem;
       }
 
+      @include below($xl) {
+        padding: #{$layout-page-space-v_md} #{$select-arrow-width_sm} #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+      }
+
+      @include below($md) {
+        padding: #{$layout-page-space-v_sm} #{$select-arrow-width_sm} #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+      }
+
       &::before {
         position: absolute;
         top: 0;
@@ -89,7 +98,7 @@
         content: "";
         will-change: transform;
 
-        @include below($lg) {
+        @include below($xl) {
           content: none;
         }
       }
@@ -136,12 +145,22 @@
         &::after {
           border-color: transparent;
           transition-duration: $animation-speed;
+
+          @include below($xl) {
+            background-color: $line-color-blue;
+          }
         }
 
         // Placeholder
         .select2-selection__placeholder {
           color: rgba($text-color-blue, 0.5);
           transition-duration: $animation-speed;
+        }
+      }
+
+      .select2-container--open.select2-container--below & {
+        &::after {
+          border-color: transparent;
         }
       }
     }
@@ -162,17 +181,29 @@
       background: none;
 
       // Set style for mobile if need
+      @include below($xl) {
+        right: #{$layout-page-space-h_md - 1.2rem};
+      }
+
+      @include below($md) {
+        right: #{$layout-page-space-h_sm - 1.2rem};
+      }
 
       b {
         position: relative;
         top: auto;
         right: auto;
         display: block;
-        width: 4rem;
-        height: 4rem;
+        width: $select-arrow-width;
+        height: $select-arrow-width;
         margin: 0;
         background: none;
         border: none;
+
+        @include below($hd) {
+          width: $select-arrow-width_sm;
+          height: $select-arrow-width_sm;
+        }
 
         .select2-container--open & {
           transform: rotate(0.5turn);
@@ -475,6 +506,11 @@
         font-family: inherit;
         line-height: 3.2rem;
         // Set style for mobile if need
+
+        @include below($xl) {
+          font-size: 2rem;
+          line-height: 2.4rem;
+        }
       }
     }
 
@@ -486,6 +522,14 @@
       border-top: 1px solid rgba(black, 0.1);
       transition: $animation-speed;
       // Set style for mobile if need
+
+      @include below($xl) {
+        padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+      }
+
+      @include below($md) {
+        padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+      }
 
       &:last-child {
         margin-bottom: 0;

@@ -14,12 +14,12 @@
       &_logo {
         padding: #{$layout-page-space-v} #{$layout-page-space-h};
 
-        @include below($md) {
-          padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
-        }
-
         @include below($xl) {
           padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+        }
+
+        @include below($md) {
+          padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
         }
       }
     }
@@ -29,6 +29,10 @@
 
       display: flex;
       align-items: center;
+
+      @include below($md) {
+        display: block;
+      }
 
       &-label {
         $width: 11.4rem;
@@ -47,6 +51,11 @@
           max-width: $width;
           font-size: 1.2rem;
           line-height: 1.6rem;
+        }
+
+        @include below($md) {
+          max-width: none;
+          padding-right: 0;
         }
 
         label {
@@ -68,6 +77,10 @@
 
           flex: 1 0 $width;
           max-width: $width;
+        }
+
+        @include below($md) {
+          max-width: none;
         }
 
         input {
@@ -122,6 +135,10 @@
           @include below($hd) {
             font-size: 1.2rem;
             line-height: 1.6rem;
+          }
+
+          @include below($md) {
+            margin: 0;
           }
         }
       }

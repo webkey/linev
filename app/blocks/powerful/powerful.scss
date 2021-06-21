@@ -421,6 +421,10 @@
         height: auto;
       }
 
+      @include below($md) {
+        display: block;
+      }
+
       // Photo
       &-photo {
         position: relative;
