@@ -4,61 +4,72 @@ app.sectionHeading = {
   number: '.js-section-heading-number',
   title: '.js-section-heading-title',
   init() {
-    if ($(this.element).length) {
-      $(this.background).add(this.number).add(this.title).css('transition-duration', '0.1s');
+    if ($(this.element).length && window.innerWidth > 1199) {
+      $(this.background).add(this.number).add(this.title).css('transition-duration', '0.2s');
       this.eventEachElements();
     }
   },
   eventEachElements() {
     const self = this;
-    $.each($(self.element), function () {
-      self.scrollEvents($(this));
+    // self.scrollEvents($(self.element));
+    $.each($(self.element), function (index) {
+      self.scrollEvents($(this), index);
     });
   },
   scrollEvents(element) {
     const self = this;
     const $window = $(window);
 
-    const position = $window.scrollTop();
-    console.log('position: ', position);
-
     $window.scroll(function () {
-      // console.log('$(this).scrollTop(): ', $(this).scrollTop());
-      const elementPositionTop = element.position().top;
-      // console.log('elementPositionTop: ', elementPositionTop);
-      const windowScrollBottom = $(this).scrollTop() + window.innerHeight;
-      // console.log('windowScrollBottom: ', windowScrollBottom);
-      const eventSpace = 100;
-      // console.log('eventSpace: ', eventSpace);
-      const realEventPosition = windowScrollBottom - 100;
-      // console.log('realEventPosition: ', realEventPosition);
-      const effectiveHeightOfElement = element.innerHeight() - eventSpace;
-      const bgGradation = (1 - 0.45) / effectiveHeightOfElement;
-      const textGradation = 1 / effectiveHeightOfElement;
-      // console.log('step: ', step);
-      console.log('diff: ', realEventPosition - elementPositionTop);
+      const windowScrollTop = $(this).scrollTop();
 
-      const bgOpacityCurrent = 1 - (realEventPosition - elementPositionTop) * bgGradation;
-      let bgOpacity;
-      if (bgOpacityCurrent > 0.45 && bgOpacityCurrent < 1) {
-        bgOpacity = bgOpacityCurrent;
-      } else if (bgOpacityCurrent < 0.45) {
-        bgOpacity = 0.45;
-      } else {
-        bgOpacity = 1;
-      }
-      $(self.background, element).css('opacity', bgOpacity);
+      // Background
+      const $background = $(self.background, element);
+      self.hideElement($background, windowScrollTop, 1, 0.2);
 
-      const textOpacityCurrent = (realEventPosition - elementPositionTop) * textGradation;
-      let textOpacity;
-      if (textOpacityCurrent < 1 && textOpacityCurrent > 0) {
-        textOpacity = textOpacityCurrent;
-      } else if (textOpacityCurrent < 0) {
-        textOpacity = 0;
-      } else {
-        textOpacity = 1;
-      }
-      $(self.number, element).add(self.title, element).css('opacity', textOpacity);
+      // Number
+      const $number = $(self.number, element);
+      self.showElement($number, windowScrollTop);
+
+      // Title
+      const $title = $(self.title, element);
+      self.showElement($title, windowScrollTop);
     });
+  },
+  hideElement(element, windowScrollTop, opacityStar, opacityEnd) {
+    const headerHeight = $('.header').innerHeight();
+    const eventSpaceTop = Math.round(window.innerHeight / 3);
+
+    const animateStartPoint = Math.round(element.offset().top - window.innerHeight) + eventSpaceTop;
+    const animateEndPoint = Math.round(element.offset().top - headerHeight);
+    const propGradation = (opacityStar - opacityEnd) / (animateEndPoint - animateStartPoint);
+    const bgOpacityCurrent = 1 - (windowScrollTop - animateStartPoint) * propGradation;
+    let bgOpacity;
+    if (bgOpacityCurrent > opacityEnd && bgOpacityCurrent < 1) {
+      bgOpacity = bgOpacityCurrent;
+    } else if (bgOpacityCurrent < opacityEnd) {
+      bgOpacity = opacityEnd;
+    } else {
+      bgOpacity = 1;
+    }
+    element.css('opacity', bgOpacity);
+  },
+  showElement(element, windowScrollTop) {
+    const headerHeight = $('.header').innerHeight();
+    const eventSpaceTop = Math.round(window.innerHeight / 3);
+
+    const animateStartPoint = Math.round(element.offset().top - window.innerHeight) + eventSpaceTop;
+    const animateEndPoint = Math.round(element.offset().top - headerHeight - 50);
+    const gradation = 1 / (animateEndPoint - animateStartPoint);
+    const opacityByGradation = (windowScrollTop - animateStartPoint) * gradation;
+    let opacity;
+    if (opacityByGradation < 1 && opacityByGradation > 0) {
+      opacity = opacityByGradation;
+    } else if (opacityByGradation < 0) {
+      opacity = 0;
+    } else {
+      opacity = 1;
+    }
+    element.css('opacity', opacity);
   },
 };
