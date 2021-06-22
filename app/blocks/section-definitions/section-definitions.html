@@ -1,14 +1,14 @@
 <div class="section-definitions@@if(context.mods){@@for (var i = 0; i < mods.length; i++){ section-definitions_`+mods[i]+`}} layout-content"@@if(context.id){ id="@@id"}>
   @@for (var i = 0; i < items.length; i++) {
   <div class="section-definitions__row">
-    <h3 class="section-definitions__title" data-aos="fade">
+    <h3 class="section-definitions__title">
       `+items[i].title+`
     </h3>
-    <div class="section-definitions__description" data-aos="fade">
+    <div class="section-definitions__description">
       `+items[i].description+`
       @@if(context.image) {
       <figure class="section-definitions__figure">
-        <img class="section-definitions__figure-img js-lazy-load" src="assets/images/empty.png" data-src='@@image' alt='image description'>
+        <img class="section-definitions__figure-img js-lazy-load" src="@@image" alt="image description">
         <figcaption class="section-definitions__figure-caption">@@imageCaption</figcaption>
       </figure>}
     </div>

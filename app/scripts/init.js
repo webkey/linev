@@ -22,3 +22,4 @@ app.formSelectBlue.init();
 app.formSelectWhite.init();
 app.contactsForm.init();
 app.scrollToSection.init();
+app.sectionHeading.init();

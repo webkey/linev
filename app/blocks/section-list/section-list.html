@@ -1,11 +1,11 @@
-<section class="section-list@@if(context.mods){@@for (var i = 0; i < mods.length; i++){ section-list_`+mods[i]+`}} layout-content" data-aos="fade" id="@@id">
+<section class="section-list@@if(context.mods){@@for (var i = 0; i < mods.length; i++){ section-list_`+mods[i]+`}} layout-content" id="@@id">
   <div class="section-list__bg js-lazy-load" data-bg="@@image"></div>
   <div class="section-list__caption">
     <div class="section-list__caption-bg js-lazy-load" data-bg="@@image">@@number</div>
-    <div class="section-list__number" data-aos="fade">@@number</div>
-    <h2 class="section-list__title" data-aos="fade">@@title</h2>
+    <div class="section-list__number">@@number</div>
+    <h2 class="section-list__title">@@title</h2>
   </div>
-  <div class="section-list__list" data-aos="fade-left">
+  <div class="section-list__list">
     @@for (var i = 0; i < list.length; i++) {
     <div class="section-list__list-item">
       <a href="#" class="section-list__list-item-el"><span>`+list[i]+`</span></a>

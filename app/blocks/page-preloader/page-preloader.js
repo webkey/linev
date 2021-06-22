@@ -1,13 +1,13 @@
 app.pagePreloader = {
-  el: '.js-page-preloader',
+  element: '.js-page-preloader',
   init() {
-    const $el = $(this.el);
-    if ($el.length) {
+    const $element = $(this.element);
+    if ($element.length) {
       $(window).on('load', () => {
         $('html').addClass('page-loaded');
-        $el.addClass('page-preloader-hide');
+        $element.addClass('page-preloader-hide');
         setTimeout(() => {
-          $el.remove();
+          $element.remove();
         }, 2000);
       });
     }
