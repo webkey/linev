@@ -16,12 +16,13 @@
     }
 
     @include below($xl) {
-      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+      display: none;
+      //padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
-    @include below($md) {
-      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
-    }
+    //@include below($md) {
+    //  padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+    //}
   }
 
   &__map {
@@ -160,17 +161,19 @@
 
   &__info {
     $item-space-h: 4.4rem;
+    $item-space-h_lg: 2.8rem;
 
     position: relative;
     padding: 0 #{$layout-page-space-h} #{$layout-page-space-v};
     overflow: hidden;
 
     @include below($xl) {
-      padding: 0 #{$layout-page-space-h_md} #{$layout-page-space-v_md};
+      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+      background: url(../images/global-map.svg) no-repeat center / auto 90%;
     }
 
     @include below($md) {
-      padding: 0 #{$layout-page-space-h_sm} #{$layout-page-space-v_sm};
+      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
 
     #{$block}__local + & {
@@ -181,36 +184,51 @@
       }
     }
 
-    &-list {
-      display: flex;
-      align-items: stretch;
-      margin: 0 -#{$item-space-h / 2};
-
-      @include below($xl) {
-        display: block;
-      }
+    html:not(.no-js) &:not(.is-loaded) {
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
     }
 
-    &-item {
-      $width: 20%;
+    &-list {
+      margin: 0 -#{$item-space-h / 2};
 
-      display: flex;
-      flex: 1 0 $width;
-      flex-direction: column;
-      max-width: $width;
-      padding: 0 #{$item-space-h / 2};
+      @include below($hd) {
+        margin: 0 -#{$item-space-h_lg / 2};
+      }
 
       @include below($xl) {
-        max-width: none;
-        margin-bottom: #{$layout-page-space-v_md};
+        margin: 0 -#{$layout-page-space-h_md / 2};
       }
 
       @include below($md) {
-        margin-bottom: #{$layout-page-space-v_sm};
+        margin: 0 -#{$layout-page-space-h_sm / 2};
+      }
+    }
+
+    .swiper-container {
+      overflow: visible;
+    }
+
+    .swiper-slide {
+      height: auto;
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      padding: 0 #{$item-space-h / 2};
+
+      @include below($hd) {
+        padding: 0 #{$item-space-h_lg / 2};
       }
 
-      &:last-child {
-        margin-bottom: 0;
+      @include below($xl) {
+        padding: 0 #{$layout-page-space-h_md / 2};
+      }
+
+      @include below($md) {
+        padding: 0 #{$layout-page-space-h_sm / 2};
       }
 
       &-el {
@@ -223,10 +241,19 @@
         color: $text-color-white;
         transition: $animation-speed-out;
 
+        @include below($xl) {
+          padding: 1.6rem;
+          background-color: rgba($bg-color-blue, 0.5);
+        }
+
         &.is-active {
           padding: 1.6rem;
           background-color: $bg-color-blue;
           transition: $animation-speed;
+
+          @include below($xl) {
+            background-color: rgba($bg-color-blue, 0.5);
+          }
         }
 
         &-content {
@@ -254,6 +281,24 @@
             display: block;
             width: 100%;
             height: auto;
+          }
+        }
+
+        &-body {
+          max-width: calc(100% - 1.6rem * 2);
+          transition: $animation-speed-out;
+
+          @include below($xl) {
+            max-width: none;
+          }
+
+          #{$el}.is-active & {
+            max-width: 100%;
+            transition-duration: $animation-speed;
+
+            @include below($xl) {
+              max-width: none;
+            }
           }
         }
 
@@ -335,7 +380,7 @@
             transition: $animation-speed;
 
             &:hover {
-              color: $link-color;
+              opacity: 0.6;
             }
           }
         }
@@ -361,6 +406,116 @@
             margin-top: 0;
           }
         }
+      }
+    }
+
+    &-controls {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      left: 0;
+      z-index: 5;
+      height: 0;
+
+      @include below($xl) {
+        display: none;
+      }
+    }
+
+    &-button {
+      $size: 4.6rem;
+
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: $size;
+      height: $size;
+      margin-top: -#{round-float($size / 2, 1)};
+      color: black;
+      background-color: $button-color-blue;
+      border-radius: 0;
+      box-shadow: 0 0 0 1px rgba(white, 0.1);
+      cursor: pointer;
+      opacity: 1;
+      transition: $animation-speed;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+
+      &::before,
+      &::after {
+        position: absolute;
+        display: block;
+        content: "";
+      }
+
+      &::before {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
+        background-color: $button-color-black;
+        transform: scaleY(0);
+        transform-origin: right bottom;
+        //filter: invert(1);
+        transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
+        will-change: transform;
+      }
+
+      &::after {
+        top: 50%;
+        left: 50%;
+        width: 1.2rem;
+        height: 2rem;
+        margin: -1rem -0.6rem;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      &.swiper-button-lock {
+        display: none;
+      }
+
+      &_prev {
+        float: left;
+
+        &::after {
+          background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.6835 27.6333L18.0502 20L25.6835 12.35L23.3335 10L13.3335 20L23.3335 30L25.6835 27.6333Z' fill='white'/%3E%3C/svg%3E%0A");
+        }
+      }
+
+      &_next {
+        float: right;
+
+        &::after {
+          background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.3165 27.6333L21.9499 20L14.3165 12.35L16.6665 10L26.6665 20L16.6665 30L14.3165 27.6333Z' fill='white'/%3E%3C/svg%3E%0A");
+        }
+      }
+
+      // :hover
+      &:not(.swiper-button-disabled):hover {
+        &::before {
+          transform: scaleY(1);
+          transition-duration: $animation-speed;
+        }
+      }
+
+      // :active
+      &:not(.swiper-button-disabled):active {
+        transform: scale(0.95);
+        transition: 0.1s;
+
+        &::before {
+          transform: scaleY(1);
+          transition-duration: $animation-speed;
+        }
+      }
+
+      // Disabled
+      &.swiper-button-disabled {
+        opacity: 0;
+        pointer-events: none;
       }
     }
   }

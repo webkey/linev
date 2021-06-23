@@ -84,10 +84,14 @@
       line-height: 0;
       background-repeat: no-repeat;
       background-position: left bottom;
-      background-size: 150%;
+      background-size: 140%;
 
       @include below($lg) {
         display: block;
+      }
+
+      @include below($md) {
+        background-size: 200%;
       }
     }
 

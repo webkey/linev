@@ -1,0 +1,17 @@
+<div class="global__info-item-el js-global-panel@@if(context.isActive){ is-active}" id="@@id">
+  <div class="global__info-item-el-content">
+    <div class="global__info-item-el-photo">
+      <img class="global__info-item-el-photo-img" src="@@image" alt="image description" />
+    </div>
+    <div class="global__info-item-el-body">
+      <img class="global__info-item-el-logo" src="assets/images/contacts-logo-white.svg" alt="LINEV Group" />
+      @@if (context.title) {<div class="global__info-item-el-title">@@title</div>}
+      @@if (context.address) {<div class="global__info-item-el-address">@@address</div>}
+      @@if (context.phone) {
+      <div class="global__info-item-el-phones">
+        @@for (var i = 0; i < phone.length; i++){<div class="global__info-item-el-phone"><a href="tel:`+phone[i]+`">`+phone[i]+`</a></div>}
+      </div>}
+      @@if (context.freeLine) {<div class="global__info-item-el-free">@@freeLine.label <a href="tel:@@freeLine.phone" class="nobr">@@freeLine.phone</a></div>}
+    </div>
+  </div>
+</div>
