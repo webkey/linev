@@ -61,7 +61,7 @@
 
       flex: 1 0 $width;
       max-width: $width;
-      padding-right: 2.4rem;
+      padding-right: 1.6rem;
       color: $text-color-blue;
       font-size: 1.6rem;
       line-height: 2rem;
@@ -73,6 +73,11 @@
         max-width: $width;
         font-size: 1.2rem;
         line-height: 1.6rem;
+      }
+
+      @include below($md) {
+        max-width: none;
+        padding-right: 0;
       }
 
       label {
@@ -94,6 +99,10 @@
 
         flex: 1 0 $width;
         max-width: $width;
+      }
+
+      @include below($md) {
+        max-width: none;
       }
 
       input {
@@ -289,7 +298,10 @@
   &__button {
     display: inline-flex;
     flex-shrink: 0;
-    order: 2;
+
+    @include below($md) {
+      order: 2;
+    }
 
     &.disabled {
       opacity: 0;

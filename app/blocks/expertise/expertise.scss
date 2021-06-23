@@ -63,6 +63,10 @@
     }
 
     @include below($lg) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
       width: auto;
       max-width: none;
       min-height: 36rem;
@@ -105,6 +109,7 @@
       }
 
       @include below($lg) {
+        width: 100%;
         font-size: 3.2rem;
         line-height: 4rem;
       }
@@ -134,6 +139,10 @@
 
         @include below($xl) {
           display: block;
+        }
+
+        @include below($lg) {
+          width: 100%;
         }
       }
     }

@@ -69,7 +69,12 @@
     @include below($xl) {
       position: relative;
       top: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
       max-width: none;
+      min-height: 36rem;
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
@@ -113,6 +118,10 @@
         letter-spacing: normal;
       }
 
+      @include below($xl) {
+        width: 100%;
+      }
+
       @include below($lg) {
         font-size: 3.2rem;
         line-height: 4rem;
@@ -149,6 +158,7 @@
 
         @include below($xl) {
           display: block;
+          width: 100%;
         }
       }
     }

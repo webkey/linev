@@ -9,6 +9,7 @@ app.global = {
       $.each($control, function () {
         self.run($(this), $(this).closest(self.container));
       });
+      self.hoverEvent();
     }
   },
   run($el, $container) {
@@ -23,6 +24,15 @@ app.global = {
       modifiers: {
         activeClass: 'is-open',
       },
+    });
+  },
+  hoverEvent() {
+    const self = this;
+
+    $(self.control).on('mouseenter', function () {
+      if (window.innerWidth > 768) {
+        $(this).switchClass('add');
+      }
     });
   },
 };

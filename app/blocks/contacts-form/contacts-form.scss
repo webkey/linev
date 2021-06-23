@@ -22,6 +22,38 @@
           padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
         }
       }
+
+      &_logo {
+        &::before,
+        &::after {
+          position: absolute;
+          right: $layout-page-space-h;
+          left: $layout-page-space-h;
+          z-index: -1;
+          font-size: 0;
+          line-height: 0;
+          border-top: 1px solid $line-color-blue;
+          content: "";
+
+          @include below($xl) {
+            right: #{$layout-page-space-h_md};
+            left: #{$layout-page-space-h_md};
+          }
+
+          @include below($md) {
+            right: #{$layout-page-space-h_sm};
+            left: #{$layout-page-space-h_sm};
+          }
+        }
+
+        &::before {
+          top: 0;
+        }
+
+        &::after {
+          bottom: 0;
+        }
+      }
     }
 
     &-input {
