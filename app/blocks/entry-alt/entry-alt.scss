@@ -57,14 +57,16 @@
     position: relative;
     z-index: 1;
     color: $text-color-white;
-    font: bold 11.6rem/1 $font-title;
-    letter-spacing: -0.02em;
+    //font: bold 11.6rem/1 $font-title;
+    font: bold 6.8rem/#{round-float(72 / 68, 1)} $font-title;
+    //letter-spacing: -0.02em;
+    letter-spacing: round-float(-0.06 / 6.8 * 1em, 3);
     text-transform: uppercase;
 
     @include below($hd) {
-      font-size: 6.8rem;
-      line-height: round-float(72 / 68, 1);
-      letter-spacing: round-float(-0.06 / 6.8 * 1em, 3);
+      //font-size: 6.8rem;
+      //line-height: round-float(72 / 68, 1);
+      //letter-spacing: round-float(-0.06 / 6.8 * 1em, 3);
     }
 
     @include below($xxl) {
