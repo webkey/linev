@@ -4,6 +4,16 @@
   letter-spacing: 0.007em;
   transition: opacity $animation-speed;
 
+  @include below($xxl) {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+
+  @include below($xl) {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
+
   @include below($lg) {
     font-size: 2rem;
     line-height: 2.4rem;
@@ -12,7 +22,7 @@
   &__list {
     display: flex;
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 0 -2.4rem;
 
     @include below($hd) {
@@ -310,7 +320,7 @@
     }
 
     &.current {
-      background-color: #f1f8ff;
+      color: $text-color-light-blue;
 
       @include below($lg) {
         background: none;
@@ -364,7 +374,10 @@
           transition: color $animation-speed;
 
           // js hover - class .hover
-          //#{$li}.hover & {
+          #{$li}.current & {
+            color: $text-color-light-blue;
+          }
+
           &:hover {
             color: $link-color;
           }
@@ -580,6 +593,10 @@
 
           // js hover - class .hover
           //#{$li}.hover & {
+          #{$li}.current & {
+            color: $text-color-light-blue;
+          }
+
           &:hover {
             color: $link-color;
           }

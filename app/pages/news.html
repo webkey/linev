@@ -1,0 +1,36 @@
+@@include("blocks/head/head.html", {"title": "News & Insights"})
+@@include("blocks/header/header.html", {"currentItem": "News", "mods": ["float"]})
+<main class="main">
+  @@include("blocks/entry-alt/entry-alt.html", {
+    "title": "Breakthrough<br> news",
+    "breadcrumbs": {
+      "items": [
+        {"href": "index.html", "text": "Home"}
+      ],
+      "current": false
+    },
+    "hasTags": true
+  })
+
+  @@include("blocks/section-news/section-news.html", {
+    "title": "Company news",
+    "mods": ["has-top-space"]
+  })
+
+  @@include("blocks/section-news/section-news.html", {
+    "title": "Events",
+    "mods": ["has-top-space"]
+  })
+
+  @@include("blocks/section-news/section-news.html", {
+    "title": "Media and press",
+    "mods": ["has-top-space"]
+  })
+
+  @@include("blocks/section-news/section-news.html", {
+    "title": "Journal",
+    "mods": ["has-top-space"]
+  })
+</main>
+@@include("blocks/footer/footer.html")
+@@include("blocks/link/link.html")

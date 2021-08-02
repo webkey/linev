@@ -71,9 +71,9 @@ $mark-color: $info-color !default;
 // Site's minimal width
 $layout-page-min-width: 36rem !default;
 // Site's maximal width
-$layout-page-max-width: 256rem !default;
+$layout-page-max-width: 380rem !default;
 // Maximal width wrapper
-$layout-site-max-width: 256rem !default;
+$layout-site-max-width: 380rem !default;
 // Site's spaces
 $layout-page-space-h: 4.6rem !default; // > $xl
 $layout-page-space-h_md: 2.4rem !default; // < $xl
@@ -87,7 +87,7 @@ $layout-page-space-v_sm: 1.6rem !default; // < $md
 // Layout content
 // ====================================================
 // Maximal content's width
-$layout-content-max-width: 192rem !default;
+$layout-content-max-width: 380rem !default;
 // Maximal narrow content's width
 $layout-narrow-max-width: 136.6rem !default;
 

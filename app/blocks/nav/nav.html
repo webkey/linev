@@ -58,11 +58,33 @@
     </li>
 
     <li class="nav__li js-nav-li@@if(context.currentItem == 'Newsroom'){ current is-open} slide-fade-up-in-short delay-1">
-      @@if(context.currentItem == 'Newsroom'){
-      <span class="nav__li-el">Newsroom</span>
+      @@if(context.currentItem == 'Businesses'){
+      <span class="nav__li-el">Businesses</span>
       }
-      @@if(context.currentItem != 'Newsroom'){
-      <a class="nav__li-el" href="newsroom.html">Newsroom</a>
+      @@if(context.currentItem != 'Businesses'){
+      <a class="nav__li-el" href="businesses.html">Businesses</a>
+      }
+      <em class="nav__li-arrow js-nav-arrow">&#9660;</em>
+    </li>
+
+
+
+    <li class="nav__li js-nav-li@@if(context.currentItem == 'Innovation'){ current is-open} slide-fade-up-in-short delay-1">
+      @@if(context.currentItem == 'Innovation'){
+      <span class="nav__li-el">Innovation</span>
+      }
+      @@if(context.currentItem != 'Innovation'){
+      <a class="nav__li-el" href="innovation.html">Innovation</a>
+      }
+      <em class="nav__li-arrow js-nav-arrow">&#9660;</em>
+    </li>
+
+    <li class="nav__li js-nav-li@@if(context.currentItem == 'News'){ current is-open} slide-fade-up-in-short delay-1">
+      @@if(context.currentItem == 'News'){
+      <span class="nav__li-el">News & Insights</span>
+      }
+      @@if(context.currentItem != 'News'){
+      <a class="nav__li-el" href="news.html">News & Insights</a>
       }
       <em class="nav__li-arrow js-nav-arrow">&#9660;</em>
     </li>

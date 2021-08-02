@@ -2,6 +2,7 @@
   position: relative;
   overflow: hidden;
   text-decoration: none;
+  background-color: $bg-color-blue;
 
   &__bg {
     position: absolute;
@@ -13,6 +14,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    opacity: 0.2;
   }
 
   &__container {
@@ -82,6 +84,174 @@
     @include below($md) {
       font-size: 4.4rem;
       line-height: 5.2rem;
+    }
+  }
+
+  &__tags {
+    $thumb: &;
+    //$shade-color: $bg-color-white;
+    $shade-color: $bg-color-blue;
+    $line-height: 3.2rem;
+    $line-height_md: 2rem;
+
+    position: relative;
+    margin-top: 3.2rem;
+    cursor: default;
+
+    @include margin-x(-#{$layout-page-space-h});
+
+    @include below($xl) {
+      @include margin-x(-#{$layout-page-space-h_md});
+    }
+
+    @include below($md) {
+      @include margin-x(-#{$layout-page-space-h_sm});
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 1;
+      display: block;
+      width: #{$layout-page-space-h};
+      content: '';
+      pointer-events: none;
+
+      @include below($xl) {
+        width: #{$layout-page-space-h_md};
+      }
+
+      @include below($md) {
+        width: #{$layout-page-space-h_sm};
+      }
+    }
+
+    &::before {
+      left: 0;
+      background-image: linear-gradient(to left, rgba($shade-color, 0) 0, $shade-color 80%, $shade-color 100%);
+    }
+
+    &::after {
+      right: 0;
+      background-image: linear-gradient(to right, rgba($shade-color, 0) 0, $shade-color 80%, $shade-color 100%);
+    }
+
+    &-frame {
+      position: relative;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      height: $line-height * 1 + 1.2 + 1;
+      overflow: hidden;
+      white-space: nowrap;
+
+      @include below($hd) {
+        height: $line-height_md * 1 + 1.2;
+      }
+
+      .touchevents & {
+        overflow-x: auto;
+      }
+
+      .no-touchevents #{$thumb}:hover & {
+        overflow-x: auto;
+      }
+
+      .no-touchevents &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      .no-touchevents &::-webkit-scrollbar-track {
+        -webkit-box-shadow: none;
+      }
+
+      .no-touchevents &::-webkit-scrollbar-thumb {
+        background-color: $bg-color-white;
+        border-radius: 0.4rem;
+        outline: none;
+      }
+    }
+
+    &-holder {
+      flex-grow: 1;
+      flex-shrink: 0;
+      //height: 100%;
+      height: $line-height * 1 + 1.2;
+      padding: 0 #{$layout-page-space-h};
+
+      @include below($xl) {
+        padding: 0 #{$layout-page-space-h_md};
+      }
+
+      @include below($md) {
+        padding: 0 #{$layout-page-space-h_sm};
+      }
+    }
+
+    &-nav {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      height: 100%;
+      box-shadow: inset 0 -2px 0 rgba($bg-color-white, 0.5);
+    }
+
+    &-item {
+      $line-height: 2.4rem;
+
+      position: relative;
+      z-index: 1;
+      display: block;
+      height: 100%;
+      margin-right: $layout-page-space-h * 2;
+      padding: 0.6rem 0;
+      overflow: hidden;
+      color: rgba($text-color-white, 0.5);
+      font: bold 2.8rem/#{$line-height} $font-button;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: inset 0 -2px 0 transparent;
+      transform-origin: center bottom;
+      transition: $animation-speed-out;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+
+      @include antialiased;
+
+      @include below($lg) {
+        margin-right: 3.6rem;
+      }
+
+      @include below($hd) {
+        font-size: 1.6rem;
+        line-height: $line-height_md;
+        letter-spacing: 0.06rem;
+      }
+
+      & > div {
+        position: relative;
+        transition: transform $animation-speed-out;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:not(.is-active):hover {
+        color: $text-color-white;
+        box-shadow: inset 0 -2px 0 $text-color-white;
+        transition-duration: $animation-speed;
+      }
+
+      &.is-active {
+        color: $text-color-white;
+        box-shadow: inset 0 -2px 0 $text-color-white;
+        cursor: default;
+      }
     }
   }
 }

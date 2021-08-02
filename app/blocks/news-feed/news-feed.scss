@@ -1,0 +1,433 @@
+.news-feed {
+  margin-right: -#{$layout-page-space-h};
+
+  @include below($xl) {
+    margin-right: -#{$layout-page-space-h_md};
+  }
+
+  @include below($md) {
+    margin-right: -#{$layout-page-space-h_sm};
+  }
+
+  &__slider {
+    position: relative;
+    padding: 0 #{$layout-page-space-h};
+    overflow: hidden;
+
+    @include below($xl) {
+      padding: 0 #{$layout-page-space-h_md} #{$layout-page-space-v_md};
+    }
+
+    @include below($md) {
+      padding: 0 #{$layout-page-space-h_sm};
+    }
+
+    html:not(.no-js) &:not(.is-loaded) {
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .swiper-container {
+      overflow: visible;
+    }
+
+    &-slide {
+      $slide: &;
+
+      position: relative;
+      //width: calc((100vh - 43rem) / 1.4); // Изменение ширины слайда через относительную высоту
+
+      &-el {
+        $slide-element: &;
+
+        display: block;
+        color: inherit;
+        text-decoration: none;
+
+        &-photo {
+          position: relative;
+          //height: calc(100vh - 50.2rem);
+          height: 40rem;
+          //height: calc(100vh - #{$header-height-top + 12.4rem + 1.6rem + 6.4rem + 0.8rem + 14rem + 0.8rem + 4.4rem + $layout-page-space-v - 1.2rem});
+          margin-bottom: 1.6rem;
+          overflow: hidden;
+          background-color: $bg-color-blue;
+
+          @include below($hd) {
+            height: 40rem;
+            //height: calc(100vh - #{$header-height-top + 8.8rem + 1.6rem + 4.8rem + 0.8rem + 8rem + 0.8rem + 4.4rem + $layout-page-space-v_lg - 1.2rem});
+          }
+
+          @include below($xl) {
+            height: auto;
+          }
+
+          &::before {
+            display: none;
+            content: "";
+
+            @include ratio(420, 589);
+
+            @include below($xl) {
+              display: block;
+            }
+          }
+
+          &-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: $animation-speed;
+
+            @include below($xl) {
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: 1;
+            }
+
+            #{$slide-element}:hover & {
+              transform: scale(0.9);
+              transition-duration: $animation-speed-out;
+            }
+          }
+        }
+
+        &-date {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: 5;
+          padding: 0.8rem 1.6rem;
+          color: $text-color-white;
+          font-size: 2rem;
+          line-height: 2.4rem;
+          background: rgba(13, 22, 35, 0.5);
+
+          @include below($hd) {
+            font-size: 1.6rem;
+            line-height: 2rem;
+          }
+        }
+
+        &-title {
+          $line-height: 3.2rem;
+          $line-count: 2;
+
+          display: -webkit-box;
+          max-height: $line-height * $line-count;
+          margin-bottom: 0.8rem;
+          overflow: hidden;
+          color: #000;
+          font: bold 2.4rem/#{$line-height} $font-title;
+          letter-spacing: 0.006rem;
+          text-transform: uppercase;
+          -webkit-line-clamp: $line-count;
+          -webkit-box-orient: vertical;
+          transition: $animation-speed;
+
+          @include below($hd) {
+            $line-height: 2.4rem;
+            $line-count: 2;
+
+            max-height: $line-height * $line-count;
+            font-size: 2rem;
+            line-height: $line-height;
+            letter-spacing: 0.015rem;
+          }
+
+          #{$slide-element}:hover & {
+            color: $text-color-blue;
+            transition-duration: $animation-speed-out;
+          }
+        }
+
+        &-text {
+          $line-height: 2.8rem;
+          $line-count: 5;
+
+          display: -webkit-box;
+          max-height: $line-height * $line-count;
+          margin-bottom: 0.8rem;
+          overflow: hidden;
+          color: $text-color-grey;
+          font: 2rem/#{$line-height} $font;
+          letter-spacing: 0.02em;
+          -webkit-line-clamp: $line-count;
+          -webkit-box-orient: vertical;
+          transition: $animation-speed;
+
+          @include below($hd) {
+            $line-height: 2rem;
+            $line-count: 4;
+
+            max-height: $line-height * $line-count;
+            font-size: 1.6rem;
+            line-height: $line-height;
+            letter-spacing: 0.04rem;
+          }
+
+          #{$slide-element}:hover & {
+            color: rgba($text-color-blue, 0.6);
+            transition-duration: $animation-speed-out;
+          }
+        }
+
+        &-footer {
+          display: flex;
+          align-items: flex-start;
+        }
+
+        &-link {
+          position: relative;
+          width: 100%;
+          margin: 0;
+          padding: 1.2rem 2rem;
+          color: $button-color-blue;
+          font: bold 1.6rem/2rem $font-button;
+          letter-spacing: 0.04rem;
+          text-align: left;
+          text-transform: uppercase;
+          text-decoration: none;
+          background: none;
+          border: none;
+          box-shadow: none;
+          transition: color $animation-speed-out;
+
+          &::before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: block;
+            background-color: $button-color-blue;
+            transform: scaleY(0);
+            transform-origin: right bottom;
+            transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
+            content: "";
+            will-change: transform;
+          }
+
+          & > span {
+            position: relative;
+            display: block;
+            transform: translateX(-2rem);
+            transition: transform $animation-speed-out;
+          }
+
+          &:hover {
+            color: $button-color-white;
+            transition-duration: $animation-speed;
+
+            &::before {
+              transform: scaleY(1);
+              transition-duration: $animation-speed;
+            }
+
+            & > span {
+              transform: translateX(0);
+              transition-duration: $animation-speed;
+            }
+          }
+        }
+      }
+    }
+
+    &-pagination {
+      position: relative;
+      bottom: auto;
+      left: auto;
+      z-index: 5;
+      display: none;
+      width: 100%;
+      margin-top: 1.5rem;
+      pointer-events: none;
+
+      @include below($lg) {
+        display: block;
+      }
+
+      &-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: -0.5rem 0;
+
+        &.swiper-pagination-lock {
+          display: none;
+        }
+      }
+
+      &-bullet {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        user-select: none;
+        pointer-events: auto;
+        -webkit-tap-highlight-color: transparent;
+
+        span {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          z-index: 5;
+          display: block;
+          width: 14px;
+          height: 14px;
+          margin: -7px;
+          background-color: $base-color;
+          border-radius: 14px;
+          opacity: 0.6;
+          transition: opacity $animation-speed;
+        }
+
+        // Active
+        &_active {
+          cursor: default;
+
+          span {
+            transform: scale(1) !important;
+            opacity: 1 !important;
+          }
+        }
+
+        // :hover
+        &:hover {
+          span {
+            opacity: 0.8;
+          }
+        }
+
+        // :active
+        &:active {
+          span {
+            transform: scale(0.96);
+          }
+        }
+      }
+    }
+
+    &-controls {
+      position: absolute;
+      top: 20rem;
+      right: 0;
+      left: 0;
+      z-index: 5;
+      height: 0;
+
+      @include below($hd) {
+        top: 20rem;
+      }
+
+      @include below($xl) {
+        top: calc(100vw - 79rem);
+      }
+
+      @include below($lg) {
+        top: calc(50% - 12vw);
+      }
+    }
+
+    &-button {
+      $size: 4.6rem;
+
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: $size;
+      height: $size;
+      margin-top: -#{round-float($size / 2, 1)};
+      color: black;
+      background-color: $button-color-blue;
+      border-radius: 0;
+      cursor: pointer;
+      opacity: 1;
+      transition: $animation-speed;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+
+      &::before,
+      &::after {
+        position: absolute;
+        display: block;
+        content: "";
+      }
+
+      &::before {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
+        background-color: $button-color-black;
+        transform: scaleY(0);
+        transform-origin: right bottom;
+        //filter: invert(1);
+        transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
+        will-change: transform;
+      }
+
+      &::after {
+        top: 50%;
+        left: 50%;
+        width: 1.2rem;
+        height: 2rem;
+        margin: -1rem -0.6rem;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      &.swiper-button-lock {
+        display: none;
+      }
+
+      &_prev {
+        float: left;
+
+        &::after {
+          background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.6835 27.6333L18.0502 20L25.6835 12.35L23.3335 10L13.3335 20L23.3335 30L25.6835 27.6333Z' fill='white'/%3E%3C/svg%3E%0A");
+        }
+      }
+
+      &_next {
+        float: right;
+
+        &::after {
+          background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.3165 27.6333L21.9499 20L14.3165 12.35L16.6665 10L26.6665 20L16.6665 30L14.3165 27.6333Z' fill='white'/%3E%3C/svg%3E%0A");
+        }
+      }
+
+      // :hover
+      &:not(.swiper-button-disabled):hover {
+        &::before {
+          transform: scaleY(1);
+          transition-duration: $animation-speed;
+        }
+      }
+
+      // :active
+      &:not(.swiper-button-disabled):active {
+        transform: scale(0.95);
+        transition: 0.1s;
+
+        &::before {
+          transform: scaleY(1);
+          transition-duration: $animation-speed;
+        }
+      }
+
+      // Disabled
+      &.swiper-button-disabled {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+}

@@ -1,5 +1,8 @@
 <div class="entry-alt">
-  <div class="entry-alt__bg"></div>
+  @@if(context.backgroundImage) {
+  <div class="entry-alt__bg" style="background-image: url(@@backgroundImage)"></div>}
+  @@if(!context.backgroundImage) {
+  <div class="entry-alt__bg"></div>}
   <div class="entry-alt__container layout-content">
     <div class="entry-alt__breadcrumbs">
       <div class="breadcrumbs breadcrumbs_white">
@@ -25,6 +28,63 @@
     </div>
     <div class="entry-alt__title-wrap">
       <h1 class="entry-alt__title">@@title</h1>
+      @@if(context.hasTags) {
+      <div class="entry-alt__tags">
+        <div class="entry-alt__tags-frame">
+          <div class="entry-alt__tags-holder">
+            <div class="entry-alt__tags-nav js-insights-data-thumbs">
+              <a class="entry-alt__tags-item" href="#">
+                team
+              </a>
+              <a class="entry-alt__tags-item is-active" href="#">
+                products
+              </a>
+              <a class="entry-alt__tags-item" href="#">
+                innovations
+              </a>
+              <a class="entry-alt__tags-item" href="#">
+                exhibitions
+              </a>
+              <a class="entry-alt__tags-item" href="#">
+                meetings
+              </a>
+              <a class="entry-alt__tags-item" href="#">
+                visits
+              </a>
+              <a class="entry-alt__tags-item" href="#">
+                releases
+              </a>
+              <a class="entry-alt__tags-item" href="#">
+                reviews
+              </a>
+              <a class="entry-alt__tags-item" href="#">
+                feedbacks
+              </a>
+              <a class="entry-alt__tags-item" href="#">
+                article
+              </a>
+              <a class="entry-alt__tags-item" href="#">
+                reference
+              </a>
+              <a class="entry-alt__tags-item" href="#">
+                tag one
+              </a>
+              <a class="entry-alt__tags-item" href="#">
+                tag two
+              </a>
+              <a class="entry-alt__tags-item" href="#">
+                tag three
+              </a>
+              <a class="entry-alt__tags-item" href="#">
+                tag four long tag long tag long tag
+              </a>
+              <a class="entry-alt__tags-item" href="#">
+                tag five
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>}
     </div>
   </div>
 </div>

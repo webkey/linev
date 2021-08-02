@@ -1,0 +1,15 @@
+<div class="section-news@@if(context.mods){@@for (var i = 0; i < mods.length; i++){ section-news_`+mods[i]+`}} layout-content">
+  <div class="section-news__row">
+    <div class="section-news__heading">
+      <div class="section-news__heading-figure js-lazy-load" data-bg="./assets/images/img-insights-bg.jpg">&nbsp;</div>
+      <h3 class="section-news__title">
+        @@title
+      </h3>
+    </div>
+    <div class="section-news__description">
+      <div class="news-feed">
+        @@include('blocks/news-feed/news-feed__slider.html')
+      </div>
+    </div>
+  </div>
+</div>

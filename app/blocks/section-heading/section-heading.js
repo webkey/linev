@@ -55,21 +55,23 @@ app.sectionHeading = {
     element.css('opacity', bgOpacity);
   },
   showElement(element, windowScrollTop) {
-    const headerHeight = $('.header').innerHeight();
-    const eventSpaceTop = Math.round(window.innerHeight / 3);
+    if (element.length) {
+      const headerHeight = $('.header').innerHeight();
+      const eSpaceTop = Math.round(window.innerHeight / 3);
 
-    const animateStartPoint = Math.round(element.offset().top - window.innerHeight) + eventSpaceTop;
-    const animateEndPoint = Math.round(element.offset().top - headerHeight - 50);
-    const gradation = 1 / (animateEndPoint - animateStartPoint);
-    const opacityByGradation = (windowScrollTop - animateStartPoint) * gradation;
-    let opacity;
-    if (opacityByGradation < 1 && opacityByGradation > 0) {
-      opacity = opacityByGradation;
-    } else if (opacityByGradation < 0) {
-      opacity = 0;
-    } else {
-      opacity = 1;
+      const animateStartPoint = Math.round(element.offset().top - window.innerHeight) + eSpaceTop;
+      const animateEndPoint = Math.round(element.offset().top - headerHeight - 50);
+      const gradation = 1 / (animateEndPoint - animateStartPoint);
+      const opacityByGradation = (windowScrollTop - animateStartPoint) * gradation;
+      let opacity;
+      if (opacityByGradation < 1 && opacityByGradation > 0) {
+        opacity = opacityByGradation;
+      } else if (opacityByGradation < 0) {
+        opacity = 0;
+      } else {
+        opacity = 1;
+      }
+      element.css('opacity', opacity);
     }
-    element.css('opacity', opacity);
   },
 };

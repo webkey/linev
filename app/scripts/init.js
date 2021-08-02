@@ -23,3 +23,4 @@ app.formSelectWhite.init();
 app.contactsForm.init();
 app.scrollToSection.init();
 app.sectionHeading.init();
+app.newsFeed.init();

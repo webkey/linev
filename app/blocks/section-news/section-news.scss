@@ -1,0 +1,367 @@
+.section-news {
+  $el: &;
+
+  position: relative;
+  padding: 0 #{$layout-page-space-h} #{$layout-page-space-v};
+  overflow: hidden;
+  background-color: $bg-color-white;
+
+  @include below($xl) {
+    padding: 0 #{$layout-page-space-h_md} #{$layout-page-space-v_md};
+  }
+
+  @include below($md) {
+    padding: 0 #{$layout-page-space-h_sm} #{$layout-page-space-v_sm};
+  }
+
+  &_has-top-space {
+    padding-top: #{$layout-page-space-v};
+
+    @include below($xl) {
+      padding-top: #{$layout-page-space-v_md};
+    }
+
+    @include below($md) {
+      padding-top: #{$layout-page-space-v_sm};
+    }
+  }
+
+  &__row {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: #{$layout-page-space-v};
+
+    @include below($lg) {
+      margin-bottom: #{$layout-page-space-v_md};
+    }
+
+    @include below($md) {
+      display: block;
+      margin-bottom: #{$layout-page-space-v_sm};
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__heading {
+    $width: 34%;
+
+    position: relative;
+    z-index: 1;
+    flex: 1 0 $width;
+    max-width: $width;
+
+    @include below($md) {
+      max-width: none;
+      margin-bottom: #{$layout-page-space-v_sm};
+      padding: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-figure {
+      position: absolute;
+      top: -#{$layout-page-space-v};
+      right: 0;
+      bottom: -#{$layout-page-space-v};
+      left: -#{$layout-page-space-h};
+      display: block;
+      margin: 0;
+      font-size: 0;
+      line-height: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      &::after {
+        $shade-color: white;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
+        background-image: linear-gradient(to bottom, rgba($shade-color, 1) 0%, rgba($shade-color, 0) 50%);
+        content: "";
+      }
+    }
+  }
+
+  &__title {
+    position: relative;
+    color: $text-color-blue;
+    font: bold 5.2rem/5.6rem $font-title;
+    text-transform: uppercase;
+
+    @include below($hd) {
+      font-size: 3.2rem;
+      line-height: 4rem;
+    }
+
+    @include below($xxl) {
+      font-size: 2.8rem;
+      line-height: 3.6rem;
+    }
+
+    @include below($xl) {
+      font-size: 2.4rem;
+      line-height: 3.2rem;
+    }
+
+    & > span {
+      display: block;
+    }
+  }
+
+  &__description {
+    $width: 66%;
+
+    flex: 1 0 $width;
+    max-width: $width;
+    color: $text-color-black;
+    //font-size: 2.6rem;
+    //line-height: 3.4rem;
+    font-size: 2rem;
+    line-height: 2.8rem;
+    letter-spacing: 0.02em;
+
+    //@include below($hd) {
+    //  font-size: 2rem;
+    //  line-height: 2.8rem;
+    //}
+
+    @include below($md) {
+      max-width: none;
+      font-size: 1.6rem;
+      line-height: 2rem;
+    }
+
+    p {
+      //margin-bottom: 3.4rem;
+      margin-bottom: 2.8rem;
+
+      //@include below($hd) {
+      //  margin-bottom: 2.8rem;
+      //}
+
+      @include below($md) {
+        margin-bottom: #{$layout-page-space-v_sm};
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__figure {
+    $figure: &;
+
+    display: block;
+    margin-bottom: 3.4rem;
+
+    @include below($hd) {
+      margin-bottom: 2.8rem;
+    }
+
+    &_image-left,
+    &_image-left-small {
+      display: flex;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-img {
+      display: block;
+      max-width: 100%;
+      margin-bottom: 0.8rem;
+
+      &.loaded {
+        width: 100%;
+        height: auto;
+      }
+
+      #{$figure}_image-left & {
+        $width: 50%;
+
+        flex: 1 0 $width;
+        width: $width;
+        margin: 0;
+        object-fit: cover;
+      }
+
+      #{$figure}_image-left-small & {
+        $width: 34%;
+
+        flex: 1 0 $width;
+        width: $width;
+        margin: 0;
+        object-fit: cover;
+      }
+    }
+
+    &-caption {
+      display: block;
+      color: $text-color-black;
+      font-size: 1.6rem;
+      line-height: 2rem;
+      letter-spacing: 0.025em;
+      opacity: 0.5;
+
+      @include below($md) {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+      }
+
+      #{$figure}_image-left & {
+        $width: 50%;
+
+        display: flex;
+        flex: 1 0 $width;
+        align-items: center;
+        justify-content: center;
+        width: $width;
+        padding: #{$layout-page-space-v} #{$layout-page-space-h};
+        overflow: hidden;
+        color: $text-color-white;
+        font: 500 3.2rem/4rem $font-title;
+        letter-spacing: #{floor-float(0.2 / 32, 1) * 1em};
+        text-align: center;
+        text-transform: uppercase;
+        background-color: $bg-color-blue;
+        opacity: 1;
+
+        @include below($hd) {
+          font-size: 3.2rem;
+          line-height: 4rem;
+        }
+
+        @include below($xxl) {
+          font-size: 2.8rem;
+          line-height: 3.6rem;
+        }
+
+        @include below($xl) {
+          padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+          font-size: 2.4rem;
+          line-height: 3.2rem;
+        }
+
+        @include below($md) {
+          padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+          font-size: 1.8rem;
+          line-height: 2.6rem;
+        }
+      }
+
+      #{$figure}_image-left-small & {
+        $width: 66%;
+
+        display: flex;
+        flex: 1 0 $width;
+        align-items: center;
+        justify-content: center;
+        width: $width;
+        padding: #{$layout-page-space-v} #{$layout-page-space-h};
+        overflow: hidden;
+        color: $text-color-white;
+        font: 500 3.2rem/4rem $font-title;
+        letter-spacing: #{floor-float(0.2 / 32, 1) * 1em};
+        text-align: center;
+        background-color: $bg-color-blue;
+        opacity: 1;
+
+        @include below($hd) {
+          font-size: 3.2rem;
+          line-height: 4rem;
+        }
+
+        @include below($xxl) {
+          font-size: 2.8rem;
+          line-height: 3.6rem;
+        }
+
+        @include below($xl) {
+          padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+          font-size: 2.4rem;
+          line-height: 3.2rem;
+        }
+
+        @include below($md) {
+          padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+          font-size: 1.8rem;
+          line-height: 2.6rem;
+        }
+      }
+    }
+  }
+
+  &__docs {
+    display: flex;
+    align-items: flex-start;
+    font-size: 2.6rem;
+    line-height: 3.4rem;
+
+    @include below($hd) {
+      font-size: 2rem;
+      line-height: 2.8rem;
+    }
+
+    &-item {
+      margin-right: 2.4rem;
+      padding: 0.2rem 0;
+
+      &-link {
+        position: relative;
+        display: block;
+        padding-left: 4rem;
+        color: $link-color;
+        text-decoration: none;
+
+        @include below($hd) {
+          padding-left: 3.2rem;
+        }
+
+        &::before {
+          position: absolute;
+          top: 0.4rem;
+          left: 0;
+          display: block;
+          width: 2.8rem;
+          height: 2.8rem;
+          background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 2C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2H6ZM6 4H13V9H18V20H6V4ZM8 12V14H16V12H8ZM8 16V18H13V16H8Z' fill='%230870D8'/%3E%3C/svg%3E%0A");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+          content: "";
+
+          @include below($hd) {
+            top: 0.2rem;
+            width: 2.4rem;
+            height: 2.4rem;
+          }
+        }
+
+        & > span {
+          display: inline-block;
+          box-shadow: inset 0 0 0 transparent;
+          transition: $animation-speed-out;
+        }
+
+        &:hover {
+          & > span {
+            box-shadow: inset 0 -2px 0 currentColor;
+            transition: $animation-speed;
+          }
+        }
+      }
+    }
+  }
+}
