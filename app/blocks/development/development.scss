@@ -1,10 +1,11 @@
 .development {
   $svg-start-delay: 0.4s;
   $svg-animation-speed: 0.8s;
-  $svg-animation-speed-bottom-curve: 2.8s + 0.2s + 0.2s;
+  $svg-animation-speed-bottom-curve: 1s + 0.2s + 0.2s;
 
   position: relative;
   height: 100%;
+  overflow: hidden;
 
   @include below($xl) {
     height: auto;
@@ -136,13 +137,13 @@
 
     &-text {
       position: relative;
-      max-width: 60rem;
+      max-width: 40rem;
       color: $text-color-white;
       font: 500 3.2rem/4rem $font-title;
       letter-spacing: 0.006em;
 
       @include below($hd) {
-        max-width: 45rem;
+        max-width: 23rem;
         font-size: 2.4rem;
         line-height: 3.2rem;
       }
@@ -396,7 +397,7 @@
       }
 
       .y-axes {
-        @include below($xl) {
+        @include above($xl) {
           stroke-dasharray: 1020;
           stroke-dashoffset: 1020;
 
@@ -503,7 +504,7 @@
       .dot-top-l {
         @include above($xl) {
           transform: scale(0);
-          transform-origin: (670 / 1920 * 100%) (334 / 1020 * 100%);
+          transform-origin: (481 / 1366 * 100%) (256 / 708 * 100%);
 
           .after-ready & {
             animation: dot 0.3s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 2.5s} alternate forwards;
@@ -514,7 +515,7 @@
       .dot-top-r {
         @include above($xl) {
           transform: scale(0);
-          transform-origin: (1252 / 1920 * 100%) (334 / 1020 * 100%);
+          transform-origin: (885 / 1366 * 100%) (256 / 708 * 100%);
 
           .after-ready & {
             animation: dot 0.3s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 2.8s} alternate forwards;
@@ -525,7 +526,7 @@
       .dot-bottom-l {
         @include above($xl) {
           transform: scale(0);
-          transform-origin: (48 / 1920 * 100%) (763 / 1020 * 100%);
+          transform-origin: (48 / 1366 * 100%) (519 / 708 * 100%);
 
           .after-ready & {
             animation: dot 0.3s linear #{$svg-start-delay + 0.5} alternate forwards;
@@ -536,7 +537,7 @@
       .dot-bottom-r {
         @include above($xl) {
           transform: scale(0);
-          transform-origin: (1874 / 1920 * 100%) (763 / 1020 * 100%);
+          transform-origin: (1317 / 1366 * 100%) (519 / 708 * 100%);
 
           .after-ready & {
             animation: dot 0.3s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 0.3} alternate forwards;
@@ -561,9 +562,8 @@
 
     &-labels-y {
       position: absolute;
-      //bottom: 48.9rem;
       bottom: 23vw;
-      left: floor-float(49 / 1920 * 100, 1) * 1%;
+      left: floor-float(55 / 1920 * 100, 1) * 1%;
       z-index: 10;
       display: flex;
       color: $text-color-white;
@@ -673,8 +673,12 @@
       }
 
       &_development-processes {
-        bottom: 9rem;
-        left: 6rem;
+        bottom: 13vh;
+        left: 4vw;
+
+        @include below($xl) {
+          bottom: 8vh;
+        }
       }
 
       &-inner {
@@ -716,6 +720,7 @@
       justify-content: center;
       width: 100%;
       color: $text-color-white;
+      text-align: center;
       pointer-events: none;
 
       &.is-open {
@@ -726,9 +731,15 @@
         position: relative;
         max-width: 42rem;
         pointer-events: auto;
+
+        @include below($md) {
+          max-width: 80%;
+        }
       }
 
       &-link {
+        $link: &;
+
         position: relative;
         display: inline-block;
         color: inherit;
@@ -763,28 +774,80 @@
           }
         }
 
-        &:hover {
-          opacity: 0.6;
+        @at-root {
+          a#{$link}:hover {
+            opacity: 0.6;
+          }
+        }
+      }
+
+      &_from {
+        bottom: 32.3vw;
+        left: -24.4%;
+        animation-delay: #{$svg-start-delay + $svg-animation-speed-bottom-curve + 2.5s};
+
+        @include below($xl) {
+          left: -26%;
+        }
+
+        @include below($lg) {
+          bottom: 31.5vw;
+          left: -28%;
+        }
+
+        @include below($md) {
+          bottom: 34rem;
+        }
+      }
+
+      &_to {
+        bottom: 32.3vw;
+        left: 26%;
+        animation-delay: #{$svg-start-delay + $svg-animation-speed-bottom-curve + 2.8s};
+
+        @include below($lg) {
+          left: 27.6%;
+        }
+
+        @include below($lg) {
+          bottom: 31.5vw;
+          left: 30%;
+        }
+
+        @include below($md) {
+          bottom: 34rem;
         }
       }
 
       &_up {
-        //bottom: 67rem;
-        bottom: 35vw;
+        bottom: 32.3vw;
         animation-delay: floor-float($svg-start-delay + $svg-animation-speed-bottom-curve + 1.8s, 2);
 
+        @include below($lg) {
+          bottom: 31.5vw;
+        }
+
         @include below($md) {
-          bottom: 32rem;
+          bottom: 31.4rem;
+        }
+
+        .development__chart-caption-inner {
+          @include below($md) {
+            max-width: 12rem;
+          }
         }
       }
 
       &_middle {
-        //bottom: 39.6rem;
-        bottom: 20.7vw;
+        bottom: 23vw;
         animation-delay: floor-float($svg-start-delay + $svg-animation-speed-bottom-curve + 3.1s, 2);
 
         @include below($hd) {
           bottom: 25vw;
+        }
+
+        @include below($lg) {
+          bottom: 23vw;
         }
 
         @include below($md) {
@@ -793,8 +856,7 @@
       }
 
       &_low {
-        //bottom: 17.1rem;
-        bottom: 9vw;
+        bottom: 9.8vw;
         animation-delay: floor-float(($svg-start-delay + $svg-animation-speed-bottom-curve) * 0.5, 2);
 
         @include below($md) {
@@ -817,6 +879,11 @@
           font-size: 2rem;
           line-height: 2.4rem;
           letter-spacing: 0.015rem;
+        }
+
+        @include below($md) {
+          font-size: 1.6rem;
+          line-height: 2rem;
         }
 
         &:last-child {
