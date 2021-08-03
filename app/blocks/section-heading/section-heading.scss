@@ -6,7 +6,7 @@
   flex-direction: column;
   min-height: #{round-float(596 / 1366, 3) * 100vw};
   //min-height: 90.8rem;
-  margin-bottom: #{$layout-page-space-h};
+  //margin-bottom: #{$layout-page-space-h};
   padding: #{$layout-page-space-v} #{$layout-page-space-h};
   overflow: hidden;
   background-color: $bg-color-blue;
@@ -16,13 +16,13 @@
   //}
 
   @include below($xl) {
-    margin-bottom: #{$layout-page-space-h_md};
+    //margin-bottom: #{$layout-page-space-h_md};
     padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
   }
 
   @include below($md) {
     min-height: 36rem;
-    margin-bottom: #{$layout-page-space-h_sm};
+    //margin-bottom: #{$layout-page-space-h_sm};
     padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
   }
 

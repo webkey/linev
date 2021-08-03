@@ -5,20 +5,16 @@
   display: flex;
   flex-direction: column;
   min-height: #{round-float(596 / 1366, 3) * 100vw};
-  //min-height: 90.8rem;
-  margin-bottom: #{$layout-page-space-h};
   padding: #{$layout-page-space-v} #{$layout-page-space-h};
   overflow: hidden;
   background-color: $bg-color-blue;
 
   @include below($xl) {
-    margin-bottom: #{$layout-page-space-h_md};
     padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
   }
 
   @include below($md) {
     min-height: 36rem;
-    margin-bottom: #{$layout-page-space-h_sm};
     padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
   }
 
@@ -119,8 +115,13 @@
     &-value {
       display: block;
       color: $text-color-white;
-      font: 500 8rem/8.8rem $font-title;
-      letter-spacing: -0.019em;
+      font: bold 11.6rem/11.6rem $font-title;
+      letter-spacing: -#{floor-float(1.8 / 116, 3) * 1em};
+
+      @include below($hd) {
+        font: 500 8rem/8.8rem $font-title;
+        letter-spacing: -0.019em;
+      }
 
       @include below($xl) {
         font-size: 5.6rem;
@@ -137,13 +138,13 @@
     &-text {
       display: block;
       color: $text-color-white;
-      font: 500 2.4rem/3.6rem $font-title;
-      letter-spacing: 0.02em;
+      font: 500 3.2rem/4rem $font-title;
+      letter-spacing: round-float(0.2 / 32 * 1em, 3);
       opacity: 0.6;
 
-      @include below($md) {
-        font-size: 2.4rem;
-        line-height: 3.2rem;
+      @include below($hd) {
+        font: 500 2.4rem/3.6rem $font-title;
+        letter-spacing: round-float(0.5 / 24 * 1em, 3);
       }
     }
   }

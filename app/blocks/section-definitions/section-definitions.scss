@@ -2,16 +2,16 @@
   $el: &;
 
   position: relative;
-  padding: 0 #{$layout-page-space-h} #{$layout-page-space-v};
+  padding: #{$layout-page-space-v} #{$layout-page-space-h};
   overflow: hidden;
   background-color: $bg-color-white;
 
   @include below($xl) {
-    padding: 0 #{$layout-page-space-h_md} #{$layout-page-space-v_md};
+    padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
   }
 
   @include below($md) {
-    padding: 0 #{$layout-page-space-h_sm} #{$layout-page-space-v_sm};
+    padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
   }
 
   &_has-top-space {
@@ -24,6 +24,10 @@
     @include below($md) {
       padding-top: #{$layout-page-space-v_sm};
     }
+  }
+
+  & + .section-definitions {
+    padding-top: 0;
   }
 
   &__row {

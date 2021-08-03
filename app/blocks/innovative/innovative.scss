@@ -376,6 +376,11 @@
         }
       }
 
+      &-panel-wrap-js {
+        position: relative;
+        overflow: hidden;
+      }
+
       &-panel {
         $panel: &;
 
