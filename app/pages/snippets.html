@@ -1,0 +1,81 @@
+@@include("blocks/head/head.html", {"title": "Snippets"})
+@@include("blocks/header/header.html", {"mods": ["float"]})
+<main class="main">
+  @@include("blocks/entry-alt/entry-alt.html", {
+    "backgroundImage": "assets/images/entry-bg.jpg",
+    "title": "Snippets",
+    "breadcrumbs": {
+    "items": [
+      {"href": "index.html", "text": "Home"},
+      {"href": "snippets.html", "text": "Snippets"}
+    ],
+    "current": false
+    }
+  })
+
+  @@include("blocks/section-text-img-text/section-text-img-text.html")
+
+  @@include("blocks/section-heading/section-heading.html", {
+    "id": "snippet-1",
+    "number": 1,
+    "image": "assets/images/img-section-2.jpg",
+    "title": "Snippet 1",
+    "mods": false
+  })
+
+  @@include("blocks/section-definitions/section-definitions.html", {
+    "image": "assets/images/img-02.jpg",
+    "imageCaption": "«Total Recall» movie.",
+    "items": [
+      {
+        "title": "What inspired",
+        "description": "<p>In 1990 the movie «Total Recall» starring Schwarzenegger has inspired Mr. Linev, (who was at that time CEO and General Director of ADANI and ADANI Systems, Inc. companies, the predecessors of today’s LINEV Group) to create the first full-body security X-ray screening system.</p>",
+        "mods": false
+      },
+      {
+        "title": "Description<br> of the moment",
+        "description": "<p>In the movie, Schwarzenegger's hero undergoes an “X-ray inspection” at the customs and border control zone and the system easily and automatically detects hidden firearm under his clothes. This idea was very impressing, and the first ADANI X-ray body scanner was set to development and within 9 years the technology was invented and developed, and the device appeared on the market.</p>",
+        "mods": false
+      },
+      {
+        "title": "Another from<br> a fantastic movie",
+        "description": "<p>Twenty years later, Mr. Linev added another unbeatable fantastic movie option to his systems – A-Eye Artificial Intelligence systems of automatic detection of drugs and threats including weapons almost similar to the one presented in that movie.</p>",
+        "mods": false
+      }
+    ]
+  })
+
+  @@include("blocks/section-heading/section-heading.html", {
+    "id": "snippet-2",
+    "number": 2,
+    "image": "assets/images/img-section-6.jpg",
+    "title": "Snippet 2",
+    "mods": ["blue"]
+  })
+
+  @@include("blocks/section-title-and-counters/section-title-and-counters.html")
+
+  @@include("blocks/section-list/section-list.html", {
+    "id": "section-7",
+    "number": 7,
+    "image": "assets/images/img-section-7.jpg",
+    "title": "<span>APPLICATION</span><span>FIELDS</span>",
+    "list": [
+      "Prisons & Detention centers",
+      "Airports",
+      "Seaports",
+      "Railway stations",
+      "Cross-border control",
+      "Customs",
+      "Sensitive sites",
+      "Military premises",
+      "Embassies",
+      "VIP residences"
+    ],
+    "mods": false
+  })
+
+  @@include("blocks/section-counter/section-counter.html")
+</main>
+@@include("blocks/footer/footer.html")
+@@include("blocks/link/link.html")
