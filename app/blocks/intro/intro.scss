@@ -337,9 +337,24 @@
       white-space: nowrap;
       text-transform: uppercase;
 
+      &_small {
+        text-transform: lowercase;
+      }
+
       @include below($hd) {
         font-size: 2rem;
         line-height: 2.4rem;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        box-shadow: 0 2px 0 0 currentColor;
+        transition: box-shadow $animation-speed;
+
+        &:hover {
+          box-shadow: 0 0 0 0 transparent;
+        }
       }
     }
 

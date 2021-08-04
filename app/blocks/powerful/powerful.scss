@@ -333,13 +333,13 @@
 
       &:nth-child(3) {
         &::before {
-          background-color: $color-orange;
+          background-color: $color-green;
         }
       }
 
       &:nth-child(4) {
         &::before {
-          background-color: $color-green;
+          background-color: $color-orange;
         }
       }
 
@@ -386,13 +386,13 @@
         }
 
         &:nth-child(3) {
-          color: $color-orange;
-          box-shadow: inset 0 -2px 0 $color-orange;
+          color: $color-green;
+          box-shadow: inset 0 -2px 0 $color-green;
         }
 
         &:nth-child(4) {
-          color: $color-green;
-          box-shadow: inset 0 -2px 0 $color-green;
+          color: $color-orange;
+          box-shadow: inset 0 -2px 0 $color-orange;
         }
       }
     }
@@ -483,11 +483,11 @@
           }
 
           #{$panel}:nth-child(3) & {
-            background-color: $color-orange;
+            background-color: $color-green;
           }
 
           #{$panel}:nth-child(4) & {
-            background-color: $color-green;
+            background-color: $color-orange;
           }
 
           &::before {
@@ -605,11 +605,11 @@
             }
 
             #{$panel}:nth-child(3) & {
-              color: $color-orange;
+              color: $color-green;
             }
 
             #{$panel}:nth-child(4) & {
-              color: $color-green;
+              color: $color-orange;
             }
           }
         }
@@ -664,11 +664,11 @@
             }
 
             #{$panel}:nth-child(3) & {
-              color: $color-orange;
+              color: $color-green;
             }
 
             #{$panel}:nth-child(4) & {
-              color: $color-green;
+              color: $color-orange;
             }
           }
         }
