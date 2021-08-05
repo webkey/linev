@@ -107,16 +107,16 @@
 
     &-title {
       position: relative;
+      max-width: 50rem;
       margin-bottom: 1.6rem;
       color: $text-color-white;
-      font: bold 8.4rem/1 $font-title;
-      letter-spacing: -0.01em;
+      font: bold #{$h3-font-size}/#{$h3-line-height} $font-title;
       text-transform: uppercase;
 
       @include below($hd) {
-        font-size: 4.4rem;
-        line-height: 5.2rem;
-        letter-spacing: normal;
+        max-width: 30rem;
+        font-size: #{$h3-font-size_md};
+        line-height: #{$h3-line-height_md};
       }
 
       @include below($xl) {
@@ -320,6 +320,29 @@
           }
 
           @keyframes arrow-right {
+            from {
+              transform: translateX(-4rem);
+              opacity: 0;
+            }
+
+            to {
+              transform: translateX(0);
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      .arrow-through {
+        @include above($xl) {
+          transform: translateX(-4rem);
+          opacity: 0;
+
+          .after-ready & {
+            animation: arrow-through 0.3s linear #{$svg-start-delay + $svg-animation-speed-bottom-curve + 2.2s} alternate forwards;
+          }
+
+          @keyframes arrow-through {
             from {
               transform: translateX(-4rem);
               opacity: 0;
@@ -562,7 +585,7 @@
 
     &-labels-y {
       position: absolute;
-      bottom: 23vw;
+      bottom: 16vw;
       left: floor-float(55 / 1920 * 100, 1) * 1%;
       z-index: 10;
       display: flex;
@@ -573,7 +596,7 @@
       text-transform: uppercase;
 
       @include below($hd) {
-        bottom: 20vw;
+        bottom: 16vw;
         font-size: 1.6rem;
         line-height: 2rem;
         letter-spacing: 0.06rem;
@@ -803,7 +826,7 @@
       &_to {
         bottom: 32.3vw;
         left: 26%;
-        animation-delay: #{$svg-start-delay + $svg-animation-speed-bottom-curve + 2.8s};
+        animation-delay: #{$svg-start-delay + $svg-animation-speed-bottom-curve + 2.3s};
 
         @include below($lg) {
           left: 27.6%;
@@ -820,11 +843,11 @@
       }
 
       &_up {
-        bottom: 32.3vw;
+        bottom: 33.1vw;
         animation-delay: floor-float($svg-start-delay + $svg-animation-speed-bottom-curve + 1.8s, 2);
 
-        @include below($lg) {
-          bottom: 31.5vw;
+        @include below($xl) {
+          bottom: 37vw;
         }
 
         @include below($md) {

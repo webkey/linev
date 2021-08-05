@@ -41,14 +41,12 @@
       position: relative;
       margin-bottom: 1.6rem;
       color: $text-color-white;
-      font: bold 8.4rem/1 $font-title;
-      letter-spacing: -0.01em;
+      font: bold #{$h3-font-size}/#{$h3-line-height} $font-title;
       text-transform: uppercase;
 
       @include below($hd) {
-        font-size: 4.4rem;
-        line-height: 5.2rem;
-        letter-spacing: normal;
+        font-size: #{$h3-font-size_md};
+        line-height: #{$h3-line-height_md};
       }
 
       @include below($xl) {

@@ -76,21 +76,21 @@
     }
 
     &-title {
-      $line-height: 11.6rem;
+      $line-height: round-float($h2-font-size * $h2-line-height, 1);
 
       position: relative;
       width: 100%;
       height: $line-height * 2;
       color: $text-color-white;
-      font: 700 11.6rem/#{$line-height} $font-title;
+      font: 700 #{$h2-font-size}/#{$line-height} $font-title;
       letter-spacing: -0.02em;
       text-transform: uppercase;
 
       @include below($hd) {
-        $line-height: 7.2rem;
+        $line-height: round-float($h2-font-size_md * $h2-line-height_md, 1);
 
         height: $line-height * 2;
-        font-size: 6.8rem;
+        font-size: $h2-font-size_md;
         line-height: $line-height;
       }
 

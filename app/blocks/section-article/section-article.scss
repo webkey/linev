@@ -59,28 +59,23 @@
     max-width: 100%;
     margin-top: auto;
     color: $text-color-white;
-    font: bold 5.2rem/5.6rem $font-title;
+    font: bold #{$h4-font-size}/#{$h2-line-height} $font-title;
     text-transform: uppercase;
 
     @include below($hd) {
-      font-size: 6.8rem;
-      line-height: 7.2rem;
+      font-size: $h4-font-size_md;
+      line-height: $h4-line-height_md;
       letter-spacing: -0.06rem;
     }
 
+    @include below($xxl) {
+      font-size: 2.8rem;
+      line-height: 3.6rem;
+    }
+
     @include below($xl) {
-      font-size: 5.6rem;
-      line-height: 6.4rem;
-    }
-
-    @include below($lg) {
-      font-size: 4.4rem;
-      line-height: 5.2rem;
-    }
-
-    @include below($md) {
-      font-size: 3.2rem;
-      line-height: 4rem;
+      font-size: 2.4rem;
+      line-height: 3.2rem;
     }
 
     #{$el}_blue & {
