@@ -74,6 +74,9 @@ app.insights = {
           },
 
           breakpoints: {
+            767: {
+              spaceBetween: 16,
+            },
             575: {
               slidesPerView: 'auto',
               slidesPerGroup: 1,
