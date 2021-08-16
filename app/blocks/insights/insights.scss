@@ -99,7 +99,7 @@
       position: relative;
       margin-bottom: 1.6rem;
       color: $text-color-blue;
-      font: bold #{$h3-font-size}/#{$h3-line-height} $font-title;
+      font: 300 #{$h3-font-size}/#{$h3-line-height} $font-title;
       text-transform: uppercase;
 
       @include below($hd) {
@@ -285,7 +285,7 @@
       padding: 0.6rem 0;
       overflow: hidden;
       color: $text-color-grey;
-      font: bold 2rem/#{$line-height} $font-button;
+      font: 300 2rem/#{$line-height} $font-button;
       text-transform: uppercase;
       text-decoration: none;
       box-shadow: inset 0 -2px 0 transparent;
@@ -481,7 +481,7 @@
           margin-bottom: 0.8rem;
           overflow: hidden;
           color: #000;
-          font: bold 2.4rem/#{$line-height} $font-title;
+          font: 300 2.4rem/#{$line-height} $font-title;
           letter-spacing: 0.006rem;
           text-transform: uppercase;
           -webkit-line-clamp: $line-count;
@@ -545,7 +545,7 @@
           margin: 0;
           padding: 1.2rem 2rem;
           color: $button-color-blue;
-          font: bold 1.6rem/2rem $font-button;
+          font: 300 1.6rem/2rem $font-button;
           letter-spacing: 0.04rem;
           text-align: left;
           text-transform: uppercase;

@@ -35,7 +35,7 @@
     position: relative;
     margin: #{round-float($bottom-space * 2.25, 1)} 0 #{round-float($bottom-space * 1.25, 1)};
     color: #000;
-    font: bold 16rem/1 $font-title;
+    font: 300 16rem/1 $font-title;
     letter-spacing: -0.025em;
     text-align: center;
     text-transform: uppercase;
@@ -56,7 +56,7 @@
     max-width: 78rem;
     margin: #{round-float($bottom-space * 2.25, 1)} 0 #{round-float($bottom-space * 1.25, 1)};
     color: #000;
-    font: bold #{$h2-font-size}/#{$h2-line-height_md} $font-title;
+    font: 300 #{$h2-font-size}/#{$h2-line-height_md} $font-title;
     letter-spacing: -0.02em;
     text-transform: uppercase;
 
@@ -79,8 +79,8 @@
   .h3 {
     margin: #{round-float($bottom-space * 2.25, 1)} 0 #{round-float($bottom-space * 1.25, 1)};
     color: #000;
-    //font: bold 8.4rem/1 $font-title;
-    font: bold #{$h3-font-size}/#{$h3-line-height} $font-title;
+    //font: 300 8.4rem/1 $font-title;
+    font: 300 #{$h3-font-size}/#{$h3-line-height} $font-title;
     text-transform: uppercase;
 
     @include below($hd) {
@@ -101,7 +101,7 @@
   .h4 {
     margin: #{round-float($bottom-space * 1.5, 1)} 0 $bottom-space;
     color: #000;
-    font: bold #{$h4-font-size}/#{$h4-line-height} $font-title;
+    font: 300 #{$h4-font-size}/#{$h4-line-height} $font-title;
     text-transform: uppercase;
 
     @include below($hd) {
@@ -122,7 +122,7 @@
   .h5 {
     margin: #{round-float($bottom-space * 1.5, 1)} 0 $bottom-space;
     color: #000;
-    font: bold 3.2rem/(4rem / 3.2rem) $font-title;
+    font: 300 3.2rem/(4rem / 3.2rem) $font-title;
     letter-spacing: 0.006em;
     text-transform: uppercase;
 
@@ -139,7 +139,7 @@
   .h6 {
     margin: #{round-float($bottom-space * 1.5, 1)} 0 $bottom-space;
     color: #000;
-    font: bold 2.4rem/(3.2rem/2.4rem) $font-title;
+    font: 300 2.4rem/(3.2rem/2.4rem) $font-title;
     letter-spacing: 0.006em;
     text-transform: uppercase;
 

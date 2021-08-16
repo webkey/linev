@@ -97,7 +97,7 @@
       position: relative;
       margin-bottom: 1.6rem;
       color: $text-color-white;
-      font: bold #{$h3-font-size}/#{$h3-line-height} $font-title;
+      font: 300 #{$h3-font-size}/#{$h3-line-height} $font-title;
       text-transform: uppercase;
 
       @include below($hd) {
@@ -214,7 +214,7 @@
         // 2) высота шапки пунктов разделенная на 2, т.к. отступы нижний и верхний
         // 3) высота (тоже относительная) контента развернутого элемента разделенная на количество элементов ...-item * 2, т.к. отступы нижний и верхний
         color: $text-color-white;
-        font: bold 2.4rem/3.2rem $font-title;
+        font: 300 2.4rem/3.2rem $font-title;
         letter-spacing: 0.006em;
         text-transform: uppercase;
         cursor: pointer;

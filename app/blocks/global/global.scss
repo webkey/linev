@@ -41,7 +41,7 @@
       position: relative;
       margin-bottom: 1.6rem;
       color: $text-color-white;
-      font: bold #{$h3-font-size}/#{$h3-line-height} $font-title;
+      font: 300 #{$h3-font-size}/#{$h3-line-height} $font-title;
       text-transform: uppercase;
 
       @include below($hd) {
@@ -271,7 +271,7 @@
         }
 
         &-text {
-          font: bold 2rem/3.2rem $font-title;
+          font: 300 2rem/3.2rem $font-title;
           letter-spacing: 0.006em;
           text-transform: uppercase;
 

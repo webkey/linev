@@ -88,7 +88,7 @@
     margin-bottom: 1.6rem;
     padding: 0.5rem;
     color: $text-color-blue;
-    font: bold #{$h4-font-size}/#{$h2-line-height} $font-title;
+    font: 300 #{$h4-font-size}/#{$h2-line-height} $font-title;
     letter-spacing: 0.005em;
     background-color: $bg-color-white;
 
@@ -110,7 +110,7 @@
     max-width: 100%;
     margin-top: auto;
     color: $text-color-white;
-    font: bold #{$h2-font-size}/#{$h2-line-height} $font-title;
+    font: 300 #{$h2-font-size}/#{$h2-line-height} $font-title;
     letter-spacing: -#{floor-float(1.8 / 116, 3) * 1em};
     text-transform: uppercase;
 
@@ -175,7 +175,7 @@
     &-item {
       margin-bottom: 3.2rem;
       color: $text-color-white;
-      font: bold 3.2rem/4rem $font-title;
+      font: 300 3.2rem/4rem $font-title;
       letter-spacing: #{round-float(0.2 / 32, 3) * 1em};
       text-transform: uppercase;
 

@@ -110,7 +110,7 @@
       max-width: 50rem;
       margin-bottom: 1.6rem;
       color: $text-color-white;
-      font: bold #{$h3-font-size}/#{$h3-line-height} $font-title;
+      font: 300 #{$h3-font-size}/#{$h3-line-height} $font-title;
       text-transform: uppercase;
 
       @include below($hd) {
@@ -590,7 +590,7 @@
       z-index: 10;
       display: flex;
       color: $text-color-white;
-      font: bold 2rem/2.4rem $font-button;
+      font: 300 2rem/2.4rem $font-button;
       letter-spacing: 0.03em;
       text-align: center;
       text-transform: uppercase;
@@ -625,7 +625,7 @@
       height: 5.6vw;
       padding: 0 (floor-float(49 / 1920 * 100, 1) * 1%);
       color: $text-color-white;
-      font: bold 2rem/2.4rem $font-button;
+      font: 300 2rem/2.4rem $font-button;
       letter-spacing: 0.03em;
       text-align: center;
       text-transform: uppercase;
@@ -892,7 +892,7 @@
         display: inline-flex;
         justify-content: center;
         margin: 0 auto 0.8rem;
-        font: bold 2.4rem/3.2rem $font-title;
+        font: 300 2.4rem/3.2rem $font-title;
         letter-spacing: 0.006em;
         text-align: center;
         text-transform: uppercase;
@@ -987,7 +987,7 @@
       &-title {
         margin-bottom: 0.8rem;
         color: $text-color-black;
-        font: bold 2.4rem/3.2rem $font-title;
+        font: 300 2.4rem/3.2rem $font-title;
         letter-spacing: 0.006rem;
         text-transform: uppercase;
 

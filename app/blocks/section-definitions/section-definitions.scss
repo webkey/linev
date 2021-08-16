@@ -56,7 +56,7 @@
     max-width: $width;
     padding-right: 2.8rem;
     color: $text-color-black;
-    font: bold #{$h4-font-size}/#{$h4-line-height} $font-title;
+    font: 300 #{$h4-font-size}/#{$h4-line-height} $font-title;
     text-transform: uppercase;
 
     @include below($hd) {
