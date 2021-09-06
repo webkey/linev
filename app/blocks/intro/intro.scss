@@ -3,6 +3,14 @@
   flex-wrap: wrap;
   height: 100%;
 
+  .main-page-section & {
+    height: calc(100vh - #{$header-height-top});
+
+    @include below($xl) {
+      height: auto;
+    }
+  }
+
   @include below($md) {
     display: block;
   }
@@ -57,6 +65,10 @@
       padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
 
+    .main-page-section & {
+      align-items: flex-start;
+    }
+
     &-figure {
       position: absolute;
       top: 0;
@@ -102,6 +114,22 @@
         font-size: 4.4rem;
         line-height: 5.2rem;
       }
+
+      .main-page-section & {
+        height: auto;
+        font: 300 #{$h4-font-size}/#{$h4-line-height_md} $font-title;
+        text-transform: uppercase;
+
+        @include below($hd) {
+          font-size: $h4-font-size_md;
+          line-height: $h4-line-height_md;
+        }
+
+        @include below($lg) {
+          font-size: $h4-font-size_md;
+          line-height: $h4-line-height_md;
+        }
+      }
     }
   }
 
@@ -132,6 +160,10 @@
       padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
 
+    .main-page-section & {
+      border-top: 1px solid $brand-color-grey-3;
+    }
+
     &-text {
       height: 100%;
       color: $text-color-black;
@@ -149,6 +181,15 @@
 
       @include below($xl) {
         height: auto;
+      }
+
+      .main-page-section & {
+        font: 300 2rem/3.2rem $font;
+
+        @include below($xl) {
+          font-size: 2rem;
+          line-height: 2.8rem;
+        }
       }
     }
 

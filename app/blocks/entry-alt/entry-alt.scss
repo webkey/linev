@@ -23,6 +23,7 @@
     flex-direction: column;
     //min-height: 100vw * 596/1366;
     min-height: 43.2rem;
+    //min-height: 36rem;
     padding: #{$layout-page-space-v} #{$layout-page-space-h};
 
     @include below($hd) {

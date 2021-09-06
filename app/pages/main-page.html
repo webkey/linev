@@ -1,0 +1,39 @@
+@@include("blocks/head/head.html", {"title": "LinevGroup"})
+@@include("blocks/header/header.html", {"currentItem": "MainPage", "mods": ["float"]})
+<main class="main">
+  @@include("blocks/entry-alt/entry-alt.html", {
+    "backgroundImage": "assets/images/entry-bg.jpg",
+    "title": "About LINEV Group",
+    "breadcrumbs": {
+      "items": [
+        {"href": "index.html", "text": "Home"},
+        {"href": "company.html", "text": "About LINEV Group"}
+      ],
+      "current": false
+    }
+  })
+
+  @@include("blocks/section-text-img-text/section-text-img-text-2.html")
+
+  <section class="main-page-section main-page-section_bg-blue">
+    @@include("blocks/intro/intro-without-animation.html")
+  </section>
+
+  <section class="main-page-section main-page-section_bg-white">
+    @@include("blocks/section-counter/section-counter-2.html")
+  </section>
+
+  <section class="main-page-section main-page-section_bg-blue">
+    @@include("blocks/innovative/innovative-2.html")
+  </section>
+
+  <section class="main-page-section main-page-section_bg-white">
+    @@include("blocks/entry/entry-2.html")
+  </section>
+
+  <section class="main-page-section main-page-section_bg-black">
+    @@include("blocks/global/global-2.html")
+  </section>
+</main>
+@@include("blocks/footer/footer.html")
+@@include("blocks/link/link.html")

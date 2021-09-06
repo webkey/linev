@@ -3,6 +3,10 @@
   height: 100%;
   background-color: $bg-color-black;
 
+  .main-page-section & {
+    height: calc(100vh - #{$header-height-top});
+  }
+
   @include below($xl) {
     height: auto;
   }
@@ -52,6 +56,40 @@
       @include below($xl) {
         width: 100%;
       }
+
+      .main-page-section & {
+        height: auto;
+        margin-bottom: 2.4rem;
+        color: $text-color-white;
+        font: 300 #{$h4-font-size}/#{$h4-line-height_md} $font-title;
+        text-transform: uppercase;
+
+        @include below($hd) {
+          font-size: $h4-font-size_md;
+          line-height: $h4-line-height_md;
+        }
+
+        @include below($xl) {
+          margin-bottom: #{$layout-page-space-v_md};
+          font-size: $h4-font-size_md;
+          line-height: $h4-line-height_md;
+        }
+
+        @include below($lg) {
+          font-size: $h4-font-size_md;
+          line-height: $h4-line-height_md;
+        }
+
+        @include below($md) {
+          margin-bottom: #{$layout-page-space-v_sm};
+          font-size: $h4-font-size_md;
+          line-height: $h4-line-height_md;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
 
     &-text {
@@ -78,6 +116,21 @@
         @include below($xl) {
           display: block;
           width: 100%;
+        }
+      }
+
+      .main-page-section & {
+        font: 300 2rem/3.2rem $font;
+        letter-spacing: 0.02em;
+
+        @include below($md) {
+          font-size: 1.6rem;
+          line-height: 2rem;
+          letter-spacing: 0.025em;
+        }
+
+        strong {
+          font-weight: 400;
         }
       }
     }

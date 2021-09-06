@@ -1,0 +1,26 @@
+.main-page {
+  &-section {
+    position: relative;
+    //height: calc(100vh - #{$header-height-top});
+    overflow: hidden;
+
+    @include below($xl) {
+      height: auto !important;
+      padding-top: 0;
+    }
+
+    &_bg {
+      &-white {
+        background-color: $bg-color-white;
+      }
+
+      &-blue {
+        background-color: $bg-color-blue;
+      }
+
+      &-black {
+        background-color: $bg-color-black;
+      }
+    }
+  }
+}

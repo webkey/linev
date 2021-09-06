@@ -96,7 +96,7 @@
       display: -webkit-box;
       //max-height: $line-height * $line-count;
       color: $text-color-white;
-      font: 2rem/#{$line-height} $font;
+      font: 500 2rem/#{$line-height} $font;
       letter-spacing: 0.02em;
       transition: $animation-speed-out;
       //-webkit-line-clamp: $line-count;
@@ -106,6 +106,10 @@
       //  color: $text-color-blue;
       //  transition: $animation-speed;
       //}
+      .main-page-section & {
+        color: $text-color-blue;
+        font-size: 1.6rem;
+      }
     }
   }
 

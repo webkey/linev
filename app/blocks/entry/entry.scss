@@ -14,6 +14,10 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+
+    .main-page-section & {
+      background-color: $bg-color-white;
+    }
   }
 
   &__container {
@@ -67,6 +71,62 @@
       font-size: 4.4rem;
       line-height: 5.2rem;
     }
+
+    .main-page-section & {
+      height: auto;
+      margin-bottom: 3.4rem;
+      color: $text-color-blue;
+      font: 300 #{$h4-font-size}/#{$h4-line-height_md} $font-title;
+      text-transform: uppercase;
+
+      @include below($hd) {
+        font-size: $h4-font-size_md;
+        line-height: $h4-line-height_md;
+      }
+
+      @include below($xl) {
+        margin-bottom: #{$layout-page-space-v_md};
+        font-size: $h4-font-size_md;
+        line-height: $h4-line-height_md;
+      }
+
+      @include below($lg) {
+        font-size: $h4-font-size_md;
+        line-height: $h4-line-height_md;
+      }
+
+      @include below($md) {
+        margin-bottom: #{$layout-page-space-v_sm};
+        font-size: $h4-font-size_md;
+        line-height: $h4-line-height_md;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__text {
+    color: $text-color-blue;
+    //font-size: 2.6rem;
+    //line-height: 3.4rem;
+    font: 300 2rem/3.2rem $font;
+    letter-spacing: 0.02em;
+
+    @include below($md) {
+      font-size: 1.6rem;
+      line-height: 2rem;
+      letter-spacing: 0.025em;
+    }
+
+    strong {
+      font-weight: 400;
+    }
+
+    p {
+      margin-bottom: 2.4rem;
+    }
   }
 
   &__nav {
@@ -79,5 +139,10 @@
     @include below($md) {
       margin-top: #{$layout-page-space-v_sm};
     }
+  }
+
+  &__footer {
+    margin-top: 2.4rem;
+    text-align: center;
   }
 }

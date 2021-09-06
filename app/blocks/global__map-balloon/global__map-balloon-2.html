@@ -1,0 +1,21 @@
+<div class="global__map-balloon-inner js-global-balloon">
+  <a href="#" class="global__map-balloon-hand js-global-balloon-open">
+    <span class=" global__map-balloon-hand-dot"></span>
+    <div class="global__map-balloon-hand-text">@@city</div>
+  </a>
+  <div class="global__map-balloon-popup js-global-balloon-popup js-global-balloon-prevent-hide">
+    <div class="global__map-balloon-popup-inner">
+      <div class="global__map-balloon-popup-photo">
+        <img class="global__map-balloon-popup-photo-img" src="@@image" alt="image description" />
+      </div>
+      <img class="global__map-balloon-popup-logo" src="assets/images/contacts-logo.svg" alt="LINEV Group" />
+      <div class="global__map-balloon-popup-address">@@address</div>
+      <div class="global__map-balloon-popup-phones">
+        @@for (var i = 0; i < phone.length; i++){<div class="global__map-balloon-popup-phone"><a href="tel:`+phone[i]+`">`+phone[i]+`</a></div>}
+      </div>
+      <div class="global__map-balloon-popup-button">
+        @@include("blocks/button-default/button-default.html", { "href": "#", "text": "Find out more", "mods": ["blue", "full-width"]})
+      </div>
+    </div>
+  </div>
+</div>
