@@ -16,6 +16,11 @@
     min-height: 20vw;
   }
 
+  .main-page-restyle & {
+    height: 100%;
+    min-height: 0;
+  }
+
   &__bg {
     position: absolute;
     top: 0;
@@ -27,7 +32,7 @@
     background-size: cover;
     opacity: 0.45;
 
-    .main-page-section & {
+    .main-page-restyle & {
       opacity: 1;
     }
 
@@ -68,6 +73,10 @@
       background-position: center;
       background-size: cover;
       opacity: 0.45;
+
+      .main-page-restyle & {
+        opacity: 1;
+      }
 
       @include below($md) {
         display: block;
@@ -127,7 +136,7 @@
       line-height: 4rem;
     }
 
-    .main-page-section & {
+    .main-page-restyle & {
       height: auto;
       margin-bottom: 2.4rem;
       color: $text-color-white;
@@ -167,6 +176,7 @@
   }
 
   &__text {
+    position: relative;
     color: $text-color-white;
     //font-size: 2.6rem;
     //line-height: 3.4rem;
@@ -429,7 +439,7 @@
       padding: 0 #{$layout-page-space-h_sm} #{$layout-page-space-v_sm};
     }
 
-    .main-page-section & {
+    .main-page-restyle & {
       padding: #{$layout-page-space-v} #{$layout-page-space-h};
 
       @include below($hd) {
@@ -478,7 +488,7 @@
       font: 500 8rem/8.8rem $font-title;
       letter-spacing: -0.019em;
 
-      .main-page-section & {
+      .main-page-restyle & {
         font-size: 6.4rem;
         line-height: 7.2rem;
       }

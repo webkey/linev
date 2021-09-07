@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   height: 100%;
 
-  .main-page-section & {
+  .main-page-restyle & {
     height: calc(100vh - #{$header-height-top});
 
     @include below($xl) {
@@ -65,7 +65,7 @@
       padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
 
-    .main-page-section & {
+    .main-page-restyle & {
       align-items: flex-start;
     }
 
@@ -115,7 +115,7 @@
         line-height: 5.2rem;
       }
 
-      .main-page-section & {
+      .main-page-restyle & {
         height: auto;
         font: 300 #{$h4-font-size}/#{$h4-line-height_md} $font-title;
         text-transform: uppercase;
@@ -160,7 +160,7 @@
       padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
 
-    .main-page-section & {
+    .main-page-restyle & {
       border-top: 1px solid $brand-color-grey-3;
     }
 
@@ -183,7 +183,7 @@
         height: auto;
       }
 
-      .main-page-section & {
+      .main-page-restyle & {
         font: 300 2rem/3.2rem $font;
 
         @include below($xl) {
@@ -198,6 +198,12 @@
 
       @include below($xl) {
         margin-top: auto;
+      }
+
+      .main-page-restyle & {
+        @include below($xl) {
+          margin-top: 2.4rem;
+        }
       }
     }
 

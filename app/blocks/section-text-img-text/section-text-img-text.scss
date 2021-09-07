@@ -1,13 +1,16 @@
 .section-text-img-text {
   display: flex;
   align-items: stretch;
-  min-height: 50vh;
   overflow: hidden;
   background-color: $bg-color-white;
 
   @include below($lg) {
     display: block;
     min-height: 0;
+  }
+
+  .main-page-restyle & {
+    height: 50%;
   }
 
   &__intro {

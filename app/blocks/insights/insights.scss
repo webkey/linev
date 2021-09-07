@@ -8,6 +8,10 @@ $insights-thumb-space-v_md: 0.6rem;
   flex-wrap: wrap;
   height: 100%;
 
+  .main-page-section & {
+    height: calc(100vh - #{$header-height-top});
+  }
+
   @include below($xl) {
     height: auto;
   }
@@ -117,13 +121,46 @@ $insights-thumb-space-v_md: 0.6rem;
         font-size: 3.2rem;
         line-height: 4rem;
       }
+
+      .main-page-restyle & {
+        height: auto;
+        margin-bottom: 2.4rem;
+        font: 300 #{$h4-font-size}/#{$h4-line-height_md} $font-title;
+        text-transform: uppercase;
+
+        @include below($hd) {
+          font-size: $h4-font-size_md;
+          line-height: $h4-line-height_md;
+        }
+
+        @include below($xl) {
+          margin-bottom: #{$layout-page-space-v_md};
+          font-size: $h4-font-size_md;
+          line-height: $h4-line-height_md;
+        }
+
+        @include below($lg) {
+          font-size: $h4-font-size_md;
+          line-height: $h4-line-height_md;
+        }
+
+        @include below($md) {
+          margin-bottom: #{$layout-page-space-v_sm};
+          font-size: $h4-font-size_md;
+          line-height: $h4-line-height_md;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
 
     &-text {
       position: relative;
       max-width: 55rem;
       color: $text-color-black;
-      font: 500 3.2rem/4rem $font-title;
+      font: 300 3.2rem/4rem $font-title;
       letter-spacing: 0.006em;
 
       @include below($hd) {
@@ -147,6 +184,21 @@ $insights-thumb-space-v_md: 0.6rem;
 
         @include below($lg) {
           width: 100%;
+        }
+      }
+
+      .main-page-restyle & {
+        font: 300 2rem/3.2rem $font;
+        letter-spacing: 0.02em;
+
+        @include below($md) {
+          font-size: 1.6rem;
+          line-height: 2rem;
+          letter-spacing: 0.025em;
+        }
+
+        strong {
+          font-weight: 400;
         }
       }
     }
@@ -494,7 +546,7 @@ $insights-thumb-space-v_md: 0.6rem;
 
           &-title {
             width: 100%;
-            font: bold 3.2rem/4rem $font-title;
+            font: 300 3.2rem/4rem $font-title;
             text-transform: uppercase;
 
             @include below($xxl) {
@@ -534,7 +586,7 @@ $insights-thumb-space-v_md: 0.6rem;
           }
 
           &-text {
-            font: 2.8rem/3.6rem $font;
+            font: 300 2.8rem/3.6rem $font;
             letter-spacing: round-float(0.4 / 28, 2) * 1em;
             transform: translateY(2rem);
             opacity: 0;
