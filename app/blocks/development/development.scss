@@ -7,6 +7,10 @@
   height: 100%;
   overflow: hidden;
 
+  .main-page-section & {
+    height: calc(100vh - #{$header-height-top});
+  }
+
   @include below($xl) {
     height: auto;
     background-color: $bg-color-blue;

@@ -1,16 +1,9 @@
 @@include("blocks/head/head.html", {"title": "LinevGroup"})
 @@include("blocks/header/header.html", {"currentItem": "MainPage", "mods": ["float"]})
 <main class="main">
-  @@include("blocks/entry-alt/entry-alt.html", {
+  @@include("blocks/entry-alt/entry-alt-2.html", {
     "backgroundImage": "assets/images/entry-bg.jpg",
-    "title": "About LINEV Group",
-    "breadcrumbs": {
-      "items": [
-        {"href": "index.html", "text": "Home"},
-        {"href": "company.html", "text": "About LINEV Group"}
-      ],
-      "current": false
-    }
+    "title": "LINEV Group"
   })
 
   @@include("blocks/section-text-img-text/section-text-img-text-2.html")
@@ -21,6 +14,10 @@
 
   <section class="main-page-section main-page-section_bg-white">
     @@include("blocks/section-counter/section-counter-2.html")
+  </section>
+
+  <section class="main-page-section main-page-section_bg-blue before-ready after-ready animation-start active animation-end fp-completely">
+    @@include("blocks/development/development.html")
   </section>
 
   <section class="main-page-section main-page-section_bg-blue">
