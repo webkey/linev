@@ -35,14 +35,14 @@
     position: relative;
     margin: #{round-float($bottom-space * 2.25, 1)} 0 #{round-float($bottom-space * 1.25, 1)};
     color: #000;
-    font: 300 16rem/1 $font-title;
+    font: 300 #{$h1-font-size}/#{$h1-line-height_md} $font-title;
     letter-spacing: -0.025em;
     text-align: center;
     text-transform: uppercase;
 
     @include below($hd) {
-      font-size: 11.6rem;
-      line-height: round-float(11.6 / 11.6, 1);
+      font-size: $h1-font-size_md;
+      line-height: $h1-line-height_md;
       letter-spacing: round-float(-1.8 / 11.6 * 1em, 3);
     }
 

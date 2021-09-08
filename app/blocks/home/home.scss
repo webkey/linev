@@ -61,6 +61,15 @@
       pointer-events: none;
     }
 
+    &.shift-transform > div:first-child {
+      transform: translateY(-50%);
+      transition: transform 0.5s;
+    }
+
+    &.hide-shade > div:first-child {
+      transform: translateY(0);
+    }
+
     .footer-wrap {
       overflow: hidden;
     }

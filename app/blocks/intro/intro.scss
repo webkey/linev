@@ -3,14 +3,6 @@
   flex-wrap: wrap;
   height: 100%;
 
-  .main-page-restyle & {
-    height: calc(100vh - #{$header-height-top});
-
-    @include below($xl) {
-      height: auto;
-    }
-  }
-
   @include below($md) {
     display: block;
   }
@@ -43,7 +35,7 @@
     position: relative;
     display: flex;
     flex: 1 0 $width;
-    align-items: flex-end;
+    align-items: flex-start;
     max-width: $width;
     height: 50%;
     padding: #{$layout-page-space-v} #{$layout-page-space-h};
@@ -63,10 +55,6 @@
     @include below($md) {
       max-width: none;
       padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
-    }
-
-    .main-page-restyle & {
-      align-items: flex-start;
     }
 
     &-figure {
@@ -114,22 +102,6 @@
         font-size: 4.4rem;
         line-height: 5.2rem;
       }
-
-      .main-page-restyle & {
-        height: auto;
-        font: 300 #{$h4-font-size}/#{$h4-line-height_md} $font-title;
-        text-transform: uppercase;
-
-        @include below($hd) {
-          font-size: $h4-font-size_md;
-          line-height: $h4-line-height_md;
-        }
-
-        @include below($lg) {
-          font-size: $h4-font-size_md;
-          line-height: $h4-line-height_md;
-        }
-      }
     }
   }
 
@@ -160,50 +132,28 @@
       padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
 
-    .main-page-restyle & {
-      border-top: 1px solid $brand-color-grey-3;
-    }
-
     &-text {
       height: 100%;
       color: $text-color-black;
-      font: 300 3.2rem/4rem $font-title;
-      letter-spacing: 0.006em;
+      font: 300 2.4rem/3.2rem $font-title;
       text-transform: uppercase;
 
       @include below($hd) {
-        //font-size: 2.4rem; // По дизайну. Не помещается
-        font-size: 2.2rem;
-        //line-height: 3.2rem; // По дизайну. Не помещается
-        line-height: 2.8rem;
-        letter-spacing: 0.008em;
+        font-size: 1.6rem;
+        line-height: 2rem;
       }
 
       @include below($xl) {
         height: auto;
       }
-
-      .main-page-restyle & {
-        font: 300 2rem/3.2rem $font;
-
-        @include below($xl) {
-          font-size: 2rem;
-          line-height: 2.8rem;
-        }
-      }
     }
 
     &-footer {
       position: relative;
+      margin-top: 2.4rem;
 
       @include below($xl) {
         margin-top: auto;
-      }
-
-      .main-page-restyle & {
-        @include below($xl) {
-          margin-top: 2.4rem;
-        }
       }
     }
 
@@ -380,18 +330,19 @@
 
     &-title {
       color: $text-color-white;
-      font: 300 2.4rem/3.2rem $font-title;
-      letter-spacing: 0.006em;
+      font: 300 #{$h4-font-size}/#{$h4-line-height} $font-title;
       white-space: nowrap;
       text-transform: uppercase;
 
-      &_small {
-        text-transform: lowercase;
+      @include below($hd) {
+        font-size: #{$h4-font-size_md};
+        line-height: #{$h4-line-height_md};
       }
 
-      @include below($hd) {
-        font-size: 2rem;
-        line-height: 2.4rem;
+      &_small {
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+        text-transform: lowercase;
       }
 
       a {

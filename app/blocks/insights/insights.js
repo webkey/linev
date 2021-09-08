@@ -9,7 +9,7 @@ app.insights = {
     },
   },
   sliderElement: '.js-insights-slider',
-  slidesPerView: 2,
+  slidesPerView: 3,
   init() {
     if ($(this.tabs.el).length) {
       this.main();
@@ -74,6 +74,9 @@ app.insights = {
           },
 
           breakpoints: {
+            1599: {
+              slidesPerView: 2,
+            },
             767: {
               spaceBetween: 16,
             },

@@ -17,10 +17,19 @@ $font-button: "Open Sans Condensed", helvetica, arial, sans-serif;
 
 // Font size
 // ----------------------------------------------------
+$h1-font-size: 11.6rem !default;
+$h1-line-height: 1 !default;
+$h1-font-size_md: 8.4rem !default; // $hd
+$h1-line-height_md: 1 !default; // $hd
+$h1-font-size_sm: 5.2rem !default; // $lg
+$h1-line-height_sm: 1.1 !default; // $lg
+// ----------------------------------------------------
 $h2-font-size: 8.4rem !default;
 $h2-line-height: 1 !default;
-$h2-font-size_md: 5.6rem !default;
-$h2-line-height_md: 1.1 !default;
+$h2-font-size_md: 5.6rem !default; // $hd
+$h2-line-height_md: 1.1 !default; // $hd
+$h2-font-size_sm: 3.2rem !default; // $lg
+$h2-line-height_sm: 1.25 !default; // $lg
 // ----------------------------------------------------
 $h3-font-size: 6rem !default;
 $h3-line-height: 1.1 !default;
