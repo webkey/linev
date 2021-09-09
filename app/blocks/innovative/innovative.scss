@@ -229,7 +229,11 @@
     }
 
     &-item {
-      $panel-height: 38vh;
+      $panel-space-vt: 1vh;
+      $panel-space-vb: 4vh;
+      $panel-height: 50vh;
+      $button-area-height: 7.2rem;
+      $button-area-height_md: 6.2rem;
 
       position: relative;
       z-index: 1;
@@ -257,18 +261,19 @@
 
       &-header {
         $header: &;
-        $space-v: calc(10vh - #{$header-height-top / (5 * 2)} - #{(4rem / 2)} - #{$panel-height / (5 * 2)});
+        $count: 3; // количество элементов
+        $line-height: 3.2rem;
+        $title-inner-space-v: 0.4rem;
+        $title-inner-height: $line-height + $title-inner-space-v * 2; // Общая высота внутренней части шапки элемента аккордеона
+        $panel-height-total: $panel-height + $panel-space-vt + $panel-space-vb; // Общая высота раскрытой панели
+        $space-v: calc(((100vh - #{$header-height-top} - #{$panel-height-total} - #{$button-area-height}) / #{$count} - #{$title-inner-height}) / 2);
+        $space-v_md: calc(((100vh - #{$header-height-top} - #{$panel-height-total} - #{$button-area-height_md}) / #{$count} - #{$title-inner-height}) / 2);
 
         position: relative;
         z-index: 1;
         padding: $space-v #{$layout-page-space-h + 4rem - 1rem} $space-v #{$layout-page-space-h};
-        // Для компенсации статических элементов,
-        // из относительной высоты внутренних отступов вычитается:
-        // 1) высота шапки сайта разделенная на количество элементов ...-item * 2, т.к. отступы нижний и верхний
-        // 2) высота шапки пунктов разделенная на 2, т.к. отступы нижний и верхний
-        // 3) высота (тоже относительная) контента развернутого элемента разделенная на количество элементов ...-item * 2, т.к. отступы нижний и верхний
         color: $text-color-white;
-        font: 300 2.4rem/3.2rem $font-title;
+        font: 300 2.4rem/#{$line-height} $font-title;
         letter-spacing: 0.006em;
         text-transform: uppercase;
         cursor: pointer;
@@ -276,6 +281,8 @@
         user-select: none;
 
         @include below($hd) {
+          padding-top: $space-v_md;
+          padding-bottom: $space-v_md;
           font-size: 2rem;
         }
 
@@ -290,7 +297,7 @@
         }
 
         @include below($md) {
-          padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+          padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm + 3} #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
         }
 
         &::before {
@@ -308,7 +315,7 @@
           content: "";
           will-change: transform;
 
-          @include below($lg) {
+          @include below($xl) {
             content: none;
           }
         }
@@ -331,7 +338,7 @@
           position: relative;
           display: block;
           max-width: 100%;
-          padding: 0.4rem 0;
+          padding: #{$title-inner-space-v} 0;
           overflow: hidden;
           white-space: nowrap;
           text-overflow: ellipsis;
@@ -436,15 +443,13 @@
       &-panel {
         $panel: &;
 
-        max-height: $panel-height;
-        padding: 1vh #{$layout-page-space-h} 4.4vh;
+        padding: #{$panel-space-vt} #{$layout-page-space-h} #{$panel-space-vb};
 
         @include below($hd) {
           padding-bottom: 2.8rem;
         }
 
         @include below($xl) {
-          max-height: none;
           padding: 0 #{$layout-page-space-h_md} 2.4rem;
         }
 
@@ -455,13 +460,11 @@
         &-content {
           display: flex;
           flex-direction: column;
-          height: 100%;
           transform: translateY(-15%);
           opacity: 0;
           transition: $animation-speed;
 
           @include below($xl) {
-            height: auto;
             transform: none;
             opacity: 1;
           }
@@ -476,7 +479,7 @@
       &-body {
         position: relative;
         width: 100%;
-        height: 100%;
+        max-height: $panel-height;
         overflow: hidden;
         color: $text-color-white;
         font-size: 2.4rem;
@@ -489,32 +492,32 @@
         }
 
         @include below($xl) {
-          height: auto;
+          max-height: none;
           font-size: 2rem;
           line-height: 2.4rem;
         }
 
-        &::after {
-          $color: $bg-color-blue;
-
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          display: block;
-          height: 1.6rem;
-          background: linear-gradient(to top, rgba($color, 1) 0%, rgba($color, 0.9) 50%, rgba($color, 0) 100%);
-          content: none;
-
-          @include below($hd) {
-            height: 2.4rem;
-          }
-
-          @include below($xl) {
-            display: none;
-            content: none;
-          }
-        }
+        //&::after {
+        //  $color: $bg-color-blue;
+        //
+        //  position: absolute;
+        //  right: 0;
+        //  bottom: 0;
+        //  left: 0;
+        //  display: block;
+        //  height: 1.6rem;
+        //  background: linear-gradient(to top, rgba($color, 1) 0%, rgba($color, 0.9) 50%, rgba($color, 0) 100%);
+        //  content: "";
+        //
+        //  @include below($hd) {
+        //    height: 2.4rem;
+        //  }
+        //
+        //  @include below($xl) {
+        //    display: none;
+        //    content: none;
+        //  }
+        //}
 
         ul {
           margin: 0; // Важно! Отступы должны быть обнулены, чтобы корректно обрезало лишний текст
@@ -540,20 +543,28 @@
         }
       }
 
+      &-img {
+        position: relative;
+        height: 30vh;
+        margin-bottom: 2.4rem;
+
+        @include below($sm) {
+          height: 18rem;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
       &-footer {
         width: 100%;
-        padding-top: 2.5rem;
-
-        @include below($hd) {
-          padding-top: 0.8rem;
-        }
-
-        @include below($xl) {
-          padding-top: 2.4rem;
-        }
+        padding-top: 2.4rem;
 
         &:first-child {
-          margin-top: 0;
+          padding-top: 0;
         }
       }
     }

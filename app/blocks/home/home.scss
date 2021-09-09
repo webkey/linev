@@ -64,6 +64,10 @@
     &.shift-transform > div:first-child {
       transform: translateY(-50%);
       transition: transform 0.5s;
+
+      @include below($xl) {
+        transform: none;
+      }
     }
 
     &.hide-shade > div:first-child {

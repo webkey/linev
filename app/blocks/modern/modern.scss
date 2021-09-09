@@ -24,6 +24,18 @@
       background-position: center top;
       background-size: cover;
     }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 105rem;
+      max-width: 60%;
+      height: 100%;
+      background: linear-gradient(to right, #0d1623 0%, rgba(13, 22, 35, 0) 100%);
+      content: "";
+    }
   }
 
   &__data {
@@ -57,13 +69,13 @@
       line-height: #{$h2-line-height_md};
     }
 
-    @include below($lg) {
-      font-size: #{$h2-font-size_sm};
-      line-height: #{$h2-line-height_sm};
+    @include below($xl) {
+      margin-bottom: 2.4rem;
     }
   }
 
   &__accent-text {
+    position: relative;
     max-width: 62rem;
     margin-bottom: 3.6rem;
     color: $text-color-white;
@@ -74,6 +86,10 @@
       max-width: 52rem;
       font-size: #{$h4-font-size_md};
       line-height: #{$h4-line-height_md};
+    }
+
+    @include below($xl) {
+      margin-bottom: 2.4rem;
     }
   }
 
