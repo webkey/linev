@@ -2,6 +2,7 @@ app.home = {
   initEl: '#js-fp',
   sectionEl: '#js-fp > section',
   nextBtnEl: '.js-fp-next',
+  firstBtnEl: '.js-fp-first',
   typeTextAnimationEl: '.js-type-text-animation',
   duration: 500,
   init() {
@@ -114,9 +115,13 @@ app.home = {
         }
       },
       afterRender() {
-        $('.js-fp-first').on('click', (e) => {
+        $(self.firstBtnEl).on('click', (e) => {
           e.preventDefault();
           fullpage_api.moveTo(1);
+        });
+        $(self.nextBtnEl).on('click', (e) => {
+          e.preventDefault();
+          fullpage_api.moveSectionDown();
         });
       },
     });

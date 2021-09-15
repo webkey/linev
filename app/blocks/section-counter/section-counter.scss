@@ -113,7 +113,8 @@
     max-width: 100%;
     margin-top: auto;
     color: $text-color-blue;
-    font: 300 #{$h2-font-size}/#{$h2-line-height} $font-title;
+    //font: 300 #{$h2-font-size}/#{$h2-line-height} $font-title;
+    font: 300 #{$h3-font-size}/#{$h3-line-height} $font-title;
     letter-spacing: -#{floor-float(1.8 / 116, 3) * 1em};
     text-transform: uppercase;
 
@@ -125,25 +126,36 @@
     }
 
     @include below($hd) {
-      font-size: $h2-font-size_md;
-      line-height: $h2-line-height_md;
-      letter-spacing: normal;
-    }
-
-    @include below($xl) {
-      font-size: 5.6rem;
-      line-height: 6.4rem;
+      font-size: #{$h3-font-size_md};
+      line-height: #{$h3-line-height_md};
     }
 
     @include below($lg) {
-      font-size: 4.4rem;
-      line-height: 5.2rem;
-    }
-
-    @include below($md) {
+      width: 100%;
       font-size: 3.2rem;
       line-height: 4rem;
     }
+
+    //@include below($hd) {
+    //  font-size: $h2-font-size_md;
+    //  line-height: $h2-line-height_md;
+    //  letter-spacing: normal;
+    //}
+    //
+    //@include below($xl) {
+    //  font-size: 5.6rem;
+    //  line-height: 6.4rem;
+    //}
+    //
+    //@include below($lg) {
+    //  font-size: 4.4rem;
+    //  line-height: 5.2rem;
+    //}
+    //
+    //@include below($md) {
+    //  font-size: 3.2rem;
+    //  line-height: 4rem;
+    //}
 
     & > span {
       display: block;

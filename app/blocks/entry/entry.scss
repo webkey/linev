@@ -71,11 +71,6 @@
       letter-spacing: normal;
     }
 
-    @include below($xxl) {
-      font-size: 8.2rem;
-      line-height: 9rem;
-    }
-
     @include below($lg) {
       font-size: 5.6rem;
       line-height: 6.4rem;

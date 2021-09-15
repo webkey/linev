@@ -154,6 +154,7 @@
   }
 
   &__data {
+    $data: &;
     $width: 64.8%;
 
     position: relative;
@@ -163,6 +164,10 @@
     height: 100%;
     padding: #{$layout-page-space-v} #{$layout-page-space-h};
     background-color: $bg-color-white;
+
+    &_blue {
+      background-color: $bg-color-blue;
+    }
 
     @include below($hd) {
       $width: 64.8%;
@@ -231,7 +236,7 @@
           bottom: 0;
           left: 0;
           display: block;
-          background-color: $button-color-white;
+          background-color: $button-color-blue;
           transform: scaleY(0);
           transform-origin: right bottom;
           transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -239,41 +244,45 @@
           will-change: transform;
         }
 
-        #{$item}:nth-child(1) & {
-          &::before {
-            background-color: $brand-color-security;
-          }
+        #{$data}_blue &::before {
+          background-color: $button-color-white;
         }
 
-        #{$item}:nth-child(2) & {
-          &::before {
-            background-color: $brand-color-medical;
-          }
-        }
-
-        #{$item}:nth-child(3) & {
-          &::before {
-            background-color: $brand-color-innovation;
-          }
-        }
-
-        #{$item}:nth-child(4) & {
-          &::before {
-            background-color: $brand-color-science;
-          }
-        }
-
-        #{$item}:nth-child(5) & {
-          &::before {
-            background-color: $brand-color-security;
-          }
-        }
-
-        #{$item}:nth-child(6) & {
-          &::before {
-            background-color: $brand-color-medical;
-          }
-        }
+        //#{$item}:nth-child(1) & {
+        //  &::before {
+        //    background-color: $brand-color-security;
+        //  }
+        //}
+        //
+        //#{$item}:nth-child(2) & {
+        //  &::before {
+        //    background-color: $brand-color-medical;
+        //  }
+        //}
+        //
+        //#{$item}:nth-child(3) & {
+        //  &::before {
+        //    background-color: $brand-color-innovation;
+        //  }
+        //}
+        //
+        //#{$item}:nth-child(4) & {
+        //  &::before {
+        //    background-color: $brand-color-science;
+        //  }
+        //}
+        //
+        //#{$item}:nth-child(5) & {
+        //  &::before {
+        //    background-color: $brand-color-security;
+        //  }
+        //}
+        //
+        //#{$item}:nth-child(6) & {
+        //  &::before {
+        //    background-color: $brand-color-medical;
+        //  }
+        //}
 
         &:hover {
           &::before {
@@ -334,11 +343,17 @@
           display: inline-block;
           max-width: 100%;
           padding: 0.6rem 0;
+          color: $text-color-blue;
           font: 300 2rem/2.4rem $font-button;
           letter-spacing: 0.03rem;
           text-transform: uppercase;
           vertical-align: top;
-          transition: color $animation-speed-out;
+          box-shadow: inset 0 -2px 0 currentColor;
+          transition: all $animation-speed-out;
+
+          #{$data}_blue & {
+            color: $text-color-white;
+          }
 
           @include below($hd) {
             font-size: 1.6rem;
@@ -346,39 +361,45 @@
             letter-spacing: 0.06rem;
           }
 
-          #{$item}:nth-child(1) & {
-            color: $brand-color-security;
-            box-shadow: inset 0 -2px 0 $brand-color-security;
-          }
-
-          #{$item}:nth-child(2) & {
-            color: $brand-color-medical;
-            box-shadow: inset 0 -2px 0 $brand-color-medical;
-          }
-
-          #{$item}:nth-child(3) & {
-            color: $brand-color-innovation;
-            box-shadow: inset 0 -2px 0 $brand-color-innovation;
-          }
-
-          #{$item}:nth-child(4) & {
-            color: $brand-color-science;
-            box-shadow: inset 0 -2px 0 $brand-color-science;
-          }
-
-          #{$item}:nth-child(5) & {
-            color: $brand-color-security;
-            box-shadow: inset 0 -2px 0 $brand-color-security;
-          }
-
-          #{$item}:nth-child(6) & {
-            color: $brand-color-medical;
-            box-shadow: inset 0 -2px 0 $brand-color-medical;
-          }
+          //#{$item}:nth-child(1) & {
+          //  color: $brand-color-security;
+          //  box-shadow: inset 0 -2px 0 $brand-color-security;
+          //}
+          //
+          //#{$item}:nth-child(2) & {
+          //  color: $brand-color-medical;
+          //  box-shadow: inset 0 -2px 0 $brand-color-medical;
+          //}
+          //
+          //#{$item}:nth-child(3) & {
+          //  color: $brand-color-innovation;
+          //  box-shadow: inset 0 -2px 0 $brand-color-innovation;
+          //}
+          //
+          //#{$item}:nth-child(4) & {
+          //  color: $brand-color-science;
+          //  box-shadow: inset 0 -2px 0 $brand-color-science;
+          //}
+          //
+          //#{$item}:nth-child(5) & {
+          //  color: $brand-color-security;
+          //  box-shadow: inset 0 -2px 0 $brand-color-security;
+          //}
+          //
+          //#{$item}:nth-child(6) & {
+          //  color: $brand-color-medical;
+          //  box-shadow: inset 0 -2px 0 $brand-color-medical;
+          //}
 
           #{$el}:hover & {
             color: $text-color-white;
+            box-shadow: inset 0 -2px 0 $text-color-blue;
             transition: $animation-speed;
+          }
+
+          #{$data}_blue #{$el}:hover & {
+            color: $text-color-blue;
+            box-shadow: inset 0 -2px 0 $text-color-white;
           }
 
           & > span {

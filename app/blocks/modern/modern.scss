@@ -76,16 +76,19 @@
 
   &__accent-text {
     position: relative;
-    max-width: 62rem;
+    max-width: 92rem;
     margin-bottom: 3.6rem;
     color: $text-color-white;
-    font: 300 #{$h4-font-size}/#{$h4-line-height} $font-title;
+    //font: 300 #{$h4-font-size}/#{$h4-line-height} $font-title;
+    font: 300 5.2rem/5.6rem $font-title;
     text-transform: uppercase;
 
     @include below($hd) {
-      max-width: 52rem;
-      font-size: #{$h4-font-size_md};
-      line-height: #{$h4-line-height_md};
+      max-width: 62rem;
+      //font-size: #{$h4-font-size_md};
+      font-size: 3.2rem;
+      //line-height: #{$h4-line-height_md};
+      line-height: 4rem;
     }
 
     @include below($xl) {
@@ -95,7 +98,7 @@
 
   &__text {
     position: relative;
-    max-width: 62rem;
+    max-width: 72rem;
     margin-bottom: 1.6rem;
     color: $text-color-white;
     font-weight: 300;
@@ -110,6 +113,25 @@
   }
 
   &__footer {
-    margin-top: 3.2rem;
+    margin-top: 2rem;
+  }
+
+  &__more {
+    color: $button-color-blue;
+    font-weight: 300;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color $animation-speed;
+
+    @include below($hd) {
+      font-size: 2rem;
+      line-height: 2.4rem;
+    }
+
+    &:hover {
+      color: $button-color-white;
+    }
   }
 }
