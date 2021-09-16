@@ -14,23 +14,38 @@
 
   // На главной для $xl и выше
   &.is-collapsed {
-    @include above($xl) {
-      max-width: calc(100vw - 13rem - 8.2rem);
-      transform: translateX(8.2rem) translateY(-100%);
+    $left-intend: 24rem; // 8.2rem
+
+    max-width: calc(100vw - 16rem - #{$left-intend});
+    transform: translateX($left-intend) translateY(-100%);
+
+    @include below($hd) {
+      $left-intend: 15rem;
+
+      max-width: calc(100vw - 13rem - #{$left-intend});
+      transform: translateX($left-intend) translateY(-100%);
     }
 
-    @include above($hd) {
-      max-width: calc(100vw - 16rem - 8.2rem);
+    @include below($xxl) {
+      $left-intend: 10rem;
+
+      max-width: calc(100vw - 13rem - #{$left-intend});
+      transform: translateX($left-intend) translateY(-100%);
     }
   }
 
   // Для всех страниц с дефолтным скроллом
   .scrolled & {
-    max-width: calc(100vw - 16rem - 8.2rem);
-    transform: translateX(8.2rem) translateY(-100%);
+    $left-intend: 24rem; // 8.2rem
+
+    max-width: calc(100vw - 16rem - #{$left-intend});
+    transform: translateX($left-intend) translateY(-100%);
 
     @include below($hd) {
-      max-width: calc(100vw - 13rem - 8.2rem);
+      $left-intend: 15rem;
+
+      max-width: calc(100vw - 13rem - #{$left-intend});
+      transform: translateX($left-intend) translateY(-100%);
     }
 
     @include below($xl) {

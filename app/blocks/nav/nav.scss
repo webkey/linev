@@ -4,19 +4,21 @@
   letter-spacing: 0.007em;
   transition: opacity $animation-speed;
 
-  @include below($xxl) {
+  @include below($hd) {
     font-size: 2rem;
     line-height: 2.4rem;
   }
 
+  @include below($xxl) {
+    font-size: 1.6rem;
+  }
+
   @include below($xl) {
-    font-size: 1.8rem;
-    line-height: 2.4rem;
+    font-size: 1.4rem;
   }
 
   @include below($lg) {
     font-size: 2rem;
-    line-height: 2.4rem;
   }
 
   &__list {

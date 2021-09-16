@@ -163,7 +163,8 @@
       line-height: 3.2rem;
       text-transform: uppercase;
       text-decoration: none;
-      transition: color $animation-speed;
+      border-bottom: 1px dashed currentColor;
+      transition: border-color $animation-speed;
 
       @include below($hd) {
         font-size: 2rem;
@@ -171,7 +172,7 @@
       }
 
       &:hover {
-        color: $button-color-black;
+        border-color: transparent;
       }
     }
   }
@@ -310,7 +311,7 @@
         &:hover {
           &::before {
             transform: scaleY(1);
-            transition-duration: $animation-speed * 3;
+            transition-duration: $animation-speed * 1.5;
           }
         }
 
@@ -339,11 +340,10 @@
             }
           }
 
-          &-img {
-            width: 100%;
+          &-inner {
+            position: relative;
             height: 100%;
-            object-fit: cover;
-            backface-visibility: hidden;
+            background-color: $bg-color-blue;
             transition: $animation-speed-out;
 
             @include below($xl) {
@@ -356,7 +356,29 @@
 
             #{$el}:hover & {
               transform: scale(0.88);
-              transition: $animation-speed;
+              transition-duration: $animation-speed;
+            }
+          }
+
+          &-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            backface-visibility: hidden;
+            opacity: 0.5;
+            transition: opacity $animation-speed-out;
+
+            @include below($xl) {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            }
+
+            #{$el}:hover & {
+              opacity: 1;
+              transition-duration: $animation-speed;
             }
           }
         }
@@ -365,17 +387,18 @@
           position: relative;
           display: inline-block;
           max-width: 100%;
-          padding: 0.6rem 0;
-          color: $text-color-blue;
           font: 300 2rem/2.4rem $font-button;
           letter-spacing: 0.03rem;
           text-transform: uppercase;
           vertical-align: top;
-          box-shadow: inset 0 -2px 0 currentColor;
-          transition: all $animation-speed-out;
+          box-shadow: inset 0 -2px 0 $text-color-blue;
+          transition: {
+            property: box-shadow;
+            duration: $animation-speed-out;
+          };
 
           #{$data}_blue & {
-            color: $text-color-white;
+            box-shadow: inset 0 -2px 0 $text-color-white;
           }
 
           @include below($hd) {
@@ -384,59 +407,42 @@
             letter-spacing: 0.06rem;
           }
 
-          //#{$item}:nth-child(1) & {
-          //  color: $brand-color-security;
-          //  box-shadow: inset 0 -2px 0 $brand-color-security;
-          //}
-          //
-          //#{$item}:nth-child(2) & {
-          //  color: $brand-color-medical;
-          //  box-shadow: inset 0 -2px 0 $brand-color-medical;
-          //}
-          //
-          //#{$item}:nth-child(3) & {
-          //  color: $brand-color-innovation;
-          //  box-shadow: inset 0 -2px 0 $brand-color-innovation;
-          //}
-          //
-          //#{$item}:nth-child(4) & {
-          //  color: $brand-color-science;
-          //  box-shadow: inset 0 -2px 0 $brand-color-science;
-          //}
-          //
-          //#{$item}:nth-child(5) & {
-          //  color: $brand-color-security;
-          //  box-shadow: inset 0 -2px 0 $brand-color-security;
-          //}
-          //
-          //#{$item}:nth-child(6) & {
-          //  color: $brand-color-medical;
-          //  box-shadow: inset 0 -2px 0 $brand-color-medical;
-          //}
-
           #{$el}:hover & {
-            color: $text-color-white;
             box-shadow: inset 0 -2px 0 $text-color-blue;
-            transition: $animation-speed;
+            transition-duration: $animation-speed;
           }
 
-          #{$data}_blue #{$el}:hover & {
+          &-inner {
+            padding: 0.6rem 0;
             color: $text-color-blue;
-            box-shadow: inset 0 -2px 0 $text-color-white;
-          }
-
-          & > span {
-            position: relative;
-            display: block;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
             transform-origin: bottom left;
-            transition: transform $animation-speed-out;
+            transition: {
+              property: color, transform;
+              duration: $animation-speed-out;
+            };
+
+            #{$data}_blue & {
+              color: $text-color-white;
+            }
 
             #{$el}:hover & {
+              color: $text-color-white;
+              box-shadow: inset 0 -2px 0 $text-color-blue;
               transform: translateX(3.5rem) translateY(-1.5rem) scale(0.88, 1);
-              transition: $animation-speed;
+              transition-duration: $animation-speed;
+            }
+
+            #{$data}_blue #{$el}:hover & {
+              color: $text-color-blue;
+              box-shadow: inset 0 -2px 0 $text-color-white;
+            }
+
+            & > span {
+              position: relative;
+              display: block;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
             }
           }
         }

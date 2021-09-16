@@ -24,3 +24,4 @@ app.contactsForm.init();
 app.scrollToSection.init();
 app.sectionHeading.init();
 app.newsFeed.init();
+app.showMore.init();

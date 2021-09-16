@@ -12,7 +12,7 @@ app.innovative = {
     const self = this;
     const $el = $(self.el);
     if ($el.length) {
-      $el.msRolls({
+      const instance = $el.msRolls({
         item: self.item,
         header: self.header,
         switcher: self.switcher,
@@ -21,6 +21,7 @@ app.innovative = {
           activeClass: self.modifiers.activeClass,
         },
       });
+      instance.msRolls('open', $('#activePanel'));
     }
   },
 };
