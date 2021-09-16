@@ -151,6 +151,29 @@
         }
       }
     }
+
+    &-footer {
+      margin-top: 2rem;
+    }
+
+    &-more {
+      color: $button-color-white;
+      font-weight: 300;
+      font-size: 2.4rem;
+      line-height: 3.2rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color $animation-speed;
+
+      @include below($hd) {
+        font-size: 2rem;
+        line-height: 2.4rem;
+      }
+
+      &:hover {
+        color: $button-color-black;
+      }
+    }
   }
 
   &__data {

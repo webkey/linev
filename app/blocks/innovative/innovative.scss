@@ -105,6 +105,10 @@
       font: 300 #{$h3-font-size}/#{$h3-line-height} $font-title;
       text-transform: uppercase;
 
+      &_blue {
+        color: $text-color-blue;
+      }
+
       @include below($hd) {
         font-size: #{$h3-font-size_md};
         line-height: #{$h3-line-height_md};
@@ -160,6 +164,14 @@
       color: $text-color-white;
       font: 500 3.2rem/4rem $font-title;
       letter-spacing: 0.006em;
+
+      &_blue {
+        color: $text-color-blue;
+      }
+
+      &_black {
+        color: $button-color-black;
+      }
 
       @include below($hd) {
         max-width: 45rem;

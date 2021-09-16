@@ -57,7 +57,17 @@
       </div>
     </li>
 
-    <li class="nav__li js-nav-li has-drop@@if(context.currentItem == 'Newsroom'){ current is-open} slide-fade-up-in-short delay-3">
+    <li class="nav__li js-nav-li@@if(context.currentItem == 'Expertise'){ current is-open} slide-fade-up-in-short delay-3">
+      @@if(context.currentItem == 'Technologies'){
+      <span class="nav__li-el">Technologies</span>
+      }
+      @@if(context.currentItem != 'Technologies'){
+      <a class="nav__li-el" href="expertise.html">Technologies</a>
+      }
+      <em class="nav__li-arrow js-nav-arrow">&#9660;</em>
+    </li>
+
+    <li class="nav__li js-nav-li has-drop@@if(context.currentItem == 'Newsroom'){ current is-open} slide-fade-up-in-short delay-4">
       @@if(context.currentItem == 'Businesses'){
       <span class="nav__li-el">Our Thinking</span>
       }
@@ -95,9 +105,7 @@
       </div>
     </li>
 
-
-
-    <li class="nav__li js-nav-li has-drop@@if(context.currentItem == 'Innovation'){ current is-open} slide-fade-up-in-short delay-4">
+    <li class="nav__li js-nav-li has-drop@@if(context.currentItem == 'Innovation'){ current is-open} slide-fade-up-in-short delay-5">
       @@if(context.currentItem == 'Innovation'){
       <span class="nav__li-el">About</span>
       }
@@ -136,7 +144,7 @@
       </div>
     </li>
 
-    <li class="nav__li js-nav-li has-drop@@if(context.currentItem == 'News'){ current is-open} slide-fade-up-in-short delay-5">
+    <li class="nav__li js-nav-li has-drop@@if(context.currentItem == 'News'){ current is-open} slide-fade-up-in-short delay-6">
       @@if(context.currentItem == 'News'){
       <span class="nav__li-el">Contacts</span>
       }
