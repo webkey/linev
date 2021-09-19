@@ -1,4 +1,6 @@
 .innovative {
+  $section: &;
+
   display: flex;
   flex-wrap: wrap;
   height: 100%;
@@ -28,13 +30,37 @@
     width: 100%;
     height: 100%;
 
+    .home-section_theme-dark & {
+      background-color: $bg-color-black;
+    }
+
+    .home-section_theme-light-blue & {
+      background-color: $bg-color-blue;
+    }
+
+    .home-section_theme-light-gray & {
+      background-color: $bg-color-white;
+    }
+
     &-inner {
       height: 100%;
       font-size: 0;
       line-height: 0;
       background-repeat: no-repeat;
-      background-position: center;
+      background-position: left center;
       background-size: cover;
+
+      .home-section_theme-dark & {
+        opacity: 0.9;
+      }
+
+      .home-section_theme-light-blue & {
+        opacity: 0.2;
+      }
+
+      .home-section_theme-light-gray & {
+        opacity: 0.2;
+      }
 
       @include below($xl) {
         display: none;
@@ -51,7 +77,6 @@
     max-width: $width;
     height: 100%;
     padding: #{$layout-page-space-v} #{$layout-page-space-h};
-    //background-color: $bg-color-blue;
 
     @include below($hd) {
       $width: 50%;
@@ -74,6 +99,18 @@
       height: auto;
       min-height: 36rem;
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+
+      .home-section_theme-dark & {
+        background-color: $bg-color-black;
+      }
+
+      .home-section_theme-light-blue & {
+        background-color: $bg-color-blue;
+      }
+
+      .home-section_theme-light-gray & {
+        background-color: $bg-color-white;
+      }
     }
 
     @include below($md) {
@@ -90,11 +127,23 @@
       font-size: 0;
       line-height: 0;
       background-repeat: no-repeat;
-      background-position: center bottom;
+      background-position: left center;
       background-size: cover;
 
       @include below($xl) {
         display: block;
+
+        .home-section_theme-dark & {
+          opacity: 0.9;
+        }
+
+        .home-section_theme-light-blue & {
+          opacity: 0.2;
+        }
+
+        .home-section_theme-light-gray & {
+          opacity: 0.2;
+        }
       }
     }
 
@@ -106,6 +155,18 @@
       text-transform: uppercase;
 
       &_blue {
+        color: $text-color-blue;
+      }
+
+      .home-section_theme-dark & {
+        color: $text-color-white;
+      }
+
+      .home-section_theme-light-blue & {
+        color: $text-color-white;
+      }
+
+      .home-section_theme-light-gray & {
         color: $text-color-blue;
       }
 
@@ -171,6 +232,18 @@
 
       &_black {
         color: $button-color-black;
+      }
+
+      .home-section_theme-dark & {
+        color: $text-color-white;
+      }
+
+      .home-section_theme-light-blue & {
+        color: $text-color-white;
+      }
+
+      .home-section_theme-light-gray & {
+        color: $text-color-black;
       }
 
       @include below($hd) {

@@ -1,11 +1,11 @@
 .intro-linev {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   height: 100%;
 
-  @include below($md) {
+  @include below($xl) {
     display: block;
+    height: auto;
   }
 
   &__bg {
@@ -43,6 +43,10 @@
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
+    @include below($lg) {
+      display: block;
+    }
+
     @include below($md) {
       padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
@@ -61,12 +65,25 @@
       }
 
       @include below($lg) {
+        margin-bottom: 1.2rem;
         font-size: $h1-font-size_sm;
         line-height: $h1-line-height_sm;
       }
     }
 
     &-person {
+      @include below($lg) {
+        text-align: right;
+      }
+
+      &-holder {
+        @include below($lg) {
+          display: inline-block;
+          text-align: left;
+          vertical-align: top;
+        }
+      }
+
       &-title {
         margin-bottom: 0.8rem;
         color: $text-color-white;
@@ -116,12 +133,22 @@
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
+    @include below($lg) {
+      display: block;
+    }
+
     @include below($md) {
+      margin-top: 4rem;
       padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
 
     &-person {
       margin-right: 2.4rem;
+
+      @include below($lg) {
+        margin-right: 0;
+        margin-bottom: 2.4rem;
+      }
 
       &-title {
         margin-bottom: 0.8rem;
@@ -161,8 +188,15 @@
         width: 60.4rem;
       }
 
+      @include below($lg) {
+        width: 42rem;
+        max-width: 80%;
+        margin-left: auto;
+      }
+
       &-q {
         position: relative;
+        display: block;
         padding-top: 4.4rem;
         color: $text-color-white;
         font-weight: 300;
@@ -170,9 +204,14 @@
         line-height: 3.2rem;
 
         @include below($hd) {
-          margin-top: 4rem;
+          padding-top: 4rem;
           font-size: 2rem;
           line-height: 2.8rem;
+        }
+
+        @include below($lg) {
+          font-size: 1.8rem;
+          line-height: 2.4rem;
         }
 
         &::after {

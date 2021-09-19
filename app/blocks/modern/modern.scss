@@ -23,6 +23,10 @@
       background-repeat: no-repeat;
       background-position: center top;
       background-size: cover;
+
+      @include below($md) {
+        background-position: 80% center;
+      }
     }
 
     &::after {
@@ -65,12 +69,17 @@
     text-transform: uppercase;
 
     @include below($hd) {
-      font-size: #{$h2-font-size_md};
-      line-height: #{$h2-line-height_md};
+      font-size: #{$h1-font-size_md};
+      line-height: #{$h1-line-height_md};
     }
 
     @include below($xl) {
       margin-bottom: 2.4rem;
+    }
+
+    @include below($lg) {
+      font-size: #{$h1-font-size_sm};
+      line-height: #{$h1-line-height_sm};
     }
   }
 
@@ -93,6 +102,8 @@
 
     @include below($xl) {
       margin-bottom: 2.4rem;
+      font-size: 2.4rem;
+      line-height: 3.2rem;
     }
   }
 

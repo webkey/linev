@@ -4,6 +4,8 @@ $insights-thumb-space-v: 0.6rem;
 $insights-thumb-space-v_md: 0.6rem;
 
 .insights {
+  $section: &;
+
   display: flex;
   flex-wrap: wrap;
   height: 100%;
@@ -27,6 +29,18 @@ $insights-thumb-space-v_md: 0.6rem;
     width: 100%;
     height: 100%;
 
+    .home-section_theme-dark & {
+      background-color: $bg-color-black;
+    }
+
+    .home-section_theme-light-blue & {
+      background-color: $bg-color-blue;
+    }
+
+    .home-section_theme-light-gray & {
+      background-color: $bg-color-white;
+    }
+
     @include below($lg) {
       display: none;
     }
@@ -36,8 +50,20 @@ $insights-thumb-space-v_md: 0.6rem;
       font-size: 0;
       line-height: 0;
       background-repeat: no-repeat;
-      background-position: center;
+      background-position: left center;
       background-size: cover;
+
+      .home-section_theme-dark & {
+        opacity: 0.9;
+      }
+
+      .home-section_theme-light-blue & {
+        opacity: 0.2;
+      }
+
+      .home-section_theme-light-gray & {
+        opacity: 0.2;
+      }
     }
   }
 
@@ -69,6 +95,18 @@ $insights-thumb-space-v_md: 0.6rem;
       width: auto;
       max-width: none;
       min-height: 36rem;
+
+      .home-section_theme-dark & {
+        background-color: $bg-color-black;
+      }
+
+      .home-section_theme-light-blue & {
+        background-color: $bg-color-blue;
+      }
+
+      .home-section_theme-light-gray & {
+        background-color: $bg-color-white;
+      }
     }
 
     @include below($md) {
@@ -85,15 +123,22 @@ $insights-thumb-space-v_md: 0.6rem;
       font-size: 0;
       line-height: 0;
       background-repeat: no-repeat;
-      background-position: left bottom;
-      background-size: 140%;
+      background-position: left center;
+
+      .home-section_theme-dark & {
+        opacity: 0.9;
+      }
+
+      .home-section_theme-light-blue & {
+        opacity: 0.2;
+      }
+
+      .home-section_theme-light-gray & {
+        opacity: 0.2;
+      }
 
       @include below($lg) {
         display: block;
-      }
-
-      @include below($md) {
-        background-size: 200%;
       }
     }
 
@@ -103,6 +148,18 @@ $insights-thumb-space-v_md: 0.6rem;
       color: $text-color-blue;
       font: 300 #{$h3-font-size}/#{$h3-line-height} $font-title;
       text-transform: uppercase;
+
+      .home-section_theme-dark & {
+        color: $text-color-white;
+      }
+
+      .home-section_theme-light-blue & {
+        color: $text-color-white;
+      }
+
+      .home-section_theme-light-gray & {
+        color: $text-color-blue;
+      }
 
       @include below($hd) {
         font-size: #{$h3-font-size_md};
@@ -155,6 +212,18 @@ $insights-thumb-space-v_md: 0.6rem;
       color: $text-color-black;
       font: 300 3.2rem/4rem $font-title;
       letter-spacing: 0.006em;
+
+      .home-section_theme-dark & {
+        color: $text-color-white;
+      }
+
+      .home-section_theme-light-blue & {
+        color: $text-color-white;
+      }
+
+      .home-section_theme-light-gray & {
+        color: $text-color-black;
+      }
 
       @include below($hd) {
         max-width: 45rem;
