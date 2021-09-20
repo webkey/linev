@@ -49,59 +49,34 @@
       text-transform: uppercase;
 
       @include below($hd) {
-        font-size: #{$h3-font-size_md};
-        line-height: #{$h3-line-height_md};
+        font-size: $h3-font-size_md;
+        line-height: $h3-line-height_md;
       }
 
       @include below($xl) {
         width: 100%;
       }
 
-      .main-page-restyle & {
-        height: auto;
-        margin-bottom: 2.4rem;
-        color: $text-color-white;
-        font: 300 #{$h4-font-size}/#{$h4-line-height_md} $font-title;
-        text-transform: uppercase;
-
-        @include below($hd) {
-          font-size: $h4-font-size_md;
-          line-height: $h4-line-height_md;
-        }
-
-        @include below($xl) {
-          margin-bottom: #{$layout-page-space-v_md};
-          font-size: $h4-font-size_md;
-          line-height: $h4-line-height_md;
-        }
-
-        @include below($lg) {
-          font-size: $h4-font-size_md;
-          line-height: $h4-line-height_md;
-        }
-
-        @include below($md) {
-          margin-bottom: #{$layout-page-space-v_sm};
-          font-size: $h4-font-size_md;
-          line-height: $h4-line-height_md;
-        }
-
-        &:last-child {
-          margin-bottom: 0;
-        }
+      @include below($lg) {
+        font-size: $h3-font-size_sm;
+        line-height: $h3-line-height_sm;
       }
     }
 
     &-text {
-      max-width: 55rem;
+      max-width: 45rem;
       color: $text-color-white;
-      font: 500 3.2rem/4rem $font-title;
-      letter-spacing: 0.006em;
+      font: 500 #{$large-text-font-size}/#{$large-text-line-height} $font-title;
 
       @include below($hd) {
-        max-width: 45rem;
-        font-size: 2.4rem;
-        line-height: 3.2rem;
+        max-width: 40rem;
+        font-size: $large-text-font-size_md;
+        line-height: $large-text-line-height_md;
+      }
+
+      @include below($lg) {
+        font-size: $large-text-font-size_sm;
+        line-height: $large-text-line-height_sm;
       }
 
       &_script {

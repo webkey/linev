@@ -1,17 +1,17 @@
 .nav {
   display: block;
-  font: 300 2.4rem/1.29 $font;
+  font: 300 1.6rem/1.29 $font;
   letter-spacing: 0.007em;
   transition: opacity $animation-speed;
 
-  @include below($hd) {
-    font-size: 2rem;
-    line-height: 2.4rem;
-  }
-
-  @include below($xxl) {
-    font-size: 1.6rem;
-  }
+  //@include below($hd) {
+  //  font-size: 2rem;
+  //  line-height: 2.4rem;
+  //}
+  //
+  //@include below($xxl) {
+  //  font-size: 1.6rem;
+  //}
 
   @include below($xl) {
     font-size: 1.4rem;
@@ -26,10 +26,6 @@
     align-items: flex-start;
     justify-content: space-between;
     margin: 0 -2.4rem;
-
-    @include below($hd) {
-      justify-content: space-between;
-    }
 
     @include below($lg) {
       display: block;
@@ -141,7 +137,7 @@
       right: 1.2rem; // Выровнять по правому краю пункта стрелку
       width: $size;
       height: $size;
-      margin-top: -#{$size / 2 - 0.3};
+      margin-top: -#{$size / 2 - 0.1};
       font-size: 0;
       line-height: 0;
       //background-color: rgba(peru, 0.5);
@@ -153,7 +149,7 @@
       -webkit-tap-highlight-color: transparent;
 
       @include below($hd) {
-        margin-top: -#{$size / 2 - 0.2};
+        margin-top: -#{$size / 2};
       }
 
       @include below($lg) {
@@ -164,7 +160,7 @@
 
       &::before,
       &::after {
-        $size: 3.2rem;
+        $size: 2.6rem; // 3.2rem
 
         position: absolute;
         top: 50%;
@@ -391,7 +387,8 @@
       $size: 3.2rem;
 
       position: absolute;
-      top: 1.7rem;
+      //top: 1.7rem;
+      top: 1rem;
       right: 0;
       width: $size;
       height: $size;

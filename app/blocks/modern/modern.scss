@@ -113,13 +113,18 @@
     margin-bottom: 1.6rem;
     color: $text-color-white;
     font-weight: 300;
-    font-size: 2.4rem;
-    line-height: 3.2rem;
+    font-size: $large-text-font-size;
+    line-height: $large-text-line-height;
 
     @include below($hd) {
       max-width: 52rem;
-      font-size: 1.6rem;
-      line-height: 2rem;
+      font-size: $large-text-font-size_md;
+      line-height: $large-text-line-height_md;
+    }
+
+    @include below($lg) {
+      font-size: $large-text-font-size_sm;
+      line-height: $large-text-line-height_sm;
     }
   }
 

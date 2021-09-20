@@ -14,19 +14,26 @@
 
   // На главной для $xl и выше
   &.is-collapsed {
-    $left-intend: 24rem; // 8.2rem
+    $left-intend: 80rem; // 8.2rem
 
     max-width: calc(100vw - 16rem - #{$left-intend});
     transform: translateX($left-intend) translateY(-100%);
 
     @include below($hd) {
-      $left-intend: 15rem;
+      $left-intend: 30rem;
 
       max-width: calc(100vw - 13rem - #{$left-intend});
       transform: translateX($left-intend) translateY(-100%);
     }
 
     @include below($xxl) {
+      $left-intend: 13rem;
+
+      max-width: calc(100vw - 13rem - #{$left-intend});
+      transform: translateX($left-intend) translateY(-100%);
+    }
+
+    @include below($xl) {
       $left-intend: 10rem;
 
       max-width: calc(100vw - 13rem - #{$left-intend});

@@ -17,7 +17,7 @@ $font-button: "Open Sans Condensed", helvetica, arial, sans-serif;
 
 // Font size
 // ----------------------------------------------------
-$h1-font-size: 11.6rem !default;
+$h1-font-size: 11.6rem !default; // 11.6
 $h1-line-height: 1 !default;
 $h1-font-size_md: 8.4rem !default; // $hd
 $h1-line-height_md: 1 !default; // $hd
@@ -33,13 +33,22 @@ $h2-line-height_sm: 1.25 !default; // $lg
 // ----------------------------------------------------
 $h3-font-size: 6rem !default;
 $h3-line-height: 1.1 !default;
-$h3-font-size_md: 4.4rem !default;
-$h3-line-height_md: 1.2 !default;
+$h3-font-size_md: 4.4rem !default; // $hd
+$h3-line-height_md: 1.2 !default; // $hd
+$h3-font-size_sm: 3.2rem !default; // $lg
+$h3-line-height_sm: 1.25 !default; // $lg
 // ----------------------------------------------------
 $h4-font-size: 4.2rem !default;
 $h4-line-height: 1.1 !default;
-$h4-font-size_md: 3.2rem !default;
-$h4-line-height_md: 1.2 !default;
+$h4-font-size_md: 3.2rem !default; // $hd
+$h4-line-height_md: 1.25 !default; // $hd
+// ----------------------------------------------------
+$large-text-font-size: 2.4rem !default;
+$large-text-line-height: 3.2rem !default;
+$large-text-font-size_md: 1.6rem !default; // $hd
+$large-text-line-height_md: 2rem !default; // $hd
+$large-text-font-size_sm: 1.6rem !default; // $lg
+$large-text-line-height_sm: 2rem !default; // $lg
 
 // Colors
 // ====================================================
