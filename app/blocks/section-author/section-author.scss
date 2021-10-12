@@ -27,16 +27,18 @@
   }
 
   &__row {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: #{$layout-page-space-v};
+    //display: flex;
+    //align-items: flex-start;
+    max-width: 120rem;
+    //margin-bottom: #{$layout-page-space-v};
+    margin: 0 auto #{$layout-page-space-v};
 
     @include below($lg) {
       margin-bottom: #{$layout-page-space-v_md};
     }
 
     @include below($md) {
-      display: block;
+      //display: block;
       margin-bottom: #{$layout-page-space-v_sm};
     }
 
@@ -46,14 +48,15 @@
   }
 
   &__title {
-    $width: 34%;
+    //$width: 34%;
 
-    flex: 1 0 $width;
-    max-width: $width;
-    padding-right: 2.8rem;
+    //flex: 1 0 $width;
+    //max-width: $width;
+    //padding-right: 2.8rem;
+    margin-bottom: 2.8rem;
 
     @include below($md) {
-      max-width: none;
+      //max-width: none;
       margin-bottom: #{$layout-page-space-v_sm};
       padding: 0;
     }
@@ -131,10 +134,10 @@
   }
 
   &__description {
-    $width: 66%;
+    //$width: 66%;
 
-    flex: 1 0 $width;
-    max-width: $width;
+    //flex: 1 0 $width;
+    //max-width: $width;
     color: $text-color-black;
     //font-size: 2.6rem;
     //line-height: 3.4rem;
@@ -148,7 +151,7 @@
     //}
 
     @include below($md) {
-      max-width: none;
+      //max-width: none;
       font-size: 1.6rem;
       line-height: 2rem;
     }
