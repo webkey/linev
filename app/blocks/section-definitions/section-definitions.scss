@@ -93,21 +93,12 @@
   }
 
   &__description {
-    //$width: 66%;
+    $content: &;
 
-    //flex: 1 0 $width;
-    //max-width: $width;
     color: $text-color-black;
-    //font-size: 2.6rem;
-    //line-height: 3.4rem;
     font-size: 2rem;
     line-height: 2.8rem;
     letter-spacing: 0.02em;
-
-    //@include below($hd) {
-    //  font-size: 2rem;
-    //  line-height: 2.8rem;
-    //}
 
     @include below($md) {
       //max-width: none;
@@ -115,16 +106,535 @@
       line-height: 2rem;
     }
 
-    p {
-      //margin-bottom: 3.4rem;
-      margin-bottom: 2.8rem;
+    a:not([class*=button-]) {
+      color: $link-color;
+      text-decoration: none;
+      word-wrap: break-word;
+      -webkit-tap-highlight-color: transparent;
 
-      //@include below($hd) {
-      //  margin-bottom: 2.8rem;
-      //}
+      &:visited {
+        color: $visited-color;
+        text-decoration: none;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    p,
+    .p {
+      margin: $bottom-space 0;
 
       @include below($md) {
-        margin-bottom: #{$layout-page-space-v_sm};
+        margin-bottom: $bottom-space_mob;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h2,
+    .h2 {
+      margin: #{round-float($bottom-space * 2.25, 1)} 0 #{round-float($bottom-space * 1.25, 1)};
+      color: $text-color-black;
+      //font: 300 #{$h2-font-size}/#{$h2-line-height_md} $font-title;
+      font: 300 3.6rem/1.1 $font-title;
+
+      @include below($hd) {
+        font-size: $h2-font-size_md;
+        line-height: $h2-line-height_md;
+      }
+
+      @include below($md) {
+        margin: #{round-float($bottom-space_mob * 2.25, 1)} 0 #{round-float($bottom-space_mob * 1.25, 1)};
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h3,
+    .h3 {
+      margin: #{round-float($bottom-space * 2.25, 1)} 0 #{round-float($bottom-space * 1.25, 1)};
+      color: $text-color-black;
+      //font: 300 #{$h3-font-size}/#{$h3-line-height} $font-title;
+      font: 300 3.2rem/1.2 $font-title;
+
+      @include below($hd) {
+        font-size: $h3-font-size_md;
+        line-height: $h3-line-height_md;
+      }
+
+      @include below($md) {
+        margin: #{round-float($bottom-space_mob * 2.25, 1)} 0 #{round-float($bottom-space_mob * 1.25, 1)};
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h4,
+    .h4 {
+      margin: #{round-float($bottom-space * 1.5, 1)} 0 $bottom-space;
+      color: $text-color-black;
+      //font: 300 #{$h4-font-size}/#{$h4-line-height} $font-title;
+      font: 300 2.8rem/1.25 $font-title;
+
+      @include below($hd) {
+        font-size: $h4-font-size_md;
+        line-height: $h4-line-height_md;
+      }
+
+      @include below($md) {
+        margin: #{round-float($bottom-space_mob * 1.5, 1)} 0 $bottom-space_mob;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h5,
+    .h5 {
+      margin: #{round-float($bottom-space * 1.5, 1)} 0 $bottom-space;
+      color: $text-color-black;
+      font: 300 2.4rem/1.34 $font-title;
+
+      @include below($md) {
+        margin: #{round-float($bottom-space_mob * 1.5, 1)} 0 $bottom-space_mob;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h6,
+    .h6 {
+      margin: #{round-float($bottom-space * 1.5, 1)} 0 $bottom-space;
+      color: $text-color-black;
+      font: 300 1.8rem/1.5 $font-title;
+      text-transform: uppercase;
+
+      @include below($md) {
+        margin: #{round-float($bottom-space_mob * 1.5, 1)} 0 $bottom-space_mob;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3,
+    h4,
+    .h4,
+    h5,
+    .h5,
+    h6,
+    .h6 {
+      a:not([class*=button-]) {
+        color: inherit;
+        text-decoration: none;
+
+        &:visited {
+          color: inherit;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    // Blockquote
+    blockquote {
+      position: relative;
+      display: block;
+      width: 72rem;
+      margin: #{$bottom-space} auto;
+      padding: 0;
+
+      img {
+        display: block;
+        width: 12rem;
+        max-width: 100%;
+        height: 12rem;
+        margin: 0 auto 2.8rem;
+        border-radius: 6rem;
+      }
+
+      q {
+        position: relative;
+        display: block;
+        margin: 0;
+        padding: 0 0 1.4rem;
+        color: $text-color-blue;
+        font-weight: normal;
+        font-size: 1.2em;
+        line-height: 1.3;
+        text-align: center;
+        text-transform: uppercase;
+
+        &::before {
+          content: "«";
+        }
+
+        &::after {
+          content: "»";
+        }
+      }
+
+      cite {
+        display: block;
+        color: $text-color-grey;
+        font-size: inherit;
+        font-style: normal;
+        line-height: inherit;
+        text-align: center;
+      }
+    }
+
+    // List
+    ul {
+      $list-space: 3.2rem;
+      $bottom-space-item: 1.4rem;
+
+      //margin: #{round-float($bottom-space * 2.25, 1)} 0 #{round-float($bottom-space * 1.25, 1)};
+      margin: #{$bottom-space} 0;
+      padding: 0;
+      list-style: none;
+
+      @include below($md) {
+        //margin: #{round-float($bottom-space_mob * 2.25, 1)} 0 #{round-float($bottom-space_mob * 1.25, 1)};
+        margin: #{$bottom-space_mob} 0;
+      }
+
+      & > li {
+        position: relative;
+        margin: $bottom-space-item 0 0;
+        padding-left: $list-space;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &::before {
+          display: block;
+          float: left;
+          width: 0.8rem;
+          height: 0.8rem;
+          margin: 0.5em 0 -0.5em -#{$list-space};
+          background-color: currentColor;
+          border-radius: 0.8rem;
+          content: "";
+        }
+      }
+    }
+
+    ol {
+      $list-space: 3.2rem;
+      $bottom-space-item: 1.4rem;
+
+      //margin: #{round-float($bottom-space * 2.25, 1)} 0 #{round-float($bottom-space * 1.25, 1)};
+      margin: #{$bottom-space} 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: section;
+
+      @include below($md) {
+        //margin: #{round-float($bottom-space_mob * 2.25, 1)} 0 #{round-float($bottom-space_mob * 1.25, 1)};
+        margin: #{$bottom-space_mob} 0;
+      }
+
+      & > li {
+        position: relative;
+        margin: $bottom-space-item 0 0;
+        padding-left: $list-space;
+        counter-increment: section;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &::before {
+          position: relative;
+          display: inline-block;
+          min-width: $list-space;
+          margin-left: -#{$list-space};
+          padding: 0 4px 0 0;
+          text-align: left;
+          content: counter(section) ".";
+        }
+      }
+    }
+
+    ul,
+    ol {
+      ul,
+      ol {
+        margin: 1.4rem 0;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    // Изображение
+    // ----------------------------------------------------
+    img {
+      max-width: 100%;
+      height: auto;
+      vertical-align: top;
+      border: none;
+
+      table & {
+        max-width: none;
+      }
+    }
+
+    // Картинка с подписью
+    // ----------------------------------------------------
+    figure {
+      $figure: &;
+
+      display: block;
+      margin: #{round-float($bottom-space * 1.4, 1)} 0 #{$bottom-space};
+      text-align: center;
+
+      @include below($md) {
+        margin: #{round-float($bottom-space_mob * 1.4, 1)} 0 #{$bottom-space_mob};
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto 1.4rem;
+      }
+
+      figcaption {
+        display: block;
+        color: inherit;
+        font-size: 1.6rem;
+        line-height: 2rem;
+        text-align: center;
+        opacity: 0.5;
+      }
+    }
+
+    & > p,
+    & > .p {
+      & > img,
+      & > figure {
+        display: block;
+        clear: both;
+        max-width: 100%;
+        height: auto;
+        margin: #{round-float($bottom-space * 1.25, 1)} auto #{round-float($bottom-space * 1.67, 1)};
+        text-align: center;
+
+        @include below($sm) {
+          margin-top: #{round-float($bottom-space_mob * 1.25, 1)};
+          margin-bottom: #{round-float($bottom-space_mob * 1.67, 1)};
+        }
+
+        &[align="left"],
+        &.img-align-left {
+          float: left;
+          clear: left;
+          max-width: 50%;
+          margin-top: 0;
+          margin-right: 4rem;
+          text-align: left;
+
+          &.img-third {
+            max-width: 33.33%;
+          }
+
+          &.img-two-thirds {
+            max-width: 66.66%;
+          }
+
+          @include below($sm) {
+            float: none;
+            max-width: 100%;
+            margin-right: auto;
+            text-align: center;
+          }
+        }
+
+        &[align="right"],
+        &.img-align-right {
+          float: right;
+          clear: right;
+          max-width: 50%;
+          margin-top: 0;
+          margin-left: 4rem;
+          text-align: right;
+
+          &.img-third {
+            max-width: 33.33%;
+          }
+
+          &.img-two-thirds {
+            max-width: 66.66%;
+          }
+
+          @include below($sm) {
+            float: none;
+            max-width: 100%;
+            margin-left: auto;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    .video {
+      position: relative;
+      display: block;
+      margin: #{round-float($bottom-space * 1.25, 1)} 0 #{round-float($bottom-space * 1.69, 1)};
+
+      @include below($md) {
+        margin-top: #{round-float($bottom-space_mob * 1.25, 1)};
+        margin-bottom: #{round-float($bottom-space_mob * 1.69, 1)};
+      }
+
+      &::before {
+        display: block;
+        content: "";
+
+        @include ratio(16, 9);
+      }
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    // Текст в несколько колонок
+    // ----------------------------------------------------
+    .columnize,
+    .columnize--3,
+    .columnize--4,
+    .columnize--5 {
+      margin-bottom: $bottom-space;
+      font-size: 0.9em;
+      column-count: 2;
+      column-gap: 2em;
+
+      @include below($md) {
+        column-count: 1;
+      }
+    }
+
+    .columnize--3 {
+      font-size: 0.85em;
+      column-count: 3;
+
+      @include below($md) {
+        column-count: 1;
+      }
+    }
+
+    .columnize--4 {
+      font-size: 0.8em;
+      column-count: 4;
+
+      @include below($md) {
+        column-count: 1;
+      }
+    }
+
+    .columnize--5 {
+      font-size: 0.75em;
+      column-count: 4;
+
+      @include below($md) {
+        column-count: 1;
+      }
+    }
+
+    .accent-text {
+      position: relative;
+      font-size: 1.2em;
+      line-height: 1.3;
+    }
+
+    code {
+      padding-top: 0.1rem;
+      padding-bottom: 0.1rem;
+      font-family: monospace;
+      text-transform: initial;
+      background-color: #f0f0f0;
+      border-radius: 4px;
+
+      &::before,
+      &::after {
+        letter-spacing: -0.2em;
+        content: "\00a0";
+      }
+    }
+
+    .snippet {
+      margin: #{round-float($bottom-space * 1.25, 1)} auto #{round-float($bottom-space * 1.67, 1)};
+
+      @include below($sm) {
+        margin-top: #{round-float($bottom-space_mob * 1.25, 1)};
+        margin-bottom: #{round-float($bottom-space_mob * 1.67, 1)};
+      }
+
+      &:first-child {
+        margin-top: 0;
       }
 
       &:last-child {

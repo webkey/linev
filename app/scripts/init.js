@@ -25,3 +25,4 @@ app.scrollToSection.init();
 app.sectionHeading.init();
 app.newsFeed.init();
 app.showMore.init();
+app.rolls.init();
