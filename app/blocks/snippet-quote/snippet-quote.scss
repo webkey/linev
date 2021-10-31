@@ -1,0 +1,60 @@
+.snippet-quote {
+  &__layout {
+    position: relative;
+    display: block;
+    width: 72rem;
+    margin: #{$bottom-space} auto;
+    padding: 0;
+  }
+
+  &__img {
+    display: block;
+    width: 12rem;
+    max-width: 100%;
+    height: 12rem;
+    margin: 0 auto 1.6rem;
+    border-radius: 6rem;
+  }
+
+  &__cite {
+    display: block;
+    margin-bottom: 0.4rem;
+    font: 300 2.4rem/1.2 $font-title;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__post {
+    margin-bottom: 2.8rem;
+    font-size: 1.8rem;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  &__q {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0 0 1.4rem;
+    font: 300 #{$large-text-font-size}/#{$large-text-line-height} $font-title;
+    text-align: center;
+
+    @include below($hd) {
+      font-size: $large-text-font-size_md;
+      line-height: $large-text-line-height_md;
+    }
+
+    @include below($lg) {
+      font-size: $large-text-font-size_sm;
+      line-height: $large-text-line-height_sm;
+    }
+
+    &::before {
+      content: "«";
+    }
+
+    &::after {
+      content: "»";
+    }
+  }
+}

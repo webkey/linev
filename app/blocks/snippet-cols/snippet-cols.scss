@@ -1,0 +1,22 @@
+.snippet-cols {
+  table {
+    width: 100%;
+    table-layout: fixed;
+    border: none;
+
+    td {
+      padding: 0 1.2rem;
+      font-size: inherit;
+      line-height: inherit;
+      vertical-align: top;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+}
