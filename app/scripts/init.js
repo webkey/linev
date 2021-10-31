@@ -23,6 +23,7 @@ app.formSelectWhite.init();
 app.contactsForm.init();
 app.scrollToSection.init();
 app.sectionHeading.init();
+app.snippetHeading.init();
 app.newsFeed.init();
 app.showMore.init();
 app.rolls.init();

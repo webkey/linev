@@ -257,20 +257,63 @@
 
         <!--snippets-->
         <p id="snippets" style="text-align:center;">*****</p>
-        <h2><a href="#snippets">Сниппеты</a></h2>
+        <h2><a href="#snippets">Snippets</a></h2>
         <code>&lt;div class="snippet"&gt;код сниппета&lt;/div&gt;</code>
 
         <h3><a id="snippets-1" href="#snippets-1">Сниппет 1</a></h3>
         <div class="snippet">
-          @@include("blocks/modern-sn/modern-sn.html")
+          @@include("blocks/snippet-article-dark/snippet-article-dark.html")
         </div>
 
         <h3><a id="snippets-2" href="#snippets-2">Сниппет 2</a></h3>
         <div class="snippet">
           @@include("blocks/rolls/rolls.html")
         </div>
+
+        <h3><a id="snippets-3" href="#snippets-2">Сниппет 3</a></h3>
         <div class="snippet">
-          @@include("blocks/rolls/rolls.html")
+          @@include("blocks/snippet-counter/snippet-counter.html")
+        </div>
+
+        <h3><a id="snippets-4" href="#snippets-4">Сниппет 4</a></h3>
+        <div class="snippet">
+          @@include("blocks/snippet-air/snippet-air.html")
+        </div>
+
+        <h3><a id="snippets-5" href="#snippets-5">Сниппет 5</a></h3>
+        <div class="snippet">
+          @@include("blocks/snippet-app/snippet-app.html", {
+            "image": "assets/images/img-section-7.jpg",
+            "title": "APPLICATION FIELDS",
+            "list": [
+              "Prisons & Detention centers",
+              "Airports",
+              "Seaports",
+              "Railway stations",
+              "Cross-border control",
+              "Customs",
+              "Sensitive sites",
+              "Military premises",
+              "Embassies",
+              "VIP residences"
+            ]
+          })
+        </div>
+
+        <h3><a id="snippets-6" href="#snippets-6">Сниппет 6</a></h3>
+        <div class="snippet">
+          @@include("blocks/snippet-heading/snippet-heading.html", {
+            "id": false,
+            "number": false,
+            "image": "assets/images/entry-bg.jpg",
+            "title": "The LINEV Group is a unique platform supporting innovation that enables employees around the world to use unlimited resources, processes, and technologies to create innovative high-tech solutions in the shortest possible time with the goal of exceeding customer expectations.",
+            "mods": false
+          })
+        </div>
+
+        <h3><a id="snippets-7" href="#snippets-7">Сниппет 7</a></h3>
+        <div class="snippet">
+          @@include("blocks/snippet-categories/snippet-categories.html")
         </div>
       </div>
     </div>

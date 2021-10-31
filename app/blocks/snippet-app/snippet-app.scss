@@ -1,0 +1,178 @@
+.snippet-app {
+  $el: &;
+
+  position: relative;
+  display: flex;
+  min-height: $snippet-min-height;
+  overflow: hidden;
+  background-color: $bg-color-blue;
+
+  @include below($xl) {
+    min-height: $snippet-min-height_md;
+  }
+
+  @include below($md) {
+    display: block;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.45;
+
+    @include below($md) {
+      display: none;
+    }
+  }
+
+  &__caption {
+    $width: 66%;
+
+    position: relative;
+    display: flex;
+    flex: 1 0 $width;
+    flex-direction: column;
+    max-width: $width;
+    padding: #{$layout-page-space-v} 4.4rem #{$layout-page-space-v} #{$layout-page-space-h};
+    overflow: hidden;
+
+    @include below($hd) {
+      $width: 50%;
+
+      flex-basis: $width;
+      max-width: $width;
+      padding: #{$layout-page-space-v_lg} 4.4rem #{$layout-page-space-v_lg} #{$layout-page-space-h_lg};
+    }
+
+    @include below($xl) {
+      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+    }
+
+    @include below($md) {
+      max-width: none;
+      min-height: 32rem;
+      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+    }
+
+    &-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      opacity: 0.45;
+
+      @include below($md) {
+        display: block;
+      }
+    }
+
+    &-title {
+      position: relative;
+      max-width: 100%;
+      margin-top: auto;
+      color: $text-color-white;
+      font: 300 #{$h3-font-size}/#{$h3-line-height} $font-title;
+      text-transform: uppercase;
+
+      @include below($hd) {
+        font-size: $h3-font-size_md;
+        line-height: $h3-line-height_md;
+      }
+
+      @include below($lg) {
+        font-size: $h3-font-size_sm;
+        line-height: $h3-line-height_sm;
+      }
+    }
+  }
+
+  &__list {
+    $width: 34%;
+
+    position: relative;
+    display: flex;
+    flex: 1 0 $width;
+    flex-direction: column;
+    max-width: $width;
+    padding: #{$layout-page-space-v} #{$layout-page-space-h} #{$layout-page-space-v} 4.4rem;
+    overflow: hidden;
+    background-color: $bg-color-blue;
+
+    @include below($hd) {
+      $width: 50%;
+
+      flex-basis: $width;
+      max-width: $width;
+      padding: #{$layout-page-space-v_lg} #{$layout-page-space-h_lg} #{$layout-page-space-v} 4.4rem;
+    }
+
+    @include below($xl) {
+      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+    }
+
+    @include below($md) {
+      max-width: none;
+      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+    }
+
+    &-item {
+      margin-bottom: 3.2rem;
+      color: $text-color-white;
+      font: 300 #{$large-text-font-size}/#{$large-text-line-height} $font-title;
+      text-transform: uppercase;
+
+      @include below($hd) {
+        margin-bottom: 2rem;
+        font-size: $large-text-font-size_md;
+        line-height: $large-text-line-height_md;
+        text-transform: none;
+      }
+
+      @include below($lg) {
+        margin-bottom: 0.8rem;
+        font-size: $large-text-font-size_sm;
+        line-height: $large-text-line-height_sm;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &-el {
+        display: inline-block;
+        color: inherit;
+        text-decoration: none;
+        vertical-align: top;
+        box-shadow: inset 0 0 0 transparent;
+        transition: $animation-speed-out;
+
+        & > span {
+          display: inline-block;
+          vertical-align: top;
+          transition: $animation-speed;
+        }
+
+        &:hover {
+          box-shadow: inset 0 -3px 0 currentColor;
+          transition-duration: $animation-speed;
+
+          & > span {
+            transform: translateY(-0.5rem);
+            transition-duration: $animation-speed-out;
+          }
+        }
+      }
+    }
+  }
+}

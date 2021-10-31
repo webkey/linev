@@ -106,22 +106,6 @@
       line-height: 2rem;
     }
 
-    a:not([class*=button-]) {
-      color: $link-color;
-      text-decoration: none;
-      word-wrap: break-word;
-      -webkit-tap-highlight-color: transparent;
-
-      &:visited {
-        color: $visited-color;
-        text-decoration: none;
-      }
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
     p,
     .p {
       margin: $bottom-space 0;
@@ -469,6 +453,22 @@
 
     & > p,
     & > .p {
+      a:not([class*=button-]) {
+        color: $link-color;
+        text-decoration: none;
+        word-wrap: break-word;
+        -webkit-tap-highlight-color: transparent;
+
+        &:visited {
+          color: $visited-color;
+          text-decoration: none;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
       & > img,
       & > figure {
         display: block;

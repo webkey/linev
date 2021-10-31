@@ -1,0 +1,119 @@
+.snippet-counter {
+  position: relative;
+  overflow: hidden;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $bg-color-blue;
+
+    &-inner {
+      height: 100%;
+      font-size: 0;
+      line-height: 0;
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: cover;
+      opacity: 0.45;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: $snippet-min-height;
+    padding: #{$layout-page-space-v} #{$layout-page-space-h};
+
+    @include below($hd) {
+      padding: #{$layout-page-space-v_lg} #{$layout-page-space-h_lg};
+    }
+
+    @include below($xl) {
+      min-height: $snippet-min-height_md;
+      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+    }
+
+    @include below($md) {
+      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+    }
+  }
+
+  &__title {
+    position: relative;
+    max-width: 100%;
+    margin-bottom: 3.6rem;
+    color: $text-color-white;
+    font: 300 #{$h3-font-size}/#{$h3-line-height} $font-title;
+    text-transform: uppercase;
+
+    @include below($hd) {
+      font-size: #{$h3-font-size_md};
+      line-height: #{$h3-line-height_md};
+    }
+
+    @include below($lg) {
+      font-size: #{$h3-font-size_sm};
+      line-height: #{$h3-line-height_sm};
+    }
+  }
+
+  &__counter {
+    position: relative;
+    margin-top: auto;
+    overflow: hidden;
+
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin: 0 -2.2rem -3.1rem;
+
+      @include below($md) {
+        margin: 0 -#{$layout-page-space-v_sm / 2} -#{$layout-page-space-v_sm};
+      }
+    }
+
+    &-item {
+      flex: 1 1 auto;
+      margin-bottom: 3.1rem;
+      padding: 0 2.2rem;
+
+      @include below($md) {
+        $width: 50%;
+
+        flex: 1 0 $width;
+        max-width: $width;
+        margin-bottom: #{$layout-page-space-v_sm};
+        padding: 0 #{$layout-page-space-v_sm / 2};
+      }
+    }
+
+    &-value {
+      display: block;
+      color: $text-color-white;
+      font: 300 #{$h2-font-size}/#{$h2-line-height} $font-title;
+
+      @include below($hd) {
+        font-size: $h2-font-size_md;
+        line-height: $h2-line-height_md;
+      }
+
+      @include below($lg) {
+        font-size: #{$h2-font-size_sm};
+        line-height: #{$h2-line-height_sm};
+      }
+    }
+
+    &-text {
+      display: block;
+      color: $text-color-white;
+      font: 300 2.4rem/3.6rem $font-title;
+      opacity: 0.6;
+    }
+  }
+}

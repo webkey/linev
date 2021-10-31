@@ -1,4 +1,4 @@
-.modern-sn {
+.snippet-article-dark {
   position: relative;
   overflow: hidden;
 
@@ -35,17 +35,17 @@
     }
   }
 
-  &__data {
-    height: 100%;
+  &__content {
+    position: relative;
+    min-height: $snippet-min-height;
     padding: #{$layout-page-space-v} #{$layout-page-space-h};
 
     @include below($hd) {
-      @include padding-y($layout-page-space-v_lg);
+      padding: #{$layout-page-space-v_lg} #{$layout-page-space-h_lg};
     }
 
     @include below($xl) {
-      height: auto;
-      min-height: 36rem;
+      min-height: $snippet-min-height_md;
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
@@ -55,7 +55,6 @@
   }
 
   &__title {
-    position: relative;
     margin-bottom: 3.6rem;
     color: $text-color-white;
     font: 300 #{$h3-font-size}/#{$h3-line-height} $font-title;
@@ -73,7 +72,6 @@
   }
 
   &__text {
-    position: relative;
     max-width: 50%;
     color: $text-color-white;
     font-weight: 300;

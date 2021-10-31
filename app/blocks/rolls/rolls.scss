@@ -15,10 +15,11 @@
       right: $layout-page-space-h;
       bottom: 0;
       left: $layout-page-space-h;
-      z-index: -1;
+      z-index: 2;
       font-size: 0;
       line-height: 0;
       border-top: 1px solid $line-color-blue;
+      pointer-events: none;
 
       @include below($xl) {
         right: #{$layout-page-space-h_md};
