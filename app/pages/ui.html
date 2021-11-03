@@ -272,6 +272,28 @@
           @@include("blocks/article-share/article-share.html")
         </div>
 
+        <!--article meta-->
+        <p id="article-meta" style="text-align:center;">*****</p>
+        <h3><a href="#article-meta">Информация о статье</a></h3>
+        @@include("blocks/article-meta/article-meta.html", { "text": "01 november 2021 - 10 min read" })
+
+        <!--article authors-->
+        <p id="article-authors" style="text-align:center;">*****</p>
+        <h3><a href="#article-authors">Список авторов статьи</a></h3>
+        @@include("blocks/article-authors/article-authors.html", [
+          { "text": "01 november 2021 - 10 min read" }
+        ])
+
+        <!--article authors-->
+        <p id="article-head" style="text-align:center;">*****</p>
+        <h3><a href="#article-head">Пример шапки статьи</a></h3>
+        @@include("blocks/article-meta/article-meta.html", { "text": "01 november 2021 - 10 min read" })
+        <h2>The way to the future has always been paved</h2>
+        @@include("blocks/article-authors/article-authors.html", [
+          { "text": "01 november 2021 - 10 min read" }
+        ])
+        <p>The way to the future has always been paved with “ludicrous” ideas that only existed in movies, books, or the minds of science-fiction writers. we work hard to turn those creative ideas into unique technical solutions that help our customers meet the global challenges of the 21st century.</p>
+        <p>LINEV Group is a unique platform that provides employees an opportunity to use unlimited resources, processes and digital technologies to innovate high-tech solutions that ensure a higher quality and security of human life exceeding customer expectations.</p>
 
         <!--snippets-->
         <p id="snippets" style="text-align:center;">*****</p>

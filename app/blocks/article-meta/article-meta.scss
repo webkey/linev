@@ -1,0 +1,21 @@
+.article-meta {
+  margin: #{round-float($bottom-space * 1.5, 1)} 0 #{round-float($bottom-space * 0.25, 1)};
+  color: $text-color-grey;
+  font: 300 0.75em/1.4 $font-title;
+
+  @include below($md) {
+    margin: #{round-float($bottom-space_mob * 1.5, 1)} 0 #{round-float($bottom-space_mob * 0.25, 1)};
+  }
+
+  & + * {
+    margin-top: 0;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
