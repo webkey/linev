@@ -30,6 +30,11 @@
     padding-top: 0;
   }
 
+  // If has breadcrumbs before
+  .breadcrumbs-only + & {
+    padding-top: 0;
+  }
+
   &__row {
     //display: flex;
     //align-items: flex-start;

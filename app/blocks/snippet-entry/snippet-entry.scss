@@ -1,0 +1,85 @@
+.snippet-entry {
+  $el: &;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: $snippet-min-height;
+  padding: #{$layout-page-space-v} #{$layout-page-space-h};
+  overflow: hidden;
+  background-color: $bg-color-blue;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @include below($hd) {
+    padding: #{$layout-page-space-v_lg} #{$layout-page-space-h_lg};
+  }
+
+  @include below($xl) {
+    min-height: $snippet-min-height_md;
+    padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+  }
+
+  @include below($md) {
+    min-height: 36rem;
+    padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+  }
+
+  &::before {
+    $shade-color: black;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, $shade-color 0, rgba($shade-color, 0.5) 50%, rgba($shade-color, 0) 100%);
+    opacity: 0.5;
+    content: "";
+  }
+
+  &__title {
+    position: relative;
+    width: 60%;
+    margin-bottom: 2.4rem;
+    color: $text-color-white;
+    font: 300 #{$h3-font-size}/#{$h3-line-height} $font-title;
+    text-transform: uppercase;
+
+    @include below($hd) {
+      font-size: #{$h3-font-size_md};
+      line-height: #{$h3-line-height_md};
+    }
+
+    @include below($lg) {
+      width: 100%;
+      font-size: #{$h3-font-size_sm};
+      line-height: #{$h3-line-height_sm};
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__subtitle {
+    position: relative;
+    width: 50%;
+    color: $text-color-white;
+    font: 300 #{$large-text-font-size}/#{$large-text-line-height} $font-title;
+
+    @include below($hd) {
+      font-size: #{$large-text-font-size_md};
+      line-height: #{$large-text-line-height_md};
+    }
+
+    @include below($lg) {
+      width: 100%;
+      font-size: #{$large-text-font-size_sm};
+      line-height: #{$large-text-line-height_sm};
+    }
+  }
+}

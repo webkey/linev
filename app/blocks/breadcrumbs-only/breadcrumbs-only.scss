@@ -1,0 +1,14 @@
+.breadcrumbs-only {
+  &__container {
+    position: relative;
+    padding: #{$layout-page-space-v} #{$layout-page-space-h};
+
+    @include below($xl) {
+      padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+    }
+
+    @include below($md) {
+      padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+    }
+  }
+}
