@@ -1,0 +1,51 @@
+.snippet-citation {
+  padding: #{$bottom-space} 8.8rem;
+
+  @include below($md) {
+    padding: #{$bottom-space_mob} 2.4rem;
+  }
+
+  &__q {
+    position: relative;
+    margin: 0 0 2.4rem;
+    font: 300 #{$large-text-font-size}/#{$large-text-line-height} $font-title;
+
+    @include below($hd) {
+      font-size: $large-text-font-size_md;
+      line-height: $large-text-line-height_md;
+    }
+
+    @include below($lg) {
+      font-size: $large-text-font-size_sm;
+      line-height: $large-text-line-height_sm;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      display: block;
+      width: 6.4rem;
+      height: 5.2rem;
+      margin-bottom: 2.4rem;
+      background-image: url("data:image/svg+xml, %3Csvg width='60' height='48' fill='rgb%28237%2C242%2C245%29' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M26.041 5.626c-.704.938-1.642 2.345-2.815 4.22a202.001 202.001 0 00-3.343 5.802 109.902 109.902 0 00-2.991 6.506c-.939 2.11-1.643 3.927-2.112 5.45 1.642.938 2.991 2.227 4.047 3.869 1.173 1.523 1.76 3.457 1.76 5.802 0 3.282-.939 5.92-2.816 7.912C15.894 47.062 13.372 48 10.205 48c-2.932 0-5.396-.996-7.39-2.989C.938 42.901 0 40.088 0 36.571c0-3.516.821-7.267 2.463-11.252a83.952 83.952 0 015.63-11.253c2.112-3.517 4.106-6.564 5.983-9.143C16.07 2.344 17.361.703 17.947 0l8.094 5.626zm33.959 0c-.704.938-1.642 2.345-2.815 4.22a201.992 201.992 0 00-3.343 5.802 109.966 109.966 0 00-2.992 6.506c-.938 2.11-1.642 3.927-2.111 5.45 1.642.938 2.991 2.227 4.047 3.869 1.173 1.523 1.76 3.457 1.76 5.802 0 3.282-.939 5.92-2.816 7.912C49.853 47.062 47.331 48 44.164 48c-2.932 0-5.396-.996-7.39-2.989-1.877-2.11-2.815-4.923-2.815-8.44 0-3.516.821-7.267 2.463-11.252a83.941 83.941 0 015.63-11.253c2.112-3.517 4.106-6.564 5.983-9.143C50.03 2.344 51.32.703 51.906 0L60 5.626z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: "";
+    }
+  }
+
+  &__cite {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-family: $font-title;
+  }
+
+  &__post {
+    margin-bottom: 2.8rem;
+    color: $text-color-grey;
+    font-size: 0.75em;
+    line-height: 1.35;
+  }
+}
