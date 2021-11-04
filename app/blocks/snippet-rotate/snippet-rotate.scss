@@ -1,11 +1,14 @@
-.gallery {
+.rotate {
   &__el {
+    $element: &;
+
     display: block;
     color: inherit;
     text-decoration: none;
 
     &-photo {
       position: relative;
+      margin-bottom: 1.4rem;
       overflow: hidden;
       background-color: $bg-color-blue;
 
@@ -13,7 +16,7 @@
         display: block;
         content: "";
 
-        @include ratio(1, 1);
+        @include ratio(16, 9);
       }
 
       img {
@@ -31,6 +34,15 @@
           left: 0;
           z-index: 1;
         }
+      }
+    }
+
+    &-title {
+      font-weight: normal;
+      transition: color $animation-speed;
+
+      #{$element}:hover & {
+        color: $link-color;
       }
     }
   }
