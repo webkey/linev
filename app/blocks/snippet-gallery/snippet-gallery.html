@@ -1,0 +1,34 @@
+<div class="gallery">
+  <div class="gallery__slider js-gallery-slider">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide gallery__slider-slide">
+          @@include("blocks/snippet-gallery/snippet-gallery-slide.html", { "image": "assets/images/img-01.jpg" })
+        </div>
+        <div class="swiper-slide gallery__slider-slide">
+          @@include("blocks/snippet-gallery/snippet-gallery-slide.html", { "image": "assets/images/img-section-2.jpg" })
+        </div>
+        <div class="swiper-slide gallery__slider-slide">
+          @@include("blocks/snippet-gallery/snippet-gallery-slide.html", { "image": "assets/images/img-03.jpg" })
+        </div>
+        <div class="swiper-slide gallery__slider-slide">
+          @@include("blocks/snippet-gallery/snippet-gallery-slide.html", { "image": "assets/images/img-05.jpg" })
+        </div>
+        <div class="swiper-slide gallery__slider-slide">
+          @@include("blocks/snippet-gallery/snippet-gallery-slide.html", { "image": "assets/images/img-section-6.jpg" })
+        </div>
+      </div>
+    </div>
+    <div class="gallery__slider-pagination">
+      <div class="layout-content layout-content_has-spaces">
+        <div class="gallery__slider-pagination-list js-gallery-slider-pagination"></div>
+      </div>
+    </div>
+    <div class="gallery__slider-controls">
+      <div class="gallery__slider-controls-holder">
+        <div class="gallery__slider-button gallery__slider-button_prev js-gallery-slider-button-prev"></div>
+        <div class="gallery__slider-button gallery__slider-button_next js-gallery-slider-button-next"></div>
+      </div>
+    </div>
+  </div>
+</div>

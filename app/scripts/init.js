@@ -27,3 +27,4 @@ app.snippetHeading.init();
 app.newsFeed.init();
 app.showMore.init();
 app.rolls.init();
+app.gallery.init();
