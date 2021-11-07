@@ -1,7 +1,8 @@
 app.gallery = {
-  element: '.js-gallery',
   sliderElement: '.js-gallery-slider',
   slidesPerView: 3,
+  currentInstance: null,
+  currentZoomSlide: null,
   init() {
     if ($(this.sliderElement).length) {
       this.slider();
@@ -67,11 +68,48 @@ app.gallery = {
           },
         });
 
+        $curSlider.data('instance', sliderInstance);
+
         sliderInstance.on('init', () => {
           $curSlider.addClass('is-loaded');
         });
 
         sliderInstance.init();
+
+        Fancybox.bind('.js-gallery-slider [data-fancybox]', {
+          dragToClose: false,
+          Toolbar: false,
+          closeButton: 'top',
+          showClass: 'fancybox-fadeIn',
+          hideClass: 'fancybox-fadeOut',
+
+          on: {
+            initCarousel: (fancybox) => {
+              const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+
+              self.currentInstance = $(fancybox.items[0].$trigger).closest(self.sliderElement).data('instance');
+              self.currentZoomSlide = slide.index;
+
+              fancybox.$container.style.setProperty(
+                '--bg-image',
+                `url("${slide.$thumb.src}")`,
+              );
+            },
+            'Carousel.change': (fancybox, carousel, to) => {
+              const slide = carousel.slides[to];
+
+              self.currentZoomSlide = slide.index;
+
+              fancybox.$container.style.setProperty(
+                '--bg-image',
+                `url("${slide.$thumb.src}")`,
+              );
+            },
+            shouldClose: () => {
+              self.currentInstance.slideTo(self.currentZoomSlide, 0);
+            },
+          },
+        });
       });
     }
   },
