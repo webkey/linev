@@ -392,6 +392,20 @@
         <div class="snippet">
           @@include("blocks/snippet-rotate/snippet-rotate.html")
         </div>
+
+        <h3><a id="snippets-13" href="#snippets-13">Сниппет 13</a></h3>
+        <h4>1/2 - default</h4>
+        <div class="snippet">
+          @@include("blocks/snippet-figure/snippet-figure.html", { "image": "assets/images/img-section-vertical-2.jpg" })
+        </div>
+        <h4>1/3 - add class <code>third</code></h4>
+        <div class="snippet">
+          @@include("blocks/snippet-figure/snippet-figure.html", { "classes": "third rtl", "lessText": true, "image": "assets/images/img-section-vertical-2.jpg" })
+        </div>
+        <h4>2/3 - add class <code>two-thirds</code></h4>
+        <div class="snippet">
+          @@include("blocks/snippet-figure/snippet-figure.html", { "classes": "two-thirds", "lessText": true, "image": "assets/images/img-article-company-02.jpg" })
+        </div>
       </div>
     </div>
   </div>

@@ -1,0 +1,205 @@
+.snippet-figure {
+  $block: &;
+
+  display: block;
+
+  &__holder {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    #{$block}.rtl & {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__figure {
+    $figure: &;
+    $width: 50%;
+
+    display: block;
+    flex: 1 0 $width;
+    width: $width;
+    max-width: $width;
+    padding: 0 $layout-page-space-h;
+    text-align: center;
+
+    @include below($sm) {
+      $width: 100%;
+
+      flex: 1 0 $width;
+      width: $width;
+      max-width: $width;
+    }
+
+    #{$block}.third & {
+      $width: 33.33%;
+
+      flex: 1 0 $width;
+      width: $width;
+      max-width: $width;
+
+      @include below($md) {
+        $width: 50%;
+
+        flex: 1 0 $width;
+        width: $width;
+        max-width: $width;
+      }
+
+      @include below($sm) {
+        $width: 100%;
+
+        flex: 1 0 $width;
+        width: $width;
+        max-width: $width;
+      }
+    }
+
+    #{$block}.two-thirds & {
+      $width: 66.67%;
+
+      flex: 1 0 $width;
+      width: $width;
+      max-width: $width;
+
+      @include below($md) {
+        $width: 50%;
+
+        flex: 1 0 $width;
+        width: $width;
+        max-width: $width;
+      }
+
+      @include below($sm) {
+        $width: 100%;
+
+        flex: 1 0 $width;
+        width: $width;
+        max-width: $width;
+      }
+    }
+
+    @include below($hd) {
+      padding: 0 $layout-page-space-h_lg;
+    }
+
+    @include below($xl) {
+      padding: 0 $layout-page-space-h_md;
+    }
+
+    @include below($md) {
+      padding: 0 $layout-page-space-h_sm;
+    }
+
+    @include below($sm) {
+      margin-bottom: $bottom-space_sm;
+      padding: 0;
+    }
+
+    #{$block}:not(.rtl) &:first-child {
+      padding-left: 0;
+    }
+
+    #{$block}:not(.rtl) &:last-child {
+      padding-right: 0;
+    }
+
+    #{$block}.rtl &:first-child {
+      padding-right: 0;
+    }
+
+    #{$block}.rtl &:last-child {
+      padding-left: 0;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto #{$bottom-space / 2};
+
+      @include below($lg) {
+        margin: 0 auto #{$bottom-space_sm / 2};
+      }
+    }
+  }
+
+  &__figcaption {
+    display: block;
+    color: inherit;
+    font-size: $fz-small;
+    line-height: $lh-small;
+    text-align: center;
+    opacity: 0.5;
+
+    @include below($lg) {
+      font-size: $fz-small_sm;
+      line-height: $lh-small_sm;
+    }
+  }
+
+  &__content {
+    $width: 50%;
+
+    flex: 1 0 $width;
+    width: $width;
+    max-width: $width;
+
+    @include below($sm) {
+      $width: 100%;
+
+      flex: 1 0 $width;
+      width: $width;
+      max-width: $width;
+    }
+
+    #{$block}.third & {
+      $width: 100% - 33.33%;
+
+      flex: 1 0 $width;
+      width: $width;
+      max-width: $width;
+
+      @include below($md) {
+        $width: 50%;
+
+        flex: 1 0 $width;
+        width: $width;
+        max-width: $width;
+      }
+
+      @include below($sm) {
+        $width: 100%;
+
+        flex: 1 0 $width;
+        width: $width;
+        max-width: $width;
+      }
+    }
+
+    #{$block}.two-thirds & {
+      $width: 100% - 66.67%;
+
+      flex: 1 0 $width;
+      width: $width;
+      max-width: $width;
+
+      @include below($md) {
+        $width: 50%;
+
+        flex: 1 0 $width;
+        width: $width;
+        max-width: $width;
+      }
+
+      @include below($sm) {
+        $width: 100%;
+
+        flex: 1 0 $width;
+        width: $width;
+        max-width: $width;
+      }
+    }
+  }
+}
