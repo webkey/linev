@@ -1,6 +1,5 @@
 app.gallery = {
   sliderElement: '.js-gallery-slider',
-  slidesPerView: 3,
   currentInstance: null,
   currentZoomSlide: null,
   init() {
@@ -24,8 +23,8 @@ app.gallery = {
           loop: false, // not work correctly along with "watchOverflow: true"
           autoHeight: false,
           // slidesPerView: 'auto',
-          slidesPerView: self.slidesPerView,
-          slidesPerGroup: self.slidesPerView,
+          slidesPerView: 3,
+          slidesPerGroup: 3,
           spaceBetween: 24,
           watchSlidesVisibility: true,
           lazy: false,
@@ -40,8 +39,8 @@ app.gallery = {
             type: 'bullets',
             el: $paginationEl,
             clickable: true,
-            bulletClass: 'insights-slider__pagination-bullet',
-            bulletActiveClass: 'insights-slider__pagination-bullet_active',
+            bulletClass: 'gallery__slider-pagination-bullet',
+            bulletActiveClass: 'gallery__slider-pagination-bullet_active',
             renderBullet(index, className) {
               return `<div class="${className}"><span></span></div>`;
             },
@@ -50,8 +49,10 @@ app.gallery = {
           breakpoints: {
             767: {
               slidesPerView: 2,
+              slidesPerGroup: 2,
+              spaceBetween: 16,
             },
-            359: {
+            374: {
               slidesPerView: 'auto',
               slidesPerGroup: 1,
               spaceBetween: 10,

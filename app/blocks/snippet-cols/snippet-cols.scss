@@ -4,17 +4,40 @@
     table-layout: fixed;
     border: none;
 
+    @include below($md) {
+      display: block;
+    }
+
+    tbody {
+      @include below($md) {
+        display: block;
+      }
+    }
+
+    tr {
+      @include below($md) {
+        display: block;
+      }
+    }
+
     td {
       padding: 0 1.2rem;
       font-size: inherit;
       line-height: inherit;
       vertical-align: top;
 
+      @include below($md) {
+        display: block;
+        margin-bottom: $bottom-space_sm;
+        padding: 0;
+      }
+
       &:first-child {
         padding-left: 0;
       }
 
       &:last-child {
+        margin-bottom: 0;
         padding-right: 0;
       }
     }

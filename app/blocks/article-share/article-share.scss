@@ -8,7 +8,7 @@
   }
 
   &__item {
-    $size: 4rem;
+    $size: 3.2rem;
 
     position: relative;
     display: block;
@@ -23,7 +23,7 @@
     transition: color $animation-speed;
 
     @include below($hd) {
-      $size: 2.4rem;
+      $size: 2.8rem;
 
       width: $size;
       height: $size;
@@ -49,7 +49,7 @@
       margin: -#{$int} 0 0 -#{$int};
 
       @include below($hd) {
-        $size: 2.4rem;
+        $size: 2.8rem;
         $int: round-float($size / 2, 1);
 
         width: $size;

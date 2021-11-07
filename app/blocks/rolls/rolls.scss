@@ -34,42 +34,31 @@
 
     &-header {
       $header: &;
-      $count: 3; // количество элементов
-      $line-height: 3.2rem;
-      $title-inner-space-v: 0.4rem;
-      $title-inner-height: $line-height + $title-inner-space-v * 2; // Общая высота внутренней части шапки элемента аккордеона
-      $space-v: 2.4rem;
-      $space-v_md: 1.6rem;
 
       position: relative;
       z-index: 1;
-      padding: $space-v #{$layout-page-space-h + 4rem - 1rem} $space-v #{$layout-page-space-h};
+      padding: 2.4rem #{$layout-page-space-h + 4rem - 1rem} 2.4rem #{$layout-page-space-h};
       color: $text-color-white;
-      font: 300 2.4rem/#{$line-height} $font-title;
-      letter-spacing: 0.006em;
+      font: 300 #{$h5-fz}/#{$h5-lh} $font-title;
       text-transform: uppercase;
       border: 2px solid $bg-color-blue;
       cursor: pointer;
       transition: $animation-speed-out cubic-bezier(0.215, 0.61, 0.355, 1);
       user-select: none;
 
-      @include below($hd) {
-        padding-top: $space-v_md;
-        padding-bottom: $space-v_md;
-        font-size: 2rem;
-      }
-
       @include below($xl) {
-        padding: 2.4rem #{$layout-page-space-h_md + 4rem - 1rem} 2.4rem #{$layout-page-space-h_md};
+        padding: 2rem #{$layout-page-space-h_md + 4rem - 1rem} 2rem #{$layout-page-space-h_md};
       }
 
       @include below($lg) {
-        font-size: 2rem;
-        line-height: 2.4rem;
+        padding-top: 1.8rem;
+        padding-bottom: 1.8rem;
+        font-size: $h5-fz_sm;
+        line-height: $h5-lh_sm;
       }
 
       @include below($md) {
-        padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm + 3} #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+        padding: 1.6rem #{$layout-page-space-h_sm + 3} 1.6rem #{$layout-page-space-h_sm};
       }
 
       &::before {
@@ -109,16 +98,6 @@
       &-inner {
         position: relative;
         display: block;
-        max-width: 100%;
-        padding: #{$title-inner-space-v} 0;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-
-        @include below($xl) {
-          padding: 0;
-          white-space: normal;
-        }
       }
 
       &-angle {

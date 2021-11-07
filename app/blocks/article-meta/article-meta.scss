@@ -1,10 +1,12 @@
 .article-meta {
   margin: #{round-float($bottom-space * 1.5, 1)} 0 #{round-float($bottom-space * 0.25, 1)};
   color: $text-color-grey;
-  font: 300 0.75em/1.4 $font-title;
+  font: 300 #{$fz-small}/#{$lh-small} $font-title;
 
-  @include below($md) {
-    margin: #{round-float($bottom-space_mob * 1.5, 1)} 0 #{round-float($bottom-space_mob * 0.25, 1)};
+  @include below($lg) {
+    margin: #{round-float($bottom-space_sm * 1.5, 1)} 0 #{round-float($bottom-space_sm * 0.25, 1)};
+    font-size: $fz-small_sm;
+    line-height: $lh-small_sm;
   }
 
   & + * {

@@ -1,23 +1,22 @@
 .snippet-citation {
   padding: #{$bottom-space} 8.8rem;
 
-  @include below($md) {
-    padding: #{$bottom-space_mob} 2.4rem;
+  @include below($lg) {
+    padding: #{$bottom-space_sm} 4.4rem;
+  }
+
+  @include below($sm) {
+    padding: #{$bottom-space_sm} 2.4rem;
   }
 
   &__q {
     position: relative;
     margin: 0 0 2.4rem;
-    font: 300 #{$large-text-font-size}/#{$large-text-line-height} $font-title;
-
-    @include below($hd) {
-      font-size: $large-text-font-size_md;
-      line-height: $large-text-line-height_md;
-    }
+    font: 300 #{$fz-large}/#{$lh-large} $font-title;
 
     @include below($lg) {
-      font-size: $large-text-font-size_sm;
-      line-height: $large-text-line-height_sm;
+      font-size: $fz-large_sm;
+      line-height: $lh-large_sm;
     }
 
     &:last-child {
@@ -45,7 +44,12 @@
   &__post {
     margin-bottom: 2.8rem;
     color: $text-color-grey;
-    font-size: 0.75em;
-    line-height: 1.35;
+    font-size: $fz-small;
+    line-height: $lh-small;
+
+    @include below($lg) {
+      font-size: $fz-small_sm;
+      line-height: $lh-small_sm;
+    }
   }
 }

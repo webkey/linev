@@ -13,6 +13,7 @@
 
   @include below($md) {
     display: block;
+    min-height: 0;
   }
 
   &__caption {
@@ -37,7 +38,10 @@
     }
 
     @include below($md) {
+      display: flex;
+      flex-direction: column;
       max-width: none;
+      min-height: 32rem;
       padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
 
@@ -59,17 +63,19 @@
     max-width: 100%;
     margin-top: auto;
     color: $text-color-white;
-    font: 300 #{$h4-font-size}/#{$h4-line-height} $font-title;
+    font: 300 #{$h1-fz}/#{$h1-lh} $font-title;
     text-transform: uppercase;
 
-    @include below($hd) {
-      font-size: #{$h4-font-size_md};
-      line-height: #{$h4-line-height_md};
+    @include below($lg) {
+      font-size: $h1-fz_sm;
+      line-height: $h1-lh_sm;
     }
 
-    @include below($lg) {
-      font-size: #{$h4-font-size_sm};
-      line-height: #{$h4-line-height_sm};
+    @include below($md) {
+      width: 100%;
+      margin-top: auto;
+      font-size: $h0-fz_sm;
+      line-height: $h0-lh_sm;
     }
   }
 
@@ -110,13 +116,14 @@
 
     &-title {
       margin-bottom: 0.8rem;
-      font: 300 3.2rem/4rem $font-title;
+      font: 300 #{$h3-fz}/#{$h3-lh} $font-title;
       letter-spacing: round-float(0.2 / 32 * 1em, 3);
       text-transform: uppercase;
 
-      @include below($md) {
-        font-size: 2.4rem;
-        line-height: 3.2rem;
+      @include below($lg) {
+        font-size: $h3-fz_sm;
+        line-height: $h3-lh_sm;
+        letter-spacing: normal;
       }
 
       &:last-child {

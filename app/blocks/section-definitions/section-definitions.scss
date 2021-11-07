@@ -7,22 +7,22 @@
   background-color: $bg-color-white;
 
   @include below($xl) {
-    padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
+    padding: #{$layout-page-space-v_md * 2} #{$layout-page-space-h_md};
   }
 
   @include below($md) {
-    padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
+    padding: #{$layout-page-space-v_sm * 2} #{$layout-page-space-h_sm};
   }
 
   &_has-top-space {
     padding-top: #{$layout-page-space-v};
 
     @include below($xl) {
-      padding-top: #{$layout-page-space-v_md};
+      padding-top: #{$layout-page-space-v_md * 2};
     }
 
     @include below($md) {
-      padding-top: #{$layout-page-space-v_sm};
+      padding-top: #{$layout-page-space-v_sm * 2};
     }
   }
 
@@ -101,22 +101,22 @@
     $content: &;
 
     color: $text-color-black;
-    font-size: 2rem;
-    line-height: 2.8rem;
+    font-size: $fz;
+    line-height: $lh;
     letter-spacing: 0.02em;
 
-    @include below($md) {
-      //max-width: none;
-      font-size: 1.6rem;
-      line-height: 2rem;
+    @include below($lg) {
+      font-size: $fz_sm;
+      line-height: $lh_sm;
+      letter-spacing: normal;
     }
 
     p,
     .p {
       margin: $bottom-space 0;
 
-      @include below($md) {
-        margin-bottom: $bottom-space_mob;
+      @include below($lg) {
+        margin: $bottom-space_sm 0;
       }
 
       &:first-child {
@@ -132,16 +132,17 @@
     .h2 {
       margin: #{round-float($bottom-space * 2.25, 1)} 0 #{round-float($bottom-space * 1.25, 1)};
       color: $text-color-black;
-      //font: 300 #{$h2-font-size}/#{$h2-line-height_md} $font-title;
-      font: 300 3.6rem/1.1 $font-title;
+      font: 300 #{$h2-fz}/#{$h2-lh} $font-title;
 
-      @include below($hd) {
-        font-size: $h2-font-size_md;
-        line-height: $h2-line-height_md;
-      }
+      //@include below($hd) {
+      //  font-size: $h2-fz_md;
+      //  line-height: $h2-lh_md;
+      //}
 
-      @include below($md) {
-        margin: #{round-float($bottom-space_mob * 2.25, 1)} 0 #{round-float($bottom-space_mob * 1.25, 1)};
+      @include below($lg) {
+        margin: #{round-float($bottom-space_sm * 2.25, 1)} 0 #{round-float($bottom-space_sm * 1.25, 1)};
+        font-size: $h2-fz_sm;
+        line-height: $h2-lh_sm;
       }
 
       &:first-child {
@@ -157,16 +158,17 @@
     .h3 {
       margin: #{round-float($bottom-space * 2.25, 1)} 0 #{round-float($bottom-space * 1.25, 1)};
       color: $text-color-black;
-      //font: 300 #{$h3-font-size}/#{$h3-line-height} $font-title;
-      font: 300 3.2rem/1.2 $font-title;
+      font: 300 #{$h3-fz}/#{$h3-lh} $font-title;
 
-      @include below($hd) {
-        font-size: $h3-font-size_md;
-        line-height: $h3-line-height_md;
-      }
+      //@include below($hd) {
+      //  font-size: $h3-fz_md;
+      //  line-height: $h3-lh_md;
+      //}
 
-      @include below($md) {
-        margin: #{round-float($bottom-space_mob * 2.25, 1)} 0 #{round-float($bottom-space_mob * 1.25, 1)};
+      @include below($lg) {
+        margin: #{round-float($bottom-space_sm * 2.25, 1)} 0 #{round-float($bottom-space_sm * 1.25, 1)};
+        font-size: $h3-fz_sm;
+        line-height: $h3-lh_sm;
       }
 
       &:first-child {
@@ -182,16 +184,17 @@
     .h4 {
       margin: #{round-float($bottom-space * 1.5, 1)} 0 $bottom-space;
       color: $text-color-black;
-      //font: 300 #{$h4-font-size}/#{$h4-line-height} $font-title;
-      font: 300 2.8rem/1.25 $font-title;
+      font: 300 #{$h4-fz}/#{$h4-lh} $font-title;
 
-      @include below($hd) {
-        font-size: $h4-font-size_md;
-        line-height: $h4-line-height_md;
-      }
+      //@include below($hd) {
+      //  font-size: $h4-fz_md;
+      //  line-height: $h4-lh_md;
+      //}
 
-      @include below($md) {
-        margin: #{round-float($bottom-space_mob * 1.5, 1)} 0 $bottom-space_mob;
+      @include below($lg) {
+        margin: #{round-float($bottom-space_sm * 1.5, 1)} 0 $bottom-space_sm;
+        font-size: $h4-fz_sm;
+        line-height: $h4-lh_sm;
       }
 
       &:first-child {
@@ -207,10 +210,17 @@
     .h5 {
       margin: #{round-float($bottom-space * 1.5, 1)} 0 $bottom-space;
       color: $text-color-black;
-      font: 300 2.4rem/1.34 $font-title;
+      font: 300 #{$h5-fz}/#{$h5-lh} $font-title;
 
-      @include below($md) {
-        margin: #{round-float($bottom-space_mob * 1.5, 1)} 0 $bottom-space_mob;
+      //@include below($hd) {
+      //  font-size: $h5-fz_md;
+      //  line-height: $h5-lh_md;
+      //}
+
+      @include below($lg) {
+        margin: #{round-float($bottom-space_sm * 1.5, 1)} 0 $bottom-space_sm;
+        font-size: $h5-fz_sm;
+        line-height: $h5-lh_sm;
       }
 
       &:first-child {
@@ -226,11 +236,18 @@
     .h6 {
       margin: #{round-float($bottom-space * 1.5, 1)} 0 $bottom-space;
       color: $text-color-black;
-      font: 300 1.8rem/1.5 $font-title;
+      font: 300 #{$h6-fz}/#{$h6-lh} $font-title;
       text-transform: uppercase;
 
-      @include below($md) {
-        margin: #{round-float($bottom-space_mob * 1.5, 1)} 0 $bottom-space_mob;
+      //@include below($hd) {
+      //  font-size: $h6-fz_md;
+      //  line-height: $h6-lh_md;
+      //}
+
+      @include below($lg) {
+        margin: #{round-float($bottom-space_sm * 1.5, 1)} 0 $bottom-space_sm;
+        font-size: $h5-fz_sm;
+        line-height: $h5-lh_sm;
       }
 
       &:first-child {
@@ -273,30 +290,46 @@
       position: relative;
       display: block;
       width: 72rem;
-      max-width: calc(100% - 4.4rem);
+      max-width: 80%;
       margin: #{$bottom-space} auto;
       padding: 0;
+
+      @include below($lg) {
+        max-width: calc(100% - 8.8rem);
+      }
+
+      @include below($sm) {
+        max-width: calc(100% - 4.4rem);
+      }
 
       img {
         display: block;
         width: 12rem;
         max-width: 100%;
         height: 12rem;
-        margin: 0 auto 2.8rem;
+        margin: 0 auto #{$bottom-space};
         border-radius: 6rem;
+
+        @include below($lg) {
+          margin-bottom: #{$bottom-space_sm};
+        }
       }
 
       q {
         position: relative;
         display: block;
         margin: 0;
-        padding: 0 0 1.4rem;
+        padding: 0 0 #{$bottom-space / 2};
         color: $text-color-blue;
         font-weight: normal;
         font-size: 1.2em;
         line-height: 1.3;
         text-align: center;
         text-transform: uppercase;
+
+        @include below($lg) {
+          padding: 0 0 #{$bottom-space_sm / 2};
+        }
 
         &::before {
           content: "«";
@@ -320,22 +353,25 @@
     // List
     ul {
       $list-space: 3.2rem;
-      $bottom-space-item: 1.4rem;
 
       //margin: #{round-float($bottom-space * 2.25, 1)} 0 #{round-float($bottom-space * 1.25, 1)};
       margin: #{$bottom-space} 0;
       padding: 0;
       list-style: none;
 
-      @include below($md) {
-        //margin: #{round-float($bottom-space_mob * 2.25, 1)} 0 #{round-float($bottom-space_mob * 1.25, 1)};
-        margin: #{$bottom-space_mob} 0;
+      @include below($lg) {
+        //margin: #{round-float($bottom-space_sm * 2.25, 1)} 0 #{round-float($bottom-space_sm * 1.25, 1)};
+        margin: #{$bottom-space_sm} 0;
       }
 
       & > li {
         position: relative;
-        margin: $bottom-space-item 0 0;
+        margin: #{$bottom-space / 2} 0 0;
         padding-left: $list-space;
+
+        @include below($lg) {
+          margin: #{$bottom-space_sm / 2} 0 0;
+        }
 
         &:first-child {
           margin-top: 0;
@@ -356,7 +392,6 @@
 
     ol {
       $list-space: 3.2rem;
-      $bottom-space-item: 1.4rem;
 
       //margin: #{round-float($bottom-space * 2.25, 1)} 0 #{round-float($bottom-space * 1.25, 1)};
       margin: #{$bottom-space} 0;
@@ -364,16 +399,20 @@
       list-style: none;
       counter-reset: section;
 
-      @include below($md) {
-        //margin: #{round-float($bottom-space_mob * 2.25, 1)} 0 #{round-float($bottom-space_mob * 1.25, 1)};
-        margin: #{$bottom-space_mob} 0;
+      @include below($lg) {
+        //margin: #{round-float($bottom-space_sm * 2.25, 1)} 0 #{round-float($bottom-space_sm * 1.25, 1)};
+        margin: #{$bottom-space_sm} 0;
       }
 
       & > li {
         position: relative;
-        margin: $bottom-space-item 0 0;
+        margin: #{$bottom-space / 2} 0 0;
         padding-left: $list-space;
         counter-increment: section;
+
+        @include below($lg) {
+          margin: #{$bottom-space_sm / 2} 0 0;
+        }
 
         &:first-child {
           margin-top: 0;
@@ -395,7 +434,19 @@
     ol {
       ul,
       ol {
-        margin: 1.4rem 0;
+        margin: #{$bottom-space / 2} 0;
+
+        @include below($lg) {
+          margin: #{$bottom-space_sm / 2} 0;
+        }
+
+        &:first-child {
+          margin: #{$bottom-space / 2} 0;
+
+          @include below($lg) {
+            margin: #{$bottom-space_sm / 2} 0;
+          }
+        }
       }
 
       &:first-child {
@@ -429,8 +480,8 @@
       margin: #{round-float($bottom-space * 1.4, 1)} 0 #{$bottom-space};
       text-align: center;
 
-      @include below($md) {
-        margin: #{round-float($bottom-space_mob * 1.4, 1)} 0 #{$bottom-space_mob};
+      @include below($lg) {
+        margin: #{round-float($bottom-space_sm * 1.4, 1)} 0 #{$bottom-space_sm};
       }
 
       &:first-child {
@@ -444,16 +495,25 @@
       img {
         display: block;
         max-width: 100%;
-        margin: 0 auto 1.4rem;
+        margin: 0 auto #{$bottom-space / 2};
+
+        @include below($lg) {
+          margin: 0 auto #{$bottom-space_sm / 2};
+        }
       }
 
       figcaption {
         display: block;
         color: inherit;
-        font-size: 1.6rem;
-        line-height: 2rem;
+        font-size: $fz-small;
+        line-height: $lh-small;
         text-align: center;
         opacity: 0.5;
+
+        @include below($lg) {
+          font-size: $fz-small_sm;
+          line-height: $lh-small_sm;
+        }
       }
     }
 
@@ -484,9 +544,9 @@
         margin: #{round-float($bottom-space * 1.25, 1)} auto #{round-float($bottom-space * 1.67, 1)};
         text-align: center;
 
-        @include below($sm) {
-          margin-top: #{round-float($bottom-space_mob * 1.25, 1)};
-          margin-bottom: #{round-float($bottom-space_mob * 1.67, 1)};
+        @include below($lg) {
+          margin-top: #{round-float($bottom-space_sm * 1.25, 1)};
+          margin-bottom: #{round-float($bottom-space_sm * 1.67, 1)};
         }
 
         &[align="left"],
@@ -500,10 +560,26 @@
 
           &.img-third {
             max-width: 33.33%;
+
+            @include below($md) {
+              max-width: 50%;
+            }
+
+            @include below($sm) {
+              max-width: 100%;
+            }
           }
 
           &.img-two-thirds {
             max-width: 66.66%;
+
+            @include below($lg) {
+              max-width: 50%;
+            }
+
+            @include below($sm) {
+              max-width: 100%;
+            }
           }
 
           @include below($sm) {
@@ -525,10 +601,26 @@
 
           &.img-third {
             max-width: 33.33%;
+
+            @include below($md) {
+              max-width: 50%;
+            }
+
+            @include below($sm) {
+              max-width: 100%;
+            }
           }
 
           &.img-two-thirds {
             max-width: 66.66%;
+
+            @include below($lg) {
+              max-width: 50%;
+            }
+
+            @include below($sm) {
+              max-width: 100%;
+            }
           }
 
           @include below($sm) {
@@ -546,9 +638,9 @@
       display: block;
       margin: #{round-float($bottom-space * 1.25, 1)} 0 #{round-float($bottom-space * 1.69, 1)};
 
-      @include below($md) {
-        margin-top: #{round-float($bottom-space_mob * 1.25, 1)};
-        margin-bottom: #{round-float($bottom-space_mob * 1.69, 1)};
+      @include below($lg) {
+        margin-top: #{round-float($bottom-space_sm * 1.25, 1)};
+        margin-bottom: #{round-float($bottom-space_sm * 1.69, 1)};
       }
 
       &::before {
@@ -588,6 +680,7 @@
       column-count: 3;
 
       @include below($md) {
+        font-size: 1em;
         column-count: 1;
       }
     }
@@ -597,6 +690,7 @@
       column-count: 4;
 
       @include below($md) {
+        font-size: 1em;
         column-count: 1;
       }
     }
@@ -606,14 +700,21 @@
       column-count: 4;
 
       @include below($md) {
+        font-size: 1em;
         column-count: 1;
       }
     }
 
     .accent-text {
       position: relative;
-      font-size: 1.2em;
-      line-height: 1.3;
+      font-weight: normal;
+      font-size: $fz-large;
+      line-height: $lh-large;
+
+      @include below($lg) {
+        font-size: $fz-large_sm;
+        line-height: $lh-large_sm;
+      }
     }
 
     code {
@@ -632,11 +733,12 @@
     }
 
     .snippet {
-      margin: #{round-float($bottom-space * 1.25, 1)} auto #{round-float($bottom-space * 1.67, 1)};
+      margin-top: #{round-float($bottom-space * 1.25, 1)};
+      margin-bottom: #{round-float($bottom-space * 1.67, 1)};
 
-      @include below($sm) {
-        margin-top: #{round-float($bottom-space_mob * 1.25, 1)};
-        margin-bottom: #{round-float($bottom-space_mob * 1.67, 1)};
+      @include below($lg) {
+        margin-top: #{round-float($bottom-space_sm * 1.25, 1)};
+        margin-bottom: #{round-float($bottom-space_sm * 1.67, 1)};
       }
 
       &:first-child {

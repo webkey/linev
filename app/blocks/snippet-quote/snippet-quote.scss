@@ -3,9 +3,17 @@
     position: relative;
     display: block;
     width: 72rem;
-    max-width: calc(100% - 4.4rem);
+    max-width: 80%;
     margin: #{$bottom-space} auto;
     padding: 0;
+
+    @include below($lg) {
+      max-width: calc(100% - 8.8rem);
+    }
+
+    @include below($lg) {
+      max-width: calc(100% - 4.4rem);
+    }
   }
 
   &__img {
@@ -20,16 +28,26 @@
   &__cite {
     display: block;
     margin-bottom: 0.4rem;
-    font: 300 2.4rem/1.2 $font-title;
+    font: 300 #{$h5-fz}/#{$h5-lh} $font-title;
     text-align: center;
     text-transform: uppercase;
+
+    @include below($lg) {
+      font-size: $h5-fz_sm;
+      line-height: $h5-lh_sm;
+    }
   }
 
   &__post {
     margin-bottom: 2.8rem;
-    font-size: 1.8rem;
-    line-height: 1.35;
+    font-size: $fz-small;
+    line-height: $lh-small;
     text-align: center;
+
+    @include below($lg) {
+      font-size: $fz-small_sm;
+      line-height: $lh-small_sm;
+    }
   }
 
   &__q {
@@ -37,17 +55,12 @@
     display: block;
     margin: 0;
     padding: 0 0 1.4rem;
-    font: 300 #{$large-text-font-size}/#{$large-text-line-height} $font-title;
+    font: 300 #{$fz-large}/#{$lh-large} $font-title;
     text-align: center;
 
-    @include below($hd) {
-      font-size: $large-text-font-size_md;
-      line-height: $large-text-line-height_md;
-    }
-
     @include below($lg) {
-      font-size: $large-text-font-size_sm;
-      line-height: $large-text-line-height_sm;
+      font-size: $fz-large_sm;
+      line-height: $lh-large_sm;
     }
 
     &::before {

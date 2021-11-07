@@ -86,19 +86,9 @@
       line-height: $h3-line-height_md;
     }
 
-    @include below($xxl) {
-      font-size: 8.2rem;
-      line-height: 9rem;
-    }
-
     @include below($lg) {
-      font-size: 5.6rem;
-      line-height: 6.4rem;
-    }
-
-    @include below($md) {
-      font-size: 4.4rem;
-      line-height: 5.2rem;
+      font-size: $h3-font-size_sm;
+      line-height: $h3-line-height_sm;
     }
   }
 

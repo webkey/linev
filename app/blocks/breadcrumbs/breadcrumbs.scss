@@ -16,6 +16,10 @@
     list-style: none;
     cursor: default;
 
+    @include below($sm) {
+      display: block;
+    }
+
     @at-root {
       #{$breadcrumbs}_white & {
         color: $text-color-white;
@@ -29,6 +33,10 @@
     margin: 0;
     padding-right: 0.8rem;
     vertical-align: top;
+
+    @include below($sm) {
+      display: inline;
+    }
 
     &::after {
       display: inline-block;

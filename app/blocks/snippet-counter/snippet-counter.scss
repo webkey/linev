@@ -47,17 +47,12 @@
     max-width: 100%;
     margin-bottom: 3.6rem;
     color: $text-color-white;
-    font: 300 #{$h3-font-size}/#{$h3-line-height} $font-title;
+    font: 300 #{$h0-fz}/#{$h0-lh} $font-title;
     text-transform: uppercase;
 
-    @include below($hd) {
-      font-size: #{$h3-font-size_md};
-      line-height: #{$h3-line-height_md};
-    }
-
     @include below($lg) {
-      font-size: #{$h3-font-size_sm};
-      line-height: #{$h3-line-height_sm};
+      font-size: $h0-fz_sm;
+      line-height: $h0-lh_sm;
     }
   }
 
@@ -96,24 +91,24 @@
     &-value {
       display: block;
       color: $text-color-white;
-      font: 300 #{$h2-font-size}/#{$h2-line-height} $font-title;
-
-      @include below($hd) {
-        font-size: $h2-font-size_md;
-        line-height: $h2-line-height_md;
-      }
+      font: 300 #{$h0-fz * 1.2}/#{$h0-lh * 1.2} $font-title;
 
       @include below($lg) {
-        font-size: #{$h2-font-size_sm};
-        line-height: #{$h2-line-height_sm};
+        font-size: $h0-fz_sm * 1.2;
+        line-height: $h0-lh_sm * 1.2;
       }
     }
 
     &-text {
       display: block;
       color: $text-color-white;
-      font: 300 2.4rem/3.6rem $font-title;
+      font: 300 #{$h5-fz}/#{$h5-lh} $font-title;
       opacity: 0.6;
+
+      @include below($lg) {
+        font-size: $h5-fz_sm;
+        line-height: $h5-lh_sm;
+      }
     }
   }
 }

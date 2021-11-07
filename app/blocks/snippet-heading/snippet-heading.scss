@@ -7,7 +7,7 @@
   min-height: $snippet-min-height;
   padding: #{$layout-page-space-v} #{$layout-page-space-h};
   overflow: hidden;
-  background-color: $bg-color-blue;
+  background-color: $bg-color-light-gray;
 
   @include below($hd) {
     padding: #{$layout-page-space-v_lg} #{$layout-page-space-h_lg};
@@ -42,6 +42,24 @@
     background-size: cover;
     opacity: 1;
     //opacity: 0.45;
+
+    &::before {
+      $shade-color: black;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, $shade-color 0, rgba($shade-color, 0.5) 50%, rgba($shade-color, 0) 100%);
+      opacity: 0.5;
+      content: "";
+
+      @include below($md) {
+        background-image: linear-gradient(to top, $shade-color 0, rgba($shade-color, 0.5) 50%, rgba($shade-color, 0) 100%);
+      }
+    }
   }
 
   &__number {
@@ -77,20 +95,17 @@
 
   &__title {
     position: relative;
-    max-width: 100%;
+    width: 100%;
+    max-width: 80%;
     margin-top: auto;
     color: $text-color-white;
-    font: 300 #{$large-text-font-size}/#{$large-text-line-height} $font-title;
+    font: 300 #{$fz-large}/#{$lh-large} $font-title;
     text-transform: uppercase;
 
-    @include below($hd) {
-      font-size: #{$large-text-font-size_md};
-      line-height: #{$large-text-line-height_md};
-    }
-
     @include below($lg) {
-      font-size: #{$large-text-font-size_sm};
-      line-height: #{$large-text-line-height_sm};
+      max-width: none;
+      font-size: $fz-large_sm;
+      line-height: $lh-large_sm;
     }
 
     #{$el}_blue & {
