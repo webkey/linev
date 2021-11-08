@@ -7,14 +7,14 @@
   min-height: $snippet-min-height;
   padding: #{$layout-page-space-v} #{$layout-page-space-h};
   overflow: hidden;
-  background-color: $bg-color-light-gray;
+  background-color: $bg-color-dark-gray;
 
   @include below($hd) {
+    min-height: $snippet-min-height_md;
     padding: #{$layout-page-space-v_lg} #{$layout-page-space-h_lg};
   }
 
   @include below($xl) {
-    min-height: $snippet-min-height_md;
     padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
   }
 

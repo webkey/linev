@@ -5,9 +5,9 @@
   display: flex;
   min-height: $snippet-min-height;
   overflow: hidden;
-  background-color: $bg-color-blue;
+  background-color: $bg-color-light-gray;
 
-  @include below($xl) {
+  @include below($hd) {
     min-height: $snippet-min-height_md;
   }
 
@@ -25,7 +25,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    opacity: 0.45;
 
     @include below($md) {
       display: none;
@@ -71,7 +70,6 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
-      opacity: 0.45;
 
       @include below($md) {
         display: block;

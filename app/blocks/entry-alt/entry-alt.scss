@@ -25,22 +25,21 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    //min-height: 100vw * 596/1366;
-    min-height: 43.2rem;
-    //min-height: 36rem;
+    //min-height: 43.2rem;
+    min-height: 28rem;
     padding: #{$layout-page-space-v} #{$layout-page-space-h};
 
     @include below($hd) {
-      min-height: 32.4rem;
+      min-height: 20rem;
     }
 
     @include below($xl) {
-      min-height: 28rem;
+      min-height: 16rem;
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
     @include below($md) {
-      min-height: 21.6rem;
+      min-height: 12rem;
       padding: #{$layout-page-space-v_sm} #{$layout-page-space-h_sm};
     }
 
@@ -67,11 +66,7 @@
 
   &__title-wrap {
     margin-top: auto;
-    padding-top: 7.2rem;
-
-    @include below($xl) {
-      padding-top: 4rem;
-    }
+    padding-top: 2.4rem;
   }
 
   &__title {

@@ -130,7 +130,7 @@
 
     h2,
     .h2 {
-      margin: #{round-float($bottom-space * 2.25, 1)} 0 #{round-float($bottom-space * 1.25, 1)};
+      margin: #{round-float($bottom-space * 1.5, 1)} 0 #{round-float($bottom-space * 1.25, 1)};
       color: $text-color-black;
       font: 300 #{$h2-fz}/#{$h2-lh} $font-title;
 
@@ -140,7 +140,7 @@
       //}
 
       @include below($lg) {
-        margin: #{round-float($bottom-space_sm * 2.25, 1)} 0 #{round-float($bottom-space_sm * 1.25, 1)};
+        margin: #{round-float($bottom-space_sm * 1.5, 1)} 0 #{round-float($bottom-space_sm * 1.25, 1)};
         font-size: $h2-fz_sm;
         line-height: $h2-lh_sm;
       }
@@ -156,7 +156,7 @@
 
     h3,
     .h3 {
-      margin: #{round-float($bottom-space * 2.25, 1)} 0 #{round-float($bottom-space * 1.25, 1)};
+      margin: #{round-float($bottom-space * 1.5, 1)} 0 #{round-float($bottom-space * 1.25, 1)};
       color: $text-color-black;
       font: 300 #{$h3-fz}/#{$h3-lh} $font-title;
 
@@ -166,7 +166,7 @@
       //}
 
       @include below($lg) {
-        margin: #{round-float($bottom-space_sm * 2.25, 1)} 0 #{round-float($bottom-space_sm * 1.25, 1)};
+        margin: #{round-float($bottom-space_sm * 1.5, 1)} 0 #{round-float($bottom-space_sm * 1.25, 1)};
         font-size: $h3-fz_sm;
         line-height: $h3-lh_sm;
       }
@@ -208,7 +208,7 @@
 
     h5,
     .h5 {
-      margin: #{round-float($bottom-space * 1.5, 1)} 0 $bottom-space;
+      margin: #{round-float($bottom-space * 1.2, 1)} 0 $bottom-space;
       color: $text-color-black;
       font: 300 #{$h5-fz}/#{$h5-lh} $font-title;
 
@@ -218,7 +218,7 @@
       //}
 
       @include below($lg) {
-        margin: #{round-float($bottom-space_sm * 1.5, 1)} 0 $bottom-space_sm;
+        margin: #{round-float($bottom-space_sm * 1.2, 1)} 0 $bottom-space_sm;
         font-size: $h5-fz_sm;
         line-height: $h5-lh_sm;
       }
@@ -234,7 +234,7 @@
 
     h6,
     .h6 {
-      margin: #{round-float($bottom-space * 1.5, 1)} 0 $bottom-space;
+      margin: #{round-float($bottom-space * 1.2, 1)} 0 $bottom-space;
       color: $text-color-black;
       font: 300 #{$h6-fz}/#{$h6-lh} $font-title;
       text-transform: uppercase;
@@ -245,7 +245,7 @@
       //}
 
       @include below($lg) {
-        margin: #{round-float($bottom-space_sm * 1.5, 1)} 0 $bottom-space_sm;
+        margin: #{round-float($bottom-space_sm * 1.2, 1)} 0 $bottom-space_sm;
         font-size: $h5-fz_sm;
         line-height: $h5-lh_sm;
       }
@@ -477,11 +477,11 @@
       $figure: &;
 
       display: block;
-      margin: #{round-float($bottom-space * 1.4, 1)} 0 #{$bottom-space};
+      margin: #{round-float($bottom-space * 1.2, 1)} 0 #{$bottom-space};
       text-align: center;
 
       @include below($lg) {
-        margin: #{round-float($bottom-space_sm * 1.4, 1)} 0 #{$bottom-space_sm};
+        margin: #{round-float($bottom-space_sm * 1.2, 1)} 0 #{$bottom-space_sm};
       }
 
       &:first-child {
@@ -541,12 +541,12 @@
         clear: both;
         max-width: 100%;
         height: auto;
-        margin: #{round-float($bottom-space * 1.25, 1)} auto #{round-float($bottom-space * 1.67, 1)};
+        margin: #{round-float($bottom-space * 1.2, 1)} auto #{round-float($bottom-space * 1.25, 1)};
         text-align: center;
 
         @include below($lg) {
-          margin-top: #{round-float($bottom-space_sm * 1.25, 1)};
-          margin-bottom: #{round-float($bottom-space_sm * 1.67, 1)};
+          margin-top: #{round-float($bottom-space_sm * 1.2, 1)};
+          margin-bottom: #{round-float($bottom-space_sm * 1.5, 1)};
         }
 
         &[align="left"],
@@ -636,11 +636,11 @@
     .video {
       position: relative;
       display: block;
-      margin: #{round-float($bottom-space * 1.25, 1)} 0 #{round-float($bottom-space * 1.69, 1)};
+      margin: #{round-float($bottom-space * 1.2, 1)} 0 #{round-float($bottom-space * 1.5, 1)};
 
       @include below($lg) {
-        margin-top: #{round-float($bottom-space_sm * 1.25, 1)};
-        margin-bottom: #{round-float($bottom-space_sm * 1.69, 1)};
+        margin-top: #{round-float($bottom-space_sm * 1.2, 1)};
+        margin-bottom: #{round-float($bottom-space_sm * 1.5, 1)};
       }
 
       &::before {
@@ -733,12 +733,12 @@
     }
 
     .snippet {
-      margin-top: #{round-float($bottom-space * 1.25, 1)};
-      margin-bottom: #{round-float($bottom-space * 1.67, 1)};
+      margin-top: #{round-float($bottom-space * 1.2, 1)};
+      margin-bottom: #{round-float($bottom-space * 1.5, 1)};
 
       @include below($lg) {
-        margin-top: #{round-float($bottom-space_sm * 1.25, 1)};
-        margin-bottom: #{round-float($bottom-space_sm * 1.67, 1)};
+        margin-top: #{round-float($bottom-space_sm * 1.2, 1)};
+        margin-bottom: #{round-float($bottom-space_sm * 1.5, 1)};
       }
 
       &:first-child {

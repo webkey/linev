@@ -8,7 +8,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: $bg-color-blue;
+    background-color: $bg-color-light-gray;
 
     &-inner {
       height: 100%;
@@ -17,7 +17,6 @@
       background-repeat: no-repeat;
       background-position: center top;
       background-size: cover;
-      opacity: 0.45;
     }
   }
 
@@ -29,11 +28,11 @@
     padding: #{$layout-page-space-v} #{$layout-page-space-h};
 
     @include below($hd) {
+      min-height: $snippet-min-height_md;
       padding: #{$layout-page-space-v_lg} #{$layout-page-space-h_lg};
     }
 
     @include below($xl) {
-      min-height: $snippet-min-height_md;
       padding: #{$layout-page-space-v_md} #{$layout-page-space-h_md};
     }
 
