@@ -496,14 +496,11 @@
         display: block;
         max-width: 100%;
         margin: 0 auto #{$bottom-space / 2};
-
-        @include below($lg) {
-          margin: 0 auto #{$bottom-space_sm / 2};
-        }
       }
 
       figcaption {
         display: block;
+        margin-top: #{$bottom-space / 2};
         color: inherit;
         font-size: $fz-small;
         line-height: $lh-small;
@@ -511,8 +508,13 @@
         opacity: 0.5;
 
         @include below($lg) {
+          margin-top: #{$bottom-space_sm / 2};
           font-size: $fz-small_sm;
           line-height: $lh-small_sm;
+        }
+
+        &:first-child {
+          margin-top: 0;
         }
       }
     }
@@ -630,6 +632,43 @@
             text-align: center;
           }
         }
+      }
+    }
+
+    & > p,
+    & > .p,
+    & > h1,
+    & > .h1,
+    & > h2,
+    & > .h2,
+    & > h3,
+    & > .h3,
+    & > h4,
+    & > .h4,
+    & > h5,
+    & > .h5,
+    & > h6,
+    & > .h6,
+    & > ul,
+    & > ol,
+    & > figure > figcaption,
+    & > figcaption,
+    & > [class*="columnize"],
+    & .article-share,
+    & .article-meta,
+    & .article-authors {
+      @include padding-x($layout-page-space-h);
+
+      @include below($hd) {
+        @include padding-x($layout-page-space-h_lg);
+      }
+
+      @include below($xl) {
+        @include padding-x($layout-page-space-h_md);
+      }
+
+      @include below($md) {
+        @include padding-x($layout-page-space-h_sm);
       }
     }
 
