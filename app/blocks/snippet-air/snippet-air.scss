@@ -90,7 +90,7 @@
     padding: #{$layout-page-space-v} #{$layout-page-space-h} #{$layout-page-space-v} 4.4rem;
     overflow: hidden;
     color: $text-color-white;
-    background-color: $bg-color-black;
+    background-color: $bg-color-blue;
 
     @include below($hd) {
       $width: 50%;

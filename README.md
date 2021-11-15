@@ -18,7 +18,7 @@ npm run dev
 
 ### Финальная (production) сборка
 ```
-npm run production
+npm run deploy
 ```
 Эту команду запускаем **на сервере**.
 
