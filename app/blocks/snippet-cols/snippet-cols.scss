@@ -1,18 +1,4 @@
 .snippet-cols {
-  @include padding-x($layout-page-space-h);
-
-  @include below($hd) {
-    @include padding-x($layout-page-space-h_lg);
-  }
-
-  @include below($xl) {
-    @include padding-x($layout-page-space-h_md);
-  }
-
-  @include below($md) {
-    @include padding-x($layout-page-space-h_sm);
-  }
-
   table {
     width: 100%;
     table-layout: fixed;

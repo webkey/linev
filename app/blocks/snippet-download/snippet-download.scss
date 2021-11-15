@@ -2,20 +2,6 @@
   font-size: 2rem;
   line-height: 2.4rem;
 
-  @include padding-x($layout-page-space-h);
-
-  @include below($hd) {
-    @include padding-x($layout-page-space-h_lg);
-  }
-
-  @include below($xl) {
-    @include padding-x($layout-page-space-h_md);
-  }
-
-  @include below($md) {
-    @include padding-x($layout-page-space-h_sm);
-  }
-
   &__item {
     margin: 0 0 2.4rem;
   }

@@ -138,24 +138,10 @@
     text-align: center;
     opacity: 0.5;
 
-    @include padding-x($layout-page-space-h);
-
-    @include below($hd) {
-      @include padding-x($layout-page-space-h_lg);
-    }
-
-    @include below($xl) {
-      @include padding-x($layout-page-space-h_md);
-    }
-
     @include below($lg) {
       margin-top: #{$bottom-space_sm / 2};
       font-size: $fz-small_sm;
       line-height: $lh-small_sm;
-    }
-
-    @include below($md) {
-      @include padding-x($layout-page-space-h_sm);
     }
   }
 
@@ -165,18 +151,18 @@
     flex: 1 0 $width;
     width: $width;
     max-width: $width;
-    padding: 0 #{$layout-page-space-h} 0 #{$layout-page-space-h / 2};
+    padding: 0 #{$layout-page-space-h / 2};
 
     @include below($hd) {
-      padding: 0 #{$layout-page-space-h_lg} 0 #{$layout-page-space-h_lg / 2};
+      padding: 0 #{$layout-page-space-h_lg / 2};
     }
 
     @include below($xl) {
-      padding: 0 #{$layout-page-space-h_md} 0 #{$layout-page-space-h_md / 2};
+      padding: 0 #{$layout-page-space-h_md / 2};
     }
 
     @include below($md) {
-      padding: 0 #{$layout-page-space-h_sm} 0 #{$layout-page-space-h_sm / 2};
+      padding: 0 #{$layout-page-space-h_sm / 2};
     }
 
     @include below($sm) {
@@ -185,7 +171,7 @@
       flex: 1 0 $width;
       width: $width;
       max-width: $width;
-      padding: 0 #{$layout-page-space-h_sm};
+      padding: 0;
     }
 
     #{$block}.third & {
@@ -244,25 +230,20 @@
       }
     }
 
-    #{$block}:not(.rtl) &:first-child,
+    #{$block}:not(.rtl) &:first-child {
+      padding-left: 0;
+    }
+
+    #{$block}:not(.rtl) &:last-child {
+      padding-right: 0;
+    }
+
+    #{$block}.rtl &:first-child {
+      padding-right: 0;
+    }
+
     #{$block}.rtl &:last-child {
-      padding: 0 #{$layout-page-space-h / 2} 0 #{$layout-page-space-h};
-
-      @include below($hd) {
-        padding: 0 #{$layout-page-space-h_lg / 2} 0 #{$layout-page-space-h_lg};
-      }
-
-      @include below($xl) {
-        padding: 0 #{$layout-page-space-h_md / 2} 0 #{$layout-page-space-h_md};
-      }
-
-      @include below($md) {
-        padding: 0 #{$layout-page-space-h_sm / 2} 0 #{$layout-page-space-h_sm};
-      }
-
-      @include below($sm) {
-        padding: 0 #{$layout-page-space-h_sm};
-      }
+      padding-left: 0;
     }
   }
 }
