@@ -114,6 +114,7 @@
     p,
     .p {
       margin: $bottom-space 0;
+      text-align: justify;
 
       @include below($lg) {
         margin: $bottom-space_sm 0;
@@ -271,6 +272,8 @@
     .h5,
     h6,
     .h6 {
+      text-align: justify;
+
       a:not([class*=button-]) {
         color: inherit;
         text-decoration: none;
@@ -357,6 +360,7 @@
       //margin: #{round-float($bottom-space * 2.25, 1)} 0 #{round-float($bottom-space * 1.25, 1)};
       margin: #{$bottom-space} 0;
       padding: 0;
+      text-align: justify;
       list-style: none;
 
       @include below($lg) {

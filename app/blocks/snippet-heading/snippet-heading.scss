@@ -96,10 +96,11 @@
   &__title {
     position: relative;
     width: 100%;
-    max-width: 80%;
+    max-width: 66%;
     margin-top: auto;
     color: $text-color-white;
     font: 300 #{$fz-large}/#{$lh-large} $font-title;
+    text-align: justify;
     text-transform: uppercase;
 
     @include below($lg) {
